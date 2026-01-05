@@ -89,10 +89,10 @@ export default function ContactPage() {
                             Email
                           </h3>
                           <a
-                            href="mailto:jan@delwebbnorthranchhomes.com"
+                            href="mailto:sales@delwebbnorthranchhomes.com"
                             className="text-text-dark hover:text-primary transition-colors break-all"
                           >
-                            jan@delwebbnorthranchhomes.com
+                            sales@delwebbnorthranchhomes.com
                           </a>
                           <p className="text-sm text-gray-500 mt-1">
                             Typically responds within 24 hours
@@ -187,3 +187,4 @@ export default function ContactPage() {
     </>
   );
 }
+

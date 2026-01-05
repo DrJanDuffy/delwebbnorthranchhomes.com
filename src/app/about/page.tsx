@@ -196,10 +196,10 @@ export default function AboutPage() {
                   <Mail className="w-8 h-8 text-primary mx-auto mb-4" />
                   <h3 className="font-semibold text-primary mb-2">Email</h3>
                   <a
-                    href="mailto:jan@delwebbnorthranchhomes.com"
+                    href="mailto:sales@delwebbnorthranchhomes.com"
                     className="text-text-dark hover:text-primary transition-colors break-all"
                   >
-                    jan@delwebbnorthranchhomes.com
+                    sales@delwebbnorthranchhomes.com
                   </a>
                 </div>
                 <div className="bg-white p-6 rounded-lg shadow-two text-center">
@@ -268,3 +268,4 @@ export default function AboutPage() {
     </>
   );
 }
+
