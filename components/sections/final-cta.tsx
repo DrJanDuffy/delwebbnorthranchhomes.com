@@ -39,7 +39,15 @@ export default function FinalCTASection() {
 
             {/* Right Column - Contact Form */}
             <ScrollAnimation delay={100}>
-              <ContactForm />
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 font-playfair">
+                  Send a Message
+                </h2>
+                <p className="text-text-dark mb-6">
+                  Fill out the form below and Dr. Jan Duffy will get back to you as soon as possible.
+                </p>
+                <ContactForm />
+              </div>
             </ScrollAnimation>
           </div>
         </div>

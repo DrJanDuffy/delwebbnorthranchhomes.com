@@ -50,7 +50,7 @@ export default function AboutAgentSection() {
                 </div>
                 <div className="mt-6 md:mt-8">
                   <Button asChild variant="default" size="lg" className="w-full sm:w-auto">
-                    <Link href="#contact">Meet Dr. Jan Duffy</Link>
+                    <Link href="/about">Meet Dr. Jan Duffy</Link>
                   </Button>
                 </div>
               </div>

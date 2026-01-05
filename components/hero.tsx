@@ -59,7 +59,7 @@ export default function Hero() {
               size="lg"
               className="border-2 border-white text-white hover:bg-white hover:text-primary w-full sm:w-auto sm:min-w-[200px] text-base md:text-lg py-3 md:py-4"
             >
-              <Link href="#homes">View Available Homes</Link>
+              <Link href="/homes-for-sale">View Available Homes</Link>
             </Button>
           </div>
         </div>
