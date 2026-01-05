@@ -8,11 +8,11 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "#homes", label: "Homes for Sale" },
-  { href: "#floor-plans", label: "Floor Plans" },
-  { href: "#amenities", label: "Amenities" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
+  { href: "/homes-for-sale", label: "Homes for Sale" },
+  { href: "/floor-plans", label: "Floor Plans" },
+  { href: "/amenities", label: "Amenities" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -129,4 +129,3 @@ export default function Navbar() {
     </header>
   );
 }
-
