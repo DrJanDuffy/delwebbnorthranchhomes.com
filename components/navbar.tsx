@@ -11,7 +11,9 @@ const navLinks = [
   { href: "/homes-for-sale", label: "Homes for Sale" },
   { href: "/floor-plans", label: "Floor Plans" },
   { href: "/amenities", label: "Amenities" },
+  { href: "/lifestyle", label: "Lifestyle" },
   { href: "/about", label: "About" },
+  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
 
