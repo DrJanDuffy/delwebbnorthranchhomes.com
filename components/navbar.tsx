@@ -77,7 +77,7 @@ export default function Navbar() {
               size="sm"
               className="bg-primary hover:bg-primary/90 text-sm xl:text-base"
             >
-              <Link href="#contact">Schedule a Tour</Link>
+              <Link href="/contact">Schedule a Tour</Link>
             </Button>
           </div>
 
@@ -118,7 +118,7 @@ export default function Navbar() {
                 variant="default"
                 className="w-full bg-primary hover:bg-primary/90"
               >
-                <Link href="#contact" onClick={() => setIsOpen(false)}>
+                <Link href="/contact" onClick={() => setIsOpen(false)}>
                   Schedule a Tour
                 </Link>
               </Button>

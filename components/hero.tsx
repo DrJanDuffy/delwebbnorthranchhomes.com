@@ -48,7 +48,7 @@ export default function Hero() {
               size="lg"
               className="bg-accent hover:bg-accent/90 text-white w-full sm:w-auto sm:min-w-[200px] text-base md:text-lg py-3 md:py-4"
             >
-              <Link href="#contact" className="flex items-center justify-center">
+              <Link href="/contact" className="flex items-center justify-center">
                 Schedule Your Private Tour
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>

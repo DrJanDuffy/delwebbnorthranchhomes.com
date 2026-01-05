@@ -34,7 +34,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#homes"
+                  href="/homes-for-sale"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   Homes for Sale
@@ -42,7 +42,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#floor-plans"
+                  href="/floor-plans"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   Floor Plans
@@ -50,7 +50,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#amenities"
+                  href="/amenities"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   Amenities
@@ -58,7 +58,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#about"
+                  href="/about"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   About
@@ -66,7 +66,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#contact"
+                  href="/contact"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   Contact
