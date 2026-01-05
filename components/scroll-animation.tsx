@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { cn } from "../../lib/utils";
+import { cn } from "@/lib/utils";
 
 interface ScrollAnimationProps {
   children: React.ReactNode;
@@ -58,3 +58,4 @@ export default function ScrollAnimation({
     </div>
   );
 }
+

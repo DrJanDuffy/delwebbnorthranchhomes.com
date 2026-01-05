@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "./ui/button";
-import { cn } from "../../lib/utils";
+import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -129,3 +129,4 @@ export default function Navbar() {
     </header>
   );
 }
+
