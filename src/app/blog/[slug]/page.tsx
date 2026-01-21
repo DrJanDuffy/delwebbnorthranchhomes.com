@@ -173,13 +173,32 @@ export async function generateMetadata({
 
   if (!post) {
     return {
-      title: "Blog Post Not Found",
+      title: "Blog Post Not Found | Del Webb North Ranch",
     };
   }
 
+  const baseUrl = "https://delwebbnorthranchhomes.com";
+  const url = `${baseUrl}/blog/${params.slug}`;
+
   return {
-    title: `${post.title} | Del Webb North Ranch Blog`,
-    description: post.excerpt,
+    title: `${post.title} | Del Webb North Ranch Blog | North Las Vegas`,
+    description: `${post.excerpt} Read more about Del Webb North Ranch, a premier 55+ community in North Las Vegas.`,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title: `${post.title} | Del Webb North Ranch`,
+      description: post.excerpt,
+      url: url,
+      type: "article",
+      publishedTime: post.date,
+      authors: ["Dr. Jan Duffy"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${post.title} | Del Webb North Ranch`,
+      description: post.excerpt,
+    },
   };
 }
 

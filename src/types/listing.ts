@@ -1,0 +1,21 @@
+export type Listing = {
+  id: string;
+  address: string;
+  city: string;
+  state: string;
+  zipCode: string;
+  price: number;
+  bedrooms: number;
+  bathrooms: number;
+  squareFeet: number;
+  lotSize?: number;
+  yearBuilt?: number;
+  imageUrl: string;
+  imageUrls?: string[];
+  mlsNumber?: string;
+  status: "active" | "pending" | "sold" | "off-market";
+  description?: string;
+  floorPlan?: string;
+  series?: "Cottage" | "Classic" | "Retreat";
+  listingUrl?: string;
+};

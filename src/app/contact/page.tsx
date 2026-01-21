@@ -6,9 +6,12 @@ import ScrollAnimation from "@/../components/scroll-animation";
 import { Phone, Mail, MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact Dr. Jan Duffy | Del Webb North Ranch REALTOR®",
+  title: "Contact Dr. Jan Duffy | Del Webb North Ranch REALTOR® | North Las Vegas",
   description:
-    "Contact Dr. Jan Duffy to schedule a tour of Del Webb North Ranch. Call (702) 500-1064 or fill out the contact form.",
+    "Contact Dr. Jan Duffy to schedule a tour of Del Webb North Ranch, a premier 55+ community in North Las Vegas. Call (702) 500-1064 or fill out the contact form.",
+  alternates: {
+    canonical: "https://delwebbnorthranchhomes.com/contact",
+  },
 };
 
 export default function ContactPage() {

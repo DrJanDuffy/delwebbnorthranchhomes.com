@@ -4,6 +4,8 @@ import Footer from "@/../components/footer";
 import { Phone } from "lucide-react";
 import { Button } from "@/../components/ui/button";
 import Link from "next/link";
+import { getDelWebbListings } from "@/lib/listings";
+import ListingsPageClient from "@/components/listings-page-client";
 
 export const metadata: Metadata = {
   title: "Homes for Sale | Del Webb North Ranch | North Las Vegas",
@@ -11,7 +13,9 @@ export const metadata: Metadata = {
     "Browse available homes for sale in Del Webb North Ranch. Single-story 55+ community homes from $400K-$600K. Contact Dr. Jan Duffy to schedule a tour.",
 };
 
-export default function HomesForSalePage() {
+export default async function HomesForSalePage() {
+  const listings = await getDelWebbListings();
+
   return (
     <>
       <Navbar />
@@ -35,7 +39,7 @@ export default function HomesForSalePage() {
                   size="lg"
                   className="bg-accent hover:bg-accent/90 text-white"
                 >
-                  <Link href="#contact">Schedule a Tour</Link>
+                  <Link href="#listings">View Listings</Link>
                 </Button>
                 <a
                   href="tel:7025001064"
@@ -49,54 +53,25 @@ export default function HomesForSalePage() {
           </div>
         </section>
 
-        {/* RealScout Embed Section */}
-        <section className="py-12 md:py-16 lg:py-20 bg-white">
+        {/* Listings Grid Section */}
+        <section id="listings" className="py-12 md:py-16 lg:py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-7xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center font-playfair">
                 Browse Available Homes
               </h2>
               <p className="text-center text-text-dark mb-8 max-w-2xl mx-auto">
-                Use the search below to find homes that match your preferences.
-                All listings are updated in real-time.
+                Explore available homes in Del Webb North Ranch. All listings are
+                updated in real-time.
               </p>
 
-              {/* RealScout Embed Container */}
-              <div className="bg-white rounded-lg shadow-three p-4 md:p-6">
-                <div
-                  id="realscout-embed"
-                  className="w-full min-h-[600px]"
-                  style={{ minHeight: "600px" }}
-                >
-                  {/* TODO: Replace with actual RealScout embed code */}
-                  {/* 
-                  <script
-                    type="text/javascript"
-                    src="https://widget.realscout.com/embed.js"
-                    data-rs-widget-id="YOUR_WIDGET_ID"
-                    data-rs-community-id="YOUR_COMMUNITY_ID"
-                  ></script>
-                  */}
-                  <div className="flex items-center justify-center h-[600px] bg-bg-light rounded-lg border-2 border-dashed border-gray-300">
-                    <div className="text-center p-8">
-                      <p className="text-lg font-semibold text-text-dark mb-2">
-                        RealScout Home Search
-                      </p>
-                      <p className="text-text-dark mb-4">
-                        RealScout embed will be displayed here
-                      </p>
-                      <p className="text-sm text-gray-500">
-                        Contact Dr. Jan Duffy to get the embed code configured
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <ListingsPageClient initialListings={listings} />
 
               {/* Alternative CTA */}
-              <div className="mt-8 text-center">
+              <div className="mt-12 text-center">
                 <p className="text-text-dark mb-4">
-                  Prefer to speak with someone directly?
+                  Don't see what you're looking for? Prefer to speak with someone
+                  directly?
                 </p>
                 <Button asChild variant="outline" size="lg">
                   <Link href="/contact">Contact Dr. Jan Duffy</Link>

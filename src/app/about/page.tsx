@@ -8,9 +8,12 @@ import ScrollAnimation from "@/../components/scroll-animation";
 import { Phone, Mail, MapPin, Award, Users, Home } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About Dr. Jan Duffy | Del Webb North Ranch REALTOR® | Las Vegas",
+  title: "About Dr. Jan Duffy | Del Webb North Ranch REALTOR® | North Las Vegas",
   description:
-    "Meet Dr. Jan Duffy, REALTOR® specializing in Del Webb North Ranch. Licensed agent with Berkshire Hathaway HomeServices helping you find your perfect 55+ community home.",
+    "Meet Dr. Jan Duffy, REALTOR® specializing in Del Webb North Ranch, a premier 55+ community in North Las Vegas. Licensed agent with Berkshire Hathaway HomeServices helping you find your perfect active adult home.",
+  alternates: {
+    canonical: "https://delwebbnorthranchhomes.com/about",
+  },
 };
 
 const blurDataURL =
