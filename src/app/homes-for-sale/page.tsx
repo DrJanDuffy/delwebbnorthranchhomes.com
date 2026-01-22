@@ -8,6 +8,7 @@ import { getDelWebbListings } from "@/lib/listings";
 import ListingsPageClient from "@/components/listings-page-client";
 import MortgageCalculator from "@/../components/MortgageCalculator";
 import RealScoutListings from "@/../components/RealScoutListings";
+import { getCommunityInfo } from "@/lib/communityData";
 // import HomesForSaleWidget from "@/../components/HomesForSaleWidget";
 
 export const metadata: Metadata = {
@@ -44,6 +45,7 @@ export const metadata: Metadata = {
 
 export default async function HomesForSalePage() {
   const listings = await getDelWebbListings();
+  const communityInfo = getCommunityInfo();
 
   return (
     <>
@@ -219,7 +221,7 @@ export default async function HomesForSalePage() {
                     Price Range
                   </h3>
                   <p className="text-2xl font-semibold text-accent mb-2">
-                    $400K - $600K
+                    {communityInfo.priceRange}
                   </p>
                   <p className="text-text-dark">
                     Competitive pricing for luxury 55+ living
@@ -229,7 +231,7 @@ export default async function HomesForSalePage() {
                   <h3 className="text-xl font-bold text-primary mb-3 font-playfair">
                     Total Homes
                   </h3>
-                  <p className="text-2xl font-semibold text-accent mb-2">394</p>
+                  <p className="text-2xl font-semibold text-accent mb-2">{communityInfo.totalHomes}</p>
                   <p className="text-text-dark">
                     Single-family residences in a gated community
                   </p>
@@ -239,9 +241,9 @@ export default async function HomesForSalePage() {
                     HOA Fee
                   </h3>
                   <p className="text-2xl font-semibold text-accent mb-2">
-                    $215/mo
+                    {communityInfo.hoaFee}
                   </p>
-                  <p className="text-text-dark">No SIDs or LIDs</p>
+                  <p className="text-text-dark">{communityInfo.sidLid === 'None' ? 'No SIDs or LIDs' : communityInfo.sidLid}</p>
                 </div>
               </div>
             </div>
