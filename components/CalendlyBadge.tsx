@@ -2,21 +2,6 @@
 
 import Script from 'next/script';
 
-// Extend Window interface for Calendly
-declare global {
-  interface Window {
-    Calendly?: {
-      initBadgeWidget: (options: { 
-        url: string; 
-        text: string; 
-        color: string; 
-        textColor: string; 
-        branding: boolean;
-      }) => void;
-    };
-  }
-}
-
 export default function CalendlyBadge() {
   return (
     <Script

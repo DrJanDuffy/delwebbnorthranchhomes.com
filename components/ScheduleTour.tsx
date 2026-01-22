@@ -5,22 +5,6 @@ import { Calendar } from 'lucide-react';
 import { oldSiteData } from '@/lib/fetchOldSiteData';
 import { Button } from './ui/button';
 
-// Extend Window interface for Calendly
-declare global {
-  interface Window {
-    Calendly?: {
-      initPopupWidget: (options: { url: string }) => void;
-      initBadgeWidget: (options: { 
-        url: string; 
-        text: string; 
-        color: string; 
-        textColor: string; 
-        branding: boolean;
-      }) => void;
-    };
-  }
-}
-
 type ScheduleTourProps = {
   inline?: boolean;
   variant?: 'default' | 'accent' | 'outline';

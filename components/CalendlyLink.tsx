@@ -2,15 +2,6 @@
 
 import { Calendar } from 'lucide-react';
 
-// Extend Window interface for Calendly
-declare global {
-  interface Window {
-    Calendly?: {
-      initPopupWidget: (options: { url: string }) => void;
-    };
-  }
-}
-
 type CalendlyLinkProps = {
   url?: string;
   text?: string;
