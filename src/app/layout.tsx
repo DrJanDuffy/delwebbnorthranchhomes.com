@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
@@ -100,6 +101,21 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.className} antialiased`}>
+        {/* RealScout Web Components Script - Load once globally for all pages */}
+        <Script
+          src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
+          strategy="afterInteractive"
+          type="module"
+        />
+        {/* RealScout Widget Styles - Global styles for all widgets */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            realscout-office-listings {
+              --rs-listing-divider-color: #0e64c8;
+              width: 100%;
+            }
+          `
+        }} />
         <a href="#main-content" className="skip-to-main">
           Skip to main content
         </a>

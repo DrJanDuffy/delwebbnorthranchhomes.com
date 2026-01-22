@@ -7,6 +7,7 @@ import Link from "next/link";
 import { getDelWebbListings } from "@/lib/listings";
 import ListingsPageClient from "@/components/listings-page-client";
 import MortgageCalculator from "@/../components/MortgageCalculator";
+import RealScoutListings from "@/../components/RealScoutListings";
 // import HomesForSaleWidget from "@/../components/HomesForSaleWidget";
 
 export const metadata: Metadata = {
@@ -81,9 +82,8 @@ export default async function HomesForSalePage() {
           </div>
         </section>
 
-        {/* RealScout Widget - Option to replace or supplement listings */}
-        {/* Uncomment to use RealScout widget instead of mock listings */}
-        {/* <HomesForSaleWidget /> */}
+        {/* RealScout Listings - Main Lead Generator - Prominently placed after hero */}
+        <RealScoutListings h2Text="View Current Homes for Sale in Del Webb North Ranch | North Las Vegas 55+ Community" />
 
         {/* Listings Grid Section */}
         <section id="listings" className="py-12 md:py-16 lg:py-20 bg-white">
