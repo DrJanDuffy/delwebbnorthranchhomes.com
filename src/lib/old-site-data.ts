@@ -269,7 +269,9 @@ export const oldSiteData = {
   integrations: {
     calendly: 'https://calendly.com/drjanduffy/appointment',
     realscout: 'https://drjanduffy.realscout.com/onboarding',
-    youtube: 'https://www.youtube.com/@DrDuffy',
+    youtube: 'https://www.youtube.com/@DrDuffy', // Channel handle (user-friendly)
+    youtubeChannelId: 'UCIMieP7FSUSwN0vw8FVNprA', // Channel ID for API/embedding
+    youtubeUserId: 'IMieP7FSUSwN0vw8FVNprA', // User ID
     brochurePdf:
       'https://cribflyer-pdf.s3.us-west-1.amazonaws.com/59709/documents/67627.pdf',
   },

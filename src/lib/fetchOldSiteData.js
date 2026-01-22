@@ -2,7 +2,11 @@
 // Utility to scrape and structure data from the old CribFlyer site
 
 export const oldSiteData = {
-  // Virtual Tour Video Embeds (from old site)
+  // Virtual Tour Video Embeds
+  // NOTE: The old CribFlyer site uses Matterport tours, not YouTube videos.
+  // If YouTube videos exist for these floor plans, replace the placeholder IDs below.
+  // YouTube video ID format: Replace "VIDEO_ID" with the actual 11-character YouTube video ID
+  // Example: "https://www.youtube.com/embed/dQw4w9WgXcQ" (where "dQw4w9WgXcQ" is the video ID)
   virtualTours: [
     {
       model: "Overlook",
@@ -10,7 +14,7 @@ export const oldSiteData = {
       beds: 2,
       baths: 2,
       series: "Cottage",
-      // You'll need to get the actual embed URLs from CribFlyer
+      // Replace OVERLOOK_VIDEO_ID with actual YouTube video ID when available
       embedUrl: "https://www.youtube.com/embed/OVERLOOK_VIDEO_ID",
     },
     {
@@ -19,6 +23,7 @@ export const oldSiteData = {
       beds: 2,
       baths: 2,
       series: "Cottage",
+      // Replace CANYON_VIDEO_ID with actual YouTube video ID when available
       embedUrl: "https://www.youtube.com/embed/CANYON_VIDEO_ID",
     },
     {
@@ -27,6 +32,7 @@ export const oldSiteData = {
       beds: 2,
       baths: 2,
       series: "Classic",
+      // Replace GATEWAY_VIDEO_ID with actual YouTube video ID when available
       embedUrl: "https://www.youtube.com/embed/GATEWAY_VIDEO_ID",
     },
     {
@@ -35,6 +41,7 @@ export const oldSiteData = {
       beds: 2,
       baths: 2,
       series: "Classic",
+      // Replace SOLITUDE_VIDEO_ID with actual YouTube video ID when available
       embedUrl: "https://www.youtube.com/embed/SOLITUDE_VIDEO_ID",
     },
     {
@@ -43,6 +50,7 @@ export const oldSiteData = {
       beds: "2-3",
       baths: 2,
       series: "Cottage",
+      // Replace PEAK_VIDEO_ID with actual YouTube video ID when available
       embedUrl: "https://www.youtube.com/embed/PEAK_VIDEO_ID",
     },
     {
@@ -51,6 +59,7 @@ export const oldSiteData = {
       beds: "2-3",
       baths: 2,
       series: "Classic",
+      // Replace EXPEDITION_VIDEO_ID with actual YouTube video ID when available
       embedUrl: "https://www.youtube.com/embed/EXPEDITION_VIDEO_ID",
     },
     {
@@ -59,6 +68,7 @@ export const oldSiteData = {
       beds: 2,
       baths: "2-2.5",
       series: "Retreat",
+      // Replace SANCTUARY_VIDEO_ID with actual YouTube video ID when available
       embedUrl: "https://www.youtube.com/embed/SANCTUARY_VIDEO_ID",
     },
     {
@@ -67,7 +77,7 @@ export const oldSiteData = {
       beds: "2-3",
       baths: "2-2.5",
       series: "Retreat",
-      embedUrl: null, // Add if available
+      embedUrl: null, // YouTube video not yet available
     },
     {
       model: "Preserve",
@@ -75,7 +85,7 @@ export const oldSiteData = {
       beds: "2-3",
       baths: "2-2.5",
       series: "Retreat",
-      embedUrl: null, // Add if available
+      embedUrl: null, // YouTube video not yet available
     },
   ],
 
@@ -219,7 +229,9 @@ export const oldSiteData = {
   integrations: {
     calendly: "https://calendly.com/drjanduffy/appointment",
     realscout: "https://drjanduffy.realscout.com/onboarding",
-    youtube: "https://www.youtube.com/@DrDuffy",
+    youtube: "https://www.youtube.com/@DrDuffy", // Channel handle (user-friendly)
+    youtubeChannelId: "UCIMieP7FSUSwN0vw8FVNprA", // Channel ID for API/embedding
+    youtubeUserId: "IMieP7FSUSwN0vw8FVNprA", // User ID
     brochurePdf: "https://cribflyer-pdf.s3.us-west-1.amazonaws.com/59709/documents/67627.pdf",
   },
 
