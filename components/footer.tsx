@@ -194,6 +194,57 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Social Media */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
+            <ul className="space-y-2">
+              <li>
+                <a
+                  href="https://www.facebook.com/DellWebbNorthRanch"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+                >
+                  <Facebook className="w-4 h-4" />
+                  Facebook
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/delwebbnorthranchhomes/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+                >
+                  <Instagram className="w-4 h-4" />
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/company/del-webb-north-ranch-homes"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+                >
+                  <Linkedin className="w-4 h-4" />
+                  LinkedIn
+                </a>
+              </li>
+              <li>
+                <a
+                  href={oldSiteData.integrations.youtube}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+                >
+                  <Youtube className="w-4 h-4" />
+                  YouTube
+                </a>
+              </li>
+            </ul>
+          </div>
+
           {/* Legal Info */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Information</h4>
