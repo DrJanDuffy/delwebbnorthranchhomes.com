@@ -86,7 +86,7 @@ function FloorPlanCard({
           <h3 className="text-2xl font-bold text-primary mb-2 font-playfair">
             {plan.name}
           </h3>
-          <p className="text-xl font-semibold text-accent mb-4">
+          <p className="text-xl font-semibold text-primary mb-4">
             {plan.sqft} sq ft
           </p>
 

@@ -72,9 +72,9 @@ export default function QuickFAQ() {
                     </span>
                     <div className="flex-shrink-0">
                       {isOpen ? (
-                        <ChevronUp className="w-5 h-5 text-amber-500" />
+                        <ChevronUp className="w-5 h-5 text-primary" />
                       ) : (
-                        <ChevronDown className="w-5 h-5 text-amber-500" />
+                        <ChevronDown className="w-5 h-5 text-primary" />
                       )}
                     </div>
                   </button>

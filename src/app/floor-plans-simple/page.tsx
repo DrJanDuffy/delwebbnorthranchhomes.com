@@ -44,7 +44,7 @@ function FloorPlanCard({
   const seriesColors = {
     cottage: 'bg-success/10 border-success/30',
     classic: 'bg-primary/10 border-primary/30',
-    retreat: 'bg-accent/10 border-accent/30',
+    retreat: 'bg-primary/10 border-primary/30',
   };
 
   return (
@@ -55,7 +55,7 @@ function FloorPlanCard({
         {plan.name}
       </h3>
       <div className="space-y-2 mb-4">
-        <p className="text-2xl md:text-3xl font-bold text-accent">{plan.sqft} sq ft</p>
+        <p className="text-2xl md:text-3xl font-bold text-primary">{plan.sqft} sq ft</p>
         <p className="text-text-dark">
           {plan.beds} Bedroom{plan.beds !== 1 ? 's' : ''} • {plan.baths} Bathroom
           {plan.baths !== 1 ? 's' : ''}

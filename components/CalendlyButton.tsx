@@ -74,7 +74,7 @@ export default function CalendlyButton({
         <div className="hidden md:block relative">
           <button
             onClick={handleClick}
-            className="group flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white font-semibold px-6 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+            className="group flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-semibold px-6 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             aria-label={text}
           >
             <Calendar className="w-5 h-5" />
@@ -92,7 +92,7 @@ export default function CalendlyButton({
         </div>
 
         {/* Mobile: Full-width bar at bottom */}
-        <div className="md:hidden fixed bottom-0 left-0 right-0 bg-amber-500 shadow-lg">
+        <div className="md:hidden fixed bottom-0 left-0 right-0 bg-primary shadow-lg">
           <div className="container mx-auto px-4 py-3 flex items-center justify-between gap-4">
             <button
               onClick={handleClick}

@@ -66,13 +66,13 @@ export default async function HomesForSalePage() {
                   asChild
                   variant="accent"
                   size="lg"
-                  className="bg-accent hover:bg-accent/90 text-white"
+                  className="bg-primary hover:bg-primary/90 text-white"
                 >
                   <Link href="#listings">View Listings</Link>
                 </Button>
                 <a
                   href="tel:7025001064"
-                  className="flex items-center gap-2 text-lg font-semibold hover:text-accent transition-colors"
+                  className="flex items-center gap-2 text-lg font-semibold hover:text-primary transition-colors"
                 >
                   <Phone className="w-5 h-5" />
                   (702) 500-1064
@@ -220,7 +220,7 @@ export default async function HomesForSalePage() {
                   <h3 className="text-xl font-bold text-primary mb-3 font-playfair">
                     Price Range
                   </h3>
-                  <p className="text-2xl font-semibold text-accent mb-2">
+                  <p className="text-2xl font-semibold text-primary mb-2">
                     {communityInfo.priceRange}
                   </p>
                   <p className="text-text-dark">
@@ -231,7 +231,7 @@ export default async function HomesForSalePage() {
                   <h3 className="text-xl font-bold text-primary mb-3 font-playfair">
                     Total Homes
                   </h3>
-                  <p className="text-2xl font-semibold text-accent mb-2">{communityInfo.totalHomes}</p>
+                  <p className="text-2xl font-semibold text-primary mb-2">{communityInfo.totalHomes}</p>
                   <p className="text-text-dark">
                     Single-family residences in a gated community
                   </p>
@@ -240,7 +240,7 @@ export default async function HomesForSalePage() {
                   <h3 className="text-xl font-bold text-primary mb-3 font-playfair">
                     HOA Fee
                   </h3>
-                  <p className="text-2xl font-semibold text-accent mb-2">
+                  <p className="text-2xl font-semibold text-primary mb-2">
                     {communityInfo.hoaFee}
                   </p>
                   <p className="text-text-dark">{communityInfo.sidLid === 'None' ? 'No SIDs or LIDs' : communityInfo.sidLid}</p>

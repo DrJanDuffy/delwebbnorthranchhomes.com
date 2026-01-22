@@ -262,11 +262,11 @@ export default async function FloorPlanPage({
               </div>
 
               {/* Price Range */}
-              <div className="bg-accent/10 border-2 border-accent rounded-lg p-6 text-center mb-8">
+              <div className="bg-primary/10 border-2 border-primary rounded-lg p-6 text-center mb-8">
                 <p className="text-sm font-semibold text-primary mb-2">
                   Estimated Price Range
                 </p>
-                <p className="text-3xl font-bold text-accent font-playfair">
+                <p className="text-3xl font-bold text-primary font-playfair">
                   {plan.priceRange}
                 </p>
                 <p className="text-sm text-text-dark mt-2">

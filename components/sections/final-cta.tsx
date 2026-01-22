@@ -25,7 +25,7 @@ export default function FinalCTASection() {
                 <div className="mb-6">
                   <a
                     href="tel:7025001064"
-                    className="inline-flex items-center gap-2 text-lg md:text-xl font-semibold text-primary hover:text-accent transition-colors"
+                    className="inline-flex items-center gap-2 text-lg md:text-xl font-semibold text-primary hover:text-primary/80 transition-colors"
                   >
                     <Phone className="w-5 h-5 md:w-6 md:h-6" />
                     (702) 500-1064

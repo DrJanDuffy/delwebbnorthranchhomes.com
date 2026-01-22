@@ -115,7 +115,7 @@ export default function FAQAccordion({
                   'px-4 py-2 rounded-md font-semibold transition-colors',
                   allExpanded
                     ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
-                    : 'bg-amber-500 text-white hover:bg-amber-600'
+                    : 'bg-primary text-white hover:bg-primary/90'
                 )}
               >
                 <Plus className="w-4 h-4 inline mr-2" />

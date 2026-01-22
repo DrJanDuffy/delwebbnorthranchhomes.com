@@ -263,7 +263,7 @@ export default function LifestylePage() {
                     <h3 className="font-semibold text-primary mb-2">
                       {distance.description}
                     </h3>
-                    <p className="text-2xl font-bold text-accent">
+                    <p className="text-2xl font-bold text-primary">
                       {distance.miles} miles
                     </p>
                   </div>
