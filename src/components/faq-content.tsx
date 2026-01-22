@@ -38,7 +38,7 @@ const faqs = [
       {
         question: 'What is the price range?',
         answer:
-          'Homes in Del Webb North Ranch range from approximately $400,000 to $600,000, depending on the floor plan, location, and whether it's a new build or resale.',
+          "Homes in Del Webb North Ranch range from approximately $400,000 to $600,000, depending on the floor plan, location, and whether it's a new build or resale.",
       },
       {
         question: 'Are all homes single-story?',
@@ -53,7 +53,7 @@ const faqs = [
       {
         question: 'Can I customize my home?',
         answer:
-          'For new construction, there are often options for finishes and upgrades. Resale homes come as-is. Dr. Jan Duffy can help you understand what's available and guide you through the process.',
+          "For new construction, there are often options for finishes and upgrades. Resale homes come as-is. Dr. Jan Duffy can help you understand what's available and guide you through the process.",
       },
     ],
   },
@@ -63,7 +63,7 @@ const faqs = [
       {
         question: 'Where is Del Webb North Ranch located?',
         answer:
-          'The community is located at 2290 Beauty Vista Avenue in North Las Vegas, Nevada 89086. It's in a prime location with easy access to shopping, dining, healthcare, and entertainment.',
+          "The community is located at 2290 Beauty Vista Avenue in North Las Vegas, Nevada 89086. It's in a prime location with easy access to shopping, dining, healthcare, and entertainment.",
       },
       {
         question: 'What are the tax benefits of living in Nevada?',
@@ -93,7 +93,7 @@ const faqs = [
       {
         question: "What's included in a tour?",
         answer:
-          'A private tour includes walking the community, seeing the amenities, and stepping inside model homes or available resale properties. There's no pressure—just information to help you decide if this is right for you.',
+          "A private tour includes walking the community, seeing the amenities, and stepping inside model homes or available resale properties. There's no pressure—just information to help you decide if this is right for you.",
       },
       {
         question: 'Are there resale homes available?',
