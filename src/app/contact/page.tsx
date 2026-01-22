@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Script from "next/script";
 import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
 import ScrollAnimation from "@/../components/scroll-animation";
 import { Phone, Mail, MapPin, Calendar, Youtube, FileText, ExternalLink } from "lucide-react";
 import { oldSiteData } from "@/lib/fetchOldSiteData";
 import ScheduleTour from "@/../components/ScheduleTour";
+import CalendlyInline from "@/../components/CalendlyInline";
 
 export const metadata: Metadata = {
   title: "Contact Dr. Jan Duffy | Del Webb North Ranch REALTOR® | North Las Vegas",
@@ -74,14 +76,10 @@ export default function ContactPage() {
                     <p className="text-text-dark mb-6">
                       Book a 15-minute consultation with Dr. Jan Duffy to discuss your home search and tour Del Webb North Ranch.
                     </p>
-                    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                      <iframe
-                        src="https://calendly.com/drjanduffy/15min"
-                        width="100%"
-                        height="700"
-                        frameBorder="0"
-                        title="Schedule a consultation with Dr. Jan Duffy"
-                        className="w-full"
+                    <div className="bg-white rounded-lg shadow-lg p-4 md:p-6">
+                      <CalendlyInline 
+                        url="https://calendly.com/drjanduffy/15min"
+                        height="700px"
                       />
                     </div>
                   </div>
