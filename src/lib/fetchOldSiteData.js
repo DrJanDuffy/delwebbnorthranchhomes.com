@@ -14,8 +14,9 @@ export const oldSiteData = {
       beds: 2,
       baths: 2,
       series: "Cottage",
-      // Replace OVERLOOK_VIDEO_ID with actual YouTube video ID when available
-      embedUrl: "https://www.youtube.com/embed/OVERLOOK_VIDEO_ID",
+      // Replace with actual YouTube video ID when available
+      // Format: "https://www.youtube.com/embed/VIDEO_ID"
+      embedUrl: null, // YouTube video not yet available
     },
     {
       model: "Canyon",
@@ -23,8 +24,7 @@ export const oldSiteData = {
       beds: 2,
       baths: 2,
       series: "Cottage",
-      // Replace CANYON_VIDEO_ID with actual YouTube video ID when available
-      embedUrl: "https://www.youtube.com/embed/CANYON_VIDEO_ID",
+      embedUrl: null, // YouTube video not yet available
     },
     {
       model: "Gateway",
@@ -32,8 +32,7 @@ export const oldSiteData = {
       beds: 2,
       baths: 2,
       series: "Classic",
-      // Replace GATEWAY_VIDEO_ID with actual YouTube video ID when available
-      embedUrl: "https://www.youtube.com/embed/GATEWAY_VIDEO_ID",
+      embedUrl: null, // YouTube video not yet available
     },
     {
       model: "Solitude",
@@ -41,8 +40,7 @@ export const oldSiteData = {
       beds: 2,
       baths: 2,
       series: "Classic",
-      // Replace SOLITUDE_VIDEO_ID with actual YouTube video ID when available
-      embedUrl: "https://www.youtube.com/embed/SOLITUDE_VIDEO_ID",
+      embedUrl: null, // YouTube video not yet available
     },
     {
       model: "Peak",
@@ -50,8 +48,7 @@ export const oldSiteData = {
       beds: "2-3",
       baths: 2,
       series: "Cottage",
-      // Replace PEAK_VIDEO_ID with actual YouTube video ID when available
-      embedUrl: "https://www.youtube.com/embed/PEAK_VIDEO_ID",
+      embedUrl: null, // YouTube video not yet available
     },
     {
       model: "Expedition",
@@ -59,8 +56,7 @@ export const oldSiteData = {
       beds: "2-3",
       baths: 2,
       series: "Classic",
-      // Replace EXPEDITION_VIDEO_ID with actual YouTube video ID when available
-      embedUrl: "https://www.youtube.com/embed/EXPEDITION_VIDEO_ID",
+      embedUrl: null, // YouTube video not yet available
     },
     {
       model: "Sanctuary",
@@ -68,8 +64,7 @@ export const oldSiteData = {
       beds: 2,
       baths: "2-2.5",
       series: "Retreat",
-      // Replace SANCTUARY_VIDEO_ID with actual YouTube video ID when available
-      embedUrl: "https://www.youtube.com/embed/SANCTUARY_VIDEO_ID",
+      embedUrl: null, // YouTube video not yet available
     },
     {
       model: "Haven",

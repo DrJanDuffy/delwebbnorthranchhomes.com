@@ -55,8 +55,9 @@ export const oldSiteData = {
       beds: 2,
       baths: 2,
       series: 'Cottage' as const,
-      // You'll need to get the actual embed URLs from CribFlyer
-      embedUrl: 'https://www.youtube.com/embed/OVERLOOK_VIDEO_ID' as string | null,
+      // Replace with actual YouTube video ID when available
+      // Format: "https://www.youtube.com/embed/VIDEO_ID"
+      embedUrl: null as string | null,
     },
     {
       model: 'Canyon',
@@ -64,7 +65,7 @@ export const oldSiteData = {
       beds: 2,
       baths: 2,
       series: 'Cottage' as const,
-      embedUrl: 'https://www.youtube.com/embed/CANYON_VIDEO_ID' as string | null,
+      embedUrl: null as string | null,
     },
     {
       model: 'Gateway',
@@ -72,7 +73,7 @@ export const oldSiteData = {
       beds: 2,
       baths: 2,
       series: 'Classic' as const,
-      embedUrl: 'https://www.youtube.com/embed/GATEWAY_VIDEO_ID' as string | null,
+      embedUrl: null as string | null,
     },
     {
       model: 'Solitude',
@@ -80,7 +81,7 @@ export const oldSiteData = {
       beds: 2,
       baths: 2,
       series: 'Classic' as const,
-      embedUrl: 'https://www.youtube.com/embed/SOLITUDE_VIDEO_ID' as string | null,
+      embedUrl: null as string | null,
     },
     {
       model: 'Peak',
@@ -88,7 +89,7 @@ export const oldSiteData = {
       beds: '2-3',
       baths: 2,
       series: 'Cottage' as const,
-      embedUrl: 'https://www.youtube.com/embed/PEAK_VIDEO_ID' as string | null,
+      embedUrl: null as string | null,
     },
     {
       model: 'Expedition',
@@ -96,7 +97,7 @@ export const oldSiteData = {
       beds: '2-3',
       baths: 2,
       series: 'Classic' as const,
-      embedUrl: 'https://www.youtube.com/embed/EXPEDITION_VIDEO_ID' as string | null,
+      embedUrl: null as string | null,
     },
     {
       model: 'Sanctuary',
@@ -104,7 +105,7 @@ export const oldSiteData = {
       beds: 2,
       baths: '2-2.5',
       series: 'Retreat' as const,
-      embedUrl: 'https://www.youtube.com/embed/SANCTUARY_VIDEO_ID' as string | null,
+      embedUrl: null as string | null,
     },
     {
       model: 'Haven',

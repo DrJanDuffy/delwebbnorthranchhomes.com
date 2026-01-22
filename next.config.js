@@ -23,7 +23,7 @@ const nextConfig = {
               "style-src 'self' 'unsafe-inline' https://assets.calendly.com",
               "img-src 'self' data: https:",
               "font-src 'self' data:",
-              "frame-src 'self' https://em.realscout.com https://www.realscout.com https://calendly.com",
+              "frame-src 'self' https://em.realscout.com https://www.realscout.com https://calendly.com https://www.youtube.com https://youtube.com",
             ].join('; '),
           },
         ],
