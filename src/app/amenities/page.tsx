@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     description:
       "Resort-style amenities including pool, fitness center, pickleball courts, and clubhouse in Del Webb North Ranch 55+ community.",
     url: "https://www.delwebbnorthranchhomes.com/amenities",
-    siteName: "Del Webb North Ranch Homes",
+    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     locale: "en_US",
     type: "website",
     images: [

@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     description:
       "Your trusted REALTOR® specializing in Del Webb North Ranch and Las Vegas 55+ communities.",
     url: "https://www.delwebbnorthranchhomes.com/about",
-    siteName: "Del Webb North Ranch Homes",
+    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     locale: "en_US",
     type: "website",
     images: [

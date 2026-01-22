@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     description:
       "Vibrant community life with clubs, events, and activities in Del Webb North Ranch 55+ community.",
     url: "https://www.delwebbnorthranchhomes.com/lifestyle",
-    siteName: "Del Webb North Ranch Homes",
+    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     locale: "en_US",
     type: "website",
     images: [

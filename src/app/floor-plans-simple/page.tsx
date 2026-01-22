@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description:
       'Explore 9 single-story floor plans from 1,285 to 2,015 sq ft in Del Webb North Ranch, a premier 55+ community.',
     url: 'https://www.delwebbnorthranchhomes.com/floor-plans',
-    siteName: 'Del Webb North Ranch Homes',
+    siteName: 'Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
     locale: 'en_US',
     type: 'website',
   },

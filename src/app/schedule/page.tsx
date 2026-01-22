@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description:
       'Book a private tour of Del Webb North Ranch 55+ community in North Las Vegas. Schedule online with Dr. Jan Duffy.',
     url: 'https://www.delwebbnorthranchhomes.com/schedule',
-    siteName: 'Del Webb North Ranch Homes',
+    siteName: 'Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
     locale: 'en_US',
     type: 'website',
   },

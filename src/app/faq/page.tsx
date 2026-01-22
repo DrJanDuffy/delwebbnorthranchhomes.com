@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description:
       'Find answers to frequently asked questions about Del Webb North Ranch, a 55+ active adult community in North Las Vegas. Learn about HOA fees, amenities, age requirements, and more.',
     url: 'https://www.delwebbnorthranchhomes.com/faq',
-    siteName: 'Del Webb North Ranch Homes',
+    siteName: 'Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
     locale: 'en_US',
     type: 'website',
   },
