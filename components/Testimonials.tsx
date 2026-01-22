@@ -35,13 +35,17 @@ export default function Testimonials() {
               <button
                 key={index}
                 onClick={() => setActiveIndex(index)}
-                className={`h-2 w-2 rounded-full transition-all ${
+                className={`h-11 w-11 rounded-full transition-all flex items-center justify-center ${
                   index === activeIndex
-                    ? 'bg-primary w-8'
+                    ? 'bg-primary'
                     : 'bg-gray-300 hover:bg-primary/50'
                 }`}
                 aria-label={`View testimonial ${index + 1}`}
-              />
+              >
+                <span className={`h-2 w-2 rounded-full ${
+                  index === activeIndex ? 'bg-white' : 'bg-gray-500'
+                }`} />
+              </button>
             ))}
           </div>
 

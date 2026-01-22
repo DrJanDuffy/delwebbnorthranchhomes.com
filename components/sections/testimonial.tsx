@@ -60,13 +60,17 @@ export default function TestimonialSection() {
                     <button
                       key={testimonial.name}
                       onClick={() => setCurrentTestimonial(testimonial)}
-                      className={`h-2 w-2 rounded-full transition-all ${
+                      className={`h-11 w-11 rounded-full transition-all flex items-center justify-center ${
                         currentTestimonial.name === testimonial.name
-                          ? 'bg-primary w-8'
+                          ? 'bg-primary'
                           : 'bg-gray-300 hover:bg-primary/50'
                       }`}
                       aria-label={`View testimonial from ${testimonial.name}`}
-                    />
+                    >
+                      <span className={`h-2 w-2 rounded-full ${
+                        currentTestimonial.name === testimonial.name ? 'bg-white' : 'bg-gray-500'
+                      }`} />
+                    </button>
                   ))}
                 </div>
               )}

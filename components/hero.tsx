@@ -38,7 +38,7 @@ export default function Hero() {
             friends.
           </p>
           <div className="mb-6 md:mb-8">
-            <p className="text-lg sm:text-xl md:text-2xl font-semibold text-accent">
+            <p className="text-lg sm:text-xl md:text-2xl font-semibold text-white">
               Homes from $400K-$600K in North Las Vegas
             </p>
           </div>

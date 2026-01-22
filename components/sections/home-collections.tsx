@@ -38,7 +38,7 @@ function CollectionCard({
         <h3 className="text-xl md:text-2xl font-bold text-primary mb-2 md:mb-3 font-playfair">
           {title}
         </h3>
-        <p className="text-base md:text-lg font-semibold text-accent mb-3 md:mb-4">
+        <p className="text-base md:text-lg font-semibold text-primary mb-3 md:mb-4">
           {specs}
         </p>
         <p className="text-sm md:text-base text-text-dark leading-relaxed flex-grow">

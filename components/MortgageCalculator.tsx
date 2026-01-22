@@ -66,7 +66,7 @@ export default function MortgageCalculator() {
             {/* Purchase Price */}
             <div className="mb-6">
               <label htmlFor="purchase-price" className="block text-sm font-semibold text-primary mb-3">
-                Purchase Price: <span className="text-accent">${purchasePrice.toLocaleString()}</span>
+                Purchase Price: <span className="text-primary font-bold">${purchasePrice.toLocaleString()}</span>
               </label>
               <input
                 id="purchase-price"
@@ -89,7 +89,7 @@ export default function MortgageCalculator() {
             <div className="mb-6">
               <label htmlFor="down-payment" className="block text-sm font-semibold text-primary mb-2">
                 Down Payment: {downPaymentPercent}% (
-                <span className="text-accent">
+                <span className="text-primary font-bold">
                   ${((purchasePrice * downPaymentPercent) / 100).toLocaleString()}
                 </span>
                 )
@@ -112,7 +112,7 @@ export default function MortgageCalculator() {
             {/* Interest Rate */}
             <div className="mb-6">
               <label htmlFor="interest-rate" className="block text-sm font-semibold text-primary mb-2">
-                Interest Rate: <span className="text-accent">{interestRate}%</span>
+                Interest Rate: <span className="text-primary font-bold">{interestRate}%</span>
               </label>
               <input
                 id="interest-rate"
@@ -194,7 +194,7 @@ export default function MortgageCalculator() {
             {includeTaxes && (
               <div className="mb-6">
                 <label htmlFor="monthly-insurance" className="block text-sm font-semibold text-primary mb-2">
-                  Monthly Insurance: <span className="text-accent">${monthlyInsurance}</span>
+                  Monthly Insurance: <span className="text-primary font-bold">${monthlyInsurance}</span>
                 </label>
                 <input
                   id="monthly-insurance"
