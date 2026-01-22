@@ -17,7 +17,7 @@ declare global {
 type ScheduleTourProps = {
   inline?: boolean;
   variant?: 'default' | 'accent' | 'outline';
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'default' | 'lg';
   className?: string;
 };
 

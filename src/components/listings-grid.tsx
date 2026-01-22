@@ -137,7 +137,7 @@ function ListingCard({ listing }: { listing: Listing }) {
               <Link href={`/homes-for-sale/${listing.id}`}>View Details</Link>
             </Button>
           )}
-          <ScheduleTour variant="outline" size="md" className="w-full" />
+          <ScheduleTour variant="outline" size="default" className="w-full" />
         </div>
       </div>
     </div>

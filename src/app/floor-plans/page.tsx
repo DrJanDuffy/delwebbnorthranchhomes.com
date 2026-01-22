@@ -131,7 +131,7 @@ function FloorPlanCard({
                 View Details
               </Link>
             </Button>
-            <ScheduleTour variant="outline" size="md" className="flex-1" />
+            <ScheduleTour variant="outline" size="default" className="flex-1" />
           </div>
         </div>
       </div>
