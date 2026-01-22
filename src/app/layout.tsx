@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import CalendlyBadge from "@/../components/CalendlyBadge";
+import CalendlyButton from "@/../components/CalendlyButton";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -119,8 +119,8 @@ export default function RootLayout({
             }
           `
         }} />
-        {/* Calendly Badge Widget - Floating button on all pages */}
-        <CalendlyBadge />
+        {/* Calendly Floating Button - Custom styled button */}
+        <CalendlyButton />
         <a href="#main-content" className="skip-to-main">
           Skip to main content
         </a>
