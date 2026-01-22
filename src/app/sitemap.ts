@@ -11,12 +11,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1.0,
     },
-    // Main Pages - Priority 0.8, Weekly
+    // Main Pages - Priority 0.9, Daily
     {
       url: `${baseUrl}/homes-for-sale`,
       lastModified: new Date(),
       changeFrequency: "daily",
-      priority: 0.8,
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/floor-plans`,
