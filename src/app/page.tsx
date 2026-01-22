@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Navbar from "../../components/navbar";
 import Hero from "../../components/hero";
 import ProblemSection from "../../components/sections/problem-section";
@@ -15,6 +16,14 @@ import Testimonials from "../../components/Testimonials";
 import MortgageCalculator from "../../components/MortgageCalculator";
 import RealScoutListings from "../../components/RealScoutListings";
 import QuickFAQ from "../../components/QuickFAQ";
+
+// Homepage metadata - ensures canonical always points to clean homepage URL
+// This prevents query parameters (?card=...) from creating alternate page issues
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.delwebbnorthranchhomes.com",
+  },
+};
 
 export default function Home() {
   return (
