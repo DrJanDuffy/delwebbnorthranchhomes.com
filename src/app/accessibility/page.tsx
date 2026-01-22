@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description:
       "Our commitment to website accessibility and WCAG 2.1 AA compliance for all visitors.",
     url: "https://www.delwebbnorthranchhomes.com/accessibility",
-    siteName: "Del Webb North Ranch Homes",
+    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     locale: "en_US",
     type: "website",
   },

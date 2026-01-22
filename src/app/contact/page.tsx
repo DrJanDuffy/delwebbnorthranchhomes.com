@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description:
       "Schedule a tour of Del Webb North Ranch, a premier 55+ community in North Las Vegas. Call (702) 500-1064.",
     url: "https://www.delwebbnorthranchhomes.com/contact",
-    siteName: "Del Webb North Ranch Homes",
+    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     locale: "en_US",
     type: "website",
     images: [

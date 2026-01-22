@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     description:
       "Browse current homes for sale in Del Webb North Ranch, a 55+ active adult community in North Las Vegas. Resale homes from $400K-$600K.",
     url: "https://www.delwebbnorthranchhomes.com/homes-for-sale",
-    siteName: "Del Webb North Ranch Homes",
+    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     locale: "en_US",
     type: "website",
     images: [

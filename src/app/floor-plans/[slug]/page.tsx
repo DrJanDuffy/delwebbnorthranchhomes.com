@@ -46,7 +46,7 @@ export async function generateMetadata({
       title: `${plan.name} Floor Plan | Del Webb North Ranch`,
       description: `${plan.sqft} sq ft, ${plan.beds} bed, ${plan.baths} bath ${plan.series} Series home. ${plan.priceRange}.`,
       url: url,
-      siteName: 'Del Webb North Ranch Homes',
+      siteName: 'Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
       locale: 'en_US',
       type: 'website',
       images: plan.imageUrl

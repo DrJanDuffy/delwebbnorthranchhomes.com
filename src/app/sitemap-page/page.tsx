@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Sitemap | Del Webb North Ranch",
     description: "Complete navigation guide to all pages on Del Webb North Ranch website.",
     url: "https://www.delwebbnorthranchhomes.com/sitemap-page",
-    siteName: "Del Webb North Ranch Homes",
+    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     locale: "en_US",
     type: "website",
   },

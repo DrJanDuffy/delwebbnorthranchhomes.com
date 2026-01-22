@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Terms of Service | Del Webb North Ranch",
     description: "Terms and conditions for using the Del Webb North Ranch website.",
     url: "https://www.delwebbnorthranchhomes.com/terms",
-    siteName: "Del Webb North Ranch Homes",
+    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     locale: "en_US",
     type: "website",
   },
