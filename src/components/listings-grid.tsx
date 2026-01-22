@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Bed, Bath, Square, MapPin } from "lucide-react";
 import { Button } from "@/../components/ui/button";
+import ScheduleTour from "@/../components/ScheduleTour";
 
 type ListingsGridProps = {
   listings: Listing[];
@@ -136,9 +137,7 @@ function ListingCard({ listing }: { listing: Listing }) {
               <Link href={`/homes-for-sale/${listing.id}`}>View Details</Link>
             </Button>
           )}
-          <Button asChild variant="outline" className="w-full">
-            <Link href={`tel:7025001064`}>Schedule Tour</Link>
-          </Button>
+          <ScheduleTour variant="outline" size="md" className="w-full" />
         </div>
       </div>
     </div>

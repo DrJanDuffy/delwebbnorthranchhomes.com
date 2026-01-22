@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { ArrowRight } from "lucide-react";
+import ScheduleTour from "./ScheduleTour";
 
 // Placeholder blur data URL (1x1 transparent PNG)
 const blurDataURL =
@@ -42,17 +43,13 @@ export default function Hero() {
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center px-4">
-            <Button
-              asChild
-              variant="accent"
-              size="lg"
-              className="bg-accent hover:bg-accent/90 text-white w-full sm:w-auto sm:min-w-[200px] text-base md:text-lg py-3 md:py-4"
-            >
-              <Link href="/contact" className="flex items-center justify-center">
-                Schedule Your Private Tour
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
-            </Button>
+            <div className="w-full sm:w-auto sm:min-w-[200px]">
+              <ScheduleTour
+                variant="accent"
+                size="lg"
+                className="w-full sm:w-auto text-base md:text-lg py-3 md:py-4"
+              />
+            </div>
             <Button
               asChild
               variant="outline"

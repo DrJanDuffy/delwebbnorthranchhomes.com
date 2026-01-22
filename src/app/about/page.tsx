@@ -8,6 +8,7 @@ import ScrollAnimation from "@/../components/scroll-animation";
 import { Phone, Mail, MapPin, Award, Users, Home } from "lucide-react";
 import { getAllTestimonials } from "@/lib/old-site-data";
 import { Quote } from "lucide-react";
+import ScheduleTour from "@/../components/ScheduleTour";
 
 export const metadata: Metadata = {
   title: "About Dr. Jan Duffy | Del Webb North Ranch REALTOR® | North Las Vegas",
@@ -318,14 +319,7 @@ export default function AboutPage() {
                 Let's schedule a time to discuss your needs and tour Del Webb
                 North Ranch together.
               </p>
-              <Button
-                asChild
-                variant="accent"
-                size="lg"
-                className="bg-accent hover:bg-accent/90 text-white"
-              >
-                <Link href="/contact">Contact Dr. Jan Duffy</Link>
-              </Button>
+              <ScheduleTour variant="accent" size="lg" />
             </div>
           </div>
         </section>
