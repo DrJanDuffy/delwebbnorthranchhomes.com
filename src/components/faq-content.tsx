@@ -27,7 +27,7 @@ function FAQItem({
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-bg-light transition-colors"
-          aria-expanded={isOpen ? 'true' : 'false'}
+          aria-expanded={isOpen}
         >
           <span className="font-semibold text-text-dark pr-4">{question}</span>
           {isOpen ? (
