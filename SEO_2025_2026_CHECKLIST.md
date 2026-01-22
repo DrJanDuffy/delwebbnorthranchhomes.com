@@ -15,6 +15,11 @@
   - `alternateName`, `addressCountry`, `knowsAbout`, `memberOf`, `hasCredential`
 - ✅ **Organization Schema**: Added brokerage information
 - ✅ **WebSite Schema**: Added with SearchAction for site search
+- ✅ **Place Schema**: Added for local SEO (community location with coordinates)
+- ✅ **BreadcrumbList Schema**: Added to floor plan detail pages and blog posts
+  - Desktop SERPs: Full breadcrumb trail visible
+  - Mobile SERPs: Only root domain (Google 2025 change)
+  - On-page UX: Helps users navigate and understand site structure
 - ✅ All schemas use XSS-safe JSON.stringify with `</g, "\\u003c"` replacement
 
 ### 3. Canonical URLs
@@ -71,9 +76,11 @@
 - ✅ RealEstateAgent schema (agent information)
 - ✅ Organization schema (brokerage)
 - ✅ WebSite schema (site search)
+- ✅ Place schema (community location for local SEO)
 - ✅ FAQPage schema (FAQ page)
 - ✅ Product schema (floor plans)
 - ✅ ItemList schema (floor plans listing)
+- ✅ BreadcrumbList schema (floor plan details & blog posts)
 
 ### Technical SEO
 - ✅ Semantic HTML5 structure
