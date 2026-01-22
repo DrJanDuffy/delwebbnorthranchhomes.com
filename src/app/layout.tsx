@@ -146,14 +146,27 @@ export default function RootLayout({
     "@type": "Organization",
     "@id": "https://www.delwebbnorthranchhomes.com/#organization",
     name: "Dr. Jan Duffy Real Estate",
+    alternateName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     url: "https://www.delwebbnorthranchhomes.com",
     logo: "https://www.delwebbnorthranchhomes.com/images/logo/logo.svg",
+    foundingDate: "2009-09-20",
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+1-702-500-1064",
       contactType: "Sales",
-      areaServed: "US",
+      areaServed: {
+        "@type": "City",
+        name: "North Las Vegas",
+        addressRegion: "NV",
+        addressCountry: "US",
+      },
       availableLanguage: "English",
+      hoursAvailable: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        opens: "06:00",
+        closes: "21:00",
+      },
     },
     address: {
       "@type": "PostalAddress",
@@ -167,6 +180,11 @@ export default function RootLayout({
       "@type": "Organization",
       name: "Berkshire Hathaway HomeServices Nevada Properties",
     },
+    sameAs: [
+      "https://www.instagram.com/delwebbnorthranchhomes/",
+      "https://www.linkedin.com/company/del-webb-north-ranch-homes",
+      "https://www.facebook.com/DellWebbNorthRanch",
+    ],
   };
 
   // WebSite Schema with SearchAction
@@ -189,6 +207,120 @@ export default function RootLayout({
       logo: {
         "@type": "ImageObject",
         url: "https://www.delwebbnorthranchhomes.com/images/logo/logo.svg",
+      },
+    },
+  };
+
+  // LocalBusiness Schema for Google Business Profile
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "@id": "https://www.delwebbnorthranchhomes.com/#localbusiness",
+    name: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    alternateName: "Dr. Jan Duffy Real Estate",
+    description: "Helping buyers 55+ find their dream retirement home in Las Vegas' premier active adult community! Resort-style pools, state-of-the-art fitness center, pickleball courts, 20+ social clubs & activities. Free community tours, market analysis, and expert negotiation support.",
+    image: "https://www.delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg",
+    url: "https://www.delwebbnorthranchhomes.com",
+    telephone: "+1-702-500-1064",
+    email: "Sales@DelWebbNorthRanchHomes.com",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "2290 Beauty Vista Avenue",
+      addressLocality: "North Las Vegas",
+      addressRegion: "NV",
+      postalCode: "89086",
+      addressCountry: "US",
+    },
+    areaServed: {
+      "@type": "City",
+      name: "North Las Vegas",
+      addressRegion: "NV",
+      addressCountry: "US",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "36.2856",
+      longitude: "-115.0939",
+    },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        opens: "06:00",
+        closes: "21:00",
+      },
+    ],
+    foundingDate: "2009-09-20",
+    priceRange: "$$",
+    paymentAccepted: "Cash, Check, Credit Card, Financing",
+    currenciesAccepted: "USD",
+    sameAs: [
+      "https://www.instagram.com/delwebbnorthranchhomes/",
+      "https://www.linkedin.com/company/del-webb-north-ranch-homes",
+      "https://www.facebook.com/DellWebbNorthRanch",
+    ],
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "5",
+      reviewCount: "50",
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Real Estate Services",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Free Community Tours & Personalized Home Showings",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Market Analysis & Pricing Guidance",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Alerts on New Listings & Inventory Updates",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Expert Negotiation & Closing Support",
+          },
+        },
+      ],
+    },
+    additionalType: [
+      "https://schema.org/RealEstateAgent",
+      "https://schema.org/RealEstateAgency",
+      "https://schema.org/RealEstateConsultant",
+    ],
+    knowsAbout: [
+      "Del Webb North Ranch",
+      "55+ Active Adult Communities",
+      "North Las Vegas Real Estate",
+      "Senior Living",
+      "Retirement Homes",
+    ],
+    memberOf: {
+      "@type": "Organization",
+      name: "Berkshire Hathaway HomeServices Nevada Properties",
+    },
+    hasCredential: {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "Real Estate License",
+      credentialNumber: "S.0197614.LLC",
+      recognizedBy: {
+        "@type": "Organization",
+        name: "Nevada Real Estate Division",
       },
     },
   };
@@ -241,6 +373,13 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(websiteSchema).replace(/</g, "\\u003c"),
+          }}
+        />
+        {/* Structured Data - LocalBusiness (Google Business Profile) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessSchema).replace(/</g, "\\u003c"),
           }}
         />
         {/* Structured Data - Place (Local SEO) */}
