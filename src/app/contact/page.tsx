@@ -93,7 +93,6 @@ export default function ContactPage() {
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />
                     </div>
-                    <div>
                     <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 font-playfair">
                       Get in Touch
                     </h2>

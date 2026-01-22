@@ -67,7 +67,7 @@ const faqSchema = {
       name: 'What is the price range?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Homes in Del Webb North Ranch range from approximately $400,000 to $600,000, depending on the floor plan, location, and whether it's a new build or resale.',
+        text: "Homes in Del Webb North Ranch range from approximately $400,000 to $600,000, depending on the floor plan, location, and whether it's a new build or resale.",
       },
     },
     {
