@@ -5,6 +5,7 @@ import Navbar from '@/../components/navbar';
 import Footer from '@/../components/footer';
 import { Button } from '@/../components/ui/button';
 import { CheckCircle2 } from 'lucide-react';
+import ScheduleTour from '@/../components/ScheduleTour';
 
 export const metadata: Metadata = {
   title: 'Floor Plans | Del Webb North Ranch | 9 Single-Story Designs | North Las Vegas',
@@ -179,14 +180,7 @@ export default function FloorPlansSimplePage() {
                 <p className="text-text-dark mb-6 text-lg">
                   Schedule a tour and walk through the models in person.
                 </p>
-                <Button
-                  asChild
-                  variant="accent"
-                  size="lg"
-                  className="bg-accent hover:bg-accent/90 text-white"
-                >
-                  <Link href="/contact">Schedule Your Tour</Link>
-                </Button>
+                <ScheduleTour variant="accent" size="lg" />
               </div>
             </div>
           </div>

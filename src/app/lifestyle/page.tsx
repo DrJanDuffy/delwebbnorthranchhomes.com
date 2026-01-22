@@ -5,6 +5,7 @@ import Footer from "@/../components/footer";
 import { Button } from "@/../components/ui/button";
 import Link from "next/link";
 import ScrollAnimation from "@/../components/scroll-animation";
+import ScheduleTour from "@/../components/ScheduleTour";
 import {
   Users,
   Calendar,
@@ -307,14 +308,7 @@ export default function LifestylePage() {
                 Schedule a tour to see the community, meet residents, and learn
                 about the clubs and activities available.
               </p>
-              <Button
-                asChild
-                variant="accent"
-                size="lg"
-                className="bg-accent hover:bg-accent/90 text-white"
-              >
-                <Link href="/contact">Schedule Your Tour</Link>
-              </Button>
+              <ScheduleTour variant="accent" size="lg" />
             </div>
           </div>
         </section>

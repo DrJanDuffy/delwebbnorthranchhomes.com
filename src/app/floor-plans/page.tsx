@@ -9,6 +9,7 @@ import { Home, Maximize2, Car, Users } from "lucide-react";
 import { floorPlans } from "@/lib/floor-plans";
 import VirtualTours from "@/../components/VirtualTours";
 import MortgageCalculator from "@/../components/MortgageCalculator";
+import ScheduleTour from "@/../components/ScheduleTour";
 
 export const metadata: Metadata = {
   title: "Floor Plans | Del Webb North Ranch | 9 Single-Story Designs | North Las Vegas",
@@ -130,9 +131,7 @@ function FloorPlanCard({
                 View Details
               </Link>
             </Button>
-            <Button asChild variant="outline" className="flex-1">
-              <Link href="/contact">Schedule Tour</Link>
-            </Button>
+            <ScheduleTour variant="outline" size="md" className="flex-1" />
           </div>
         </div>
       </div>
@@ -309,14 +308,7 @@ export default function FloorPlansPage() {
                 Schedule a private tour with Dr. Jan Duffy to walk through our
                 model homes and see which floor plan fits your lifestyle.
               </p>
-              <Button
-                asChild
-                variant="accent"
-                size="lg"
-                className="bg-accent hover:bg-accent/90 text-white"
-              >
-                <Link href="/contact">Schedule Your Tour</Link>
-              </Button>
+              <ScheduleTour variant="accent" size="lg" />
             </div>
           </div>
         </section>

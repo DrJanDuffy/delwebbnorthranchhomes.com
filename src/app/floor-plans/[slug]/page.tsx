@@ -13,6 +13,7 @@ import {
 } from '@/lib/floor-plans';
 import { getVirtualTourByModel } from '@/lib/old-site-data';
 import { Bed, Bath, Square, Car, ArrowLeft, Phone, Play } from 'lucide-react';
+import ScheduleTour from '@/../components/ScheduleTour';
 
 export async function generateStaticParams() {
   return getAllFloorPlanSlugs().map((slug) => ({ slug }));
@@ -328,14 +329,7 @@ export default async function FloorPlanPage({
                 Duffy can show you available homes and answer all your questions.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  asChild
-                  variant="accent"
-                  size="lg"
-                  className="bg-accent hover:bg-accent/90 text-white"
-                >
-                  <Link href="/contact">Schedule a Tour</Link>
-                </Button>
+                <ScheduleTour variant="accent" size="lg" />
                 <a
                   href="tel:7025001064"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white text-white rounded-md font-semibold hover:bg-white hover:text-primary transition-colors"
