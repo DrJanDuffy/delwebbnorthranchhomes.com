@@ -105,7 +105,7 @@ export default function RootLayout({
     name: "Dr. Jan Duffy",
     alternateName: "Dr. Janet Duffy",
     telephone: "+1-702-500-1064",
-    email: "sales@delwebbnorthranchhomes.com",
+    email: "Sales@DelWebbNorthRanchHomes.com",
     url: "https://www.delwebbnorthranchhomes.com",
     image: "https://www.delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg",
     address: {
