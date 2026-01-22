@@ -10,6 +10,7 @@ import { floorPlans } from "@/lib/floor-plans";
 import VirtualTours from "@/../components/VirtualTours";
 import MortgageCalculator from "@/../components/MortgageCalculator";
 import ScheduleTour from "@/../components/ScheduleTour";
+import RealScoutListings from "@/../components/RealScoutListings";
 
 export const metadata: Metadata = {
   title: "Floor Plans | Del Webb North Ranch | 9 Single-Story Designs | North Las Vegas",
@@ -296,6 +297,9 @@ export default function FloorPlansPage() {
 
         {/* Mortgage Calculator Section */}
         <MortgageCalculator />
+
+        {/* RealScout Listings - Lead Generator */}
+        <RealScoutListings h2Text="View Available Homes with These Floor Plans in Del Webb North Ranch" />
 
         {/* CTA Section */}
         <section className="py-12 md:py-16 bg-primary text-white">

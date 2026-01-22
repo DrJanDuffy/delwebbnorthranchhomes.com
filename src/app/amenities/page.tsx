@@ -6,6 +6,7 @@ import { Button } from "@/../components/ui/button";
 import Link from "next/link";
 import ScrollAnimation from "@/../components/scroll-animation";
 import { oldSiteData } from "@/lib/old-site-data";
+import RealScoutListings from "@/../components/RealScoutListings";
 import {
   Activity,
   Users,
@@ -267,6 +268,9 @@ export default function AmenitiesPage() {
             </div>
           </div>
         </section>
+
+        {/* RealScout Listings - Lead Generator */}
+        <RealScoutListings h2Text="View Available Homes in Del Webb North Ranch with These Amazing Amenities" />
 
         {/* CTA Section */}
         <section className="py-12 md:py-16 bg-primary text-white">
