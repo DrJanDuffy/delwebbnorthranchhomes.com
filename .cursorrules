@@ -1,0 +1,28 @@
+# Accessibility & Color Contrast Rules
+
+## Color Contrast (WCAG AA Compliance)
+- **NEVER use `text-accent` (#c9a227 gold) on light backgrounds** - Use `text-primary` (#1e3a5f navy) instead for sufficient contrast (4.5:1 minimum)
+- **NEVER use `bg-accent` or `bg-amber-500` for buttons with white text** - Use `bg-primary` instead for better contrast
+- **For buttons:** Always use `bg-primary text-white` or `bg-amber-700` (or darker) with white text
+- **For decorative icons:** Use `text-primary` instead of `text-accent` or `text-amber-500` on light backgrounds
+- **Hover states:** Use `hover:text-primary/80` instead of `hover:text-accent` for better contrast
+
+## Touch Target Sizes (WCAG AA Compliance)
+- **All interactive elements must be minimum 44x44px**
+- Add `min-h-[44px] min-w-[44px]` to all buttons and clickable links
+- Testimonial navigation dots should be `h-11 w-11` (44px) with inner indicator dots
+- Button component already includes `min-h-[44px] min-w-[44px]` - ensure custom buttons also include this
+
+## ARIA Attributes
+- Use string values for `aria-expanded`: `aria-expanded={isOpen ? 'true' : 'false'}` or `aria-expanded={String(isOpen)}`
+- Always include proper ARIA labels for interactive elements
+
+## Color Usage Guidelines
+- **Primary color (#1e3a5f navy):** Use for text on light backgrounds, button backgrounds, links
+- **Accent color (#c9a227 gold):** Only use for decorative elements on dark backgrounds, or as hover states on dark text
+- **Amber colors:** Use `amber-700` or darker for buttons with white text, avoid `amber-500`/`amber-600` for accessibility
+
+## Testing
+- Always test color contrast ratios (4.5:1 for normal text, 3:1 for large text)
+- Verify touch target sizes meet 44x44px minimum
+- Use browser accessibility tools to verify WCAG AA compliance
