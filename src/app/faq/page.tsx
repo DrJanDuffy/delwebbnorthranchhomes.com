@@ -91,7 +91,7 @@ const faqSchema = {
       name: 'Can I customize my home?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'For new construction, there are often options for finishes and upgrades. Resale homes come as-is. Dr. Jan Duffy can help you understand what's available and guide you through the process.',
+        text: "For new construction, there are often options for finishes and upgrades. Resale homes come as-is. Dr. Jan Duffy can help you understand what's available and guide you through the process.",
       },
     },
     {
@@ -99,7 +99,7 @@ const faqSchema = {
       name: 'Where is Del Webb North Ranch located?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'The community is located at 2290 Beauty Vista Avenue in North Las Vegas, Nevada 89086. It's in a prime location with easy access to shopping, dining, healthcare, and entertainment.',
+        text: "The community is located at 2290 Beauty Vista Avenue in North Las Vegas, Nevada 89086. It's in a prime location with easy access to shopping, dining, healthcare, and entertainment.",
       },
     },
     {
