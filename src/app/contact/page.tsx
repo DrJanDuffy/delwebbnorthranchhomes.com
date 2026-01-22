@@ -6,6 +6,7 @@ import ContactForm from "@/../components/contact-form";
 import ScrollAnimation from "@/../components/scroll-animation";
 import { Phone, Mail, MapPin, Calendar, Youtube, FileText, ExternalLink } from "lucide-react";
 import { oldSiteData } from "@/lib/fetchOldSiteData";
+import ScheduleTour from "@/../components/ScheduleTour";
 
 export const metadata: Metadata = {
   title: "Contact Dr. Jan Duffy | Del Webb North Ranch REALTOR® | North Las Vegas",
@@ -218,15 +219,7 @@ export default function ContactPage() {
                   <Phone className="w-5 h-5" />
                   Call (702) 500-1064
                 </a>
-                <a
-                  href={oldSiteData.integrations.calendly}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-white rounded-md font-semibold hover:bg-accent/90 transition-colors"
-                >
-                  <Calendar className="w-5 h-5" />
-                  Schedule Online
-                </a>
+                <ScheduleTour variant="accent" size="lg" />
               </div>
               
               {/* Additional Resources */}
