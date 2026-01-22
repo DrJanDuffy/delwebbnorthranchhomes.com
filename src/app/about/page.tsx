@@ -7,6 +7,7 @@ import Link from "next/link";
 import ScrollAnimation from "@/../components/scroll-animation";
 import { Phone, Mail, MapPin, Award, Users, Home } from "lucide-react";
 import { getAllTestimonials } from "@/lib/old-site-data";
+import { getCommunityInfo } from "@/lib/communityData";
 import { Quote } from "lucide-react";
 import ScheduleTour from "@/../components/ScheduleTour";
 import RealScoutListings from "@/../components/RealScoutListings";
@@ -171,8 +172,30 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Bio Section */}
+        {/* Community History Section */}
         <section className="py-12 md:py-16 lg:py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center font-playfair">
+                About Del Webb North Ranch
+              </h2>
+              <div className="prose prose-lg max-w-none space-y-4 text-text-dark">
+                <p>
+                  Del Webb North Ranch is a premier 55+ active adult gated community developed by Del Webb (Pulte Homes) in North Las Vegas, Nevada.
+                </p>
+                <p>
+                  Construction began in 2020, with the first homeowners moving in that same year. The community was completed in 2024, with all 394 single-story homes now built on approximately 80 acres. The 10,000 sq ft clubhouse amenity center opened on October 16, 2021, and has been serving residents ever since.
+                </p>
+                <p>
+                  The community features three collections: Cottage Series (132 homes, 1,285-1,509 sq ft), Classic Series (132 homes, 1,451-1,770 sq ft), and Retreat Series (130 homes, 1,716-2,015 sq ft). All homes are gated with virtual concierge and roving security, ensuring a safe and secure environment for residents.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Bio Section */}
+        <section className="py-12 md:py-16 lg:py-20 bg-bg-light">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center font-playfair">

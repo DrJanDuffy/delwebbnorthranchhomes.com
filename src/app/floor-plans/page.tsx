@@ -7,6 +7,7 @@ import Link from "next/link";
 import ScrollAnimation from "@/../components/scroll-animation";
 import { Home, Maximize2, Car, Users } from "lucide-react";
 import { floorPlans } from "@/lib/floor-plans";
+import { getHomesitesByCollection } from "@/lib/communityData";
 import VirtualTours from "@/../components/VirtualTours";
 import MortgageCalculator from "@/../components/MortgageCalculator";
 import ScheduleTour from "@/../components/ScheduleTour";
@@ -235,7 +236,7 @@ export default function FloorPlansPage() {
                 Cottage Series
               </h2>
               <p className="text-center text-text-dark max-w-2xl mx-auto">
-                1,285 - 1,509 sq ft | Efficient, comfortable, easy to maintain
+                {getHomesitesByCollection().cottage.count} homes | {getHomesitesByCollection().cottage.sqftRange} sq ft | Efficient, comfortable, easy to maintain
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -254,7 +255,7 @@ export default function FloorPlansPage() {
                 Classic Series
               </h2>
               <p className="text-center text-text-dark max-w-2xl mx-auto">
-                1,451 - 1,770 sq ft | Room to spread out with optional dens
+                {getHomesitesByCollection().classic.count} homes | {getHomesitesByCollection().classic.sqftRange} sq ft | Room to spread out with optional dens
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -277,7 +278,7 @@ export default function FloorPlansPage() {
                 Retreat Series
               </h2>
               <p className="text-center text-text-dark max-w-2xl mx-auto">
-                1,716 - 2,015 sq ft | Spacious living for entertaining
+                {getHomesitesByCollection().retreat.count} homes | {getHomesitesByCollection().retreat.sqftRange} sq ft | Spacious living for entertaining
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">

@@ -30,14 +30,10 @@ export default function SolutionSection() {
                 </h2>
                 <div className="prose prose-lg max-w-none space-y-4 md:space-y-6">
                   <p className="text-base sm:text-lg md:text-xl text-text-dark leading-relaxed px-2">
-                    Del Webb North Ranch is a gated 55+ community built for people
-                    who want to live, not just exist.
+                    Del Webb North Ranch is a gated 55+ community with 394 single-story homes on 80 acres, built for people who want to live, not just exist.
                   </p>
                   <p className="text-base sm:text-lg md:text-xl text-text-dark leading-relaxed px-2">
-                    Every home is single-story. No stairs to worry about now or
-                    later. The landscaping is handled. The neighbors are your age and
-                    actually want to meet you. And Nevada has no state income
-                    tax—so more of your money stays yours.
+                    Every home is single-story. No stairs to worry about now or later. The landscaping is handled. The 10,000 sq ft clubhouse is fully built and ready. Gated with 24/7 security. The neighbors are your age and actually want to meet you. And Nevada has no state income tax—so more of your money stays yours.
                   </p>
                   <p className="text-base sm:text-lg md:text-xl text-text-dark leading-relaxed font-semibold px-2">
                     This isn't a place to slow down. It's a place to finally do

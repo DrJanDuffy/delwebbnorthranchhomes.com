@@ -7,6 +7,7 @@ import Link from "next/link";
 import ScrollAnimation from "@/../components/scroll-animation";
 import ScheduleTour from "@/../components/ScheduleTour";
 import RealScoutListings from "@/../components/RealScoutListings";
+import { getDistances } from "@/lib/communityData";
 import {
   Users,
   Calendar,
@@ -244,8 +245,36 @@ export default function LifestylePage() {
           </div>
         </section>
 
-        {/* Social Connections */}
+        {/* Nearby Attractions & Distances */}
         <section className="py-12 md:py-16 bg-bg-light">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 font-playfair">
+                  Conveniently Located
+                </h2>
+                <p className="text-lg text-text-dark">
+                  Del Webb North Ranch is perfectly positioned near everything you need and want.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {Object.entries(getDistances()).map(([key, distance]) => (
+                  <div key={key} className="bg-white p-6 rounded-lg shadow-two">
+                    <h3 className="font-semibold text-primary mb-2">
+                      {distance.description}
+                    </h3>
+                    <p className="text-2xl font-bold text-accent">
+                      {distance.miles} miles
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Social Connections */}
+        <section className="py-12 md:py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8">
@@ -259,7 +288,7 @@ export default function LifestylePage() {
                 </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white p-6 rounded-lg shadow-two">
+                <div className="bg-bg-light p-6 rounded-lg shadow-two">
                   <h3 className="font-semibold text-primary mb-3">
                     Shared Experiences
                   </h3>
@@ -268,7 +297,7 @@ export default function LifestylePage() {
                     understanding.
                   </p>
                 </div>
-                <div className="bg-white p-6 rounded-lg shadow-two">
+                <div className="bg-bg-light p-6 rounded-lg shadow-two">
                   <h3 className="font-semibold text-primary mb-3">
                     Active Lifestyles
                   </h3>
@@ -276,7 +305,7 @@ export default function LifestylePage() {
                     Neighbors who want to stay active, social, and engaged.
                   </p>
                 </div>
-                <div className="bg-white p-6 rounded-lg shadow-two">
+                <div className="bg-bg-light p-6 rounded-lg shadow-two">
                   <h3 className="font-semibold text-primary mb-3">
                     No Generational Gap
                   </h3>
@@ -284,7 +313,7 @@ export default function LifestylePage() {
                     Everyone understands your priorities and lifestyle choices.
                   </p>
                 </div>
-                <div className="bg-white p-6 rounded-lg shadow-two">
+                <div className="bg-bg-light p-6 rounded-lg shadow-two">
                   <h3 className="font-semibold text-primary mb-3">
                     Easy Friendships
                   </h3>

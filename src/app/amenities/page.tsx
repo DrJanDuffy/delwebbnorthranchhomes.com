@@ -6,6 +6,7 @@ import { Button } from "@/../components/ui/button";
 import Link from "next/link";
 import ScrollAnimation from "@/../components/scroll-animation";
 import { oldSiteData } from "@/lib/old-site-data";
+import { getAmenities, getCommunityInfo } from "@/lib/communityData";
 import RealScoutListings from "@/../components/RealScoutListings";
 import {
   Activity,
@@ -257,10 +258,10 @@ export default function AmenitiesPage() {
               </h2>
               <div className="bg-bg-light rounded-lg shadow-two p-6 md:p-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {oldSiteData.amenities.communityFeatures.map((feature, index) => (
-                    <div key={feature} className="flex items-start gap-3">
+                  {getAmenities().map((amenity, index) => (
+                    <div key={amenity} className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
-                      <span className="text-text-dark">{feature}</span>
+                      <span className="text-text-dark">{amenity}</span>
                     </div>
                   ))}
                 </div>
