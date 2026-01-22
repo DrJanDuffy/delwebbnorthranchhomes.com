@@ -8,6 +8,7 @@ import ScrollAnimation from "@/../components/scroll-animation";
 import { Home, Maximize2, Car, Users } from "lucide-react";
 import { floorPlans } from "@/lib/floor-plans";
 import VirtualTours from "@/../components/VirtualTours";
+import MortgageCalculator from "@/../components/MortgageCalculator";
 
 export const metadata: Metadata = {
   title: "Floor Plans | Del Webb North Ranch | 9 Single-Story Designs | North Las Vegas",
@@ -293,6 +294,9 @@ export default function FloorPlansPage() {
 
         {/* Virtual Tours Section */}
         <VirtualTours />
+
+        {/* Mortgage Calculator Section */}
+        <MortgageCalculator />
 
         {/* CTA Section */}
         <section className="py-12 md:py-16 bg-primary text-white">

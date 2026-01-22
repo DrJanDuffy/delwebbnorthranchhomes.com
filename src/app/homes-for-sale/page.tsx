@@ -6,6 +6,7 @@ import { Button } from "@/../components/ui/button";
 import Link from "next/link";
 import { getDelWebbListings } from "@/lib/listings";
 import ListingsPageClient from "@/components/listings-page-client";
+import MortgageCalculator from "@/../components/MortgageCalculator";
 // import HomesForSaleWidget from "@/../components/HomesForSaleWidget";
 
 export const metadata: Metadata = {
@@ -111,6 +112,9 @@ export default async function HomesForSalePage() {
             </div>
           </div>
         </section>
+
+        {/* Mortgage Calculator Section */}
+        <MortgageCalculator />
 
         {/* Quick Info Section */}
         <section className="py-12 md:py-16 bg-bg-light">
