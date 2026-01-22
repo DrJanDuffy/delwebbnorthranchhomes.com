@@ -99,7 +99,7 @@ export default function HomeCollectionsSection() {
         </div>
 
         <div className="text-center">
-          <Button asChild variant="default" size="lg" className="w-full sm:w-auto">
+          <Button asChild variant="default" size="lg" className="w-full sm:w-auto min-h-[44px] min-w-[44px]">
             <Link href="/floor-plans">Explore Floor Plans</Link>
           </Button>
         </div>

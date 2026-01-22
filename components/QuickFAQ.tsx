@@ -96,7 +96,7 @@ export default function QuickFAQ() {
           <div className="text-center">
             <Link
               href="/faq"
-              className="inline-flex items-center gap-2 px-6 py-3 min-h-[44px] bg-amber-600 hover:bg-amber-700 text-white font-semibold rounded-md transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 min-h-[44px] min-w-[44px] bg-amber-700 hover:bg-amber-800 text-white font-semibold rounded-md transition-colors"
             >
               View All FAQs
               <ArrowRight className="w-5 h-5" />

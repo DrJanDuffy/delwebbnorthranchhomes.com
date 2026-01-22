@@ -171,7 +171,7 @@ export default function MortgageCalculator() {
             {includeTaxes && (
               <div className="mb-6">
                 <label htmlFor="property-tax-rate" className="block text-sm font-semibold text-primary mb-2">
-                  Property Tax Rate: <span className="text-accent">{propertyTaxRate}%</span>
+                  Property Tax Rate: <span className="text-primary font-bold">{propertyTaxRate}%</span>
                 </label>
                 <input
                   id="property-tax-rate"
