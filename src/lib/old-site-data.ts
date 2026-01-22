@@ -277,7 +277,7 @@ export const oldSiteData = {
       'https://cribflyer-pdf.s3.us-west-1.amazonaws.com/59709/documents/67627.pdf',
   },
 
-  // Community details
+  // Community details (use communityData.ts for comprehensive data)
   communityInfo: {
     name: 'Del Webb North Ranch',
     builder: 'Pulte Homes',
