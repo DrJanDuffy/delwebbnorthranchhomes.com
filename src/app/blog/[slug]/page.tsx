@@ -221,10 +221,40 @@ export default function BlogPostPage({
       ? blogPosts[postKeys[currentIndex + 1]]
       : null;
 
+  // Breadcrumb schema for SEO
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://www.delwebbnorthranchhomes.com',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Blog',
+        item: 'https://www.delwebbnorthranchhomes.com/blog',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: post.title,
+        item: `https://www.delwebbnorthranchhomes.com/blog/${params.slug}`,
+      },
+    ],
+  };
+
   return (
     <>
       <Navbar />
       <main className="pt-16 md:pt-20">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c") }}
+        />
         {/* Hero Section */}
         <section className="bg-primary text-white py-12 md:py-16">
           <div className="container mx-auto px-4">

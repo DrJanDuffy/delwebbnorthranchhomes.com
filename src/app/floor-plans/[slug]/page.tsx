@@ -142,7 +142,41 @@ function ProductSchema({ plan }: { plan: FloorPlan }) {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema).replace(/</g, "\\u003c") }}
+    />
+  );
+}
+
+function BreadcrumbSchema({ plan }: { plan: FloorPlan }) {
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://www.delwebbnorthranchhomes.com',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Floor Plans',
+        item: 'https://www.delwebbnorthranchhomes.com/floor-plans',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: plan.name,
+        item: `https://www.delwebbnorthranchhomes.com/floor-plans/${plan.slug}`,
+      },
+    ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c") }}
     />
   );
 }
@@ -167,6 +201,7 @@ export default async function FloorPlanPage({
       <Navbar />
       <main className="pt-16 md:pt-20">
         <ProductSchema plan={plan} />
+        <BreadcrumbSchema plan={plan} />
         {/* Hero Section */}
         <section className="bg-primary text-white py-12 md:py-16 lg:py-20">
           <div className="container mx-auto px-4">
