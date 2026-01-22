@@ -81,15 +81,15 @@ export default function CalendlyInline({
   }, [url]);
 
   return (
-    <div className={className}>
+    <div className={`${className} w-full`} style={{ minHeight: height }}>
       {/* Calendly inline widget - exact match to official HTML */}
       {/* Official: <div class="calendly-inline-widget" data-url="..." style="min-width:320px;height:700px;"></div> */}
       {/* eslint-disable-next-line react/forbid-dom-props */}
       <div
         ref={widgetRef}
-        className="calendly-inline-widget"
+        className="calendly-inline-widget w-full"
         data-url={url}
-        style={{ minWidth: '320px', height }}
+        style={{ minWidth: '320px', height, width: '100%' }}
       />
     </div>
   );

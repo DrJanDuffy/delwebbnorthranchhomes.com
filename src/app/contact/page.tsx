@@ -69,17 +69,17 @@ export default function ContactPage() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
                 {/* Calendly Scheduling */}
                 <ScrollAnimation>
-                  <div>
+                  <div className="w-full">
                     <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 font-playfair">
                       Schedule a Consultation
                     </h2>
                     <p className="text-text-dark mb-6">
                       Book a 15-minute consultation with Dr. Jan Duffy to discuss your home search and tour Del Webb North Ranch.
                     </p>
-                    <div className="bg-white rounded-lg shadow-lg p-4 md:p-6">
+                    <div className="bg-white rounded-lg shadow-lg p-4 md:p-6 w-full">
                       <CalendlyInline 
                         url="https://calendly.com/drjanduffy/15min"
-                        height="700px"
+                        height="900px"
                       />
                     </div>
                   </div>
