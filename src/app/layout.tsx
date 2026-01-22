@@ -193,6 +193,29 @@ export default function RootLayout({
     },
   };
 
+  // Place Schema for Local SEO (Community Location)
+  const placeSchema = {
+    "@context": "https://schema.org",
+    "@type": "Place",
+    name: "Del Webb North Ranch",
+    description: "55+ Active Adult Gated Community in North Las Vegas",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "2290 Beauty Vista Avenue",
+      addressLocality: "North Las Vegas",
+      addressRegion: "NV",
+      postalCode: "89086",
+      addressCountry: "US",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "36.2856",
+      longitude: "-115.0939",
+    },
+    url: "https://www.delwebbnorthranchhomes.com",
+    image: "https://www.delwebbnorthranchhomes.com/images/hero/hero-bg.jpg",
+  };
+
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <head>
@@ -218,6 +241,13 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(websiteSchema).replace(/</g, "\\u003c"),
+          }}
+        />
+        {/* Structured Data - Place (Local SEO) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(placeSchema).replace(/</g, "\\u003c"),
           }}
         />
       </head>

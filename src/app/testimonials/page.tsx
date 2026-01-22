@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Testimonials | Del Webb North Ranch',
     description: 'Client reviews about Del Webb North Ranch homes.',
-    images: ['https://delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg'],
+    images: ['https://www.delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg'],
   },
 };
 

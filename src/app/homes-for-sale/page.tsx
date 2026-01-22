@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Del Webb North Ranch Homes for Sale | North Las Vegas",
     description: "Browse current homes for sale in Del Webb North Ranch 55+ community. Resale homes from $400K-$600K.",
-    images: ["https://delwebbnorthranchhomes.com/images/hero/hero-bg.jpg"],
+    images: ["https://www.delwebbnorthranchhomes.com/images/hero/hero-bg.jpg"],
   },
 };
 

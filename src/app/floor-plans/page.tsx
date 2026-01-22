@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Floor Plans | Del Webb North Ranch",
     description: "Explore 9 single-story floor plans in North Las Vegas's premier 55+ community.",
-    images: ["https://delwebbnorthranchhomes.com/images/floor-plans/haven.avif"],
+    images: ["https://www.delwebbnorthranchhomes.com/images/floor-plans/haven.avif"],
   },
 };
 
@@ -159,7 +159,7 @@ export default function FloorPlansPage() {
           description: `${plan.description} ${plan.series} Series home with ${plan.sqft} sq ft, ${plan.beds} bedrooms, ${plan.baths} baths.`,
           category: 'Real Estate',
           image: plan.imageUrl
-            ? `https://delwebbnorthranchhomes.com${plan.imageUrl}`
+            ? `https://www.delwebbnorthranchhomes.com${plan.imageUrl}`
             : undefined,
           brand: {
             '@type': 'Brand',

@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "About Dr. Jan Duffy | Del Webb North Ranch",
     description: "Your trusted REALTOR® specializing in Del Webb North Ranch 55+ community.",
-    images: ["https://delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg"],
+    images: ["https://www.delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg"],
   },
 };
 

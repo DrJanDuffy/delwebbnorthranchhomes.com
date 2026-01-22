@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Contact Dr. Jan Duffy | Del Webb North Ranch",
     description: "Schedule a tour of Del Webb North Ranch 55+ community in North Las Vegas.",
-    images: ["https://delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg"],
+    images: ["https://www.delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg"],
   },
 };
 

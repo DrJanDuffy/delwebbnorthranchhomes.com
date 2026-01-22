@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Amenities | Del Webb North Ranch",
     description: "Resort-style amenities in North Las Vegas's premier 55+ community.",
-    images: ["https://delwebbnorthranchhomes.com/images/amenities/resort-pool.jpeg"],
+    images: ["https://www.delwebbnorthranchhomes.com/images/amenities/resort-pool.jpeg"],
   },
 };
 

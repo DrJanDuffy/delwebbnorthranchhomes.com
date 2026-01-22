@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Lifestyle | Del Webb North Ranch",
     description: "Vibrant community life in North Las Vegas's premier 55+ community.",
-    images: ["https://delwebbnorthranchhomes.com/images/amenities/event-lawn-club.jpeg"],
+    images: ["https://www.delwebbnorthranchhomes.com/images/amenities/event-lawn-club.jpeg"],
   },
 };
 
