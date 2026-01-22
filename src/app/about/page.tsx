@@ -9,6 +9,7 @@ import { Phone, Mail, MapPin, Award, Users, Home } from "lucide-react";
 import { getAllTestimonials } from "@/lib/old-site-data";
 import { Quote } from "lucide-react";
 import ScheduleTour from "@/../components/ScheduleTour";
+import RealScoutListings from "@/../components/RealScoutListings";
 
 export const metadata: Metadata = {
   title: "About Dr. Jan Duffy | Del Webb North Ranch REALTOR® | North Las Vegas",
@@ -307,6 +308,9 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+
+        {/* RealScout Listings - Lead Generator */}
+        <RealScoutListings h2Text="View Available Homes in Del Webb North Ranch | Work With Dr. Jan Duffy" />
 
         {/* CTA Section */}
         <section className="py-12 md:py-16 bg-primary text-white">

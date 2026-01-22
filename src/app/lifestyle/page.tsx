@@ -6,6 +6,7 @@ import { Button } from "@/../components/ui/button";
 import Link from "next/link";
 import ScrollAnimation from "@/../components/scroll-animation";
 import ScheduleTour from "@/../components/ScheduleTour";
+import RealScoutListings from "@/../components/RealScoutListings";
 import {
   Users,
   Calendar,
@@ -296,6 +297,9 @@ export default function LifestylePage() {
             </div>
           </div>
         </section>
+
+        {/* RealScout Listings - Lead Generator */}
+        <RealScoutListings h2Text="View Available Homes in Del Webb North Ranch to Experience This Lifestyle" />
 
         {/* CTA Section */}
         <section className="py-12 md:py-16 bg-primary text-white">
