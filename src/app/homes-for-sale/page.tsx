@@ -11,16 +11,16 @@ import RealScoutListings from "@/../components/RealScoutListings";
 // import HomesForSaleWidget from "@/../components/HomesForSaleWidget";
 
 export const metadata: Metadata = {
-  title: "Homes for Sale | Del Webb North Ranch | North Las Vegas",
+  title: "Del Webb North Ranch Homes for Sale | North Las Vegas 55+ Community",
   description:
-    "Browse available homes for sale in Del Webb North Ranch, a premier 55+ community in North Las Vegas. Single-story homes from $400K-$600K. Contact Dr. Jan Duffy to schedule a tour.",
+    "Browse current homes for sale in Del Webb North Ranch, a 55+ active adult community in North Las Vegas. Resale homes from $400K-$600K.",
   alternates: {
     canonical: "https://delwebbnorthranchhomes.com/homes-for-sale",
   },
   openGraph: {
-    title: "Homes for Sale | Del Webb North Ranch | North Las Vegas",
+    title: "Del Webb North Ranch Homes for Sale | North Las Vegas 55+ Community",
     description:
-      "Browse available single-story homes in Del Webb North Ranch 55+ community. Homes from $400K-$600K.",
+      "Browse current homes for sale in Del Webb North Ranch, a 55+ active adult community in North Las Vegas. Resale homes from $400K-$600K.",
     url: "https://delwebbnorthranchhomes.com/homes-for-sale",
     siteName: "Del Webb North Ranch Homes",
     locale: "en_US",
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Homes for Sale | Del Webb North Ranch",
-    description: "Browse available homes in North Las Vegas premier 55+ community.",
+    title: "Del Webb North Ranch Homes for Sale | North Las Vegas",
+    description: "Browse current homes for sale in Del Webb North Ranch 55+ community. Resale homes from $400K-$600K.",
     images: ["https://delwebbnorthranchhomes.com/images/hero/hero-bg.jpg"],
   },
 };
@@ -57,9 +57,7 @@ export default async function HomesForSalePage() {
                 Homes for Sale in Del Webb North Ranch
               </h1>
               <p className="text-lg md:text-xl text-gray-100 leading-relaxed mb-6">
-                Discover available single-story homes in North Las Vegas's premier
-                55+ community. All homes feature 2-3 bedrooms, 2-2.5 baths, and
-                2-car garages.
+                Browse current listings updated daily from the MLS
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Button
@@ -85,29 +83,121 @@ export default async function HomesForSalePage() {
         {/* RealScout Listings - Main Lead Generator - Prominently placed after hero */}
         <RealScoutListings h2Text="View Current Homes for Sale in Del Webb North Ranch | North Las Vegas 55+ Community" />
 
-        {/* Listings Grid Section */}
-        <section id="listings" className="py-12 md:py-16 lg:py-20 bg-white">
+        {/* CTA Cards Section */}
+        <section className="py-12 md:py-16 bg-stone-50">
           <div className="container mx-auto px-4">
-            <div className="max-w-7xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center font-playfair">
-                Browse Available Homes
+            <div className="max-w-4xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <a
+                  href="https://drjanduffy.realscout.com/onboarding"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white rounded-lg shadow-lg p-8 text-center hover:shadow-xl transition-shadow group"
+                >
+                  <h3 className="text-2xl font-bold text-primary mb-4 font-playfair group-hover:text-accent transition-colors">
+                    Search All Homes
+                  </h3>
+                  <p className="text-text-dark mb-6">
+                    Access the complete MLS database and search all available homes in Del Webb North Ranch.
+                  </p>
+                  <Button variant="accent" size="lg" className="w-full">
+                    Start Your Search
+                  </Button>
+                </a>
+                <a
+                  href="https://drjanduffy.realscout.com/onboarding"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white rounded-lg shadow-lg p-8 text-center hover:shadow-xl transition-shadow group"
+                >
+                  <h3 className="text-2xl font-bold text-primary mb-4 font-playfair group-hover:text-accent transition-colors">
+                    Get New Listing Alerts
+                  </h3>
+                  <p className="text-text-dark mb-6">
+                    Be the first to know when new homes hit the market. Set up custom alerts for your perfect home.
+                  </p>
+                  <Button variant="accent" size="lg" className="w-full">
+                    Set Up Alerts
+                  </Button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Why Work With Dr. Jan Duffy Section */}
+        <section className="py-12 md:py-16 lg:py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center font-playfair">
+                Why Work With Dr. Jan Duffy
               </h2>
-              <p className="text-center text-text-dark mb-8 max-w-2xl mx-auto">
-                Explore available homes in Del Webb North Ranch. All listings are
-                updated in real-time.
-              </p>
-
-              <ListingsPageClient initialListings={listings} />
-
-              {/* Alternative CTA */}
-              <div className="mt-12 text-center">
-                <p className="text-text-dark mb-4">
-                  Don't see what you're looking for? Prefer to speak with someone
-                  directly?
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <div className="bg-stone-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-bold text-primary mb-3 font-playfair">
+                    Local Expertise
+                  </h3>
+                  <p className="text-text-dark">
+                    Deep knowledge of Del Webb North Ranch and the North Las Vegas real estate market.
+                  </p>
+                </div>
+                <div className="bg-stone-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-bold text-primary mb-3 font-playfair">
+                    Personalized Service
+                  </h3>
+                  <p className="text-text-dark">
+                    Dedicated to understanding your unique needs and finding your perfect 55+ home.
+                  </p>
+                </div>
+                <div className="bg-stone-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-bold text-primary mb-3 font-playfair">
+                    Proven Results
+                  </h3>
+                  <p className="text-text-dark">
+                    Successfully helping active adults find their dream homes in Del Webb North Ranch.
+                  </p>
+                </div>
+                <div className="bg-stone-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-bold text-primary mb-3 font-playfair">
+                    Full-Service Support
+                  </h3>
+                  <p className="text-text-dark">
+                    From initial search through closing, we guide you every step of the way.
+                  </p>
+                </div>
+                <div className="bg-stone-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-bold text-primary mb-3 font-playfair">
+                    Market Insights
+                  </h3>
+                  <p className="text-text-dark">
+                    Access to current market trends, pricing data, and neighborhood information.
+                  </p>
+                </div>
+                <div className="bg-stone-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-bold text-primary mb-3 font-playfair">
+                    Responsive Communication
+                  </h3>
+                  <p className="text-text-dark">
+                    Quick responses to your questions and regular updates on your home search.
+                  </p>
+                </div>
+              </div>
+              <div className="text-center bg-amber-50 p-8 rounded-lg border-2 border-amber-200">
+                <p className="text-lg font-semibold text-primary mb-4">
+                  Ready to find your perfect home?
                 </p>
-                <Button asChild variant="outline" size="lg">
-                  <Link href="/contact">Contact Dr. Jan Duffy</Link>
-                </Button>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <a
+                    href="tel:7025001064"
+                    className="flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-md font-semibold hover:bg-primary/90 transition-colors"
+                  >
+                    <Phone className="w-5 h-5" />
+                    Call (702) 500-1064
+                  </a>
+                  <Button asChild variant="accent" size="lg">
+                    <Link href="/contact">Schedule a Tour</Link>
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
