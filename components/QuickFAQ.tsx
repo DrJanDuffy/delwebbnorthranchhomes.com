@@ -1,5 +1,5 @@
 'use client';
-// Quick FAQ Component for Homepage - Shows 3-4 most common questions
+// Quick FAQ Component for Homepage - Shows 4 most common questions
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -7,13 +7,28 @@ import { ChevronDown, ChevronUp, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { faqData } from '@/lib/faqData';
 
-// Get most common questions (first question from first 4 categories)
+// Get the 4 specific most common questions
 const getCommonQuestions = () => {
-  return faqData.slice(0, 4).map((category) => ({
-    category: category.category,
-    question: category.questions[0].question,
-    answer: category.questions[0].answer,
-  }));
+  const questions = [
+    // 1. "What are the age requirements?"
+    faqData
+      .find((cat) => cat.category === 'Age Requirements & Residency')
+      ?.questions.find((q) => q.question.toLowerCase().includes('age requirements')),
+    // 2. "What are the monthly HOA fees?"
+    faqData
+      .find((cat) => cat.category === 'HOA & Fees')
+      ?.questions.find((q) => q.question.toLowerCase().includes('hoa fees')),
+    // 3. "Are pets allowed?"
+    faqData
+      .find((cat) => cat.category === 'Pets & Lifestyle')
+      ?.questions.find((q) => q.question.toLowerCase().includes('pets allowed')),
+    // 4. "Is Del Webb North Ranch gated?"
+    faqData
+      .find((cat) => cat.category === 'About the Community')
+      ?.questions.find((q) => q.question.toLowerCase().includes('gated')),
+  ].filter(Boolean) as Array<{ question: string; answer: string }>; // Remove any undefined values
+
+  return questions;
 };
 
 export default function QuickFAQ() {
@@ -25,15 +40,15 @@ export default function QuickFAQ() {
   };
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-stone-50">
+    <section className="py-12 md:py-16 bg-stone-50">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-4 font-playfair">
-              Frequently Asked Questions
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-2 font-playfair">
+              Common Questions
             </h2>
-            <p className="text-lg text-text-dark">
-              Quick answers to the most common questions about Del Webb North Ranch
+            <p className="text-base md:text-lg text-text-dark">
+              Quick answers about Del Webb North Ranch
             </p>
           </div>
 
@@ -49,16 +64,16 @@ export default function QuickFAQ() {
                   <button
                     onClick={() => toggleQuestion(index)}
                     className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-stone-50 transition-colors"
-                    aria-expanded={isOpen ? 'true' : 'false'}
+                    aria-expanded={isOpen}
                   >
                     <span className="font-semibold text-text-dark pr-4 flex-1">
                       {faq.question}
                     </span>
                     <div className="flex-shrink-0">
                       {isOpen ? (
-                        <ChevronUp className="w-5 h-5 text-primary" />
+                        <ChevronUp className="w-5 h-5 text-amber-500" />
                       ) : (
-                        <ChevronDown className="w-5 h-5 text-primary" />
+                        <ChevronDown className="w-5 h-5 text-amber-500" />
                       )}
                     </div>
                   </button>
