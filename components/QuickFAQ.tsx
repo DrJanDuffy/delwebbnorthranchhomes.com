@@ -55,6 +55,7 @@ export default function QuickFAQ() {
           <div className="space-y-4 mb-8">
             {commonQuestions.map((faq, index) => {
               const isOpen = openIndex === index;
+              const ariaExpanded = isOpen ? 'true' : 'false';
 
               return (
                 <div
@@ -64,7 +65,7 @@ export default function QuickFAQ() {
                   <button
                     onClick={() => toggleQuestion(index)}
                     className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-stone-50 transition-colors"
-                    aria-expanded={String(isOpen)}
+                    aria-expanded={ariaExpanded}
                   >
                     <span className="font-semibold text-text-dark pr-4 flex-1">
                       {faq.question}
