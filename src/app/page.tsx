@@ -9,6 +9,10 @@ import HomeCollectionsSection from "../../components/sections/home-collections";
 import AboutAgentSection from "../../components/sections/about-agent";
 import FinalCTASection from "../../components/sections/final-cta";
 import Footer from "../../components/footer";
+import VirtualTours from "../../components/VirtualTours";
+import HomesForSaleWidget from "../../components/HomesForSaleWidget";
+import Testimonials from "../../components/Testimonials";
+import MortgageCalculator from "../../components/MortgageCalculator";
 
 export default function Home() {
   return (
@@ -22,6 +26,10 @@ export default function Home() {
         <TestimonialSection />
         <AmenitiesPreviewSection />
         <HomeCollectionsSection />
+        <VirtualTours />
+        <HomesForSaleWidget />
+        <Testimonials />
+        <MortgageCalculator />
         <AboutAgentSection />
         <FinalCTASection />
       </main>
