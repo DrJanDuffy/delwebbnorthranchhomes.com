@@ -25,19 +25,19 @@ export const metadata: Metadata = {
   description:
     "Discover resort-style amenities at Del Webb North Ranch, a premier 55+ community in North Las Vegas. Pool, fitness center, pickleball courts, clubhouse, walking trails, and more.",
   alternates: {
-    canonical: "https://delwebbnorthranchhomes.com/amenities",
+    canonical: "https://www.delwebbnorthranchhomes.com/amenities",
   },
   openGraph: {
     title: "Amenities | Del Webb North Ranch | North Las Vegas",
     description:
       "Resort-style amenities including pool, fitness center, pickleball courts, and clubhouse in Del Webb North Ranch 55+ community.",
-    url: "https://delwebbnorthranchhomes.com/amenities",
+    url: "https://www.delwebbnorthranchhomes.com/amenities",
     siteName: "Del Webb North Ranch Homes",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://delwebbnorthranchhomes.com/images/amenities/resort-pool.jpeg",
+        url: "https://www.delwebbnorthranchhomes.com/images/amenities/resort-pool.jpeg",
         width: 1200,
         height: 630,
         alt: "Del Webb North Ranch resort-style amenities",

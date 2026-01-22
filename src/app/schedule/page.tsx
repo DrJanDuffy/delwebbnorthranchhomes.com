@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   description:
     'Schedule a private tour of Del Webb North Ranch with Dr. Jan Duffy. Walk the community, explore amenities, and see available homes. Book your appointment online.',
   alternates: {
-    canonical: 'https://delwebbnorthranchhomes.com/schedule',
+    canonical: 'https://www.delwebbnorthranchhomes.com/schedule',
   },
   openGraph: {
     title: 'Schedule a Tour | Del Webb North Ranch',
     description:
       'Book a private tour of Del Webb North Ranch 55+ community in North Las Vegas. Schedule online with Dr. Jan Duffy.',
-    url: 'https://delwebbnorthranchhomes.com/schedule',
+    url: 'https://www.delwebbnorthranchhomes.com/schedule',
     siteName: 'Del Webb North Ranch Homes',
     locale: 'en_US',
     type: 'website',

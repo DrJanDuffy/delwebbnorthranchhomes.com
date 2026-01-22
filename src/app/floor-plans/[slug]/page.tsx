@@ -33,7 +33,7 @@ export async function generateMetadata({
     };
   }
 
-  const baseUrl = 'https://delwebbnorthranchhomes.com';
+  const baseUrl = 'https://www.delwebbnorthranchhomes.com';
   const url = `${baseUrl}/floor-plans/${slug}`;
 
   return {
@@ -52,7 +52,7 @@ export async function generateMetadata({
       images: plan.imageUrl
         ? [
             {
-              url: `https://delwebbnorthranchhomes.com${plan.imageUrl}`,
+              url: `https://www.delwebbnorthranchhomes.com${plan.imageUrl}`,
               width: 1200,
               height: 630,
               alt: `${plan.name} floor plan`,
@@ -60,7 +60,7 @@ export async function generateMetadata({
           ]
         : [
             {
-              url: 'https://delwebbnorthranchhomes.com/images/hero/hero-bg.jpg',
+              url: 'https://www.delwebbnorthranchhomes.com/images/hero/hero-bg.jpg',
               width: 1200,
               height: 630,
               alt: 'Del Webb North Ranch',
@@ -72,8 +72,8 @@ export async function generateMetadata({
       title: `${plan.name} Floor Plan | Del Webb North Ranch`,
       description: `${plan.sqft} sq ft ${plan.series} Series home in North Las Vegas 55+ community.`,
       images: plan.imageUrl
-        ? [`https://delwebbnorthranchhomes.com${plan.imageUrl}`]
-        : ['https://delwebbnorthranchhomes.com/images/hero/hero-bg.jpg'],
+        ? [`https://www.delwebbnorthranchhomes.com${plan.imageUrl}`]
+        : ['https://www.delwebbnorthranchhomes.com/images/hero/hero-bg.jpg'],
     },
   };
 }
@@ -86,7 +86,7 @@ function ProductSchema({ plan }: { plan: FloorPlan }) {
     description: `${plan.description} ${plan.series} Series home with ${plan.sqft} sq ft, ${plan.beds} bedrooms, ${plan.baths} baths.`,
     category: 'Real Estate',
     image: plan.imageUrl
-      ? `https://delwebbnorthranchhomes.com${plan.imageUrl}`
+      ? `https://www.delwebbnorthranchhomes.com${plan.imageUrl}`
       : undefined,
     brand: {
       '@type': 'Brand',
@@ -136,7 +136,7 @@ function ProductSchema({ plan }: { plan: FloorPlan }) {
         value: plan.series,
       },
     ],
-    url: `https://delwebbnorthranchhomes.com/floor-plans/${plan.slug}`,
+    url: `https://www.delwebbnorthranchhomes.com/floor-plans/${plan.slug}`,
   };
 
   return (

@@ -17,19 +17,19 @@ export const metadata: Metadata = {
   description:
     "Meet Dr. Jan Duffy, REALTOR® specializing in Del Webb North Ranch, a premier 55+ community in North Las Vegas. Licensed agent with Berkshire Hathaway HomeServices helping you find your perfect active adult home.",
   alternates: {
-    canonical: "https://delwebbnorthranchhomes.com/about",
+    canonical: "https://www.delwebbnorthranchhomes.com/about",
   },
   openGraph: {
     title: "About Dr. Jan Duffy | Del Webb North Ranch REALTOR®",
     description:
       "Your trusted REALTOR® specializing in Del Webb North Ranch and Las Vegas 55+ communities.",
-    url: "https://delwebbnorthranchhomes.com/about",
+    url: "https://www.delwebbnorthranchhomes.com/about",
     siteName: "Del Webb North Ranch Homes",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg",
+        url: "https://www.delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg",
         width: 1200,
         height: 630,
         alt: "Dr. Jan Duffy, REALTOR®",

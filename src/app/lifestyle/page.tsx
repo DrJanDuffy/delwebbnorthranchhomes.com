@@ -24,19 +24,19 @@ export const metadata: Metadata = {
   description:
     "Discover the vibrant lifestyle at Del Webb North Ranch, a premier 55+ community in North Las Vegas. Join clubs, attend events, and connect with neighbors in active adult living.",
   alternates: {
-    canonical: "https://delwebbnorthranchhomes.com/lifestyle",
+    canonical: "https://www.delwebbnorthranchhomes.com/lifestyle",
   },
   openGraph: {
     title: "Lifestyle | Del Webb North Ranch | North Las Vegas",
     description:
       "Vibrant community life with clubs, events, and activities in Del Webb North Ranch 55+ community.",
-    url: "https://delwebbnorthranchhomes.com/lifestyle",
+    url: "https://www.delwebbnorthranchhomes.com/lifestyle",
     siteName: "Del Webb North Ranch Homes",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://delwebbnorthranchhomes.com/images/amenities/event-lawn-club.jpeg",
+        url: "https://www.delwebbnorthranchhomes.com/images/amenities/event-lawn-club.jpeg",
         width: 1200,
         height: 630,
         alt: "Del Webb North Ranch community lifestyle",

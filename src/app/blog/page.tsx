@@ -11,13 +11,13 @@ export const metadata: Metadata = {
   description:
     "Read the latest news, tips, and insights about Del Webb North Ranch, a premier 55+ community in North Las Vegas. Learn about active adult living, community events, and real estate tips.",
   alternates: {
-    canonical: "https://delwebbnorthranchhomes.com/blog",
+    canonical: "https://www.delwebbnorthranchhomes.com/blog",
   },
   openGraph: {
     title: "Blog | Del Webb North Ranch | North Las Vegas",
     description:
       "Community news, insights, and tips about Del Webb North Ranch 55+ community and active adult living.",
-    url: "https://delwebbnorthranchhomes.com/blog",
+    url: "https://www.delwebbnorthranchhomes.com/blog",
     siteName: "Del Webb North Ranch Homes",
     locale: "en_US",
     type: "website",

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Privacy policy for Del Webb North Ranch website. Learn how we collect, use, and protect your information when you contact Dr. Jan Duffy about 55+ community homes in North Las Vegas.",
   alternates: {
-    canonical: "https://delwebbnorthranchhomes.com/privacy",
+    canonical: "https://www.delwebbnorthranchhomes.com/privacy",
   },
   robots: {
     index: false,

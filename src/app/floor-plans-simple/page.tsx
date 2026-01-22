@@ -12,13 +12,13 @@ export const metadata: Metadata = {
   description:
     'Explore 9 single-story floor plans at Del Webb North Ranch. Cottage, Classic, and Retreat series from 1,285 to 2,015 sq ft.',
   alternates: {
-    canonical: 'https://delwebbnorthranchhomes.com/floor-plans',
+    canonical: 'https://www.delwebbnorthranchhomes.com/floor-plans',
   },
   openGraph: {
     title: 'Floor Plans | Del Webb North Ranch | North Las Vegas',
     description:
       'Explore 9 single-story floor plans from 1,285 to 2,015 sq ft in Del Webb North Ranch, a premier 55+ community.',
-    url: 'https://delwebbnorthranchhomes.com/floor-plans',
+    url: 'https://www.delwebbnorthranchhomes.com/floor-plans',
     siteName: 'Del Webb North Ranch Homes',
     locale: 'en_US',
     type: 'website',

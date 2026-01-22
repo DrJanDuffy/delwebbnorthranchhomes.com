@@ -14,19 +14,19 @@ export const metadata: Metadata = {
   description:
     "Contact Dr. Jan Duffy to schedule a tour of Del Webb North Ranch, a premier 55+ community in North Las Vegas. Call (702) 500-1064 or fill out the contact form.",
   alternates: {
-    canonical: "https://delwebbnorthranchhomes.com/contact",
+    canonical: "https://www.delwebbnorthranchhomes.com/contact",
   },
   openGraph: {
     title: "Contact Dr. Jan Duffy | Del Webb North Ranch REALTOR®",
     description:
       "Schedule a tour of Del Webb North Ranch, a premier 55+ community in North Las Vegas. Call (702) 500-1064.",
-    url: "https://delwebbnorthranchhomes.com/contact",
+    url: "https://www.delwebbnorthranchhomes.com/contact",
     siteName: "Del Webb North Ranch Homes",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg",
+        url: "https://www.delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg",
         width: 1200,
         height: 630,
         alt: "Dr. Jan Duffy, REALTOR®",

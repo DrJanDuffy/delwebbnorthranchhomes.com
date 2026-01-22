@@ -177,7 +177,7 @@ export async function generateMetadata({
     };
   }
 
-  const baseUrl = "https://delwebbnorthranchhomes.com";
+  const baseUrl = "https://www.delwebbnorthranchhomes.com";
   const url = `${baseUrl}/blog/${params.slug}`;
 
   return {

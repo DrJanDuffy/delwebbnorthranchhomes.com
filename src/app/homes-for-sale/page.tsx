@@ -16,19 +16,19 @@ export const metadata: Metadata = {
   description:
     "Browse current homes for sale in Del Webb North Ranch, a 55+ active adult community in North Las Vegas. Resale homes from $400K-$600K.",
   alternates: {
-    canonical: "https://delwebbnorthranchhomes.com/homes-for-sale",
+    canonical: "https://www.delwebbnorthranchhomes.com/homes-for-sale",
   },
   openGraph: {
     title: "Del Webb North Ranch Homes for Sale | North Las Vegas 55+ Community",
     description:
       "Browse current homes for sale in Del Webb North Ranch, a 55+ active adult community in North Las Vegas. Resale homes from $400K-$600K.",
-    url: "https://delwebbnorthranchhomes.com/homes-for-sale",
+    url: "https://www.delwebbnorthranchhomes.com/homes-for-sale",
     siteName: "Del Webb North Ranch Homes",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://delwebbnorthranchhomes.com/images/hero/hero-bg.jpg",
+        url: "https://www.delwebbnorthranchhomes.com/images/hero/hero-bg.jpg",
         width: 1200,
         height: 630,
         alt: "Del Webb North Ranch homes for sale",
