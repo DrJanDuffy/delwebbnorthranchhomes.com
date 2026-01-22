@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Navbar from '@/../components/navbar';
 import Footer from '@/../components/footer';
 import FAQContent from '@/components/faq-content';
+import RealScoutListings from '@/../components/RealScoutListings';
 import { getAllQuestions } from '@/lib/faqData';
 
 export const metadata: Metadata = {
@@ -68,6 +69,9 @@ export default function FAQPage() {
         </section>
 
         <FAQContent />
+
+        {/* RealScout Listings - Lead Generator */}
+        <RealScoutListings h2Text="View Available Homes in Del Webb North Ranch | Find Answers to Your Questions" />
       </main>
       <Footer />
     </>
