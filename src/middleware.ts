@@ -2,16 +2,17 @@ import { NextRequest, NextResponse } from "next/server";
 
 export function middleware(request: NextRequest) {
   const hostname = request.headers.get("host") || "";
-  const protocol = request.headers.get("x-forwarded-proto") || "https";
+  const protocol = request.headers.get("x-forwarded-proto") || 
+                   (request.nextUrl.protocol === "https:" ? "https" : "http");
   const pathname = request.nextUrl.pathname;
   const search = request.nextUrl.search;
 
-  // Skip middleware for static files and API routes
+  // Skip middleware for static files, API routes, and Next.js internals
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
     pathname.startsWith("/static") ||
-    pathname.includes(".")
+    pathname.match(/\.(ico|png|jpg|jpeg|svg|gif|webp|avif|css|js|woff|woff2|ttf|eot)$/)
   ) {
     return NextResponse.next();
   }
@@ -20,13 +21,15 @@ export function middleware(request: NextRequest) {
   const targetHost = "www.delwebbnorthranchhomes.com";
   const targetUrl = `https://${targetHost}${pathname}${search}`;
 
-  // Redirect non-www to www
-  if (hostname === "delwebbnorthranchhomes.com") {
-    return NextResponse.redirect(targetUrl, 301);
-  }
+  // Normalize hostname (remove port if present)
+  const normalizedHost = hostname.split(":")[0];
 
-  // Redirect HTTP to HTTPS (only if not already HTTPS)
-  if (protocol === "http" && !hostname.includes("localhost")) {
+  // Check if redirect is needed
+  const needsRedirect = 
+    normalizedHost !== targetHost || // Non-www or different host
+    protocol !== "https"; // HTTP instead of HTTPS
+
+  if (needsRedirect && !hostname.includes("localhost")) {
     return NextResponse.redirect(targetUrl, 301);
   }
 
