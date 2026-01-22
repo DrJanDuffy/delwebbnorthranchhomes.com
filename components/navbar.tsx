@@ -14,6 +14,7 @@ const navLinks = [
   { href: "/lifestyle", label: "Lifestyle" },
   { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
+  { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -88,7 +89,7 @@ export default function Navbar() {
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden p-2 text-text-dark hover:text-primary transition-colors"
             aria-label="Toggle menu"
-            aria-expanded={isOpen}
+            aria-expanded={isOpen ? 'true' : 'false'}
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>

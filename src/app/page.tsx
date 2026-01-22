@@ -14,6 +14,7 @@ import HomesForSaleWidget from "../../components/HomesForSaleWidget";
 import Testimonials from "../../components/Testimonials";
 import MortgageCalculator from "../../components/MortgageCalculator";
 import RealScoutListings from "../../components/RealScoutListings";
+import QuickFAQ from "../../components/QuickFAQ";
 
 export default function Home() {
   return (
@@ -33,6 +34,7 @@ export default function Home() {
         <HomesForSaleWidget />
         <Testimonials />
         <MortgageCalculator />
+        <QuickFAQ />
         <AboutAgentSection />
         <FinalCTASection />
       </main>
