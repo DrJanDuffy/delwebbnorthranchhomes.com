@@ -295,11 +295,10 @@ export default function Footer() {
         {/* Copyright */}
         <div className="border-t border-gray-700 pt-8 mt-8 text-center text-sm text-gray-400">
           <p>
-            © 2026 Del Webb North Ranch. All rights reserved.
+            © 2026 Del Webb North Ranch | Homes by Dr. Jan Duffy All rights reserved.
           </p>
           <p className="mt-2">
-            Dr. Jan Duffy, REALTOR® | Berkshire Hathaway HomeServices Nevada
-            Properties
+            Berkshire Hathaway HomeServices Nevada Properties | S.0197614.LLC
           </p>
         </div>
       </div>
