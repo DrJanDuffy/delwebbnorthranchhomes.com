@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Youtube, Calendar, FileText } from "lucide-react";
+import { oldSiteData } from "@/lib/fetchOldSiteData";
 
 export default function Footer() {
   return (
@@ -130,6 +131,65 @@ export default function Footer() {
                     North Las Vegas, NV 89086
                   </span>
                 </div>
+              </li>
+            </ul>
+          </div>
+
+          {/* Resources & Links */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Resources</h4>
+            <ul className="space-y-2">
+              <li>
+                <a
+                  href={oldSiteData.integrations.calendly}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+                >
+                  <Calendar className="w-4 h-4" />
+                  Schedule Appointment
+                </a>
+              </li>
+              <li>
+                <a
+                  href={oldSiteData.integrations.realscout}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+                >
+                  <span className="w-4 h-4">🏠</span>
+                  Browse Homes
+                </a>
+              </li>
+              <li>
+                <a
+                  href={oldSiteData.integrations.youtube}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+                >
+                  <Youtube className="w-4 h-4" />
+                  YouTube Channel
+                </a>
+              </li>
+              <li>
+                <a
+                  href={oldSiteData.integrations.brochurePdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+                >
+                  <FileText className="w-4 h-4" />
+                  Download Brochure
+                </a>
+              </li>
+              <li>
+                <Link
+                  href="/testimonials"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Testimonials
+                </Link>
               </li>
             </ul>
           </div>

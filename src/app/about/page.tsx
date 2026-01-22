@@ -6,6 +6,8 @@ import { Button } from "@/../components/ui/button";
 import Link from "next/link";
 import ScrollAnimation from "@/../components/scroll-animation";
 import { Phone, Mail, MapPin, Award, Users, Home } from "lucide-react";
+import { getAllTestimonials } from "@/lib/old-site-data";
+import { Quote } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About Dr. Jan Duffy | Del Webb North Ranch REALTOR® | North Las Vegas",
@@ -64,6 +66,8 @@ const specialties = [
 ];
 
 export default function AboutPage() {
+  const testimonials = getAllTestimonials().slice(0, 3); // Show first 3 testimonials
+
   return (
     <>
       <Navbar />
@@ -237,6 +241,42 @@ export default function AboutPage() {
                     Las Vegas, NV 89134
                   </p>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Client Testimonials */}
+        <section className="py-12 md:py-16 bg-bg-light">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center font-playfair">
+                What Clients Say About Dr. Jan Duffy
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {testimonials.map((testimonial, index) => (
+                  <ScrollAnimation key={testimonial.name} delay={index * 100}>
+                    <div className="bg-white p-6 rounded-lg shadow-two hover:shadow-three transition-shadow h-full flex flex-col">
+                      <Quote className="w-6 h-6 text-primary mb-3 opacity-50" />
+                      <p className="text-sm md:text-base text-text-dark leading-relaxed mb-4 flex-grow font-playfair italic">
+                        "{testimonial.text.substring(0, 150)}..."
+                      </p>
+                      <div className="border-t border-gray-200 pt-3">
+                        <p className="text-base font-semibold text-primary">
+                          — {testimonial.name}
+                        </p>
+                      </div>
+                    </div>
+                  </ScrollAnimation>
+                ))}
+              </div>
+              <div className="text-center mt-8">
+                <Link
+                  href="/testimonials"
+                  className="text-primary hover:text-accent font-semibold transition-colors"
+                >
+                  Read All Testimonials →
+                </Link>
               </div>
             </div>
           </div>

@@ -5,6 +5,7 @@ import Footer from "@/../components/footer";
 import { Button } from "@/../components/ui/button";
 import Link from "next/link";
 import ScrollAnimation from "@/../components/scroll-animation";
+import { oldSiteData } from "@/lib/old-site-data";
 import {
   Activity,
   Users,
@@ -14,6 +15,7 @@ import {
   UtensilsCrossed,
   TreePine,
   Gamepad2,
+  CheckCircle2,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -224,75 +226,42 @@ export default function AmenitiesPage() {
           </section>
         ))}
 
-        {/* Full Amenities List */}
+        {/* Home Features */}
+        <section className="py-12 md:py-16 bg-bg-light">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center font-playfair">
+                Home Features
+              </h2>
+              <div className="bg-white rounded-lg shadow-two p-6 md:p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {oldSiteData.amenities.homeFeatures.map((feature, index) => (
+                    <div key={feature} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
+                      <span className="text-text-dark">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Complete Community Features List */}
         <section className="py-12 md:py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center font-playfair">
-                Complete Amenities List
+                Complete Community Features
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-bg-light p-6 rounded-lg">
-                  <h3 className="text-xl font-bold text-primary mb-4 font-playfair">
-                    Recreation & Fitness
-                  </h3>
-                  <ul className="space-y-2 text-text-dark">
-                    <li className="flex items-start gap-2">
-                      <span className="text-success mt-1">✓</span>
-                      <span>Resort-style pool</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-success mt-1">✓</span>
-                      <span>Heated lap pool</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-success mt-1">✓</span>
-                      <span>Spa</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-success mt-1">✓</span>
-                      <span>Fitness center with modern equipment</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-success mt-1">✓</span>
-                      <span>Lighted pickleball courts</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-success mt-1">✓</span>
-                      <span>Bocce courts</span>
-                    </li>
-                  </ul>
-                </div>
-                <div className="bg-bg-light p-6 rounded-lg">
-                  <h3 className="text-xl font-bold text-primary mb-4 font-playfair">
-                    Community Spaces
-                  </h3>
-                  <ul className="space-y-2 text-text-dark">
-                    <li className="flex items-start gap-2">
-                      <span className="text-success mt-1">✓</span>
-                      <span>Clubhouse for events and classes</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-success mt-1">✓</span>
-                      <span>Billiards room</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-success mt-1">✓</span>
-                      <span>Outdoor firepit</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-success mt-1">✓</span>
-                      <span>Event lawn</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-success mt-1">✓</span>
-                      <span>Scenic walking trails</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-success mt-1">✓</span>
-                      <span>Dog park</span>
-                    </li>
-                  </ul>
+              <div className="bg-bg-light rounded-lg shadow-two p-6 md:p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {oldSiteData.amenities.communityFeatures.map((feature, index) => (
+                    <div key={feature} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
+                      <span className="text-text-dark">{feature}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

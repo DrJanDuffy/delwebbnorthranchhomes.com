@@ -11,7 +11,8 @@ import {
   getAllFloorPlanSlugs,
   type FloorPlan,
 } from '@/lib/floor-plans';
-import { Bed, Bath, Square, Car, ArrowLeft, Phone } from 'lucide-react';
+import { getVirtualTourByModel } from '@/lib/old-site-data';
+import { Bed, Bath, Square, Car, ArrowLeft, Phone, Play } from 'lucide-react';
 
 export async function generateStaticParams() {
   return getAllFloorPlanSlugs().map((slug) => ({ slug }));
@@ -157,6 +158,9 @@ export default async function FloorPlanPage({
     notFound();
   }
 
+  // Get virtual tour if available
+  const virtualTour = getVirtualTourByModel(plan.name);
+
   return (
     <>
       <Navbar />
@@ -253,6 +257,30 @@ export default async function FloorPlanPage({
                       </div>
                     </ScrollAnimation>
                   ))}
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Virtual Tour */}
+        {virtualTour?.embedUrl && (
+          <section className="py-12 md:py-16 bg-bg-light">
+            <div className="container mx-auto px-4">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center font-playfair">
+                  Virtual Tour
+                </h2>
+                <div className="bg-white rounded-lg shadow-three overflow-hidden">
+                  <div className="aspect-video">
+                    <iframe
+                      src={virtualTour.embedUrl}
+                      title={`${plan.name} Virtual Tour`}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                    />
+                  </div>
                 </div>
               </div>
             </div>

@@ -6,6 +6,7 @@ import { Button } from "@/../components/ui/button";
 import Link from "next/link";
 import { getDelWebbListings } from "@/lib/listings";
 import ListingsPageClient from "@/components/listings-page-client";
+// import HomesForSaleWidget from "@/../components/HomesForSaleWidget";
 
 export const metadata: Metadata = {
   title: "Homes for Sale | Del Webb North Ranch | North Las Vegas",
@@ -78,6 +79,10 @@ export default async function HomesForSalePage() {
             </div>
           </div>
         </section>
+
+        {/* RealScout Widget - Option to replace or supplement listings */}
+        {/* Uncomment to use RealScout widget instead of mock listings */}
+        {/* <HomesForSaleWidget /> */}
 
         {/* Listings Grid Section */}
         <section id="listings" className="py-12 md:py-16 lg:py-20 bg-white">

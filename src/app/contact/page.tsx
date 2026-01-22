@@ -4,7 +4,8 @@ import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
 import ContactForm from "@/../components/contact-form";
 import ScrollAnimation from "@/../components/scroll-animation";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Calendar, Youtube, FileText, ExternalLink } from "lucide-react";
+import { oldSiteData } from "@/lib/fetchOldSiteData";
 
 export const metadata: Metadata = {
   title: "Contact Dr. Jan Duffy | Del Webb North Ranch REALTOR® | North Las Vegas",
@@ -217,6 +218,49 @@ export default function ContactPage() {
                   <Phone className="w-5 h-5" />
                   Call (702) 500-1064
                 </a>
+                <a
+                  href={oldSiteData.integrations.calendly}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-white rounded-md font-semibold hover:bg-accent/90 transition-colors"
+                >
+                  <Calendar className="w-5 h-5" />
+                  Schedule Online
+                </a>
+              </div>
+              
+              {/* Additional Resources */}
+              <div className="mt-8 pt-8 border-t border-gray-200">
+                <p className="text-text-dark mb-4 text-center">Additional Resources:</p>
+                <div className="flex flex-wrap justify-center gap-4">
+                  <a
+                    href={oldSiteData.integrations.realscout}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 border-2 border-primary text-primary rounded-md font-semibold hover:bg-primary hover:text-white transition-colors"
+                  >
+                    Browse Homes
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                  <a
+                    href={oldSiteData.integrations.youtube}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 border-2 border-primary text-primary rounded-md font-semibold hover:bg-primary hover:text-white transition-colors"
+                  >
+                    <Youtube className="w-4 h-4" />
+                    YouTube Channel
+                  </a>
+                  <a
+                    href={oldSiteData.integrations.brochurePdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 border-2 border-primary text-primary rounded-md font-semibold hover:bg-primary hover:text-white transition-colors"
+                  >
+                    <FileText className="w-4 h-4" />
+                    Download Brochure
+                  </a>
+                </div>
               </div>
             </div>
           </div>

@@ -1,35 +1,75 @@
+'use client';
+
 import { Quote } from "lucide-react";
+import { useState, useEffect } from "react";
 import ScrollAnimation from "../scroll-animation";
+import { getAllTestimonials, type Testimonial } from "@/lib/old-site-data";
 
 export default function TestimonialSection() {
+  const [currentTestimonial, setCurrentTestimonial] = useState<Testimonial | null>(null);
+  const testimonials = getAllTestimonials();
+
+  useEffect(() => {
+    // Set initial testimonial (Stephanie O. - first one)
+    if (testimonials.length > 0) {
+      setCurrentTestimonial(testimonials[0]);
+    }
+  }, []);
+
+  // Rotate testimonials every 8 seconds
+  useEffect(() => {
+    if (testimonials.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setCurrentTestimonial((prev) => {
+        if (!prev) return testimonials[0];
+        const currentIndex = testimonials.findIndex((t) => t.name === prev.name);
+        const nextIndex = (currentIndex + 1) % testimonials.length;
+        return testimonials[nextIndex];
+      });
+    }, 8000);
+
+    return () => clearInterval(interval);
+  }, [testimonials]);
+
+  if (!currentTestimonial) return null;
+
   return (
     <section className="py-12 md:py-16 lg:py-20 bg-bg-light relative overflow-hidden">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 2px 2px, #1e3a5f 1px, transparent 0)",
-            backgroundSize: "40px 40px",
-          }}
-        ></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_2px_2px,#1e3a5f_1px,transparent_0)] bg-[length:40px_40px]"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
           <ScrollAnimation>
-            <div className="bg-white p-6 md:p-8 lg:p-12 rounded-lg shadow-three">
+            <div className="bg-white p-6 md:p-8 lg:p-12 rounded-lg shadow-three transition-opacity duration-500">
               <Quote className="w-10 h-10 md:w-12 md:h-12 text-primary mb-4 md:mb-6 opacity-50" />
               <blockquote className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-text-dark leading-relaxed mb-6 md:mb-8 font-playfair italic px-2">
-                "Working with Dr. Jan Duffy to find our dream home in Del Webb
-                North Ranch was an absolute pleasure. She took the time to
-                deeply understand our needs as retirees, ensuring every detail
-                was considered. We couldn't be happier with our new home."
+                "{currentTestimonial.text}"
               </blockquote>
               <p className="text-base md:text-lg lg:text-xl text-primary font-semibold px-2">
-                — Stephanie O.
+                — {currentTestimonial.name}
               </p>
+              
+              {/* Testimonial indicators */}
+              {testimonials.length > 1 && (
+                <div className="flex justify-center gap-2 mt-6">
+                  {testimonials.map((testimonial, index) => (
+                    <button
+                      key={testimonial.name}
+                      onClick={() => setCurrentTestimonial(testimonial)}
+                      className={`h-2 w-2 rounded-full transition-all ${
+                        currentTestimonial.name === testimonial.name
+                          ? 'bg-primary w-8'
+                          : 'bg-gray-300 hover:bg-primary/50'
+                      }`}
+                      aria-label={`View testimonial from ${testimonial.name}`}
+                    />
+                  ))}
+                </div>
+              )}
             </div>
           </ScrollAnimation>
         </div>

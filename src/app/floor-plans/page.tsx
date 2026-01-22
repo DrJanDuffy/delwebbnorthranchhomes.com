@@ -7,6 +7,7 @@ import Link from "next/link";
 import ScrollAnimation from "@/../components/scroll-animation";
 import { Home, Maximize2, Car, Users } from "lucide-react";
 import { floorPlans } from "@/lib/floor-plans";
+import VirtualTours from "@/../components/VirtualTours";
 
 export const metadata: Metadata = {
   title: "Floor Plans | Del Webb North Ranch | 9 Single-Story Designs | North Las Vegas",
@@ -290,42 +291,8 @@ export default function FloorPlansPage() {
           </div>
         </section>
 
-        {/* Matterport Tours Section */}
-        <section className="py-12 md:py-16 lg:py-20 bg-bg-light">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center font-playfair">
-                Virtual Tours
-              </h2>
-              <p className="text-center text-text-dark mb-8">
-                Take a 3D virtual tour of our model homes using Matterport
-                technology. Explore every room from the comfort of your home.
-              </p>
-
-              {/* Matterport Embed Placeholder */}
-              <div className="bg-white rounded-lg shadow-three p-4 md:p-6 mb-8">
-                <div className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center">
-                  <div className="text-center">
-                    <Maximize2 className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                    <p className="text-text-dark font-semibold mb-2">
-                      Matterport Virtual Tour
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      {/* TODO: Add Matterport embed code */}
-                      Matterport tour embed will be displayed here
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="text-center">
-                <Button asChild variant="default" size="lg">
-                  <Link href="/contact">Schedule an In-Person Tour</Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Virtual Tours Section */}
+        <VirtualTours />
 
         {/* CTA Section */}
         <section className="py-12 md:py-16 bg-primary text-white">
