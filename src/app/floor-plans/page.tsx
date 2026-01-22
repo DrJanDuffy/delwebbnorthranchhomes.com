@@ -6,108 +6,41 @@ import { Button } from "@/../components/ui/button";
 import Link from "next/link";
 import ScrollAnimation from "@/../components/scroll-animation";
 import { Home, Maximize2, Car, Users } from "lucide-react";
+import { floorPlans } from "@/lib/floor-plans";
 
 export const metadata: Metadata = {
-  title: "Floor Plans | Del Webb North Ranch | 9 Single-Story Designs",
+  title: "Floor Plans | Del Webb North Ranch | 9 Single-Story Designs | North Las Vegas",
   description:
-    "Explore all 9 floor plans at Del Webb North Ranch. Cottage, Classic, and Retreat series from 1,285 to 2,015 sq ft. View Matterport virtual tours.",
+    "Explore all 9 floor plans at Del Webb North Ranch, a premier 55+ community in North Las Vegas. Cottage, Classic, and Retreat series from 1,285 to 2,015 sq ft. View Matterport virtual tours.",
+  alternates: {
+    canonical: "https://delwebbnorthranchhomes.com/floor-plans",
+  },
+  openGraph: {
+    title: "Floor Plans | Del Webb North Ranch | North Las Vegas",
+    description:
+      "Explore 9 single-story floor plans from 1,285 to 2,015 sq ft in Del Webb North Ranch, a premier 55+ community.",
+    url: "https://delwebbnorthranchhomes.com/floor-plans",
+    siteName: "Del Webb North Ranch Homes",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "https://delwebbnorthranchhomes.com/images/floor-plans/haven.avif",
+        width: 1200,
+        height: 630,
+        alt: "Del Webb North Ranch floor plans",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Floor Plans | Del Webb North Ranch",
+    description: "Explore 9 single-story floor plans in North Las Vegas's premier 55+ community.",
+    images: ["https://delwebbnorthranchhomes.com/images/floor-plans/haven.avif"],
+  },
 };
 
-const floorPlans = [
-  // Cottage Series
-  {
-    series: "Cottage",
-    name: "Canyon",
-    sqft: "1,285",
-    beds: 2,
-    baths: 2,
-    garage: 2,
-    description:
-      "Efficient and comfortable, perfect for those seeking cozy living without compromise.",
-  },
-  {
-    series: "Cottage",
-    name: "Overlook",
-    sqft: "1,400",
-    beds: 2,
-    baths: 2,
-    garage: 2,
-    description:
-      "Spacious two-bedroom with open living areas and modern finishes.",
-  },
-  {
-    series: "Cottage",
-    name: "Peak",
-    sqft: "1,509",
-    beds: 2,
-    baths: 2.5,
-    garage: 2,
-    description:
-      "Largest in the Cottage series with 2.5 baths and expanded living space.",
-  },
-  // Classic Series
-  {
-    series: "Classic",
-    name: "Getaway",
-    sqft: "1,451",
-    beds: 2,
-    baths: 2,
-    garage: 2,
-    description:
-      "Room to spread out with optional den for hobbies or home office.",
-  },
-  {
-    series: "Classic",
-    name: "Solitude",
-    sqft: "1,620",
-    beds: 3,
-    baths: 2,
-    garage: 2,
-    description:
-      "Three-bedroom design with flexible space for guests or family.",
-  },
-  {
-    series: "Classic",
-    name: "Expedition",
-    sqft: "1,770",
-    beds: 3,
-    baths: 2.5,
-    garage: 2,
-    description:
-      "Spacious three-bedroom with 2.5 baths and generous living areas.",
-  },
-  // Retreat Series
-  {
-    series: "Retreat",
-    name: "Sanctuary",
-    sqft: "1,716",
-    beds: 3,
-    baths: 2,
-    garage: 2,
-    description:
-      "Perfect for entertaining with open concept and premium finishes.",
-  },
-  {
-    series: "Retreat",
-    name: "Haven",
-    sqft: "1,850",
-    beds: 3,
-    baths: 2.5,
-    garage: 2,
-    description:
-      "Spacious living for those who love to host or want extra room.",
-  },
-  {
-    series: "Retreat",
-    name: "Preserve",
-    sqft: "2,015",
-    beds: 3,
-    baths: 2.5,
-    garage: 2,
-    description:
-      "Largest floor plan with ample space for visiting family and entertaining.",
-  },
-];
+// Floor plans data imported from shared lib
 
 const blurDataURL =
   "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==";
@@ -116,7 +49,7 @@ function FloorPlanCard({
   plan,
   index,
 }: {
-  plan: (typeof floorPlans)[0];
+  plan: (typeof floorPlans)[number];
   index: number;
 }) {
   return (
@@ -124,15 +57,21 @@ function FloorPlanCard({
       <div className="bg-white rounded-lg shadow-two hover:shadow-three transition-shadow overflow-hidden">
         {/* Image Placeholder */}
         <div className="relative h-64 bg-bg-light">
-          <Image
-            src={`/images/floor-plans/${plan.series.toLowerCase()}-${plan.name.toLowerCase()}.jpg`}
-            alt={`${plan.name} floor plan - ${plan.sqft} sq ft`}
-            fill
-            className="object-cover"
-            placeholder="blur"
-            blurDataURL={blurDataURL}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
+          {plan.imageUrl ? (
+            <Image
+              src={plan.imageUrl}
+              alt={`${plan.name} floor plan - ${plan.sqft} sq ft`}
+              fill
+              className="object-cover"
+              placeholder="blur"
+              blurDataURL={blurDataURL}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          ) : (
+            <div className="flex items-center justify-center h-full text-gray-400">
+              <Home className="w-16 h-16" />
+            </div>
+          )}
           <div className="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded text-sm font-semibold">
             {plan.series} Series
           </div>
@@ -175,7 +114,7 @@ function FloorPlanCard({
             {plan.description}
           </p>
 
-          {/* Matterport Tour Button */}
+          {/* Actions */}
           <div className="flex flex-col sm:flex-row gap-3">
             <Button
               asChild
@@ -183,15 +122,14 @@ function FloorPlanCard({
               className="flex-1 bg-primary hover:bg-primary/90"
             >
               <Link
-                href={`#tour-${plan.name.toLowerCase()}`}
+                href={`/floor-plans/${plan.slug}`}
                 className="flex items-center justify-center gap-2"
               >
-                <Maximize2 className="w-4 h-4" />
-                Virtual Tour
+                View Details
               </Link>
             </Button>
             <Button asChild variant="outline" className="flex-1">
-              <Link href="/contact">Learn More</Link>
+              <Link href="/contact">Schedule Tour</Link>
             </Button>
           </div>
         </div>
@@ -205,10 +143,72 @@ export default function FloorPlansPage() {
   const classicPlans = floorPlans.filter((p) => p.series === "Classic");
   const retreatPlans = floorPlans.filter((p) => p.series === "Retreat");
 
+  // Product schema for all floor plans
+  const productSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: floorPlans.map((plan, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+        item: {
+          '@type': 'Product',
+          name: `${plan.name} Floor Plan - Del Webb North Ranch`,
+          description: `${plan.description} ${plan.series} Series home with ${plan.sqft} sq ft, ${plan.beds} bedrooms, ${plan.baths} baths.`,
+          category: 'Real Estate',
+          image: plan.imageUrl
+            ? `https://delwebbnorthranchhomes.com${plan.imageUrl}`
+            : undefined,
+          brand: {
+            '@type': 'Brand',
+            name: 'Del Webb North Ranch',
+          },
+        offers: {
+          '@type': 'AggregateOffer',
+          priceCurrency: 'USD',
+          lowPrice: plan.series === 'Cottage' ? '400000' : plan.series === 'Classic' ? '475000' : '550000',
+          highPrice: plan.series === 'Cottage' ? '500000' : plan.series === 'Classic' ? '575000' : '600000',
+          availability: 'https://schema.org/InStock',
+        },
+        additionalProperty: [
+          {
+            '@type': 'PropertyValue',
+            name: 'Square Feet',
+            value: plan.sqft,
+          },
+          {
+            '@type': 'PropertyValue',
+            name: 'Bedrooms',
+            value: plan.beds.toString(),
+          },
+          {
+            '@type': 'PropertyValue',
+            name: 'Bathrooms',
+            value: plan.baths.toString(),
+          },
+          {
+            '@type': 'PropertyValue',
+            name: 'Garage',
+            value: `${plan.garage} car`,
+          },
+          {
+            '@type': 'PropertyValue',
+            name: 'Series',
+            value: plan.series,
+          },
+        ],
+        url: `https://delwebbnorthranchhomes.com/floor-plans/${plan.slug}`,
+      },
+    })),
+  };
+
   return (
     <>
       <Navbar />
       <main className="pt-16 md:pt-20">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+        />
         {/* Hero Section */}
         <section className="bg-primary text-white py-12 md:py-16 lg:py-20">
           <div className="container mx-auto px-4">

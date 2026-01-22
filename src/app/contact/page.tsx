@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
 import ContactForm from "@/../components/contact-form";
@@ -11,6 +12,29 @@ export const metadata: Metadata = {
     "Contact Dr. Jan Duffy to schedule a tour of Del Webb North Ranch, a premier 55+ community in North Las Vegas. Call (702) 500-1064 or fill out the contact form.",
   alternates: {
     canonical: "https://delwebbnorthranchhomes.com/contact",
+  },
+  openGraph: {
+    title: "Contact Dr. Jan Duffy | Del Webb North Ranch REALTOR®",
+    description:
+      "Schedule a tour of Del Webb North Ranch, a premier 55+ community in North Las Vegas. Call (702) 500-1064.",
+    url: "https://delwebbnorthranchhomes.com/contact",
+    siteName: "Del Webb North Ranch Homes",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "https://delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Dr. Jan Duffy, REALTOR®",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Dr. Jan Duffy | Del Webb North Ranch",
+    description: "Schedule a tour of Del Webb North Ranch 55+ community in North Las Vegas.",
+    images: ["https://delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg"],
   },
 };
 
@@ -54,9 +78,22 @@ export default function ContactPage() {
                   </div>
                 </ScrollAnimation>
 
-                {/* Contact Info */}
+                {/* Contact Info with Image */}
                 <ScrollAnimation delay={100}>
                   <div>
+                    {/* Image */}
+                    <div className="relative aspect-square rounded-lg overflow-hidden shadow-three bg-bg-light mb-6">
+                      <Image
+                        src="/images/about/dr-jan-duffy.jpg"
+                        alt="Dr. Jan Duffy, REALTOR® specializing in Del Webb North Ranch"
+                        fill
+                        className="object-cover"
+                        placeholder="blur"
+                        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
+                    <div>
                     <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 font-playfair">
                       Get in Touch
                     </h2>

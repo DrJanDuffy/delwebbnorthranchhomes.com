@@ -10,7 +10,33 @@ import ListingsPageClient from "@/components/listings-page-client";
 export const metadata: Metadata = {
   title: "Homes for Sale | Del Webb North Ranch | North Las Vegas",
   description:
-    "Browse available homes for sale in Del Webb North Ranch. Single-story 55+ community homes from $400K-$600K. Contact Dr. Jan Duffy to schedule a tour.",
+    "Browse available homes for sale in Del Webb North Ranch, a premier 55+ community in North Las Vegas. Single-story homes from $400K-$600K. Contact Dr. Jan Duffy to schedule a tour.",
+  alternates: {
+    canonical: "https://delwebbnorthranchhomes.com/homes-for-sale",
+  },
+  openGraph: {
+    title: "Homes for Sale | Del Webb North Ranch | North Las Vegas",
+    description:
+      "Browse available single-story homes in Del Webb North Ranch 55+ community. Homes from $400K-$600K.",
+    url: "https://delwebbnorthranchhomes.com/homes-for-sale",
+    siteName: "Del Webb North Ranch Homes",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "https://delwebbnorthranchhomes.com/images/hero/hero-bg.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Del Webb North Ranch homes for sale",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Homes for Sale | Del Webb North Ranch",
+    description: "Browse available homes in North Las Vegas premier 55+ community.",
+    images: ["https://delwebbnorthranchhomes.com/images/hero/hero-bg.jpg"],
+  },
 };
 
 export default async function HomesForSalePage() {

@@ -17,9 +17,35 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Amenities | Del Webb North Ranch | Resort-Style 55+ Living",
+  title: "Amenities | Del Webb North Ranch | Resort-Style 55+ Living | North Las Vegas",
   description:
-    "Discover resort-style amenities at Del Webb North Ranch. Pool, fitness center, pickleball courts, clubhouse, walking trails, and more in North Las Vegas.",
+    "Discover resort-style amenities at Del Webb North Ranch, a premier 55+ community in North Las Vegas. Pool, fitness center, pickleball courts, clubhouse, walking trails, and more.",
+  alternates: {
+    canonical: "https://delwebbnorthranchhomes.com/amenities",
+  },
+  openGraph: {
+    title: "Amenities | Del Webb North Ranch | North Las Vegas",
+    description:
+      "Resort-style amenities including pool, fitness center, pickleball courts, and clubhouse in Del Webb North Ranch 55+ community.",
+    url: "https://delwebbnorthranchhomes.com/amenities",
+    siteName: "Del Webb North Ranch Homes",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "https://delwebbnorthranchhomes.com/images/amenities/resort-pool.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Del Webb North Ranch resort-style amenities",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Amenities | Del Webb North Ranch",
+    description: "Resort-style amenities in North Las Vegas's premier 55+ community.",
+    images: ["https://delwebbnorthranchhomes.com/images/amenities/resort-pool.jpeg"],
+  },
 };
 
 const amenities = [
@@ -30,27 +56,27 @@ const amenities = [
       {
         name: "Resort-Style Pool",
         description: "Large pool with plenty of space for swimming and lounging",
-        image: "/images/amenities/pool.jpg",
+        image: "/images/amenities/resort-pool.jpeg",
       },
       {
         name: "Heated Lap Pool",
         description: "Perfect for morning swims and year-round exercise",
-        image: "/images/amenities/lap-pool.jpg",
+        image: "/images/amenities/lap-pool.jpeg",
       },
       {
         name: "Fitness Center",
         description: "Modern equipment for your daily workout routine",
-        image: "/images/amenities/fitness.jpg",
+        image: "/images/amenities/clubhouse.jpeg",
       },
       {
         name: "Pickleball Courts",
         description: "Lighted courts for evening games and tournaments",
-        image: "/images/amenities/pickleball.jpg",
+        image: "/images/amenities/pickleball-courts.jpeg",
       },
       {
         name: "Bocce Courts",
         description: "Classic lawn game courts for friendly competition",
-        image: "/images/amenities/bocce.jpg",
+        image: "/images/amenities/event-lawn.jpeg",
       },
     ],
   },
@@ -61,22 +87,27 @@ const amenities = [
       {
         name: "Clubhouse",
         description: "Spacious gathering place for clubs, classes, and events",
-        image: "/images/amenities/clubhouse.jpg",
+        image: "/images/amenities/clubhouse.jpeg",
       },
       {
-        name: "Outdoor Firepit",
-        description: "Cozy gathering spot for evening conversations",
-        image: "/images/amenities/firepit.jpg",
+        name: "Clubhouse Main Entrance",
+        description: "Welcoming entrance to the community clubhouse",
+        image: "/images/amenities/clubhouse-main-entrance.jpeg",
       },
       {
         name: "Event Lawn",
         description: "Large lawn for community celebrations and gatherings",
-        image: "/images/amenities/event-lawn.jpg",
+        image: "/images/amenities/event-lawn.jpeg",
       },
       {
         name: "Billiards Room",
         description: "Relaxed space for games and socializing",
-        image: "/images/amenities/billiards.jpg",
+        image: "/images/amenities/billiards-room.jpeg",
+      },
+      {
+        name: "Social Room",
+        description: "Community gathering space for events and activities",
+        image: "/images/amenities/social-room.jpeg",
       },
     ],
   },
@@ -85,19 +116,19 @@ const amenities = [
     icon: <Sparkles className="w-8 h-8" />,
     items: [
       {
-        name: "Spa",
-        description: "Relax and unwind in the community spa",
-        image: "/images/amenities/spa.jpg",
+        name: "Reception Desk",
+        description: "Welcome center and information desk",
+        image: "/images/amenities/reception-desk.jpeg",
       },
       {
         name: "Walking Trails",
         description: "Scenic trails with beautiful mountain views",
-        image: "/images/amenities/trails.jpg",
+        image: "/images/amenities/event-lawn-club.jpeg",
       },
       {
         name: "Dog Park",
         description: "Dedicated space for your furry friends to play",
-        image: "/images/amenities/dog-park.jpg",
+        image: "/images/amenities/dog-park.jpeg",
       },
     ],
   },

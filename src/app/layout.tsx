@@ -39,16 +39,21 @@ export const metadata: Metadata = {
     siteName: "Del Webb North Ranch Homes",
     locale: "en_US",
     type: "website",
-    // TODO: Add OpenGraph image
-    // images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
+    images: [
+      {
+        url: "https://delwebbnorthranchhomes.com/images/hero/hero-bg.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Del Webb North Ranch community entrance",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Del Webb North Ranch | 55+ Luxury Homes | North Las Vegas",
     description:
       "Single-story homes from $400K-$600K in a gated 55+ community. Resort pool, pickleball, fitness center—all fully built.",
-    // TODO: Add Twitter image
-    // images: ["/twitter-image.jpg"],
+    images: ["https://delwebbnorthranchhomes.com/images/hero/hero-bg.jpg"],
   },
   robots: {
     index: true,
@@ -68,11 +73,10 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
     name: "Dr. Jan Duffy",
-    description:
-      "Del Webb North Ranch homes specialist serving 55+ active adult buyers in North Las Vegas",
-    url: "https://delwebbnorthranchhomes.com",
     telephone: "+1-702-500-1064",
     email: "sales@delwebbnorthranchhomes.com",
+    url: "https://delwebbnorthranchhomes.com",
+    image: "https://delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg",
     address: {
       "@type": "PostalAddress",
       streetAddress: "2290 Beauty Vista Avenue",
@@ -80,14 +84,8 @@ export default function RootLayout({
       addressRegion: "NV",
       postalCode: "89086",
     },
-    areaServed: {
-      "@type": "Place",
-      name: "Del Webb North Ranch, North Las Vegas, Nevada",
-    },
-    broker: {
-      "@type": "RealEstateAgent",
-      name: "Berkshire Hathaway HomeServices Nevada Properties",
-    },
+    areaServed: "Del Webb North Ranch, North Las Vegas",
+    broker: "Berkshire Hathaway HomeServices Nevada Properties",
   };
 
   return (

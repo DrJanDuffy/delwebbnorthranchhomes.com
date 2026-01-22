@@ -14,7 +14,32 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://delwebbnorthranchhomes.com/about",
   },
+  openGraph: {
+    title: "About Dr. Jan Duffy | Del Webb North Ranch REALTOR®",
+    description:
+      "Your trusted REALTOR® specializing in Del Webb North Ranch and Las Vegas 55+ communities.",
+    url: "https://delwebbnorthranchhomes.com/about",
+    siteName: "Del Webb North Ranch Homes",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "https://delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Dr. Jan Duffy, REALTOR®",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Dr. Jan Duffy | Del Webb North Ranch",
+    description: "Your trusted REALTOR® specializing in Del Webb North Ranch 55+ community.",
+    images: ["https://delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg"],
+  },
 };
+<｜tool▁calls▁begin｜><｜tool▁call▁begin｜>
+read_file
 
 const blurDataURL =
   "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==";

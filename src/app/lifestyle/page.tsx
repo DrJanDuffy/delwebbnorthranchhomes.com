@@ -17,9 +17,35 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Lifestyle | Del Webb North Ranch | Community Life & Activities",
+  title: "Lifestyle | Del Webb North Ranch | Community Life & Activities | North Las Vegas",
   description:
-    "Discover the vibrant lifestyle at Del Webb North Ranch. Join clubs, attend events, and connect with neighbors in North Las Vegas's premier 55+ community.",
+    "Discover the vibrant lifestyle at Del Webb North Ranch, a premier 55+ community in North Las Vegas. Join clubs, attend events, and connect with neighbors in active adult living.",
+  alternates: {
+    canonical: "https://delwebbnorthranchhomes.com/lifestyle",
+  },
+  openGraph: {
+    title: "Lifestyle | Del Webb North Ranch | North Las Vegas",
+    description:
+      "Vibrant community life with clubs, events, and activities in Del Webb North Ranch 55+ community.",
+    url: "https://delwebbnorthranchhomes.com/lifestyle",
+    siteName: "Del Webb North Ranch Homes",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "https://delwebbnorthranchhomes.com/images/amenities/event-lawn-club.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Del Webb North Ranch community lifestyle",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lifestyle | Del Webb North Ranch",
+    description: "Vibrant community life in North Las Vegas's premier 55+ community.",
+    images: ["https://delwebbnorthranchhomes.com/images/amenities/event-lawn-club.jpeg"],
+  },
 };
 
 const clubs = [
@@ -110,8 +136,8 @@ export default function LifestylePage() {
                 <ScrollAnimation>
                   <div className="relative aspect-square rounded-lg overflow-hidden shadow-three bg-bg-light">
                     <Image
-                      src="/images/lifestyle/community-life.jpg"
-                      alt="Residents enjoying community activities at Del Webb North Ranch"
+                      src="/images/amenities/event-lawn-club.jpeg"
+                      alt="Community events and gatherings at Del Webb North Ranch clubhouse"
                       fill
                       className="object-cover"
                       placeholder="blur"

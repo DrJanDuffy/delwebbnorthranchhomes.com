@@ -7,9 +7,26 @@ import ScrollAnimation from "@/../components/scroll-animation";
 import { Calendar, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Blog | Del Webb North Ranch | Community News & Insights",
+  title: "Blog | Del Webb North Ranch | Community News & Insights | North Las Vegas",
   description:
-    "Read the latest news, tips, and insights about Del Webb North Ranch, 55+ living, and the North Las Vegas area.",
+    "Read the latest news, tips, and insights about Del Webb North Ranch, a premier 55+ community in North Las Vegas. Learn about active adult living, community events, and real estate tips.",
+  alternates: {
+    canonical: "https://delwebbnorthranchhomes.com/blog",
+  },
+  openGraph: {
+    title: "Blog | Del Webb North Ranch | North Las Vegas",
+    description:
+      "Community news, insights, and tips about Del Webb North Ranch 55+ community and active adult living.",
+    url: "https://delwebbnorthranchhomes.com/blog",
+    siteName: "Del Webb North Ranch Homes",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog | Del Webb North Ranch",
+    description: "Community news and insights about North Las Vegas premier 55+ community.",
+  },
 };
 
 // Sample blog posts - replace with actual content from CMS or API
@@ -20,7 +37,7 @@ const blogPosts = [
     excerpt:
       "Discover what makes Del Webb North Ranch the premier 55+ community in North Las Vegas. From resort-style amenities to a vibrant social scene, learn why so many active adults choose to call this place home.",
     date: "2024-01-15",
-    image: "/images/blog/welcome.jpg",
+    image: "/images/blog/blog-01.jpg",
     category: "Community",
   },
   {
@@ -29,7 +46,7 @@ const blogPosts = [
     excerpt:
       "All homes at Del Webb North Ranch are single-story, and there's a good reason. Learn why this design choice matters for active adults and how it enhances your quality of life now and in the future.",
     date: "2024-01-10",
-    image: "/images/blog/single-story.jpg",
+    image: "/images/blog/blog-02.jpg",
     category: "Homes",
   },
   {
@@ -38,7 +55,7 @@ const blogPosts = [
     excerpt:
       "Nevada's lack of state income tax is a major draw for retirees. Discover how moving to Nevada can help your retirement dollars stretch further.",
     date: "2024-01-05",
-    image: "/images/blog/taxes.jpg",
+    image: "/images/blog/blog-03.jpg",
     category: "Lifestyle",
   },
   {
@@ -47,7 +64,7 @@ const blogPosts = [
     excerpt:
       "From pickleball to book clubs, discover the wide variety of clubs and activities available at Del Webb North Ranch. There's something for everyone.",
     date: "2023-12-20",
-    image: "/images/blog/clubs.jpg",
+    image: "/images/blog/post-01.jpg",
     category: "Lifestyle",
   },
   {
@@ -56,7 +73,7 @@ const blogPosts = [
     excerpt:
       "With 9 floor plans across three series, how do you choose? This guide helps you understand the differences and find the perfect fit for your lifestyle.",
     date: "2023-12-15",
-    image: "/images/blog/floor-plans.jpg",
+    image: "/images/blog/post-02.jpg",
     category: "Homes",
   },
   {
@@ -65,7 +82,7 @@ const blogPosts = [
     excerpt:
       "Hear from residents about their first year at Del Webb North Ranch. Learn what surprised them, what they love, and what advice they have for newcomers.",
     date: "2023-12-10",
-    image: "/images/blog/first-year.jpg",
+    image: "/images/blog/post-03.jpg",
     category: "Community",
   },
 ];
