@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
-import ContactForm from "@/../components/contact-form";
 import ScrollAnimation from "@/../components/scroll-animation";
 import { Phone, Mail, MapPin, Calendar, Youtube, FileText, ExternalLink } from "lucide-react";
 import { oldSiteData } from "@/lib/fetchOldSiteData";
@@ -66,17 +65,25 @@ export default function ContactPage() {
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-                {/* Contact Form */}
+                {/* Calendly Scheduling */}
                 <ScrollAnimation>
                   <div>
                     <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 font-playfair">
-                      Send a Message
+                      Schedule a Consultation
                     </h2>
                     <p className="text-text-dark mb-6">
-                      Fill out the form below and Dr. Jan Duffy will get back to
-                      you as soon as possible.
+                      Book a 15-minute consultation with Dr. Jan Duffy to discuss your home search and tour Del Webb North Ranch.
                     </p>
-                    <ContactForm />
+                    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                      <iframe
+                        src="https://calendly.com/drjanduffy/15min"
+                        width="100%"
+                        height="700"
+                        frameBorder="0"
+                        title="Schedule a consultation with Dr. Jan Duffy"
+                        className="w-full"
+                      />
+                    </div>
                   </div>
                 </ScrollAnimation>
 
