@@ -19,8 +19,8 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.delwebbnorthranchhomes.com"),
   title: {
-    default: "Del Webb North Ranch | 55+ Luxury Homes from $400K-$600K | North Las Vegas",
-    template: "%s | Del Webb North Ranch",
+    default: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    template: "%s | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
   },
   description:
     "Discover luxury single-story living in a vibrant 55+ community with mountain views, resort-style amenities, and no state income tax. Dr. Jan Duffy, REALTOR®.",
@@ -51,8 +51,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://www.delwebbnorthranchhomes.com",
-    siteName: "Del Webb North Ranch Homes",
-    title: "Del Webb North Ranch | 55+ Luxury Homes | North Las Vegas",
+    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    title: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     description:
       "Single-story homes from $400K-$600K in a gated 55+ community. Resort pool, pickleball, fitness center—all fully built.",
     images: [
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Del Webb North Ranch | 55+ Luxury Homes | North Las Vegas",
+    title: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     description:
       "Single-story homes from $400K-$600K in a gated 55+ community. Resort pool, pickleball, fitness center—all fully built.",
     images: ["/images/hero/hero-bg.jpg"],
@@ -173,7 +173,7 @@ export default function RootLayout({
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Del Webb North Ranch Homes",
+    name: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     url: "https://www.delwebbnorthranchhomes.com",
     potentialAction: {
       "@type": "SearchAction",
