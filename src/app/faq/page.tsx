@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Navbar from '@/../components/navbar';
 import Footer from '@/../components/footer';
 import FAQContent from '@/components/faq-content';
+import { getAllQuestions } from '@/lib/faqData';
 
 export const metadata: Metadata = {
   title: 'FAQ | Del Webb North Ranch | Common Questions | North Las Vegas',
@@ -26,131 +27,19 @@ export const metadata: Metadata = {
   },
 };
 
+// Generate FAQ schema from centralized data
+const allQuestions = getAllQuestions();
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'What is Del Webb North Ranch?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Del Webb North Ranch is a gated 55+ active adult community in North Las Vegas, Nevada. It features 394 single-family residences, all single-story homes, with resort-style amenities and a vibrant community lifestyle.',
-      },
+  mainEntity: allQuestions.map((q) => ({
+    '@type': 'Question',
+    name: q.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: q.answer,
     },
-    {
-      '@type': 'Question',
-      name: 'Is this a 55+ community?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes, Del Webb North Ranch is an age-restricted 55+ community. At least one resident must be 55 or older, and no one under 19 can be a permanent resident.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How many homes are in the community?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'The community consists of 394 single-family residences, all of which are single-story homes.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What is the HOA fee?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'The HOA fee is $215 per month. There are no Special Improvement Districts (SIDs) or Local Improvement Districts (LIDs), making it a straightforward monthly fee.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What is the price range?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "Homes in Del Webb North Ranch range from approximately $400,000 to $600,000, depending on the floor plan, location, and whether it's a new build or resale.",
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Are all homes single-story?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes, every home in Del Webb North Ranch is single-story. This is one of the key features that makes the community ideal for active adults.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What floor plans are available?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'There are 9 floor plans across three series: Cottage Series (1,285-1,509 sq ft), Classic Series (1,451-1,770 sq ft), and Retreat Series (1,716-2,015 sq ft). All homes feature 2-3 bedrooms, 2-2.5 baths, and a 2-car garage.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can I customize my home?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "For new construction, there are often options for finishes and upgrades. Resale homes come as-is. Dr. Jan Duffy can help you understand what's available and guide you through the process.",
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Where is Del Webb North Ranch located?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "The community is located at 2290 Beauty Vista Avenue in North Las Vegas, Nevada 89086. It's in a prime location with easy access to shopping, dining, healthcare, and entertainment.",
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What are the tax benefits of living in Nevada?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Nevada has no state income tax, which means more of your retirement income stays yours. This is a significant benefit for retirees compared to states like California.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: "What's nearby?",
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'The community is conveniently located near shopping centers, restaurants, healthcare facilities, and entertainment options. Las Vegas offers world-class dining, shows, and activities just minutes away.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Should I work with a REALTOR® or the builder?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Working with an independent REALTOR® like Dr. Jan Duffy gives you unbiased guidance. She specializes exclusively in Del Webb North Ranch and knows which homesites have the best views, which floor plans work best for different lifestyles, and which resale homes represent the best value.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How do I schedule a tour?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'You can schedule a private tour by calling Dr. Jan Duffy at (702) 500-1064, emailing sales@delwebbnorthranchhomes.com, or filling out the contact form on this website.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: "What's included in a tour?",
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "A private tour includes walking the community, seeing the amenities, and stepping inside model homes or available resale properties. There's no pressure—just information to help you decide if this is right for you.",
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Are there resale homes available?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes, there are often resale homes available in addition to new construction. Dr. Jan Duffy can help you explore both options to find what best fits your needs and timeline.',
-      },
-    },
-  ],
+  })),
 };
 
 export default function FAQPage() {

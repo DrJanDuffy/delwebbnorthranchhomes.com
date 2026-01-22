@@ -5,104 +5,10 @@ import { useState } from 'react';
 import ScrollAnimation from '@/../components/scroll-animation';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { faqData } from '@/lib/faqData';
 
-const faqs = [
-  {
-    category: 'Community',
-    questions: [
-      {
-        question: 'What is Del Webb North Ranch?',
-        answer:
-          'Del Webb North Ranch is a gated 55+ active adult community in North Las Vegas, Nevada. It features 394 single-family residences, all single-story homes, with resort-style amenities and a vibrant community lifestyle.',
-      },
-      {
-        question: 'Is this a 55+ community?',
-        answer:
-          'Yes, Del Webb North Ranch is an age-restricted 55+ community. At least one resident must be 55 or older, and no one under 19 can be a permanent resident.',
-      },
-      {
-        question: 'How many homes are in the community?',
-        answer:
-          'The community consists of 394 single-family residences, all of which are single-story homes.',
-      },
-      {
-        question: 'What is the HOA fee?',
-        answer:
-          'The HOA fee is $215 per month. There are no Special Improvement Districts (SIDs) or Local Improvement Districts (LIDs), making it a straightforward monthly fee.',
-      },
-    ],
-  },
-  {
-    category: 'Homes',
-    questions: [
-      {
-        question: 'What is the price range?',
-        answer:
-          'Homes in Del Webb North Ranch range from approximately $400,000 to $600,000, depending on the floor plan, location, and whether it\'s a new build or resale.',
-      },
-      {
-        question: 'Are all homes single-story?',
-        answer:
-          'Yes, every home in Del Webb North Ranch is single-story. This is one of the key features that makes the community ideal for active adults.',
-      },
-      {
-        question: 'What floor plans are available?',
-        answer:
-          'There are 9 floor plans across three series: Cottage Series (1,285-1,509 sq ft), Classic Series (1,451-1,770 sq ft), and Retreat Series (1,716-2,015 sq ft). All homes feature 2-3 bedrooms, 2-2.5 baths, and a 2-car garage.',
-      },
-      {
-        question: 'Can I customize my home?',
-        answer:
-          'For new construction, there are often options for finishes and upgrades. Resale homes come as-is. Dr. Jan Duffy can help you understand what\'s available and guide you through the process.',
-      },
-    ],
-  },
-  {
-    category: 'Location & Taxes',
-    questions: [
-      {
-        question: 'Where is Del Webb North Ranch located?',
-        answer:
-          'The community is located at 2290 Beauty Vista Avenue in North Las Vegas, Nevada 89086. It\'s in a prime location with easy access to shopping, dining, healthcare, and entertainment.',
-      },
-      {
-        question: 'What are the tax benefits of living in Nevada?',
-        answer:
-          'Nevada has no state income tax, which means more of your retirement income stays yours. This is a significant benefit for retirees compared to states like California.',
-      },
-      {
-        question: 'What\'s nearby?',
-        answer:
-          'The community is conveniently located near shopping centers, restaurants, healthcare facilities, and entertainment options. Las Vegas offers world-class dining, shows, and activities just minutes away.',
-      },
-    ],
-  },
-  {
-    category: 'Buying Process',
-    questions: [
-      {
-        question: 'Should I work with a REALTOR® or the builder?',
-        answer:
-          'Working with an independent REALTOR® like Dr. Jan Duffy gives you unbiased guidance. She specializes exclusively in Del Webb North Ranch and knows which homesites have the best views, which floor plans work best for different lifestyles, and which resale homes represent the best value.',
-      },
-      {
-        question: 'How do I schedule a tour?',
-        answer:
-          'You can schedule a private tour by calling Dr. Jan Duffy at (702) 500-1064, emailing sales@delwebbnorthranchhomes.com, or filling out the contact form on this website.',
-      },
-      {
-        question: 'What\'s included in a tour?',
-        answer:
-          'A private tour includes walking the community, seeing the amenities, and stepping inside model homes or available resale properties. There\'s no pressure—just information to help you decide if this is right for you.',
-      },
-      {
-        question: 'Are there resale homes available?',
-        answer:
-          'Yes, there are often resale homes available in addition to new construction. Dr. Jan Duffy can help you explore both options to find what best fits your needs and timeline.',
-      },
-    ],
-  },
-];
+// Use FAQ data from centralized data file
+const faqs = faqData;
 
 function FAQItem({
   question,
