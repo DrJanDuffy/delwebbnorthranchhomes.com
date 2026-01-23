@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Navbar from '@/../components/navbar';
 import Footer from '@/../components/footer';
 import FAQAccordion from '@/../components/FAQAccordion';
@@ -53,8 +54,17 @@ export default function FAQPage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
         {/* Hero Section */}
-        <section className="bg-stone-100 py-16 md:py-24">
-          <div className="max-w-4xl mx-auto px-4 text-center">
+        <section className="relative bg-stone-100 py-16 md:py-24 overflow-hidden">
+          <div className="absolute inset-0 opacity-10">
+            <Image
+              src="/images/amenities/resort-pool.jpeg"
+              alt="Del Webb North Ranch resort-style pool"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+          <div className="relative max-w-4xl mx-auto px-4 text-center z-10">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-playfair">
               Frequently Asked Questions
             </h1>
@@ -66,8 +76,80 @@ export default function FAQPage() {
 
         {/* FAQ Content */}
         <section className="py-16">
-          <div className="max-w-4xl mx-auto px-4">
-            <FAQAccordion showSearch={true} showExpandAll={true} allowMultiple={true} />
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+              {/* Main FAQ Accordion */}
+              <div className="lg:col-span-2">
+                <FAQAccordion showSearch={true} showExpandAll={true} allowMultiple={true} />
+              </div>
+
+              {/* Visual Sidebar */}
+              <div className="lg:col-span-1 space-y-6">
+                {/* Clubhouse Image */}
+                <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+                  <Image
+                    src="/images/amenities/clubhouse.jpeg"
+                    alt="Del Webb North Ranch 10,000 sq ft clubhouse amenity center"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <p className="text-sm font-semibold">10,000 sq ft Clubhouse</p>
+                    <p className="text-xs opacity-90">Opened October 2021</p>
+                  </div>
+                </div>
+
+                {/* Pool Image */}
+                <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+                  <Image
+                    src="/images/amenities/resort-pool.jpeg"
+                    alt="Del Webb North Ranch resort-style pool and spa"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <p className="text-sm font-semibold">Resort-Style Pool</p>
+                    <p className="text-xs opacity-90">Heated lap pool & spa</p>
+                  </div>
+                </div>
+
+                {/* Pickleball Courts */}
+                <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+                  <Image
+                    src="/images/amenities/pickleball-courts.jpeg"
+                    alt="Del Webb North Ranch lighted pickleball courts"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <p className="text-sm font-semibold">Pickleball Courts</p>
+                    <p className="text-xs opacity-90">Lighted for evening play</p>
+                  </div>
+                </div>
+
+                {/* Community Sign */}
+                <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+                  <Image
+                    src="/images/hero/community-sign.jpg"
+                    alt="Del Webb North Ranch gated community entrance"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <p className="text-sm font-semibold">Gated Community</p>
+                    <p className="text-xs opacity-90">24/7 security & virtual concierge</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
