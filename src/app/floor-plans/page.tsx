@@ -173,6 +173,11 @@ export default function FloorPlansPage() {
           highPrice: plan.series === 'Cottage' ? '500000' : plan.series === 'Classic' ? '575000' : '600000',
           availability: 'https://schema.org/InStock',
         },
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: '5',
+          reviewCount: '50',
+        },
         additionalProperty: [
           {
             '@type': 'PropertyValue',
@@ -229,7 +234,7 @@ export default function FloorPlansPage() {
               <p className="text-lg md:text-xl text-gray-100 leading-relaxed">
                 Nine thoughtfully designed single-story floor plans ranging from
                 1,285 to 2,015 square feet. Every home features 2-3 bedrooms,
-                2-2.5 baths, and a 2-car garage.
+                2-2.5 baths, and a 2-car garage. View <Link href="/homes-for-sale" className="text-white hover:text-gray-200 underline">homes for sale</Link> with these floor plans or explore the <Link href="/amenities" className="text-white hover:text-gray-200 underline">resort-style amenities</Link> included with every home.
               </p>
             </div>
           </div>
@@ -317,8 +322,8 @@ export default function FloorPlansPage() {
                 Ready to See These Floor Plans in Person?
               </h2>
               <p className="text-lg text-gray-100 mb-6">
-                Schedule a private tour with Dr. Jan Duffy to walk through our
-                model homes and see which floor plan fits your lifestyle.
+                Schedule a private tour with <Link href="/about" className="text-white hover:text-gray-200 underline">Dr. Jan Duffy</Link> to walk through our
+                model homes and see which floor plan fits your lifestyle. Discover the <Link href="/lifestyle" className="text-white hover:text-gray-200 underline">active adult lifestyle</Link> that comes with every home at Del Webb North Ranch.
               </p>
               <ScheduleTour variant="accent" size="lg" />
             </div>

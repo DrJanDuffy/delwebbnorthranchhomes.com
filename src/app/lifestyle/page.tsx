@@ -168,7 +168,7 @@ export default function LifestylePage() {
                         here to live fully, not just exist.
                       </p>
                       <p className="text-base md:text-lg text-text-dark leading-relaxed">
-                        Whether you're joining a morning pickleball game, attending
+                        Whether you're joining a morning pickleball game at the <Link href="/amenities" className="text-primary hover:text-accent underline">community amenities</Link>, attending
                         a club meeting, or simply chatting with neighbors on a
                         walk, you'll discover that making friends comes naturally
                         here.
@@ -345,8 +345,8 @@ export default function LifestylePage() {
                 Experience the Lifestyle for Yourself
               </h2>
               <p className="text-lg text-gray-100 mb-6">
-                Schedule a tour to see the community, meet residents, and learn
-                about the clubs and activities available.
+                Schedule a tour with <Link href="/about" className="text-white hover:text-gray-200 underline">Dr. Jan Duffy</Link> to see the community, meet residents, and learn
+                about the clubs and activities available. Explore <Link href="/floor-plans" className="text-white hover:text-gray-200 underline">homes for sale</Link> or view the <Link href="/amenities" className="text-white hover:text-gray-200 underline">resort-style amenities</Link> that support this lifestyle.
               </p>
               <ScheduleTour variant="accent" size="lg" />
             </div>

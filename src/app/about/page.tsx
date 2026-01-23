@@ -133,9 +133,8 @@ export default function AboutPage() {
                       <p className="text-base md:text-lg text-text-dark leading-relaxed">
                         With years of experience helping clients find their dream
                         homes in vibrant 55+ communities, Dr. Duffy understands
-                        the unique needs of active adults. She knows which floor
-                        plans get the best morning light. Which homesites have
-                        the best mountain views. Which resale homes are worth
+                        the unique needs of active adults. She knows which <Link href="/floor-plans" className="text-primary hover:text-accent underline">floor plans</Link> get the best morning light. Which homesites have
+                        the best mountain views. Which <Link href="/homes-for-sale" className="text-primary hover:text-accent underline">resale homes</Link> are worth
                         considering and which to skip.
                       </p>
                       <p className="text-base md:text-lg text-text-dark leading-relaxed font-semibold">
@@ -194,7 +193,7 @@ export default function AboutPage() {
                   Construction began in 2020, with the first homeowners moving in that same year. The community was completed in 2024, with all 394 single-story homes now built on approximately 80 acres. The 10,000 sq ft clubhouse amenity center opened on October 16, 2021, and has been serving residents ever since.
                 </p>
                 <p>
-                  The community features three collections: Cottage Series (132 homes, 1,285-1,509 sq ft), Classic Series (132 homes, 1,451-1,770 sq ft), and Retreat Series (130 homes, 1,716-2,015 sq ft). All homes are gated with virtual concierge and roving security, ensuring a safe and secure environment for residents.
+                  The community features three collections: Cottage Series (132 homes, 1,285-1,509 sq ft), Classic Series (132 homes, 1,451-1,770 sq ft), and Retreat Series (130 homes, 1,716-2,015 sq ft). Explore all <Link href="/floor-plans" className="text-primary hover:text-accent underline">9 floor plans</Link> available. All homes are gated with virtual concierge and roving security, ensuring a safe and secure environment for residents. Discover the <Link href="/amenities" className="text-primary hover:text-accent underline">resort-style amenities</Link> that make this community special.
                 </p>
               </div>
             </div>
@@ -226,8 +225,8 @@ export default function AboutPage() {
                 <p>
                   My exclusive focus on Del Webb North Ranch means I know this
                   community inside and out. I can tell you which homesites have
-                  the best views, which floor plans work best for entertaining,
-                  and which resale homes represent the best value. I'm not here
+                  the best views, which <Link href="/floor-plans" className="text-primary hover:text-accent underline">floor plans</Link> work best for entertaining,
+                  and which <Link href="/homes-for-sale" className="text-primary hover:text-accent underline">resale homes</Link> represent the best value. Learn more about the <Link href="/lifestyle" className="text-primary hover:text-accent underline">active adult lifestyle</Link> at Del Webb North Ranch. I'm not here
                   to push you into a sale—I'm here to help you make an informed
                   decision about your next chapter.
                 </p>
@@ -351,7 +350,7 @@ export default function AboutPage() {
               </h2>
               <p className="text-lg text-gray-100 mb-6">
                 Let's schedule a time to discuss your needs and tour Del Webb
-                North Ranch together.
+                North Ranch together. <Link href="/contact" className="text-white hover:text-gray-200 underline">Contact Dr. Jan Duffy</Link> to get started.
               </p>
               <ScheduleTour variant="accent" size="lg" />
             </div>

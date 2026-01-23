@@ -111,7 +111,7 @@ export default function RootLayout({
     image: "https://www.delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg",
     url: "https://www.delwebbnorthranchhomes.com",
     telephone: "+1-702-500-1064",
-    email: "Sales@DelWebbNorthRanchHomes.com",
+    email: "sales@delwebbnorthranchhomes.com",
     address: {
       "@type": "PostalAddress",
       streetAddress: "2290 Beauty Vista Avenue",

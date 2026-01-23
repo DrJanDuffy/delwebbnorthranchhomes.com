@@ -9,6 +9,27 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      // Redirect old /units/* routes to floor plans
+      {
+        source: '/units/overlook-model',
+        destination: '/floor-plans',
+        permanent: true,
+      },
+      {
+        source: '/units/the-haven',
+        destination: '/floor-plans/haven',
+        permanent: true,
+      },
+      // Catch-all for any other /units/* routes
+      {
+        source: '/units/:path*',
+        destination: '/floor-plans',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
@@ -23,7 +44,7 @@ const nextConfig = {
               "style-src 'self' 'unsafe-inline' https://assets.calendly.com",
               "img-src 'self' data: https:",
               "font-src 'self' data:",
-              "frame-src 'self' https://em.realscout.com https://www.realscout.com https://calendly.com https://www.youtube.com https://youtube.com",
+              "frame-src 'self' https://em.realscout.com https://www.realscout.com https://calendly.com https://www.youtube.com https://youtube.com https://my.matterport.com",
             ].join('; '),
           },
         ],

@@ -61,9 +61,9 @@ export default function ContactPage() {
                 Contact & Schedule a Tour | Del Webb North Ranch 55+ Real Estate
               </h1>
               <p className="text-lg md:text-xl text-gray-100 leading-relaxed">
-                Ready to explore Del Webb North Ranch? Contact Dr. Jan Duffy to
+                Ready to explore Del Webb North Ranch? Contact <Link href="/about" className="text-white hover:text-gray-200 underline">Dr. Jan Duffy</Link> to
                 schedule a private tour, ask questions, or learn more about
-                available homes.
+                <Link href="/homes-for-sale" className="text-white hover:text-gray-200 underline"> available homes</Link>. Explore <Link href="/floor-plans" className="text-white hover:text-gray-200 underline">floor plans</Link> and <Link href="/amenities" className="text-white hover:text-gray-200 underline">amenities</Link>.
               </p>
             </div>
           </div>

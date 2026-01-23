@@ -197,7 +197,7 @@ export default function AmenitiesPage() {
               <p className="text-lg md:text-xl text-gray-100 leading-relaxed">
                 Del Webb North Ranch offers resort-style amenities designed to
                 help you live your best life. Every amenity is fully built and
-                ready to enjoy.
+                ready to enjoy. Explore <Link href="/floor-plans" className="text-white hover:text-gray-200 underline">homes with these amenities</Link> or view <Link href="/homes-for-sale" className="text-white hover:text-gray-200 underline">available homes for sale</Link>.
               </p>
             </div>
           </div>
@@ -288,17 +288,27 @@ export default function AmenitiesPage() {
                 Experience These Amenities for Yourself
               </h2>
               <p className="text-lg text-gray-100 mb-6">
-                Schedule a tour with Dr. Jan Duffy to see the amenities and
-                community in person.
+                Schedule a tour with <Link href="/about" className="text-white hover:text-gray-200 underline">Dr. Jan Duffy</Link> to see the amenities and
+                community in person. Learn more about the <Link href="/lifestyle" className="text-white hover:text-gray-200 underline">active adult lifestyle</Link> at Del Webb North Ranch.
               </p>
-              <Button
-                asChild
-                variant="accent"
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-white"
-              >
-                <Link href="/contact">Schedule Your Tour</Link>
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button
+                  asChild
+                  variant="accent"
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 text-white"
+                >
+                  <Link href="/contact">Schedule Your Tour</Link>
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="border-white text-white hover:bg-white/10"
+                >
+                  <Link href="/homes-for-sale">View Homes for Sale</Link>
+                </Button>
+              </div>
             </div>
           </div>
         </section>

@@ -65,7 +65,7 @@ export const oldSiteData = {
       beds: 2,
       baths: 2,
       series: 'Cottage' as const,
-      embedUrl: null as string | null,
+      embedUrl: 'https://my.matterport.com/show/?m=fAcy3LBb71W&qs=1&ts=1',
     },
     {
       model: 'Gateway',

@@ -17,6 +17,7 @@ import MortgageCalculator from "../../components/MortgageCalculator";
 import RealScoutListings from "../../components/RealScoutListings";
 import QuickFAQ from "../../components/QuickFAQ";
 import ExploreCommunitySection from "../../components/sections/explore-community";
+import FlyersSection from "../../components/sections/flyers-section";
 
 // Homepage metadata - optimized for SEO and sitelinks
 export const metadata: Metadata = {
@@ -66,6 +67,7 @@ export default function Home() {
         <TestimonialSection />
         <AmenitiesPreviewSection />
         <HomeCollectionsSection />
+        <FlyersSection />
         <VirtualTours />
         <HomesForSaleWidget />
         <Testimonials />

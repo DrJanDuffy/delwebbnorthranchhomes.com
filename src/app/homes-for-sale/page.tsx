@@ -66,7 +66,7 @@ export default async function HomesForSalePage() {
                 Homes for Sale in Del Webb North Ranch | North Las Vegas 55+ Community
               </h1>
               <p className="text-lg md:text-xl text-gray-100 leading-relaxed mb-6">
-                Browse current listings updated daily from the MLS
+                Browse current listings updated daily from the MLS. Explore <Link href="/floor-plans" className="text-white hover:text-gray-200 underline">9 floor plans</Link> available or learn about the <Link href="/amenities" className="text-white hover:text-gray-200 underline">resort-style amenities</Link> included with every home.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Button
@@ -222,6 +222,9 @@ export default async function HomesForSalePage() {
               <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center font-playfair">
                 Why Choose Del Webb North Ranch?
               </h2>
+              <p className="text-center text-text-dark mb-6 max-w-2xl mx-auto">
+                Discover the <Link href="/amenities" className="text-primary hover:text-accent underline">resort-style amenities</Link> and <Link href="/lifestyle" className="text-primary hover:text-accent underline">active adult lifestyle</Link> that make this community special.
+              </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="bg-white p-6 rounded-lg shadow-two text-center">
                   <h3 className="text-xl font-bold text-primary mb-3 font-playfair">
