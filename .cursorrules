@@ -1,28 +1,247 @@
-# Accessibility & Color Contrast Rules
+---
+description: Accessibility, SEO, and Next.js 15 best practices for Del Webb North Ranch website
+globs: components/**/*.tsx,src/app/**/*.tsx,src/components/**/*.tsx
+alwaysApply: true
+---
 
-## Color Contrast (WCAG AA Compliance)
-- **NEVER use `text-accent` (#c9a227 gold) on light backgrounds** - Use `text-primary` (#1e3a5f navy) instead for sufficient contrast (4.5:1 minimum)
-- **NEVER use `bg-accent` or `bg-amber-500` for buttons with white text** - Use `bg-primary` instead for better contrast
-- **For buttons:** Always use `bg-primary text-white` or `bg-amber-700` (or darker) with white text
-- **For decorative icons:** Use `text-primary` instead of `text-accent` or `text-amber-500` on light backgrounds
-- **Hover states:** Use `hover:text-primary/80` instead of `hover:text-accent` for better contrast
+# Del Webb North Ranch - Development Rules
 
-## Touch Target Sizes (WCAG AA Compliance)
-- **All interactive elements must be minimum 44x44px**
-- Add `min-h-[44px] min-w-[44px]` to all buttons and clickable links
-- Testimonial navigation dots should be `h-11 w-11` (44px) with inner indicator dots
-- Button component already includes `min-h-[44px] min-w-[44px]` - ensure custom buttons also include this
+## 🎯 Project Context
+- **Stack:** Next.js 15 App Router, React 19, TypeScript, Tailwind CSS 4
+- **Focus:** Real estate website for Dr. Jan Duffy, REALTOR®
+- **Community:** Del Webb North Ranch, 55+ active adult community in North Las Vegas
+- **SEO Priority:** Local SEO, Google Business Profile integration, WCAG AA compliance
 
-## ARIA Attributes
-- Use string values for `aria-expanded`: `aria-expanded={isOpen ? 'true' : 'false'}` or `aria-expanded={String(isOpen)}`
-- Always include proper ARIA labels for interactive elements
+## 🚫 Accessibility - Color Contrast (WCAG AA)
 
-## Color Usage Guidelines
-- **Primary color (#1e3a5f navy):** Use for text on light backgrounds, button backgrounds, links
-- **Accent color (#c9a227 gold):** Only use for decorative elements on dark backgrounds, or as hover states on dark text
-- **Amber colors:** Use `amber-700` or darker for buttons with white text, avoid `amber-500`/`amber-600` for accessibility
+### CRITICAL: Never Use These Combinations
+- ❌ `text-accent` (#c9a227 gold) on light backgrounds → Use `text-primary` (#1e3a5f navy)
+- ❌ `bg-accent` or `bg-amber-500` for buttons with white text → Use `bg-primary` or `bg-amber-700+`
+- ❌ `text-amber-500` for icons on light backgrounds → Use `text-primary`
 
-## Testing
-- Always test color contrast ratios (4.5:1 for normal text, 3:1 for large text)
-- Verify touch target sizes meet 44x44px minimum
-- Use browser accessibility tools to verify WCAG AA compliance
+### ✅ Correct Patterns
+```tsx
+// Text on light background
+<span className="text-primary font-bold">${price}</span>  // ✅
+<span className="text-accent">${price}</span>            // ❌
+
+// Buttons
+<button className="bg-primary text-white">Click</button>  // ✅
+<button className="bg-accent text-white">Click</button> // ❌
+
+// Icons
+<ChevronDown className="w-5 h-5 text-primary" />         // ✅
+<ChevronDown className="w-5 h-5 text-amber-500" />       // ❌
+```
+
+### Color Usage Rules
+- **Primary (#1e3a5f navy):** Text on light backgrounds, button backgrounds, links, icons
+- **Accent (#c9a227 gold):** ONLY for decorative elements on dark backgrounds or hover states on dark text
+- **Amber:** Use `amber-700` or darker for buttons, avoid `amber-500`/`amber-600`
+
+## 🎯 Touch Target Sizes (WCAG AA)
+
+### Requirement
+All interactive elements MUST be minimum 44x44px (11 Tailwind units = `h-11 w-11`)
+
+### Implementation
+```tsx
+// ✅ Correct
+<button className="min-h-[44px] min-w-[44px] ...">
+<Link className="min-h-[44px] min-w-[44px] ...">
+
+// Navigation dots (testimonials)
+<button className="h-11 w-11 rounded-full ...">
+  <span className="h-2 w-2 rounded-full ..." />  {/* Inner indicator */}
+</button>
+
+// ❌ Incorrect
+<button className="h-2 w-2 ...">  {/* Too small */}
+```
+
+**Note:** Base Button component already includes `min-h-[44px] min-w-[44px]` - ensure custom buttons also include this.
+
+## 📝 ARIA Attributes
+
+### aria-expanded
+**MUST use string values, not boolean:**
+```tsx
+// ✅ Correct
+aria-expanded={isOpen ? 'true' : 'false'}
+// OR
+const ariaExpanded = isOpen ? 'true' : 'false';
+aria-expanded={ariaExpanded}
+
+// ❌ Incorrect
+aria-expanded={isOpen}  // Boolean, causes linter error
+```
+
+### ARIA Labels
+Always include descriptive labels for interactive elements:
+```tsx
+<button aria-label="View testimonial 2">...</button>
+<input aria-label="Purchase price slider" />
+```
+
+## 🏗️ Next.js 15 App Router Patterns
+
+### Server vs Client Components
+- **Default:** Server Components (no `'use client'`)
+- **Use `'use client'` ONLY for:** useState, useEffect, event handlers, browser APIs
+- **Pattern:** Fetch data in Server Component, pass to Client Component as props
+
+```tsx
+// ✅ Server Component (page.tsx)
+export default async function Page() {
+  const data = await fetchData()
+  return <InteractiveComponent initialData={data} />
+}
+
+// ✅ Client Component (when needed)
+'use client'
+export function InteractiveComponent({ initialData }) {
+  const [state, setState] = useState(initialData)
+  // Interactive logic
+}
+```
+
+### Metadata & SEO
+Every page MUST include:
+```tsx
+export const metadata: Metadata = {
+  title: "Page Title | Del Webb North Ranch | North Las Vegas",
+  description: "Description including 'Del Webb North Ranch,' '55+,' and 'North Las Vegas'",
+  alternates: {
+    canonical: "https://www.delwebbnorthranchhomes.com/page-path",
+  },
+  openGraph: {
+    title: "Page Title | Del Webb North Ranch",
+    url: "https://www.delwebbnorthranchhomes.com/page-path",
+    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+  },
+}
+```
+
+**Required keywords in descriptions:**
+- "Del Webb North Ranch" (community name)
+- "55+" or "active adult community"
+- "North Las Vegas" (location)
+- "Dr. Jan Duffy" (when relevant)
+
+### Dynamic Routes
+```tsx
+// Params are Promises in Next.js 15!
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params
+  // ...
+}
+```
+
+## 🖼️ Image Optimization
+
+### Always Use Next.js Image Component
+```tsx
+import Image from 'next/image'
+
+<Image
+  src="/images/hero/hero-bg.jpg"
+  alt="Descriptive alt text"  // REQUIRED
+  fill  // For background images
+  priority  // For above-fold images
+  placeholder="blur"
+  blurDataURL={blurDataURL}
+  sizes="100vw"
+/>
+```
+
+**Rules:**
+- Always include descriptive `alt` text
+- Use `priority` for hero/above-fold images
+- Use `fill` with `sizes` for responsive images
+- Use `placeholder="blur"` with `blurDataURL` for better UX
+
+## 🎨 Tailwind CSS Patterns
+
+### Spacing Scale
+- Use Tailwind spacing scale: `p-4` (1rem), `p-6` (1.5rem), `p-8` (2rem)
+- Don't hardcode pixel values
+- Mobile-first: `text-base md:text-lg lg:text-xl`
+
+### Responsive Patterns
+```tsx
+// Grid
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+// Flex
+<div className="flex flex-col sm:flex-row gap-4">
+
+// Text
+<h1 className="text-3xl md:text-4xl lg:text-5xl">
+```
+
+## 📊 Structured Data (JSON-LD)
+
+### Always Include XSS Protection
+```tsx
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify(schema).replace(/</g, "\\u003c")
+  }}
+/>
+```
+
+### Required Schemas
+- **LocalBusiness** (in layout.tsx) - Google Business Profile integration
+- **RealEstateAgent** (in layout.tsx)
+- **Organization** (in layout.tsx)
+- **WebSite** with SearchAction (in layout.tsx)
+- **Place** (in layout.tsx) - Local SEO
+- **BreadcrumbList** (on detail pages)
+- **FAQPage** (on FAQ page)
+- **Product** (on floor plan pages)
+
+## 🔍 SEO Requirements
+
+### Every Page Must Have
+- [ ] Unique title with location/keywords
+- [ ] Meta description with "Del Webb North Ranch," "55+," "North Las Vegas"
+- [ ] Canonical URL (always `https://www.delwebbnorthranchhomes.com`)
+- [ ] OpenGraph tags
+- [ ] Twitter card
+- [ ] Proper H1 heading
+- [ ] Descriptive image alt text
+- [ ] Relevant structured data
+
+### URL Format
+- **Base URL:** `https://www.delwebbnorthranchhomes.com`
+- **Always use www subdomain**
+- **Always use HTTPS**
+
+## 🧪 Testing Checklist
+
+Before committing:
+- [ ] Color contrast ratios (4.5:1 normal text, 3:1 large text)
+- [ ] Touch targets are 44x44px minimum
+- [ ] ARIA attributes use string values
+- [ ] All images have descriptive alt text
+- [ ] Metadata includes required keywords
+- [ ] Canonical URLs are correct
+- [ ] Structured data is valid (test with Google Rich Results Test)
+
+## 🚨 Common Mistakes to Avoid
+
+- ❌ Using `text-accent` on light backgrounds
+- ❌ Using `bg-accent` for buttons
+- ❌ Missing `min-h-[44px] min-w-[44px]` on custom buttons
+- ❌ Using boolean for `aria-expanded`
+- ❌ Forgetting `'use client'` when using hooks
+- ❌ Fetching data in client components
+- ❌ Missing canonical URLs
+- ❌ Generic meta descriptions without location/keywords
+- ❌ Missing alt text on images
+- ❌ Using `<img>` instead of Next.js `<Image>`
