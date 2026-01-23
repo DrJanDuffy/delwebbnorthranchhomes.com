@@ -14,8 +14,8 @@ export default function Hero() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero/community-sign.jpg"
-          alt="Del Webb North Ranch community entrance sign with beautiful landscaping"
+          src="/images/amenities/resort-pool.jpeg"
+          alt="Del Webb North Ranch resort-style pool area with beautiful landscaping and mountain views"
           fill
           priority
           className="object-cover"
