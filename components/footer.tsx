@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="bg-footer-bg text-white py-12 md:py-16">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8">
           {/* Site Info */}
           <div>
             <h3 className="text-2xl font-bold mb-4 font-playfair">
@@ -248,6 +248,143 @@ export default function Footer() {
                 >
                   <Youtube className="w-4 h-4" />
                   YouTube
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Related Communities */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Other Communities</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a
+                  href="https://heyberkshirehomes.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Hey Berkshire Homes
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://askberkshirehomes.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Ask Berkshire Homes
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://searchforhomesvegas.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Search for Homes Vegas
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://californiaforeverbroker.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  California Forever Broker
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://californiaforeverrealestateagent.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  California Forever Real Estate
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://californiaforeverrealty.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  California Forever Realty
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://heartlandlasvegas.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Heartland Las Vegas
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://yourdivorcerealtor.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Your Divorce Realtor
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://greenvalleyranchinsider.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Green Valley Ranch Insider
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://maravillahomesforsale.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Maravilla Homes for Sale
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://arieshenderson.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Aries Henderson
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://craigranchhomes.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Craig Ranch Homes
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://silverstoneranchhomes.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Silverstone Ranch Homes
                 </a>
               </li>
             </ul>
