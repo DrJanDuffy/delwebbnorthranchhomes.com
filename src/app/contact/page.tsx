@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Script from "next/script";
+import Link from "next/link";
 import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
 import Breadcrumbs from "@/../components/Breadcrumbs";
