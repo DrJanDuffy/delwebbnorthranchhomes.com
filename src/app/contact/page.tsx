@@ -3,6 +3,7 @@ import Image from "next/image";
 import Script from "next/script";
 import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
+import Breadcrumbs from "@/../components/Breadcrumbs";
 import ScrollAnimation from "@/../components/scroll-animation";
 import { Phone, Mail, MapPin, Calendar, Youtube, FileText, ExternalLink } from "lucide-react";
 import { oldSiteData } from "@/lib/fetchOldSiteData";
@@ -45,6 +46,12 @@ export default function ContactPage() {
   return (
     <>
       <Navbar />
+      <Breadcrumbs
+        items={[
+          { label: "Del Webb North Ranch", href: "/" },
+          { label: "Contact", href: "/contact" },
+        ]}
+      />
       <main className="pt-16 md:pt-20">
         {/* Hero Section */}
         <section className="bg-primary text-white py-12 md:py-16 lg:py-20">

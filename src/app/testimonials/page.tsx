@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Navbar from '@/../components/navbar';
 import Footer from '@/../components/footer';
+import Breadcrumbs from '@/../components/Breadcrumbs';
 import ScrollAnimation from '@/../components/scroll-animation';
 import { getAllTestimonials } from '@/lib/old-site-data';
 import { Quote } from 'lucide-react';
@@ -43,6 +44,12 @@ export default function TestimonialsPage() {
   return (
     <>
       <Navbar />
+      <Breadcrumbs
+        items={[
+          { label: "Del Webb North Ranch", href: "/" },
+          { label: "Testimonials", href: "/testimonials" },
+        ]}
+      />
       <main className="pt-16 md:pt-20">
         {/* Hero Section */}
         <section className="bg-primary text-white py-12 md:py-16 lg:py-20">

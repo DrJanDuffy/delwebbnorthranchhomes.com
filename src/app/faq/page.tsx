@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Navbar from '@/../components/navbar';
 import Footer from '@/../components/footer';
+import Breadcrumbs from '@/../components/Breadcrumbs';
 import FAQAccordion from '@/../components/FAQAccordion';
 import { getAllQuestions } from '@/lib/faqData';
 import Link from 'next/link';
@@ -57,6 +58,12 @@ export default function FAQPage() {
   return (
     <>
       <Navbar />
+      <Breadcrumbs
+        items={[
+          { label: "Del Webb North Ranch", href: "/" },
+          { label: "FAQ", href: "/faq" },
+        ]}
+      />
       <main className="min-h-screen bg-white pt-16 md:pt-20">
         <script
           type="application/ld+json"

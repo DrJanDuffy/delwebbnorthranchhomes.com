@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Navbar from '@/../components/navbar';
 import Footer from '@/../components/footer';
+import Breadcrumbs from '@/../components/Breadcrumbs';
 import { Button } from '@/../components/ui/button';
 import ScrollAnimation from '@/../components/scroll-animation';
 import {
@@ -37,13 +38,13 @@ export async function generateMetadata({
   const url = `${baseUrl}/floor-plans/${slug}`;
 
   return {
-    title: `${plan.name} Floor Plan | ${plan.series} Series | Del Webb North Ranch | North Las Vegas`,
+    title: `${plan.name} Floor Plan | ${plan.series} Series | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy`,
     description: `${plan.name} floor plan: ${plan.sqft} sq ft, ${plan.beds} bed, ${plan.baths} bath ${plan.series} Series home in Del Webb North Ranch, a premier 55+ community in North Las Vegas. ${plan.description}`,
     alternates: {
       canonical: url,
     },
     openGraph: {
-      title: `${plan.name} Floor Plan | Del Webb North Ranch`,
+      title: `${plan.name} Floor Plan | ${plan.series} Series | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy`,
       description: `${plan.sqft} sq ft, ${plan.beds} bed, ${plan.baths} bath ${plan.series} Series home. ${plan.priceRange}.`,
       url: url,
       siteName: 'Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
@@ -199,6 +200,13 @@ export default async function FloorPlanPage({
   return (
     <>
       <Navbar />
+      <Breadcrumbs
+        items={[
+          { label: "Del Webb North Ranch", href: "/" },
+          { label: "Floor Plans", href: "/floor-plans" },
+          { label: `${plan.name} - ${plan.series} Series`, href: `/floor-plans/${slug}` },
+        ]}
+      />
       <main className="pt-16 md:pt-20">
         <ProductSchema plan={plan} />
         <BreadcrumbSchema plan={plan} />
