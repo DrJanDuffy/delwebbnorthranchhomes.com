@@ -23,22 +23,22 @@ export default function Hero() {
           blurDataURL={blurDataURL}
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
       </div>
 
       {/* Content */}
       <div className="container mx-auto px-4 py-16 md:py-24 lg:py-32 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 font-playfair leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 font-playfair leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
             Your Next Chapter Starts Here
           </h1>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 text-gray-100 leading-relaxed px-2">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 text-gray-100 leading-relaxed px-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
             Discover luxury single-story living in a vibrant 55+ community with
             mountain views, resort-style amenities, and neighbors who become
             friends.
           </p>
           <div className="mb-6 md:mb-8">
-            <p className="text-lg sm:text-xl md:text-2xl font-semibold text-white">
+            <p className="text-lg sm:text-xl md:text-2xl font-semibold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
               Homes from $400K-$600K in North Las Vegas
             </p>
           </div>
