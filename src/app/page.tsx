@@ -17,20 +17,19 @@ import MortgageCalculator from "../../components/MortgageCalculator";
 import RealScoutListings from "../../components/RealScoutListings";
 import QuickFAQ from "../../components/QuickFAQ";
 import ExploreCommunitySection from "../../components/sections/explore-community";
-import ExploreCommunitySection from "../../components/sections/explore-community";
 
-// Homepage metadata - optimized for sitelinks
+// Homepage metadata - optimized for SEO and sitelinks
 export const metadata: Metadata = {
   title: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
   description:
-    "Discover luxury single-story homes from $400K-$600K in Del Webb North Ranch, a gated 55+ active adult community in North Las Vegas. Resort-style amenities, no state income tax.",
+    "Discover 55+ luxury homes for sale at Del Webb North Ranch in North Las Vegas. Single-story living from $400K-$600K with resort amenities. Contact Dr. Jan Duffy at (702) 500-1064.",
   alternates: {
     canonical: "https://www.delwebbnorthranchhomes.com",
   },
   openGraph: {
     title: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     description:
-      "Single-story homes from $400K-$600K in a gated 55+ community. Resort pool, pickleball, fitness center—all fully built.",
+      "Discover 55+ luxury homes for sale at Del Webb North Ranch in North Las Vegas. Single-story living from $400K-$600K with resort amenities.",
     url: "https://www.delwebbnorthranchhomes.com",
     siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     images: [
@@ -46,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     description:
-      "Single-story homes from $400K-$600K in a gated 55+ community. Resort pool, pickleball, fitness center—all fully built.",
+      "Discover 55+ luxury homes for sale at Del Webb North Ranch in North Las Vegas. Single-story living from $400K-$600K with resort amenities.",
     images: ["/images/amenities/resort-pool.jpeg"],
   },
 };

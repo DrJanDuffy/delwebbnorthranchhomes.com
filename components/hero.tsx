@@ -29,9 +29,12 @@ export default function Hero() {
       {/* Content */}
       <div className="container mx-auto px-4 py-16 md:py-24 lg:py-32 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 font-playfair leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
-            Your Next Chapter Starts Here
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 font-playfair leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
+            Del Webb North Ranch | 55+ Homes for Sale in North Las Vegas
           </h1>
+          <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light italic mb-4 md:mb-6 text-white/95 leading-tight drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]">
+            Your Next Chapter Starts Here
+          </p>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 text-gray-100 leading-relaxed px-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
             Discover luxury single-story living in a vibrant 55+ community with
             mountain views, resort-style amenities, and neighbors who become
