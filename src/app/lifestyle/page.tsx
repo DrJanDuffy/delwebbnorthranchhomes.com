@@ -127,7 +127,7 @@ export default function LifestylePage() {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 font-playfair">
-                A Lifestyle Built for Living
+                Active Adult Lifestyle | Del Webb North Ranch 55+ Community
               </h1>
               <p className="text-lg md:text-xl text-gray-100 leading-relaxed">
                 Del Webb North Ranch isn't just a place to live—it's a vibrant

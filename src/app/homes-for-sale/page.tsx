@@ -63,7 +63,7 @@ export default async function HomesForSalePage() {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 font-playfair">
-                Homes for Sale in Del Webb North Ranch
+                Homes for Sale in Del Webb North Ranch | North Las Vegas 55+ Community
               </h1>
               <p className="text-lg md:text-xl text-gray-100 leading-relaxed mb-6">
                 Browse current listings updated daily from the MLS

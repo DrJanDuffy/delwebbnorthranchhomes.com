@@ -87,7 +87,7 @@ export default function AboutPage() {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 font-playfair">
-                Meet Dr. Jan Duffy
+                About Dr. Jan Duffy REALTOR® | Del Webb North Ranch 55+ Real Estate
               </h1>
               <p className="text-lg md:text-xl text-gray-100 leading-relaxed">
                 Your trusted REALTOR® specializing in Del Webb North Ranch and

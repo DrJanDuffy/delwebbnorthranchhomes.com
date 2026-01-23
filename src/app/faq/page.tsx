@@ -82,7 +82,7 @@ export default function FAQPage() {
           </div>
           <div className="relative max-w-4xl mx-auto px-4 text-center z-10">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-playfair">
-              Frequently Asked Questions
+              Frequently Asked Questions | Del Webb North Ranch 55+ Community
             </h1>
             <p className="text-xl text-gray-600">
               Everything you need to know about Del Webb North Ranch

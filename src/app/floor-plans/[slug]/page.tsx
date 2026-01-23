@@ -225,7 +225,7 @@ export default async function FloorPlanPage({
                 <span className="text-sm font-semibold">{plan.series} Series</span>
               </div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 font-playfair">
-                {plan.name} Floor Plan
+                {plan.name} Floor Plan | {plan.series} Series | Del Webb North Ranch
               </h1>
               <p className="text-lg md:text-xl text-gray-100 leading-relaxed mb-6">
                 {plan.description}
