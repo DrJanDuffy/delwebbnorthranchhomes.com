@@ -23,7 +23,7 @@ export default function Hero() {
           blurDataURL={blurDataURL}
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-primary/70" />
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
       {/* Content */}
