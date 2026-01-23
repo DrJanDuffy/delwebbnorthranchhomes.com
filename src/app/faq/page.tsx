@@ -7,25 +7,34 @@ import { getAllQuestions } from '@/lib/faqData';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'FAQ | Del Webb North Ranch | 55+ Community Questions Answered',
+  title: 'Frequently Asked Questions | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
   description:
     'Find answers to frequently asked questions about Del Webb North Ranch, a 55+ active adult community in North Las Vegas. Learn about HOA fees, amenities, age requirements, and more.',
   alternates: {
     canonical: 'https://www.delwebbnorthranchhomes.com/faq',
   },
   openGraph: {
-    title: 'FAQ | Del Webb North Ranch | 55+ Community Questions Answered',
+    title: 'Frequently Asked Questions | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
     description:
       'Find answers to frequently asked questions about Del Webb North Ranch, a 55+ active adult community in North Las Vegas. Learn about HOA fees, amenities, age requirements, and more.',
     url: 'https://www.delwebbnorthranchhomes.com/faq',
     siteName: 'Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: 'https://www.delwebbnorthranchhomes.com/images/amenities/resort-pool.jpeg',
+        width: 1200,
+        height: 630,
+        alt: 'Del Webb North Ranch FAQ',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'FAQ | Del Webb North Ranch | 55+ Community Questions Answered',
+    title: 'Frequently Asked Questions | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
     description: 'Find answers to frequently asked questions about Del Webb North Ranch 55+ community.',
+    images: ['https://www.delwebbnorthranchhomes.com/images/amenities/resort-pool.jpeg'],
   },
 };
 

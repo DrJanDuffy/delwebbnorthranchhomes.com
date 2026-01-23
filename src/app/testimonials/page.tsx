@@ -6,14 +6,14 @@ import { getAllTestimonials } from '@/lib/old-site-data';
 import { Quote } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Testimonials | Del Webb North Ranch | Client Reviews | North Las Vegas',
+  title: 'Client Testimonials | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
   description:
     'Read what our clients say about working with Dr. Jan Duffy to find their dream home in Del Webb North Ranch, a premier 55+ community in North Las Vegas.',
   alternates: {
     canonical: 'https://www.delwebbnorthranchhomes.com/testimonials',
   },
   openGraph: {
-    title: 'Testimonials | Del Webb North Ranch | North Las Vegas',
+    title: 'Client Testimonials | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
     description:
       'Client reviews and testimonials about finding homes in Del Webb North Ranch 55+ community.',
     url: 'https://www.delwebbnorthranchhomes.com/testimonials',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Testimonials | Del Webb North Ranch',
+    title: 'Client Testimonials | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
     description: 'Client reviews about Del Webb North Ranch homes.',
     images: ['https://www.delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg'],
   },

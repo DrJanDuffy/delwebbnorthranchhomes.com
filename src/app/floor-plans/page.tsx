@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
+import Breadcrumbs from "@/../components/Breadcrumbs";
 import { Button } from "@/../components/ui/button";
 import Link from "next/link";
 import ScrollAnimation from "@/../components/scroll-animation";
@@ -14,14 +15,14 @@ import ScheduleTour from "@/../components/ScheduleTour";
 import RealScoutListings from "@/../components/RealScoutListings";
 
 export const metadata: Metadata = {
-  title: "Floor Plans | Del Webb North Ranch | 9 Single-Story Designs | North Las Vegas",
+  title: "Floor Plans 1,285-2,015 Sq Ft | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
   description:
     "Explore all 9 floor plans at Del Webb North Ranch, a premier 55+ community in North Las Vegas. Cottage, Classic, and Retreat series from 1,285 to 2,015 sq ft. View Matterport virtual tours.",
   alternates: {
     canonical: "https://www.delwebbnorthranchhomes.com/floor-plans",
   },
   openGraph: {
-    title: "Floor Plans | Del Webb North Ranch | North Las Vegas",
+    title: "Floor Plans 1,285-2,015 Sq Ft | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     description:
       "Explore 9 single-story floor plans from 1,285 to 2,015 sq ft in Del Webb North Ranch, a premier 55+ community.",
     url: "https://www.delwebbnorthranchhomes.com/floor-plans",
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Floor Plans | Del Webb North Ranch",
+    title: "Floor Plans 1,285-2,015 Sq Ft | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     description: "Explore 9 single-story floor plans in North Las Vegas's premier 55+ community.",
     images: ["https://www.delwebbnorthranchhomes.com/images/floor-plans/haven.avif"],
   },
@@ -207,6 +208,12 @@ export default function FloorPlansPage() {
   return (
     <>
       <Navbar />
+      <Breadcrumbs
+        items={[
+          { label: "Del Webb North Ranch", href: "/" },
+          { label: "Floor Plans", href: "/floor-plans" },
+        ]}
+      />
       <main className="pt-16 md:pt-20">
         <script
           type="application/ld+json"

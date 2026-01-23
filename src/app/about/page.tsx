@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
+import Breadcrumbs from "@/../components/Breadcrumbs";
 import { Button } from "@/../components/ui/button";
 import Link from "next/link";
 import ScrollAnimation from "@/../components/scroll-animation";
@@ -13,14 +14,14 @@ import ScheduleTour from "@/../components/ScheduleTour";
 import RealScoutListings from "@/../components/RealScoutListings";
 
 export const metadata: Metadata = {
-  title: "About Dr. Jan Duffy | Del Webb North Ranch REALTOR® | North Las Vegas",
+  title: "About Dr. Jan Duffy REALTOR® | Del Webb North Ranch 55+ Real Estate",
   description:
     "Meet Dr. Jan Duffy, REALTOR® specializing in Del Webb North Ranch, a premier 55+ community in North Las Vegas. Licensed agent with Berkshire Hathaway HomeServices helping you find your perfect active adult home.",
   alternates: {
     canonical: "https://www.delwebbnorthranchhomes.com/about",
   },
   openGraph: {
-    title: "About Dr. Jan Duffy | Del Webb North Ranch REALTOR®",
+    title: "About Dr. Jan Duffy REALTOR® | Del Webb North Ranch 55+ Real Estate",
     description:
       "Your trusted REALTOR® specializing in Del Webb North Ranch and Las Vegas 55+ communities.",
     url: "https://www.delwebbnorthranchhomes.com/about",
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Dr. Jan Duffy | Del Webb North Ranch",
+    title: "About Dr. Jan Duffy REALTOR® | Del Webb North Ranch 55+ Real Estate",
     description: "Your trusted REALTOR® specializing in Del Webb North Ranch 55+ community.",
     images: ["https://www.delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg"],
   },
@@ -74,6 +75,12 @@ export default function AboutPage() {
   return (
     <>
       <Navbar />
+      <Breadcrumbs
+        items={[
+          { label: "Del Webb North Ranch", href: "/" },
+          { label: "About", href: "/about" },
+        ]}
+      />
       <main className="pt-16 md:pt-20">
         {/* Hero Section */}
         <section className="bg-primary text-white py-12 md:py-16 lg:py-20">

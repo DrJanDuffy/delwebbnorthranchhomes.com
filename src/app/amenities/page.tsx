@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
+import Breadcrumbs from "@/../components/Breadcrumbs";
 import { Button } from "@/../components/ui/button";
 import Link from "next/link";
 import ScrollAnimation from "@/../components/scroll-animation";
@@ -21,14 +22,14 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Amenities | Del Webb North Ranch | Resort-Style 55+ Living | North Las Vegas",
+  title: "Resort-Style Amenities | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
   description:
     "Discover resort-style amenities at Del Webb North Ranch, a premier 55+ community in North Las Vegas. Pool, fitness center, pickleball courts, clubhouse, walking trails, and more.",
   alternates: {
     canonical: "https://www.delwebbnorthranchhomes.com/amenities",
   },
   openGraph: {
-    title: "Amenities | Del Webb North Ranch | North Las Vegas",
+    title: "Resort-Style Amenities | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     description:
       "Resort-style amenities including pool, fitness center, pickleball courts, and clubhouse in Del Webb North Ranch 55+ community.",
     url: "https://www.delwebbnorthranchhomes.com/amenities",
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amenities | Del Webb North Ranch",
+    title: "Resort-Style Amenities | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     description: "Resort-style amenities in North Las Vegas's premier 55+ community.",
     images: ["https://www.delwebbnorthranchhomes.com/images/amenities/resort-pool.jpeg"],
   },
@@ -179,6 +180,12 @@ export default function AmenitiesPage() {
   return (
     <>
       <Navbar />
+      <Breadcrumbs
+        items={[
+          { label: "Del Webb North Ranch", href: "/" },
+          { label: "Amenities", href: "/amenities" },
+        ]}
+      />
       <main className="pt-16 md:pt-20">
         {/* Hero Section */}
         <section className="bg-primary text-white py-12 md:py-16 lg:py-20">

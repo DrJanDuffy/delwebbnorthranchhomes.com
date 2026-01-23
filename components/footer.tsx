@@ -21,9 +21,9 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Navigation */}
+          {/* Quick Links - Enhanced for sitelinks */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Navigation</h4>
+            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
                 <Link

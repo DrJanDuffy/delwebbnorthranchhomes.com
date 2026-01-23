@@ -7,24 +7,24 @@ import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 
-// Main navigation links
+// Main navigation links (6-8 links ideal for sitelinks)
 const mainNavLinks = [
   { href: "/", label: "Home" },
   { href: "/homes-for-sale", label: "Homes for Sale" },
   { href: "/floor-plans", label: "Floor Plans" },
+  { href: "/amenities", label: "Amenities" },
   { href: "/about", label: "About" },
-  { href: "/blog", label: "Blog" },
-  { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];
 
-// Dropdown menus
+// Dropdown menus (moved Amenities to main nav, keeping Lifestyle in dropdown)
 const dropdownMenus = [
   {
-    label: "Community",
+    label: "More",
     items: [
-      { href: "/amenities", label: "Amenities" },
       { href: "/lifestyle", label: "Lifestyle" },
+      { href: "/blog", label: "Blog" },
+      { href: "/faq", label: "FAQ" },
     ],
   },
 ];

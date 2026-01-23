@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
+import Breadcrumbs from "@/../components/Breadcrumbs";
 import { Phone } from "lucide-react";
 import { Button } from "@/../components/ui/button";
 import Link from "next/link";
@@ -12,14 +13,14 @@ import { getCommunityInfo } from "@/lib/communityData";
 // import HomesForSaleWidget from "@/../components/HomesForSaleWidget";
 
 export const metadata: Metadata = {
-  title: "Del Webb North Ranch Homes for Sale | North Las Vegas 55+ Community",
+  title: "Homes for Sale | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
   description:
     "Browse current homes for sale in Del Webb North Ranch, a 55+ active adult community in North Las Vegas. Resale homes from $400K-$600K.",
   alternates: {
     canonical: "https://www.delwebbnorthranchhomes.com/homes-for-sale",
   },
   openGraph: {
-    title: "Del Webb North Ranch Homes for Sale | North Las Vegas 55+ Community",
+    title: "Homes for Sale | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     description:
       "Browse current homes for sale in Del Webb North Ranch, a 55+ active adult community in North Las Vegas. Resale homes from $400K-$600K.",
     url: "https://www.delwebbnorthranchhomes.com/homes-for-sale",
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://www.delwebbnorthranchhomes.com/images/hero/hero-bg.jpg",
+        url: "https://www.delwebbnorthranchhomes.com/images/amenities/resort-pool.jpeg",
         width: 1200,
         height: 630,
         alt: "Del Webb North Ranch homes for sale",
@@ -37,9 +38,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Del Webb North Ranch Homes for Sale | North Las Vegas",
+    title: "Homes for Sale | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     description: "Browse current homes for sale in Del Webb North Ranch 55+ community. Resale homes from $400K-$600K.",
-    images: ["https://www.delwebbnorthranchhomes.com/images/hero/hero-bg.jpg"],
+    images: ["https://www.delwebbnorthranchhomes.com/images/amenities/resort-pool.jpeg"],
   },
 };
 
@@ -50,6 +51,12 @@ export default async function HomesForSalePage() {
   return (
     <>
       <Navbar />
+      <Breadcrumbs
+        items={[
+          { label: "Del Webb North Ranch", href: "/" },
+          { label: "Homes for Sale", href: "/homes-for-sale" },
+        ]}
+      />
       <main className="pt-16 md:pt-20">
         {/* Hero Section */}
         <section className="bg-primary text-white py-12 md:py-16 lg:py-20">

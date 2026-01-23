@@ -10,14 +10,14 @@ import ScheduleTour from "@/../components/ScheduleTour";
 import CalendlyInline from "@/../components/CalendlyInline";
 
 export const metadata: Metadata = {
-  title: "Contact Dr. Jan Duffy | Del Webb North Ranch REALTOR® | North Las Vegas",
+  title: "Contact & Schedule a Tour | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
   description:
     "Contact Dr. Jan Duffy to schedule a tour of Del Webb North Ranch, a premier 55+ community in North Las Vegas. Call (702) 500-1064 or fill out the contact form.",
   alternates: {
     canonical: "https://www.delwebbnorthranchhomes.com/contact",
   },
   openGraph: {
-    title: "Contact Dr. Jan Duffy | Del Webb North Ranch REALTOR®",
+    title: "Contact & Schedule a Tour | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     description:
       "Schedule a tour of Del Webb North Ranch, a premier 55+ community in North Las Vegas. Call (702) 500-1064.",
     url: "https://www.delwebbnorthranchhomes.com/contact",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Dr. Jan Duffy | Del Webb North Ranch",
+    title: "Contact & Schedule a Tour | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     description: "Schedule a tour of Del Webb North Ranch 55+ community in North Las Vegas.",
     images: ["https://www.delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg"],
   },

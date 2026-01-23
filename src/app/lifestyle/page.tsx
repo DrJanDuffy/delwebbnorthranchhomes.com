@@ -20,14 +20,14 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Lifestyle | Del Webb North Ranch | Community Life & Activities | North Las Vegas",
+  title: "Active Adult Lifestyle | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
   description:
     "Discover the vibrant lifestyle at Del Webb North Ranch, a premier 55+ community in North Las Vegas. Join clubs, attend events, and connect with neighbors in active adult living.",
   alternates: {
     canonical: "https://www.delwebbnorthranchhomes.com/lifestyle",
   },
   openGraph: {
-    title: "Lifestyle | Del Webb North Ranch | North Las Vegas",
+    title: "Active Adult Lifestyle | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     description:
       "Vibrant community life with clubs, events, and activities in Del Webb North Ranch 55+ community.",
     url: "https://www.delwebbnorthranchhomes.com/lifestyle",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lifestyle | Del Webb North Ranch",
+    title: "Active Adult Lifestyle | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     description: "Vibrant community life in North Las Vegas's premier 55+ community.",
     images: ["https://www.delwebbnorthranchhomes.com/images/amenities/event-lawn-club.jpeg"],
   },

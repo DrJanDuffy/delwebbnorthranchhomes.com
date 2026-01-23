@@ -3,6 +3,7 @@ import Script from "next/script";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import CalendlyButton from "@/../components/CalendlyButton";
+import SchemaMarkup from "@/../components/SchemaMarkup";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -98,118 +99,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // RealEstateAgent Schema
-  const realEstateAgentSchema = {
-    "@context": "https://schema.org",
-    "@type": "RealEstateAgent",
-    name: "Dr. Jan Duffy",
-    alternateName: "Dr. Janet Duffy",
-    telephone: "+1-702-500-1064",
-    email: "Sales@DelWebbNorthRanchHomes.com",
-    url: "https://www.delwebbnorthranchhomes.com",
-    image: "https://www.delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "2290 Beauty Vista Avenue",
-      addressLocality: "North Las Vegas",
-      addressRegion: "NV",
-      postalCode: "89086",
-      addressCountry: "US",
-    },
-    areaServed: {
-      "@type": "City",
-      name: "North Las Vegas",
-    },
-    knowsAbout: [
-      "Del Webb North Ranch",
-      "55+ Active Adult Communities",
-      "North Las Vegas Real Estate",
-      "Senior Living",
-    ],
-    memberOf: {
-      "@type": "Organization",
-      name: "Berkshire Hathaway HomeServices Nevada Properties",
-    },
-    hasCredential: {
-      "@type": "EducationalOccupationalCredential",
-      credentialCategory: "Real Estate License",
-      recognizedBy: {
-        "@type": "Organization",
-        name: "Nevada Real Estate Division",
-      },
-    },
-  };
-
-  // Organization Schema (Brokerage)
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": "https://www.delwebbnorthranchhomes.com/#organization",
-    name: "Dr. Jan Duffy Real Estate",
-    alternateName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
-    url: "https://www.delwebbnorthranchhomes.com",
-    logo: "https://www.delwebbnorthranchhomes.com/images/logo/logo.svg",
-    foundingDate: "2009-09-20",
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: "+1-702-500-1064",
-      contactType: "Sales",
-      areaServed: {
-        "@type": "City",
-        name: "North Las Vegas",
-        addressRegion: "NV",
-        addressCountry: "US",
-      },
-      availableLanguage: "English",
-      hoursAvailable: {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        opens: "06:00",
-        closes: "21:00",
-      },
-    },
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "2290 Beauty Vista Avenue",
-      addressLocality: "North Las Vegas",
-      addressRegion: "NV",
-      postalCode: "89086",
-      addressCountry: "US",
-    },
-    parentOrganization: {
-      "@type": "Organization",
-      name: "Berkshire Hathaway HomeServices Nevada Properties",
-    },
-    sameAs: [
-      "https://www.instagram.com/delwebbnorthranchhomes/",
-      "https://www.linkedin.com/company/del-webb-north-ranch-homes",
-      "https://www.facebook.com/DellWebbNorthRanch",
-    ],
-  };
-
-  // WebSite Schema with SearchAction
-  const websiteSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
-    url: "https://www.delwebbnorthranchhomes.com",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: "https://www.delwebbnorthranchhomes.com/search?q={search_term_string}",
-      },
-      "query-input": "required name=search_term_string",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Dr. Jan Duffy Real Estate",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://www.delwebbnorthranchhomes.com/images/logo/logo.svg",
-      },
-    },
-  };
 
   // LocalBusiness Schema for Google Business Profile
   const localBusinessSchema = {
@@ -354,27 +243,8 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
         {/* Calendly Badge Widget CSS */}
         <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
-        {/* Structured Data - RealEstateAgent */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(realEstateAgentSchema).replace(/</g, "\\u003c"),
-          }}
-        />
-        {/* Structured Data - Organization */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema).replace(/</g, "\\u003c"),
-          }}
-        />
-        {/* Structured Data - WebSite */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(websiteSchema).replace(/</g, "\\u003c"),
-          }}
-        />
+        {/* Structured Data - Consolidated Schema Markup */}
+        <SchemaMarkup />
         {/* Structured Data - LocalBusiness (Google Business Profile) */}
         <script
           type="application/ld+json"
