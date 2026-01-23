@@ -67,6 +67,14 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/home-value"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Home Value
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/about"
                   className="text-gray-300 hover:text-white transition-colors"
                 >

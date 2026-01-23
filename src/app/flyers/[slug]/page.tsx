@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Navbar from "@/../../components/navbar";
-import Footer from "@/../../components/footer";
-import Breadcrumbs from "@/../../components/Breadcrumbs";
+import Navbar from "@/../components/navbar";
+import Footer from "@/../components/footer";
+import Breadcrumbs from "@/../components/Breadcrumbs";
 import Link from "next/link";
 import { FileText, Download, ArrowLeft } from "lucide-react";
-import { Button } from "@/../../components/ui/button";
+import { Button } from "@/../components/ui/button";
 import { getAllFlyers, getFlyerBySlug } from "@/lib/flyers";
 
 export async function generateStaticParams() {

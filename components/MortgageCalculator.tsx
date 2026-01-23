@@ -234,6 +234,19 @@ export default function MortgageCalculator() {
               calculations are approximate and can differ depending on location
               and other influencing factors.
             </p>
+
+            {/* Link to Home Value Page */}
+            <div className="mt-6 pt-6 border-t border-gray-300 text-center">
+              <p className="text-sm text-text-dark mb-3">
+                Want to know your current home's value?
+              </p>
+              <a
+                href="/home-value"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors"
+              >
+                Get Free Home Value Estimate
+              </a>
+            </div>
           </div>
         </div>
       </div>
