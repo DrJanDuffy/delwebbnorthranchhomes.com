@@ -7,6 +7,7 @@ import { getAllTestimonials } from '@/lib/old-site-data';
 import { Quote, Star } from 'lucide-react';
 import { SITE_ORIGIN, GOOGLE_REVIEW_LINK } from '@/lib/site';
 import { metaDescriptionBlock, TITLE_SUFFIX } from '@/lib/hyperlocal';
+import RealScoutListings from '@/../components/RealScoutListings';
 
 export const metadata: Metadata = {
   title: `Client Testimonials | ${TITLE_SUFFIX}`,
