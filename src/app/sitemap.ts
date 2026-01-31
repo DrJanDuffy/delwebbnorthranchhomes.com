@@ -1,6 +1,18 @@
 import { MetadataRoute } from "next";
 import { CANONICAL_HOMEPAGE, SITE_ORIGIN } from "@/lib/site";
 import { getVirtualToursWithEmbed } from "@/lib/old-site-data";
+import { getAllFloorPlanSlugs } from "@/lib/floor-plans";
+import { getAllFlyers } from "@/lib/flyers";
+
+/** Blog slugs – must match keys in src/app/blog/[slug]/page.tsx */
+const BLOG_SLUGS = [
+  "welcome-to-del-webb-north-ranch",
+  "why-single-story-living-matters",
+  "nevada-tax-benefits-for-retirees",
+  "community-clubs-and-activities",
+  "choosing-the-right-floor-plan",
+  "first-year-living-experience",
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const virtualTourWatchPages = getVirtualToursWithEmbed().map((t) => ({
@@ -8,6 +20,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.7,
+  }));
+
+  const floorPlanPages = getAllFloorPlanSlugs().map((slug) => ({
+    url: `${SITE_ORIGIN}/floor-plans/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
+  }));
+
+  const flyerPages = getAllFlyers().map((f) => ({
+    url: `${SITE_ORIGIN}/flyers/${f.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.5,
+  }));
+
+  const blogPostPages = BLOG_SLUGS.map((slug) => ({
+    url: `${SITE_ORIGIN}/blog/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.65,
   }));
 
   return [
@@ -61,6 +94,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
+    ...floorPlanPages,
     // Secondary Pages - Priority 0.8
     {
       url: `${SITE_ORIGIN}/amenities`,
@@ -99,6 +133,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily",
       priority: 0.7,
     },
+    ...blogPostPages,
     // Lower Priority Pages
     {
       url: `${SITE_ORIGIN}/testimonials`,
@@ -131,6 +166,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.5,
     },
+    ...flyerPages,
     {
       url: `${SITE_ORIGIN}/privacy`,
       lastModified: new Date(),
