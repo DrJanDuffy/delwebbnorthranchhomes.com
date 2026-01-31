@@ -86,6 +86,12 @@ The site is in strong shape for local real estate SEO: unique metadata and canon
 
 ---
 
+## Finalize until Google indexes
+
+See **`docs/INDEXING_CHECKLIST.md`** for steps: verify deployment, submit sitemap in GSC, request indexing for key URLs, then monitor Coverage and Enhancements.
+
+---
+
 ## Quick reference
 
 - **NAP / phone:** `src/lib/site.ts` (`SITE_PHONE_TEL`, `SITE_PHONE_DISPLAY`, `SITE_PHONE_SCHEMA`)
