@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CANONICAL_HOMEPAGE } from "@/lib/site";
 import Navbar from "../../components/navbar";
 import Hero from "../../components/hero";
 import ProblemSection from "../../components/sections/problem-section";
@@ -19,19 +20,18 @@ import QuickFAQ from "../../components/QuickFAQ";
 import ExploreCommunitySection from "../../components/sections/explore-community";
 import FlyersSection from "../../components/sections/flyers-section";
 
-// Homepage metadata - optimized for SEO and sitelinks
-export const metadata: Metadata = {
+const HOMEPAGE_METADATA: Metadata = {
   title: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
   description:
     "Discover 55+ luxury homes for sale at Del Webb North Ranch in North Las Vegas. Single-story living from $400K-$600K with resort amenities. Contact Dr. Jan Duffy at (702) 500-1064.",
   alternates: {
-    canonical: "https://www.delwebbnorthranchhomes.com",
+    canonical: CANONICAL_HOMEPAGE,
   },
   openGraph: {
     title: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     description:
       "Discover 55+ luxury homes for sale at Del Webb North Ranch in North Las Vegas. Single-story living from $400K-$600K with resort amenities.",
-    url: "https://www.delwebbnorthranchhomes.com",
+    url: CANONICAL_HOMEPAGE,
     siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     images: [
       {
@@ -50,6 +50,22 @@ export const metadata: Metadata = {
     images: ["/images/amenities/resort-pool.jpeg"],
   },
 };
+
+/** Parameter URLs (?card=) get noindex so GSC treats them as alternates; canonical points to homepage. */
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<{ card?: string }>;
+}): Promise<Metadata> {
+  const params = await searchParams;
+  if (params?.card) {
+    return {
+      ...HOMEPAGE_METADATA,
+      robots: { index: false, follow: true },
+    };
+  }
+  return HOMEPAGE_METADATA;
+}
 
 export default function Home() {
   return (

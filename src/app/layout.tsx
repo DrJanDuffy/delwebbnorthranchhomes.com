@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Inter, Playfair_Display } from "next/font/google";
+import { CANONICAL_HOMEPAGE, SITE_ORIGIN } from "@/lib/site";
 import "./globals.css";
 import CalendlyButton from "@/../components/CalendlyButton";
 import SchemaMarkup from "@/../components/SchemaMarkup";
@@ -18,7 +19,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.delwebbnorthranchhomes.com"),
+  metadataBase: new URL(SITE_ORIGIN),
   title: {
     default: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     template: "%s | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
@@ -51,7 +52,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.delwebbnorthranchhomes.com",
+    url: SITE_ORIGIN,
     siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     title: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     description:
@@ -86,7 +87,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://www.delwebbnorthranchhomes.com",
+    canonical: CANONICAL_HOMEPAGE,
   },
   verification: {
     // Add Google Search Console verification code here when available
@@ -104,12 +105,12 @@ export default function RootLayout({
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
-    "@id": "https://www.delwebbnorthranchhomes.com/#localbusiness",
+    "@id": `${SITE_ORIGIN}/#localbusiness`,
     name: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     alternateName: "Dr. Jan Duffy Real Estate",
     description: "Helping buyers 55+ find their dream retirement home in Las Vegas' premier active adult community! Resort-style pools, state-of-the-art fitness center, pickleball courts, 20+ social clubs & activities. Free community tours, market analysis, and expert negotiation support.",
-    image: "https://www.delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg",
-    url: "https://www.delwebbnorthranchhomes.com",
+    image: `${SITE_ORIGIN}/images/about/dr-jan-duffy.jpg`,
+    url: SITE_ORIGIN,
     telephone: "+1-702-500-1064",
     email: "sales@delwebbnorthranchhomes.com",
     address: {
@@ -233,8 +234,8 @@ export default function RootLayout({
       latitude: "36.2856",
       longitude: "-115.0939",
     },
-    url: "https://www.delwebbnorthranchhomes.com",
-    image: "https://www.delwebbnorthranchhomes.com/images/hero/hero-bg.jpg",
+    url: SITE_ORIGIN,
+    image: `${SITE_ORIGIN}/images/hero/hero-bg.jpg`,
   };
 
   return (

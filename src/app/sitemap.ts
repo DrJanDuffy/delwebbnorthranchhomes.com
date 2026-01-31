@@ -1,100 +1,99 @@
 import { MetadataRoute } from "next";
+import { CANONICAL_HOMEPAGE, SITE_ORIGIN } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.delwebbnorthranchhomes.com";
-
   return [
-    // Homepage - Priority 1.0, Daily
+    // Homepage - Priority 1.0, Daily (trailing slash matches canonical)
     {
-      url: baseUrl,
+      url: CANONICAL_HOMEPAGE,
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 1.0,
     },
     // Main Pages - Priority 0.9, Daily
     {
-      url: `${baseUrl}/homes-for-sale`,
+      url: `${SITE_ORIGIN}/homes-for-sale`,
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/floor-plans`,
+      url: `${SITE_ORIGIN}/floor-plans`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,
     },
     // Secondary Pages - Priority 0.8
     {
-      url: `${baseUrl}/amenities`,
+      url: `${SITE_ORIGIN}/amenities`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/about`,
+      url: `${SITE_ORIGIN}/about`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/contact`,
+      url: `${SITE_ORIGIN}/contact`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     // Tertiary Pages - Priority 0.7
     {
-      url: `${baseUrl}/lifestyle`,
+      url: `${SITE_ORIGIN}/lifestyle`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/faq`,
+      url: `${SITE_ORIGIN}/faq`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/blog`,
+      url: `${SITE_ORIGIN}/blog`,
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 0.7,
     },
     // Lower Priority Pages
     {
-      url: `${baseUrl}/testimonials`,
+      url: `${SITE_ORIGIN}/testimonials`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
-      url: `${baseUrl}/schedule`,
+      url: `${SITE_ORIGIN}/schedule`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
-      url: `${baseUrl}/privacy`,
+      url: `${SITE_ORIGIN}/privacy`,
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
-      url: `${baseUrl}/accessibility`,
+      url: `${SITE_ORIGIN}/accessibility`,
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
-      url: `${baseUrl}/terms`,
+      url: `${SITE_ORIGIN}/terms`,
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
-      url: `${baseUrl}/sitemap-page`,
+      url: `${SITE_ORIGIN}/sitemap-page`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.4,

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { SITE_ORIGIN } from "@/lib/site";
 
 export function middleware(request: NextRequest) {
   const hostname = request.headers.get("host") || "";
@@ -17,9 +18,10 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Target domain: www.delwebbnorthranchhomes.com
-  const targetHost = "www.delwebbnorthranchhomes.com";
-  const targetUrl = `https://${targetHost}${pathname}${search}`;
+  // Canonical host (GSC "Page with redirect": http/non-www URLs 301 here)
+  const targetHost = new URL(SITE_ORIGIN).host;
+  const targetUrl =
+    pathname === "/" ? `${SITE_ORIGIN}/${search}` : `${SITE_ORIGIN}${pathname}${search}`;
 
   // Normalize hostname (remove port if present)
   const normalizedHost = hostname.split(":")[0];
@@ -33,7 +35,12 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(targetUrl, 301);
   }
 
-  return NextResponse.next();
+  // ?card= homepage URLs: send X-Robots-Tag so GSC sees noindex in headers (canonical + noindex already in HTML)
+  const response = NextResponse.next();
+  if (pathname === "/" && request.nextUrl.searchParams.has("card")) {
+    response.headers.set("X-Robots-Tag", "noindex, follow");
+  }
+  return response;
 }
 
 export const config = {

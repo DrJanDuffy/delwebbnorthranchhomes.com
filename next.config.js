@@ -11,7 +11,7 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      // Redirect old /units/* routes to floor plans
+      // Old /units/* → floor plans (GSC "Page with redirect": these 4 URLs 301 to canonical; expected)
       {
         source: '/units/overlook-model',
         destination: '/floor-plans',
