@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
-import { SITE_ORIGIN } from "@/lib/site";
+import { SITE_ORIGIN, SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from "@/lib/site";
 import { TITLE_SUFFIX } from "@/lib/hyperlocal";
 
 export const metadata: Metadata = {
@@ -125,10 +125,10 @@ export default function PrivacyPage() {
                     <br />
                     <strong>Phone:</strong>{" "}
                     <a
-                      href="tel:7025001064"
+                      href={SITE_PHONE_TEL}
                       className="text-primary hover:underline"
                     >
-                      (702) 500-1064
+                      {SITE_PHONE_DISPLAY}
                     </a>
                   </p>
                 </div>

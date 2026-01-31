@@ -23,6 +23,7 @@ export default function Hero() {
           placeholder="blur"
           blurDataURL={blurDataURL}
           sizes="100vw"
+          quality={72}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
       </div>
@@ -44,6 +45,9 @@ export default function Hero() {
           <div className="mb-6 md:mb-8">
             <p className="text-lg sm:text-xl md:text-2xl font-semibold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
               Homes from $400K-$600K in North Las Vegas
+            </p>
+            <p className="text-sm sm:text-base mt-2 text-white/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
+              Del Webb at North Ranch · Del Webb North Las Vegas 55+ community
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center items-stretch sm:items-center px-4">

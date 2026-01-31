@@ -3,7 +3,7 @@ import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
 import Link from "next/link";
 import { CheckCircle2, AlertCircle, FileText, Mail } from "lucide-react";
-import { SITE_ORIGIN } from "@/lib/site";
+import { SITE_ORIGIN, SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from "@/lib/site";
 import { TITLE_SUFFIX } from "@/lib/hyperlocal";
 
 export const metadata: Metadata = {
@@ -221,10 +221,10 @@ export default function AccessibilityPage() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
-                    href="tel:7025001064"
+                    href={SITE_PHONE_TEL}
                     className="inline-flex items-center justify-center px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors"
                   >
-                    Call (702) 500-1064
+                    Call {SITE_PHONE_DISPLAY}
                   </a>
                   <Link
                     href="/contact"

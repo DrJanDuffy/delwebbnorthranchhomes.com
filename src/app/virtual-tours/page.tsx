@@ -63,7 +63,7 @@ export default function VirtualToursPage() {
         {/* Long-form: Del Webb North Ranch, H2/H3, 1500+ words */}
         <section className="py-12 md:py-16 bg-white">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto prose prose-lg max-w-none text-text-dark">
+            <div className="max-w-3xl mx-auto prose prose-lg text-text-dark">
               <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 font-playfair">
                 Virtual Tours of Del Webb North Ranch Model Homes
               </h2>
@@ -81,6 +81,19 @@ export default function VirtualToursPage() {
               </h2>
               <p className="mb-6">
                 North Ranch floor plans range from about 1,285 to 2,015 square feet across the Cottage, Classic, and Retreat collections. Each Del Webb North Ranch home is single-story with open living areas, modern finishes, and low-maintenance landscaping handled by the HOA. Virtual tours showcase the models so you can compare layouts and square footage before you visit. When you&apos;re ready, browse current homes for sale at Del Webb North Ranch in the office listings above—resale inventory turns over regularly as North Ranch residents relocate or downsize. Dr. Jan Duffy specializes in this 55+ community in North Las Vegas and can help you find the right North Ranch home for your next chapter.
+              </p>
+
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mt-12 mb-6 font-playfair">
+                From Virtual to In-Person: Next Steps at Del Webb North Ranch
+              </h2>
+              <p className="mb-6">
+                After you&apos;ve explored the virtual tours, the next step is an in-person visit. Del Webb North Ranch in North Las Vegas is a gated 55+ community with a built-out clubhouse, resort-style pool, pickleball courts, and dozens of clubs and activities—and those are best experienced on site. Schedule a private tour with Dr. Jan Duffy to walk the community, see the North Ranch amenities, and step inside available resale homes. Many buyers combine a virtual tour with a single visit to North Ranch and leave with a clear picture of whether the Del Webb North Ranch lifestyle fits their goals.
+              </p>
+              <h3 className="text-xl font-bold text-primary mt-10 mb-4 font-playfair">
+                What to See on Your North Ranch Tour
+              </h3>
+              <p className="mb-6">
+                Your in-person tour can include the Del Webb North Ranch clubhouse, pool and fitness areas, pickleball and bocce courts, and one or more North Ranch homes for sale. Dr. Jan Duffy knows every Del Webb North Ranch floor plan and can match you with listings that fit your size, budget, and preferences. North Ranch real estate includes the Cottage, Classic, and Retreat series—each with open layouts and single-story living. Whether you&apos;re relocating from out of state or moving from elsewhere in the Las Vegas valley, a tour of North Ranch is the best way to see this premier 55+ community in North Las Vegas and decide if it&apos;s the right fit for your next chapter.
               </p>
             </div>
           </div>

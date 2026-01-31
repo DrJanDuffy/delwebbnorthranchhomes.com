@@ -6,6 +6,7 @@ import ScrollAnimation from '@/../components/scroll-animation';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { faqData } from '@/lib/faqData';
+import { SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from '@/lib/site';
 
 // Use FAQ data from centralized data file
 const faqs = faqData;
@@ -95,10 +96,10 @@ export default function FAQContent() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:7025001064"
+                href={SITE_PHONE_TEL}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-white rounded-md font-semibold hover:bg-accent/90 transition-colors"
               >
-                Call (702) 500-1064
+                Call {SITE_PHONE_DISPLAY}
               </a>
               <a
                 href="/contact"

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
-import { CANONICAL_HOMEPAGE, SITE_ORIGIN, GOOGLE_MAPS_DIRECTIONS_URL } from "@/lib/site";
+import { CANONICAL_HOMEPAGE, SITE_ORIGIN, GOOGLE_MAPS_DIRECTIONS_URL, SITE_PHONE_SCHEMA } from "@/lib/site";
 import "./globals.css";
 import CalendlyButton from "@/../components/CalendlyButton";
 import CalendlyStyles from "@/../components/CalendlyStyles";
@@ -28,6 +28,13 @@ export const metadata: Metadata = {
     "Discover luxury single-story living in a vibrant 55+ community with mountain views, resort-style amenities, and no state income tax. Dr. Jan Duffy, REALTOR®.",
   keywords: [
     "Del Webb North Ranch",
+    "Del Webb at North Ranch",
+    "Del Webb North Las Vegas",
+    "Del Webb Las Vegas",
+    "Del Webb North Ranch homes for sale",
+    "Del Webb 55+ communities",
+    "Del Webb communities Las Vegas",
+    "Del Webb Las Vegas Nevada",
     "55+ community",
     "North Las Vegas",
     "active adult community",
@@ -111,7 +118,7 @@ export default function RootLayout({
     description: "Helping buyers 55+ find their dream retirement home in Las Vegas' premier active adult community! Why Choose Del Webb North Ranch? Resort-style pools and luxurious spa facilities, state-of-the-art fitness center, pickleball courts with organized leagues, 20+ social clubs and activities to stay connected, stunning mountain views and convenient access to shopping, dining, and healthcare. Services: Free community tours and personalized home showings, market analysis and pricing guidance, alerts on new listings and inventory updates, expert negotiation and closing support. Available 7 days a week for consultations and property viewings. Contact us to find your perfect home in Del Webb North Ranch.",
     image: `${SITE_ORIGIN}/images/about/dr-jan-duffy.jpg`,
     url: SITE_ORIGIN,
-    telephone: "+1-702-500-1064",
+    telephone: SITE_PHONE_SCHEMA,
     email: "sales@delwebbnorthranchhomes.com",
     address: {
       "@type": "PostalAddress",
@@ -249,11 +256,14 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <head>
         {/* Resource hints first so the browser discovers them before other blocking resources */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link rel="preconnect" href="https://em.realscout.com" />
         <link rel="preconnect" href="https://static.matterport.com" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
         <link rel="dns-prefetch" href="https://em.realscout.com" />
         <link rel="dns-prefetch" href="https://static.matterport.com" />
-        <link rel="preload" as="image" href="/images/amenities/resort-pool.jpeg" />
         <link rel="icon" href="/favicon.ico" />
         {/* Calendly CSS: load non-blocking so it doesn't delay FCP/LCP */}
         <CalendlyStyles />

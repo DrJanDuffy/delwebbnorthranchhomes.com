@@ -6,6 +6,7 @@ import { Button } from "@/../components/ui/button";
 import Link from "next/link";
 import ScrollAnimation from "@/../components/scroll-animation";
 import { Phone, Mail, MapPin, Award, Users, Home } from "lucide-react";
+import { SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About Dr. Jan Duffy | Del Webb North Ranch REALTOR® | Las Vegas",
@@ -186,10 +187,10 @@ export default function AboutPage() {
                   <Phone className="w-8 h-8 text-primary mx-auto mb-4" />
                   <h3 className="font-semibold text-primary mb-2">Phone</h3>
                   <a
-                    href="tel:7025001064"
+                    href={SITE_PHONE_TEL}
                     className="text-text-dark hover:text-primary transition-colors"
                   >
-                    (702) 500-1064
+                    {SITE_PHONE_DISPLAY}
                   </a>
                 </div>
                 <div className="bg-white p-6 rounded-lg shadow-two text-center">

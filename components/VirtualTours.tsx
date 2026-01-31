@@ -1,8 +1,13 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 import { oldSiteData } from '@/lib/fetchOldSiteData';
 import { Play, Square } from 'lucide-react';
+
+function tourSlug(model: string): string {
+  return model.toLowerCase().replace(/\s+/g, '-');
+}
 
 export default function VirtualTours() {
   const [selectedModel, setSelectedModel] = useState(
@@ -112,6 +117,14 @@ export default function VirtualTours() {
                     </span>
                   </div>
                 </div>
+                <p className="mt-4">
+                  <Link
+                    href={`/virtual-tours/${tourSlug(selectedModel.model)}`}
+                    className="text-primary hover:text-accent font-medium"
+                  >
+                    Watch on dedicated video page →
+                  </Link>
+                </p>
               </div>
             </div>
 

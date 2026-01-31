@@ -12,7 +12,7 @@ import { getCommunityInfo } from "@/lib/communityData";
 import { Quote } from "lucide-react";
 import ScheduleTour from "@/../components/ScheduleTour";
 import RealScoutListings from "@/../components/RealScoutListings";
-import { SITE_ORIGIN } from "@/lib/site";
+import { SITE_ORIGIN, SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from "@/lib/site";
 import { metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
 
 export const metadata: Metadata = {
@@ -253,10 +253,10 @@ export default function AboutPage() {
                   <Phone className="w-8 h-8 text-primary mx-auto mb-4" />
                   <h3 className="font-semibold text-primary mb-2">Phone</h3>
                   <a
-                    href="tel:7025001064"
+                    href={SITE_PHONE_TEL}
                     className="text-text-dark hover:text-primary transition-colors"
                   >
-                    (702) 500-1064
+                    {SITE_PHONE_DISPLAY}
                   </a>
                 </div>
                 <div className="bg-white p-6 rounded-lg shadow-two text-center">

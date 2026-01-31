@@ -5,7 +5,7 @@ import Breadcrumbs from "@/../components/Breadcrumbs";
 import Link from "next/link";
 import { Button } from "@/../components/ui/button";
 import { Phone, TrendingUp, FileText, Calendar, Home, CheckCircle } from "lucide-react";
-import { SITE_ORIGIN } from "@/lib/site";
+import { SITE_ORIGIN, SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from "@/lib/site";
 import { altPrefix, metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
 import { sellerCtaCopy, sellerFaq, sellerValueProps } from "@/lib/hyperlocalSeller";
 import RealScoutListings from "@/../components/RealScoutListings";
@@ -76,9 +76,9 @@ export default function SellersPage() {
                 <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
                   <Link href="/contact">{sellerCtaCopy.secondary}</Link>
                 </Button>
-                <a href="tel:7025001064" className="flex items-center gap-2 text-lg font-semibold hover:text-primary transition-colors">
+                <a href={SITE_PHONE_TEL} className="flex items-center gap-2 text-lg font-semibold hover:text-primary transition-colors">
                   <Phone className="w-5 h-5" />
-                  (702) 500-1064
+                  {SITE_PHONE_DISPLAY}
                 </a>
               </div>
             </div>
@@ -209,7 +209,7 @@ export default function SellersPage() {
                 Ready to Sell Your North Las Vegas Home?
               </h2>
               <p className="text-lg text-gray-100 mb-6">
-                {sellerCtaCopy.primary} or call (702) 500-1064 to speak with Dr. Jan Duffy.
+                {sellerCtaCopy.primary} or call {SITE_PHONE_DISPLAY} to speak with Dr. Jan Duffy.
               </p>
               <Button asChild variant="accent" size="lg" className="bg-white text-primary hover:bg-gray-100">
                 <Link href="/home-value">{sellerCtaCopy.primary}</Link>

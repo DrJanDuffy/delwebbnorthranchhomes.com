@@ -6,7 +6,7 @@ import Link from "next/link";
 import { FileText, Download } from "lucide-react";
 import { Button } from "@/../components/ui/button";
 import { getAllFlyers } from "@/lib/flyers";
-import { SITE_ORIGIN } from "@/lib/site";
+import { SITE_ORIGIN, SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from "@/lib/site";
 import { metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
 import RealScoutListings from "@/../components/RealScoutListings";
 
@@ -93,6 +93,20 @@ export default function FlyersPage() {
               <h3 className="text-xl font-bold text-primary mb-3 font-playfair">Keeping information handy</h3>
               <p className="text-text-dark leading-relaxed">
                 Even after you&apos;ve toured or bought, our North Ranch flyers and brochures remain useful. Residents often keep them for guests who ask about the community, or for friends who are considering Del Webb North Ranch as their next address. The Del Webb North Ranch 55+ community is one of North Las Vegas&apos;s premier active adult neighborhoods—and having clear, professional materials to share helps spread the word about North Ranch amenities, lifestyle, and real estate.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Quick access to materials */}
+        <section className="py-10 md:py-12 bg-white border-t border-gray-200">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 font-playfair text-center">
+                Del Webb North Ranch Materials at a Glance
+              </h2>
+              <p className="text-text-dark text-center leading-relaxed">
+                The flyers and brochures below cover the North Ranch 55+ community from floor plans and amenities to area highlights. Download what you need, then explore current homes for sale at Del Webb North Ranch in the listings above or schedule a tour with Dr. Jan Duffy to see the Del Webb North Ranch clubhouse and North Ranch real estate in person.
               </p>
             </div>
           </div>
@@ -191,10 +205,10 @@ export default function FlyersPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="tel:7025001064"
+                  href={SITE_PHONE_TEL}
                   className="inline-flex items-center justify-center px-8 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors"
                 >
-                  Call (702) 500-1064
+                  Call {SITE_PHONE_DISPLAY}
                 </a>
                 <Link
                   href="/contact"

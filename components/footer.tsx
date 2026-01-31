@@ -1,210 +1,186 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, Youtube, Calendar, FileText, Instagram, Linkedin, Facebook, Star, MapPinned } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Youtube,
+  Calendar,
+  FileText,
+  Instagram,
+  Linkedin,
+  Facebook,
+  Star,
+  MapPinned,
+} from "lucide-react";
 import { oldSiteData } from "@/lib/fetchOldSiteData";
-import { GOOGLE_REVIEW_LINK, GOOGLE_MAPS_DIRECTIONS_URL } from "@/lib/site";
+import { GOOGLE_REVIEW_LINK, GOOGLE_MAPS_DIRECTIONS_URL, SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from "@/lib/site";
+
+/** NAP – matches Google Business Profile exactly for local SEO */
+const NAP = {
+  name: "Del Webb North Ranch",
+  phone: SITE_PHONE_DISPLAY,
+  tel: SITE_PHONE_TEL,
+  email: "sales@delwebbnorthranchhomes.com",
+  street: "2290 Beauty Vista Avenue",
+  city: "North Las Vegas",
+  state: "NV",
+  zip: "89086",
+} as const;
+
+/** Top 6 related Nevada communities – streamlined for engagement */
+const OTHER_COMMUNITIES = [
+  { label: "Hey Berkshire Homes", href: "https://heyberkshirehomes.com" },
+  { label: "Search for Homes Vegas", href: "https://searchforhomesvegas.com" },
+  { label: "Heartland Las Vegas", href: "https://heartlandlasvegas.com" },
+  { label: "Green Valley Ranch Insider", href: "https://greenvalleyranchinsider.com" },
+  { label: "Craig Ranch Homes", href: "https://craigranchhomes.com" },
+  { label: "Silverstone Ranch Homes", href: "https://silverstoneranchhomes.com" },
+] as const;
 
 export default function Footer() {
   return (
-    <footer className="bg-footer-bg text-white py-12 md:py-16">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8">
-          {/* Site Info */}
-          <div>
-            <h3 className="text-2xl font-bold mb-4 font-playfair">
-              Del Webb North Ranch
+    <footer className="bg-footer-bg text-white" role="contentinfo" aria-label="Site footer">
+      {/* CTA strip – drives engagement above the fold of footer */}
+      <section
+        className="border-b border-gray-700/50 bg-gray-900/50 py-6 md:py-8"
+        aria-labelledby="footer-cta-heading"
+      >
+        <div className="container mx-auto px-4">
+          <h2 id="footer-cta-heading" className="sr-only">
+            Next steps at Del Webb North Ranch
+          </h2>
+          <p className="text-center text-lg font-medium text-white mb-6">
+            Ready to find your home at Del Webb North Ranch?
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Link
+              href="/schedule"
+              className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-semibold text-white shadow-md transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-gray-900"
+            >
+              <Calendar className="h-5 w-5" aria-hidden />
+              Schedule a Tour
+            </Link>
+            <Link
+              href="/home-value"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/40 bg-transparent px-6 py-3 font-semibold text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900"
+            >
+              Get Your Home Value
+            </Link>
+            <a
+              href={NAP.tel}
+              className="inline-flex items-center gap-2 rounded-lg border border-white/40 bg-transparent px-6 py-3 font-semibold text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900"
+              aria-label={`Call Del Webb North Ranch: ${NAP.phone}`}
+            >
+              <Phone className="h-5 w-5" aria-hidden />
+              Call {NAP.phone}
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <div className="container mx-auto px-4 py-12 md:py-16">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
+          {/* Brand + NAP – primary for GBP/local SEO */}
+          <div className="lg:col-span-4">
+            <h3 className="text-2xl font-bold font-playfair text-white mb-3">
+              {NAP.name}
             </h3>
-            <p className="text-gray-300 mb-4">
-              Your premier 55+ active adult community in North Las Vegas.
+            <p className="text-gray-300 mb-6 max-w-sm">
+              Your premier 55+ active adult community in North Las Vegas. Single-story homes, resort-style amenities, and mountain views.
             </p>
-            {/* TODO: Add Equal Housing Opportunity logo */}
-            <div className="mt-4 text-sm text-gray-400">
-              Equal Housing Opportunity
-            </div>
+            <address className="not-italic text-gray-300 space-y-3">
+              <a
+                href={NAP.tel}
+                className="flex items-center gap-2 hover:text-white transition-colors"
+                aria-label={`Call ${NAP.phone}`}
+              >
+                <Phone className="h-4 w-4 flex-shrink-0" aria-hidden />
+                {NAP.phone}
+              </a>
+              <a
+                href={`mailto:${NAP.email}`}
+                className="flex items-center gap-2 hover:text-white transition-colors"
+              >
+                <Mail className="h-4 w-4 flex-shrink-0" aria-hidden />
+                {NAP.email}
+              </a>
+              <span className="flex items-start gap-2">
+                <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" aria-hidden />
+                <span>
+                  {NAP.street}
+                  <br />
+                  {NAP.city}, {NAP.state} {NAP.zip}
+                </span>
+              </span>
+              <a
+                href={GOOGLE_MAPS_DIRECTIONS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-primary hover:text-white transition-colors text-sm font-medium"
+                aria-label="Get directions to Del Webb North Ranch on Google Maps"
+              >
+                <MapPinned className="h-4 w-4" aria-hidden />
+                Get directions
+              </a>
+            </address>
+            <p className="mt-4 text-sm text-gray-400">Equal Housing Opportunity</p>
           </div>
 
-          {/* Quick Links - Enhanced for sitelinks */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+          {/* Explore North Ranch – keyword-rich group */}
+          <nav className="lg:col-span-2" aria-label="Explore Del Webb North Ranch">
+            <h4 className="text-lg font-semibold text-white mb-4">
+              Explore North Ranch
+            </h4>
             <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/buyers"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  For Buyers
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/sellers"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  For Sellers
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/homes-for-sale"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Homes for Sale
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/floor-plans"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Floor Plans
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/amenities"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Amenities
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/community"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Community & Area
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/why-choose-us"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Why Choose Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/virtual-tours"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Virtual Tours
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/mortgage-calculator"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Mortgage Calculator
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/lifestyle"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Lifestyle
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/home-value"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Home Value
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blog"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/faq"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  FAQ
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Contact
-                </Link>
-              </li>
+              {[
+                { href: "/floor-plans", label: "Floor Plans" },
+                { href: "/amenities", label: "Amenities" },
+                { href: "/community", label: "Community & Area" },
+                { href: "/lifestyle", label: "Lifestyle" },
+                { href: "/virtual-tours", label: "Virtual Tours" },
+                { href: "/why-choose-us", label: "Why Choose Us" },
+              ].map(({ href, label }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="text-gray-300 hover:text-white transition-colors"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
-          </div>
+          </nav>
 
-          {/* Contact Info */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Contact</h4>
-            <ul className="space-y-3">
-              <li>
-                <a
-                  href="tel:7025001064"
-                  className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
-                >
-                  <Phone className="w-4 h-4" />
-                  (702) 500-1064
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:sales@delwebbnorthranchhomes.com"
-                  className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
-                >
-                  <Mail className="w-4 h-4" />
-                  sales@delwebbnorthranchhomes.com
-                </a>
-              </li>
-              <li>
-                <div className="flex items-start gap-2 text-gray-300">
-                  <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
-                  <span>
-                    2290 Beauty Vista Avenue
-                    <br />
-                    North Las Vegas, NV 89086
-                  </span>
-                </div>
-                <a
-                  href={GOOGLE_MAPS_DIRECTIONS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 mt-2 text-primary hover:text-white transition-colors text-sm font-medium"
-                  aria-label="Get directions to Del Webb North Ranch on Google Maps"
-                >
-                  <MapPinned className="w-4 h-4" />
-                  Get directions
-                </a>
-              </li>
+          {/* Buy & Sell – conversion-focused */}
+          <nav className="lg:col-span-2" aria-label="Buy and sell at Del Webb North Ranch">
+            <h4 className="text-lg font-semibold text-white mb-4">
+              Buy & Sell at North Ranch
+            </h4>
+            <ul className="space-y-2">
+              {[
+                { href: "/", label: "Home" },
+                { href: "/homes-for-sale", label: "Homes for Sale" },
+                { href: "/buyers", label: "For Buyers" },
+                { href: "/sellers", label: "For Sellers" },
+                { href: "/home-value", label: "Home Value" },
+                { href: "/mortgage-calculator", label: "Mortgage Calculator" },
+              ].map(({ href, label }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="text-gray-300 hover:text-white transition-colors"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
-          </div>
+          </nav>
 
-          {/* Resources & Links */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Resources</h4>
+          {/* Resources + engagement */}
+          <div className="lg:col-span-2">
+            <h4 className="text-lg font-semibold text-white mb-4">Resources</h4>
             <ul className="space-y-2">
               <li>
                 <a
@@ -213,7 +189,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
                 >
-                  <Calendar className="w-4 h-4" />
+                  <Calendar className="h-4 w-4" aria-hidden />
                   Schedule Appointment
                 </a>
               </li>
@@ -224,7 +200,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
                 >
-                  <span className="w-4 h-4">🏠</span>
+                  <span className="w-4 h-4" aria-hidden>🏠</span>
                   Browse Homes
                 </a>
               </li>
@@ -235,8 +211,8 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
                 >
-                  <Youtube className="w-4 h-4" />
-                  YouTube Channel
+                  <Youtube className="h-4 w-4" aria-hidden />
+                  YouTube
                 </a>
               </li>
               <li>
@@ -246,15 +222,12 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
                 >
-                  <FileText className="w-4 h-4" />
+                  <FileText className="h-4 w-4" aria-hidden />
                   Download Brochure
                 </a>
               </li>
               <li>
-                <Link
-                  href="/testimonials"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
+                <Link href="/testimonials" className="text-gray-300 hover:text-white transition-colors">
                   Testimonials
                 </Link>
               </li>
@@ -266,16 +239,16 @@ export default function Footer() {
                   className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
                   aria-label="Leave a review on Google"
                 >
-                  <Star className="w-4 h-4" />
-                  Leave a review on Google
+                  <Star className="h-4 w-4" aria-hidden />
+                  Leave a Google review
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Social Media */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
+          {/* Follow Us */}
+          <div className="lg:col-span-2">
+            <h4 className="text-lg font-semibold text-white mb-4">Follow Us</h4>
             <ul className="space-y-2">
               <li>
                 <a
@@ -283,8 +256,9 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+                  aria-label="Facebook"
                 >
-                  <Facebook className="w-4 h-4" />
+                  <Facebook className="h-4 w-4" aria-hidden />
                   Facebook
                 </a>
               </li>
@@ -294,8 +268,9 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+                  aria-label="Instagram"
                 >
-                  <Instagram className="w-4 h-4" />
+                  <Instagram className="h-4 w-4" aria-hidden />
                   Instagram
                 </a>
               </li>
@@ -305,8 +280,9 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+                  aria-label="LinkedIn"
                 >
-                  <Linkedin className="w-4 h-4" />
+                  <Linkedin className="h-4 w-4" aria-hidden />
                   LinkedIn
                 </a>
               </li>
@@ -316,206 +292,60 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+                  aria-label="YouTube"
                 >
-                  <Youtube className="w-4 h-4" />
+                  <Youtube className="h-4 w-4" aria-hidden />
                   YouTube
                 </a>
               </li>
             </ul>
           </div>
+        </div>
 
-          {/* Related Communities */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Other Communities</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
+        {/* More Nevada Communities – streamlined */}
+        <nav
+          className="mt-10 pt-8 border-t border-gray-700"
+          aria-label="More Nevada communities"
+        >
+          <h4 className="text-lg font-semibold text-white mb-4">More Nevada Communities</h4>
+          <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+            {OTHER_COMMUNITIES.map(({ href, label }) => (
+              <li key={href}>
                 <a
-                  href="https://heyberkshirehomes.com"
+                  href={href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Hey Berkshire Homes
+                  {label}
                 </a>
               </li>
-              <li>
-                <a
-                  href="https://askberkshirehomes.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Ask Berkshire Homes
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://searchforhomesvegas.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Search for Homes Vegas
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://californiaforeverbroker.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  California Forever Broker
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://californiaforeverrealestateagent.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  California Forever Real Estate
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://californiaforeverrealty.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  California Forever Realty
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://heartlandlasvegas.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Heartland Las Vegas
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://yourdivorcerealtor.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Your Divorce Realtor
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://greenvalleyranchinsider.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Green Valley Ranch Insider
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://maravillahomesforsale.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Maravilla Homes for Sale
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://arieshenderson.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Aries Henderson
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://craigranchhomes.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Craig Ranch Homes
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://silverstoneranchhomes.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Silverstone Ranch Homes
-                </a>
-              </li>
-            </ul>
-          </div>
+            ))}
+          </ul>
+        </nav>
 
-          {/* Legal Info */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Information</h4>
-            <ul className="space-y-2 text-sm text-gray-300">
-              <li>
-                <strong>License:</strong> S.0197614.LLC
-              </li>
-              <li>
-                <strong>Brokerage:</strong> Berkshire Hathaway HomeServices
-                Nevada Properties
-              </li>
-              <li>
-                <Link
-                  href="/privacy"
-                  className="hover:text-white transition-colors"
-                >
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/terms"
-                  className="hover:text-white transition-colors"
-                >
-                  Terms of Service
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/accessibility"
-                  className="hover:text-white transition-colors"
-                >
-                  Accessibility
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/sitemap-page"
-                  className="hover:text-white transition-colors"
-                >
-                  Sitemap
-                </Link>
-              </li>
-            </ul>
+        {/* Info + legal */}
+        <div className="mt-10 flex flex-wrap items-center justify-between gap-6 border-t border-gray-700 pt-8">
+          <div className="text-sm text-gray-400">
+            <p><strong className="text-gray-300">License:</strong> S.0197614.LLC</p>
+            <p><strong className="text-gray-300">Brokerage:</strong> Berkshire Hathaway HomeServices Nevada Properties</p>
           </div>
+          <nav className="flex flex-wrap gap-6 text-sm" aria-label="Legal and site information">
+            <Link href="/about" className="text-gray-400 hover:text-white transition-colors">About</Link>
+            <Link href="/blog" className="text-gray-400 hover:text-white transition-colors">Blog</Link>
+            <Link href="/faq" className="text-gray-400 hover:text-white transition-colors">FAQ</Link>
+            <Link href="/contact" className="text-gray-400 hover:text-white transition-colors">Contact</Link>
+            <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">Privacy</Link>
+            <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">Terms</Link>
+            <Link href="/accessibility" className="text-gray-400 hover:text-white transition-colors">Accessibility</Link>
+            <Link href="/sitemap-page" className="text-gray-400 hover:text-white transition-colors">Sitemap</Link>
+          </nav>
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-gray-700 pt-8 mt-8 text-center text-sm text-gray-400">
-          <p>
-            © 2026 Del Webb North Ranch | Homes by Dr. Jan Duffy All rights reserved.
-          </p>
-          <p className="mt-2">
-            Berkshire Hathaway HomeServices Nevada Properties | S.0197614.LLC
-          </p>
+        <div className="mt-8 text-center text-sm text-gray-400">
+          <p>© {new Date().getFullYear()} Del Webb North Ranch | Homes by Dr. Jan Duffy. All rights reserved.</p>
+          <p className="mt-1">Berkshire Hathaway HomeServices Nevada Properties | S.0197614.LLC</p>
         </div>
       </div>
     </footer>

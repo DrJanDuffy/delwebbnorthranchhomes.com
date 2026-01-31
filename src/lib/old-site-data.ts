@@ -306,6 +306,26 @@ export function getVirtualTourByModel(model: string): VirtualTour | undefined {
   return oldSiteData.virtualTours.find((tour) => tour.model === model);
 }
 
+/** Slug for a virtual tour (model name lowercased, spaces to hyphen). */
+export function getVirtualTourSlug(tour: VirtualTour): string {
+  return tour.model.toLowerCase().replace(/\s+/g, '-');
+}
+
+/** Virtual tours that have an embed URL (for dedicated watch pages). */
+export function getVirtualToursWithEmbed(): (VirtualTour & { slug: string })[] {
+  return oldSiteData.virtualTours
+    .filter((t): t is VirtualTour & { embedUrl: string } => t.embedUrl != null)
+    .map((t) => ({ ...t, slug: getVirtualTourSlug(t) }));
+}
+
+/** Get a single virtual tour by slug (for watch page). */
+export function getVirtualTourBySlug(slug: string): (VirtualTour & { slug: string }) | undefined {
+  const tour = oldSiteData.virtualTours.find(
+    (t) => getVirtualTourSlug(t) === slug && t.embedUrl != null
+  );
+  return tour ? { ...tour, slug } : undefined;
+}
+
 export function getAllTestimonials(): Testimonial[] {
   return oldSiteData.testimonials;
 }

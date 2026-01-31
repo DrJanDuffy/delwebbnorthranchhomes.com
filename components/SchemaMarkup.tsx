@@ -1,5 +1,5 @@
 import Script from 'next/script';
-import { SITE_ORIGIN } from '@/lib/site';
+import { SITE_ORIGIN, SITE_PHONE_SCHEMA } from '@/lib/site';
 
 export default function SchemaMarkup() {
   const baseUrl = SITE_ORIGIN;
@@ -13,7 +13,7 @@ export default function SchemaMarkup() {
     alternateName: 'Dr. Jan Duffy Real Estate',
     url: baseUrl,
     logo: `${baseUrl}/images/logo/logo.svg`,
-    telephone: '+1-702-500-1064',
+    telephone: SITE_PHONE_SCHEMA,
     email: 'sales@delwebbnorthranchhomes.com',
     address: {
       '@type': 'PostalAddress',
@@ -67,7 +67,7 @@ export default function SchemaMarkup() {
     alternateName: 'Dr. Jan Duffy Real Estate',
     url: baseUrl,
     image: `${baseUrl}/images/about/dr-jan-duffy.jpg`,
-    telephone: '+1-702-500-1064',
+    telephone: SITE_PHONE_SCHEMA,
     email: 'sales@delwebbnorthranchhomes.com',
     address: {
       '@type': 'PostalAddress',

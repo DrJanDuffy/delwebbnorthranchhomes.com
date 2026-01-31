@@ -11,13 +11,13 @@ import { oldSiteData } from "@/lib/fetchOldSiteData";
 import ScheduleTour from "@/../components/ScheduleTour";
 import CalendlyInline from "@/../components/CalendlyInline";
 import RealScoutListings from "@/../components/RealScoutListings";
-import { SITE_ORIGIN, GOOGLE_REVIEW_LINK, GOOGLE_MAPS_DIRECTIONS_URL } from "@/lib/site";
+import { SITE_ORIGIN, GOOGLE_REVIEW_LINK, GOOGLE_MAPS_DIRECTIONS_URL, SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from "@/lib/site";
 import { metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
 
 export const metadata: Metadata = {
   title: `Contact & Schedule a Tour | ${TITLE_SUFFIX}`,
   description: metaDescriptionBlock(
-    "Contact Dr. Jan Duffy to schedule a tour of Del Webb North Ranch. Call (702) 500-1064 or use the form"
+    `Contact Dr. Jan Duffy to schedule a tour of Del Webb North Ranch. Call ${SITE_PHONE_DISPLAY} or schedule online.`
   ),
   alternates: {
     canonical: `${SITE_ORIGIN}/contact`,
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `Contact & Schedule a Tour | ${TITLE_SUFFIX}`,
     description:
-      "Schedule a tour of Del Webb North Ranch, a premier 55+ community in North Las Vegas. Call (702) 500-1064.",
+      `Schedule a tour of Del Webb North Ranch, a premier 55+ community in North Las Vegas. Call ${SITE_PHONE_DISPLAY}.`,
     url: `${SITE_ORIGIN}/contact`,
     siteName: TITLE_SUFFIX,
     locale: "en_US",
@@ -129,10 +129,10 @@ export default function ContactPage() {
                             Phone
                           </h3>
                           <a
-                            href="tel:7025001064"
+                            href={SITE_PHONE_TEL}
                             className="text-text-dark hover:text-primary transition-colors text-lg"
                           >
-                            (702) 500-1064
+                            {SITE_PHONE_DISPLAY}
                           </a>
                           <p className="text-sm text-gray-500 mt-1">
                             Call or text anytime
@@ -246,11 +246,11 @@ export default function ContactPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="tel:7025001064"
+                  href={SITE_PHONE_TEL}
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white rounded-md font-semibold hover:bg-primary/90 transition-colors"
                 >
                   <Phone className="w-5 h-5" />
-                  Call (702) 500-1064
+                  Call {SITE_PHONE_DISPLAY}
                 </a>
                 <ScheduleTour variant="accent" size="lg" />
               </div>

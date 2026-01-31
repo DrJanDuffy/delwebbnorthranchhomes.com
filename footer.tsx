@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
+import { SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from "@/lib/site";
 
 export default function Footer() {
   return (
@@ -81,11 +82,11 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="tel:7025001064"
+                  href={SITE_PHONE_TEL}
                   className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
                 >
                   <Phone className="w-4 h-4" />
-                  (702) 500-1064
+                  {SITE_PHONE_DISPLAY}
                 </a>
               </li>
               <li>

@@ -5,6 +5,7 @@ import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
 import { Button } from "@/../components/ui/button";
 import { Home, RefreshCw, Phone, Search, FileText } from "lucide-react";
+import { SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from "@/lib/site";
 
 export default function ErrorPage({
   error,
@@ -58,8 +59,8 @@ export default function ErrorPage({
                   </Link>
                 </li>
                 <li>
-                  <a href="tel:7025001064" className="text-primary hover:text-accent transition-colors flex items-center gap-2">
-                    <Phone className="w-4 h-4" /> Call (702) 500-1064
+                  <a href={SITE_PHONE_TEL} className="text-primary hover:text-accent transition-colors flex items-center gap-2">
+                    <Phone className="w-4 h-4" /> Call {SITE_PHONE_DISPLAY}
                   </a>
                 </li>
                 <li>

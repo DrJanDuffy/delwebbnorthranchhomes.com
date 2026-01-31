@@ -10,7 +10,7 @@ import ListingsPageClient from "@/components/listings-page-client";
 import MortgageCalculator from "@/../components/MortgageCalculator";
 import RealScoutListings from "@/../components/RealScoutListings";
 import { getCommunityInfo } from "@/lib/communityData";
-import { SITE_ORIGIN } from "@/lib/site";
+import { SITE_ORIGIN, SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from "@/lib/site";
 import { altPrefix, metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
 import { buyerCtaCopy, buyerFaq, buyerValueProps } from "@/lib/hyperlocalBuyer";
 // import HomesForSaleWidget from "@/../components/HomesForSaleWidget";
@@ -28,7 +28,7 @@ const buyerFaqSchema = {
 export const metadata: Metadata = {
   title: `Homes for Sale | ${TITLE_SUFFIX}`,
   description: metaDescriptionBlock(
-    "Browse current homes for sale in Del Webb North Ranch 55+ community. Resale homes from $400K-$600K"
+    "Del Webb North Ranch homes for sale: browse current 55+ resale homes in North Las Vegas from $400K-$600K"
   ),
   alternates: {
     canonical: `${SITE_ORIGIN}/homes-for-sale`,
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `Homes for Sale | ${TITLE_SUFFIX}`,
     description:
-      "Browse current homes for sale in Del Webb North Ranch, a 55+ active adult community in North Las Vegas. Resale homes from $400K-$600K.",
+      "Del Webb North Ranch homes for sale: 55+ resale homes in North Las Vegas from $400K-$600K. Del Webb at North Ranch, Del Webb North Las Vegas.",
     url: `${SITE_ORIGIN}/homes-for-sale`,
     siteName: TITLE_SUFFIX,
     locale: "en_US",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `Homes for Sale | ${TITLE_SUFFIX}`,
-    description: "Browse current homes for sale in Del Webb North Ranch 55+ community. Resale homes from $400K-$600K.",
+    description: "Del Webb North Ranch homes for sale: 55+ resale homes in North Las Vegas from $400K-$600K.",
     images: [`${SITE_ORIGIN}/images/amenities/resort-pool.jpeg`],
   },
 };
@@ -104,11 +104,11 @@ export default async function HomesForSalePage() {
                   <Link href="#listings">View Listings</Link>
                 </Button>
                 <a
-                  href="tel:7025001064"
+                  href={SITE_PHONE_TEL}
                   className="flex items-center gap-2 text-lg font-semibold hover:text-primary transition-colors"
                 >
                   <Phone className="w-5 h-5" />
-                  (702) 500-1064
+                  {SITE_PHONE_DISPLAY}
                 </a>
               </div>
             </div>
@@ -228,11 +228,11 @@ export default async function HomesForSalePage() {
                 </ul>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                   <a
-                    href="tel:7025001064"
+                    href={SITE_PHONE_TEL}
                     className="flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-md font-semibold hover:bg-primary/90 transition-colors"
                   >
                     <Phone className="w-5 h-5" />
-                    Call (702) 500-1064
+                    Call {SITE_PHONE_DISPLAY}
                   </a>
                   <Button asChild variant="accent" size="lg">
                     <Link href="/schedule">{buyerCtaCopy.primary}</Link>

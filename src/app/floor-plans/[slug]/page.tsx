@@ -13,10 +13,10 @@ import {
   type FloorPlan,
 } from '@/lib/floor-plans';
 import { getHomesitesByCollection } from '@/lib/communityData';
-import { getVirtualTourByModel } from '@/lib/old-site-data';
+import { getVirtualTourByModel, getVirtualTourSlug } from '@/lib/old-site-data';
 import { Bed, Bath, Square, Car, ArrowLeft, Phone, Play } from 'lucide-react';
 import ScheduleTour from '@/../components/ScheduleTour';
-import { SITE_ORIGIN } from '@/lib/site';
+import { SITE_ORIGIN, SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from '@/lib/site';
 import { TITLE_SUFFIX } from '@/lib/hyperlocal';
 
 export async function generateStaticParams() {
@@ -164,6 +164,38 @@ function ProductSchema({ plan }: { plan: FloorPlan }) {
   );
 }
 
+function VideoObjectSchema({
+  plan,
+  virtualTour,
+}: {
+  plan: FloorPlan;
+  virtualTour: NonNullable<ReturnType<typeof getVirtualTourByModel>> & { embedUrl: string };
+}) {
+  const watchSlug = getVirtualTourSlug(virtualTour);
+  const watchUrl = `${SITE_ORIGIN}/virtual-tours/${watchSlug}`;
+  const videoSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: `${plan.name} Virtual Tour | Del Webb North Ranch Model Home`,
+    description: `${plan.name} ${plan.series} Series ${plan.sqft} sq ft model home virtual tour at Del Webb North Ranch 55+ community in North Las Vegas.`,
+    thumbnailUrl: plan.imageUrl ? `${SITE_ORIGIN}${plan.imageUrl}` : `${SITE_ORIGIN}/images/hero/hero-bg.jpg`,
+    uploadDate: '2024-01-01',
+    contentUrl: virtualTour.embedUrl,
+    embedUrl: virtualTour.embedUrl,
+    url: watchUrl,
+    publisher: {
+      '@type': 'Organization',
+      name: 'Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties',
+    },
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema).replace(/</g, '\\u003c') }}
+    />
+  );
+}
+
 function BreadcrumbSchema({ plan }: { plan: FloorPlan }) {
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -212,9 +244,13 @@ export default async function FloorPlanPage({
 
   // Get virtual tour if available
   const virtualTour = getVirtualTourByModel(plan.name);
+  const hasVideo = virtualTour?.embedUrl != null;
 
   return (
     <>
+      {hasVideo && virtualTour && (
+        <VideoObjectSchema plan={plan} virtualTour={virtualTour as typeof virtualTour & { embedUrl: string }} />
+      )}
       <Navbar />
       <Breadcrumbs
         items={[
@@ -323,25 +359,33 @@ export default async function FloorPlanPage({
           </section>
         )}
 
-        {/* Virtual Tour */}
+        {/* Virtual Tour - watch page for video indexing */}
         {virtualTour?.embedUrl && (
-          <section className="py-12 md:py-16 bg-bg-light">
+          <section className="py-12 md:py-16 bg-bg-light" aria-labelledby="virtual-tour-heading">
             <div className="container mx-auto px-4">
               <div className="max-w-4xl mx-auto">
-                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center font-playfair">
+                <h2 id="virtual-tour-heading" className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center font-playfair">
                   Virtual Tour
                 </h2>
                 <div className="bg-white rounded-lg shadow-three overflow-hidden">
                   <div className="aspect-video">
                     <iframe
                       src={virtualTour.embedUrl}
-                      title={`${plan.name} Virtual Tour`}
+                      title={`${plan.name} Virtual Tour - Del Webb North Ranch Model Home`}
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                       className="w-full h-full"
                     />
                   </div>
                 </div>
+                <p className="text-center mt-4 text-text-dark">
+                  <Link
+                    href={`/virtual-tours/${getVirtualTourSlug(virtualTour)}`}
+                    className="text-primary hover:text-accent font-medium"
+                  >
+                    Watch on dedicated video page →
+                  </Link>
+                </p>
               </div>
             </div>
           </section>
@@ -390,11 +434,11 @@ export default async function FloorPlanPage({
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <ScheduleTour variant="accent" size="lg" />
                 <a
-                  href="tel:7025001064"
+                  href={SITE_PHONE_TEL}
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white text-white rounded-md font-semibold hover:bg-white hover:text-primary transition-colors"
                 >
                   <Phone className="w-5 h-5" />
-                  Call (702) 500-1064
+                  Call {SITE_PHONE_DISPLAY}
                 </a>
               </div>
             </div>

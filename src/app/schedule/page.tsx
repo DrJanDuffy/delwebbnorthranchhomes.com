@@ -5,7 +5,7 @@ import ScheduleTour from '@/../components/ScheduleTour';
 import RealScoutListings from '@/../components/RealScoutListings';
 import { Phone, Calendar, Clock, MapPin } from 'lucide-react';
 import { oldSiteData } from '@/lib/fetchOldSiteData';
-import { SITE_ORIGIN, GOOGLE_MAPS_DIRECTIONS_URL } from '@/lib/site';
+import { SITE_ORIGIN, GOOGLE_MAPS_DIRECTIONS_URL, SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from '@/lib/site';
 import { metaDescriptionBlock, TITLE_SUFFIX } from '@/lib/hyperlocal';
 
 export const metadata: Metadata = {
@@ -111,6 +111,28 @@ export default function SchedulePage() {
           </div>
         </section>
 
+        {/* Planning your visit */}
+        <section className="py-12 md:py-16 bg-bg-light">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 font-playfair text-center">
+                Planning Your Visit to Del Webb North Ranch
+              </h2>
+              <p className="text-text-dark mb-6 leading-relaxed">
+                Del Webb North Ranch is in North Las Vegas, zip code 89086, with easy access from the 215 and I-15. The community entrance is at 2290 Beauty Vista Avenue. When you schedule your tour, Dr. Jan Duffy will confirm the meeting point and any details you need—whether you&apos;re driving in from the valley or flying into Las Vegas for a dedicated North Ranch visit. Many 55+ buyers combine a tour of the North Ranch 55+ community with a few days in the area to explore North Las Vegas dining, healthcare, and shopping.
+              </p>
+              <h3 className="text-xl font-bold text-primary mb-3 font-playfair">What to bring</h3>
+              <p className="text-text-dark mb-4 leading-relaxed">
+                You don&apos;t need to bring anything special—just yourself and any questions about Del Webb North Ranch floor plans, HOA fees, or resale listings. If you&apos;ve already browsed homes for sale at Del Webb North Ranch online, note the ones you&apos;d like to see and we can prioritize those. Comfortable shoes are recommended for walking the clubhouse and grounds; the North Ranch amenities include outdoor areas you&apos;ll want to see in person.
+              </p>
+              <h3 className="text-xl font-bold text-primary mb-3 font-playfair">Same-day and advance booking</h3>
+              <p className="text-text-dark leading-relaxed">
+                We do our best to accommodate same-day or next-day tour requests when availability allows. For out-of-town visitors planning a trip to North Las Vegas, booking a week or two ahead ensures we can align your Del Webb North Ranch tour with current resale showings and give you a full picture of the community. Use the scheduler below to pick a time that works—or call or email if you prefer to arrange your North Ranch tour that way.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Quick Info Section */}
         <section className="py-12 md:py-16 bg-white">
           <div className="container mx-auto px-4">
@@ -142,10 +164,10 @@ export default function SchedulePage() {
                   <Phone className="w-10 h-10 text-primary mx-auto mb-3" />
                   <h3 className="font-semibold text-primary mb-2">Questions?</h3>
                   <a
-                    href="tel:7025001064"
+                    href={SITE_PHONE_TEL}
                     className="text-accent hover:text-primary transition-colors"
                   >
-                    (702) 500-1064
+                    {SITE_PHONE_DISPLAY}
                   </a>
                 </div>
               </div>
@@ -184,11 +206,11 @@ export default function SchedulePage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="tel:7025001064"
+                  href={SITE_PHONE_TEL}
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white rounded-md font-semibold hover:bg-primary/90 transition-colors"
                 >
                   <Phone className="w-5 h-5" />
-                  Call (702) 500-1064
+                  Call {SITE_PHONE_DISPLAY}
                 </a>
                 <a
                   href="mailto:sales@delwebbnorthranchhomes.com"

@@ -6,7 +6,7 @@ import Breadcrumbs from '@/../components/Breadcrumbs';
 import FAQAccordion from '@/../components/FAQAccordion';
 import { getAllQuestions } from '@/lib/faqData';
 import { getHyperlocalFaq } from '@/lib/hyperlocalData';
-import { SITE_ORIGIN } from '@/lib/site';
+import { SITE_ORIGIN, SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from '@/lib/site';
 import { altPrefix, metaDescriptionBlock, TITLE_SUFFIX } from '@/lib/hyperlocal';
 import Link from 'next/link';
 import RealScoutListings from '@/../components/RealScoutListings';
@@ -260,10 +260,10 @@ export default function FAQPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:7025001064"
+                href={SITE_PHONE_TEL}
                 className="inline-flex items-center justify-center px-8 py-3 bg-white text-primary font-semibold rounded-lg hover:bg-gray-100 transition-colors"
               >
-                Call (702) 500-1064
+                Call {SITE_PHONE_DISPLAY}
               </a>
               <Link
                 href="/contact"

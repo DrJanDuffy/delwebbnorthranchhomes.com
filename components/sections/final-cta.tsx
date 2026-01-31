@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { Phone } from "lucide-react";
-import ContactForm from "../contact-form";
+import CalendlyInline from "../CalendlyInline";
+import { oldSiteData } from "@/lib/fetchOldSiteData";
+import { SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from "@/lib/site";
 import ScrollAnimation from "../scroll-animation";
 
 export default function FinalCTASection() {
@@ -34,29 +36,34 @@ export default function FinalCTASection() {
                 </p>
                 <div className="mb-6">
                   <a
-                    href="tel:7025001064"
+                    href={SITE_PHONE_TEL}
                     className="inline-flex items-center gap-2 text-lg md:text-xl font-semibold text-primary hover:text-primary/80 transition-colors"
                   >
                     <Phone className="w-5 h-5 md:w-6 md:h-6" />
-                    (702) 500-1064
+                    {SITE_PHONE_DISPLAY}
                   </a>
                 </div>
                 <p className="text-sm md:text-base text-text-dark">
-                  Or fill out the form to get started.
+                  Or book a time below.
                 </p>
               </div>
             </ScrollAnimation>
 
-            {/* Right Column - Contact Form */}
+            {/* Right Column - Calendly widget */}
             <ScrollAnimation delay={100}>
               <div>
                 <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 font-playfair">
-                  Send a Message
+                  Schedule a Tour
                 </h2>
                 <p className="text-text-dark mb-6">
-                  Fill out the form below and Dr. Jan Duffy will get back to you as soon as possible.
+                  Book a time that works for you. Dr. Jan Duffy will confirm and send details.
                 </p>
-                <ContactForm />
+                <div className="bg-white rounded-lg shadow-three p-4 md:p-6">
+                  <CalendlyInline
+                    url={oldSiteData.integrations.calendly}
+                    height="700px"
+                  />
+                </div>
               </div>
             </ScrollAnimation>
           </div>

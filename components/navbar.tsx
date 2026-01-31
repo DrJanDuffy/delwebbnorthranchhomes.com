@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
+import { SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from "@/lib/site";
 
 // Main navigation links (6-8 links ideal for sitelinks)
 const mainNavLinks = [
@@ -192,12 +193,12 @@ export default function Navbar() {
           {/* Desktop CTA & Phone */}
           <div className="hidden lg:flex items-center gap-3 xl:gap-4">
             <a
-              href="tel:7025001064"
+              href={SITE_PHONE_TEL}
               className="flex items-center gap-2 text-sm xl:text-base text-text-dark hover:text-primary transition-colors"
-              aria-label="Call (702) 500-1064"
+              aria-label={`Call ${SITE_PHONE_DISPLAY}`}
             >
               <Phone className="w-4 h-4" />
-              <span className="font-medium">(702) 500-1064</span>
+              <span className="font-medium">{SITE_PHONE_DISPLAY}</span>
             </a>
             <Button
               asChild
@@ -214,7 +215,7 @@ export default function Navbar() {
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden p-2 text-text-dark hover:text-primary transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
             aria-label="Toggle menu"
-            aria-expanded={isOpen ? 'true' : 'false'}
+            aria-expanded={isOpen}
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -246,11 +247,11 @@ export default function Navbar() {
               ))}
               <div className="mt-2 pt-2 border-t border-gray-200">
                 <a
-                  href="tel:7025001064"
+                  href={SITE_PHONE_TEL}
                   className="flex items-center gap-2 text-text-dark hover:text-primary transition-colors px-3 py-3 rounded-md min-h-[44px]"
                 >
                   <Phone className="w-4 h-4" />
-                  <span className="font-medium">(702) 500-1064</span>
+                  <span className="font-medium">{SITE_PHONE_DISPLAY}</span>
                 </a>
                 <Button
                   asChild

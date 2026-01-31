@@ -3,7 +3,7 @@ import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
 import Link from "next/link";
 import { FileText, Calendar } from "lucide-react";
-import { SITE_ORIGIN } from "@/lib/site";
+import { SITE_ORIGIN, SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from "@/lib/site";
 import { TITLE_SUFFIX } from "@/lib/hyperlocal";
 
 export const metadata: Metadata = {
@@ -214,7 +214,7 @@ export default function TermsPage() {
                   <p className="text-text-dark mb-2">2290 Beauty Vista Avenue</p>
                   <p className="text-text-dark mb-2">North Las Vegas, NV 89086</p>
                   <p className="text-text-dark mb-2">
-                    Phone: <a href="tel:7025001064" className="text-primary hover:text-accent">(702) 500-1064</a>
+                    Phone: <a href={SITE_PHONE_TEL} className="text-primary hover:text-accent">{SITE_PHONE_DISPLAY}</a>
                   </p>
                   <p className="text-text-dark">
                     Email:{" "}

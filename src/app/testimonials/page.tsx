@@ -5,7 +5,7 @@ import Breadcrumbs from '@/../components/Breadcrumbs';
 import ScrollAnimation from '@/../components/scroll-animation';
 import { getAllTestimonials } from '@/lib/old-site-data';
 import { Quote, Star } from 'lucide-react';
-import { SITE_ORIGIN, GOOGLE_REVIEW_LINK } from '@/lib/site';
+import { SITE_ORIGIN, GOOGLE_REVIEW_LINK, SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from '@/lib/site';
 import { metaDescriptionBlock, TITLE_SUFFIX } from '@/lib/hyperlocal';
 import RealScoutListings from '@/../components/RealScoutListings';
 
@@ -113,6 +113,24 @@ export default function TestimonialsPage() {
           </div>
         </section>
 
+        {/* Why reviews matter for North Ranch */}
+        <section className="py-12 md:py-16 bg-bg-light">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 font-playfair text-center">
+                Why Reviews Matter for Del Webb North Ranch Real Estate
+              </h2>
+              <p className="text-text-dark mb-6 leading-relaxed">
+                When you&apos;re comparing 55+ communities in North Las Vegas, hearing from people who have already bought or sold at Del Webb North Ranch can help you decide. The North Ranch 55+ community has a strong resale market and an active social scene—and the testimonials on this page reflect real experiences from buyers and sellers who chose the Del Webb North Ranch clubhouse, North Ranch amenities, and single-story lifestyle. Their feedback highlights what it&apos;s like to work with a specialist who knows every Del Webb North Ranch floor plan and neighborhood detail.
+              </p>
+              <h3 className="text-xl font-bold text-primary mb-3 font-playfair">From first tour to closing</h3>
+              <p className="text-text-dark leading-relaxed">
+                Many of our clients came from out of state or from elsewhere in the Las Vegas valley. They scheduled a tour of North Ranch, explored homes for sale at Del Webb North Ranch, and closed on a North Ranch home with confidence. The stories below cover the full journey—from initial interest in the 55+ active adult community in North Las Vegas to moving in and enjoying the Del Webb North Ranch lifestyle. If you&apos;re considering the same path, schedule a tour or browse current listings above; we&apos;d love to help you find your place at North Ranch.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Testimonials Grid */}
         <section className="py-12 md:py-16 lg:py-20 bg-bg-light">
           <div className="container mx-auto px-4">
@@ -181,10 +199,10 @@ export default function TestimonialsPage() {
                   Schedule a Tour
                 </a>
                 <a
-                  href="tel:7025001064"
+                  href={SITE_PHONE_TEL}
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white text-white rounded-md font-semibold hover:bg-white hover:text-primary transition-colors"
                 >
-                  Call (702) 500-1064
+                  Call {SITE_PHONE_DISPLAY}
                 </a>
               </div>
             </div>

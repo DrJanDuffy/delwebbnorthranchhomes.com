@@ -1,7 +1,15 @@
 import { MetadataRoute } from "next";
 import { CANONICAL_HOMEPAGE, SITE_ORIGIN } from "@/lib/site";
+import { getVirtualToursWithEmbed } from "@/lib/old-site-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const virtualTourWatchPages = getVirtualToursWithEmbed().map((t) => ({
+    url: `${SITE_ORIGIN}/virtual-tours/${t.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
   return [
     // Homepage - Priority 1.0, Daily (trailing slash matches canonical)
     {
@@ -104,6 +112,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.6,
     },
+    ...virtualTourWatchPages,
     {
       url: `${SITE_ORIGIN}/mortgage-calculator`,
       lastModified: new Date(),

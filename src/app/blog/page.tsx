@@ -118,7 +118,7 @@ function BlogCard({
           <div className="relative h-48 bg-bg-light">
             <Image
               src={post.image}
-              alt={post.title}
+              alt={`${post.title} | Del Webb North Ranch 55+ community blog, North Las Vegas`}
               fill
               className="object-cover"
               placeholder="blur"
@@ -226,6 +226,24 @@ export default function BlogPage() {
               <h3 className="text-xl font-bold text-primary mb-3 font-playfair">From the community, for the community</h3>
               <p className="text-text-dark leading-relaxed">
                 Many of our posts draw on real questions from buyers and sellers, so you&apos;ll find answers to common concerns about HOA fees, age requirements, resale value, and what it&apos;s really like to live at North Ranch in North Las Vegas. For the most current listings and personalized help, use the homes-for-sale widget above or schedule a tour with Dr. Jan Duffy, your Del Webb North Ranch specialist.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Topics we cover */}
+        <section className="py-12 md:py-16 bg-white border-t border-gray-200">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 font-playfair text-center">
+                Topics We Cover at the Del Webb North Ranch Blog
+              </h2>
+              <p className="text-text-dark mb-6 leading-relaxed">
+                Our blog covers the North Ranch 55+ community from every angle: Del Webb North Ranch floor plans and resale homes, the Del Webb North Ranch clubhouse and North Ranch amenities, Nevada tax benefits for 55+ buyers, and the active adult lifestyle in North Las Vegas. Whether you&apos;re comparing Del Webb North Ranch to other 55+ communities or you&apos;re ready to tour homes for sale at Del Webb North Ranch, you&apos;ll find practical articles that help you make informed decisions about North Ranch real estate and life at this premier 55+ community.
+              </p>
+              <h3 className="text-xl font-bold text-primary mb-3 font-playfair">Community, homes, and lifestyle</h3>
+              <p className="text-text-dark leading-relaxed">
+                We write about single-story living at North Ranch, club and activity highlights at the Del Webb North Ranch clubhouse, and what to expect when buying or selling in the North Ranch 55+ community. New posts are added regularly—check back for the latest on Del Webb North Ranch in North Las Vegas, or browse current listings above and schedule a tour with Dr. Jan Duffy when you&apos;re ready to see North Ranch in person.
               </p>
             </div>
           </div>

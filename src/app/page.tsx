@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { CANONICAL_HOMEPAGE, SITE_ORIGIN } from "@/lib/site";
+import { CANONICAL_HOMEPAGE, SITE_ORIGIN, SITE_PHONE_DISPLAY } from "@/lib/site";
 import { TITLE_SUFFIX, altPrefix } from "@/lib/hyperlocal";
 import Navbar from "../../components/navbar";
 import Hero from "../../components/hero";
@@ -20,14 +20,14 @@ import { Button } from "../../components/ui/button";
 const HOMEPAGE_METADATA: Metadata = {
   title: TITLE_SUFFIX,
   description:
-    "Discover 55+ luxury homes for sale at Del Webb North Ranch in North Las Vegas. Single-story living from $400K-$600K with resort amenities. Contact Dr. Jan Duffy at (702) 500-1064.",
+    `Del Webb at North Ranch & Del Webb North Las Vegas: 55+ homes for sale in North Las Vegas. Single-story living from $400K-$600K with resort amenities. Contact Dr. Jan Duffy at ${SITE_PHONE_DISPLAY}.`,
   alternates: {
     canonical: CANONICAL_HOMEPAGE,
   },
   openGraph: {
     title: TITLE_SUFFIX,
     description:
-      "Discover 55+ luxury homes for sale at Del Webb North Ranch in North Las Vegas. Single-story living from $400K-$600K with resort amenities.",
+      "Del Webb at North Ranch & Del Webb North Las Vegas: 55+ homes for sale. Single-story living from $400K-$600K with resort amenities.",
     url: CANONICAL_HOMEPAGE,
     siteName: TITLE_SUFFIX,
     images: [
@@ -43,7 +43,7 @@ const HOMEPAGE_METADATA: Metadata = {
     card: "summary_large_image",
     title: TITLE_SUFFIX,
     description:
-      "Discover 55+ luxury homes for sale at Del Webb North Ranch in North Las Vegas. Single-story living from $400K-$600K with resort amenities.",
+      "Del Webb at North Ranch & Del Webb North Las Vegas: 55+ homes for sale. Single-story living from $400K-$600K with resort amenities.",
     images: [`${SITE_ORIGIN}/images/amenities/resort-pool.jpeg`],
   },
 };
