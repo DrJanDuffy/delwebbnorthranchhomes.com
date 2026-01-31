@@ -76,6 +76,25 @@ export default async function HomesForSalePage() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(buyerFaqSchema).replace(/</g, '\\u003c') }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "@id": `${SITE_ORIGIN}/homes-for-sale#webpage`,
+              name: `Homes for Sale | ${TITLE_SUFFIX}`,
+              description:
+                "Del Webb North Ranch homes for sale: browse current 55+ resale homes in North Las Vegas from $400K-$600K.",
+              url: `${SITE_ORIGIN}/homes-for-sale`,
+              primaryImageOfPage: {
+                "@type": "ImageObject",
+                url: `${SITE_ORIGIN}/images/amenities/resort-pool.jpeg`,
+              },
+              isPartOf: { "@type": "WebSite", "@id": `${SITE_ORIGIN}/#website`, url: SITE_ORIGIN },
+            }).replace(/</g, "\\u003c"),
+          }}
+        />
         {/* Hero Section */}
         <section className="bg-primary text-white py-12 md:py-16 lg:py-20">
           <div className="container mx-auto px-4">

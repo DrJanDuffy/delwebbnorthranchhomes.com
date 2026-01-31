@@ -30,7 +30,7 @@ Real estate is YMYL (“Your Money or Your Life”), so Google weighs E-E-A-T he
 - **FAQPage**: FAQ page + inline FAQ on buyers, sellers, community, homes-for-sale, home-value.
 - **BreadcrumbList**: All key pages via Breadcrumbs component.
 - **BlogPosting** (blog post pages): headline, description, datePublished, dateModified, image, author (Person @id), publisher, mainEntityOfPage.
-- **WebPage** (homepage): name, description, url, primaryImageOfPage, isPartOf (WebSite @id). WebSite schema has @id for graph connection.
+- **WebPage** (homepage, homes-for-sale): name, description, url, primaryImageOfPage, isPartOf (WebSite @id). WebSite schema has @id for graph connection.
 
 **Why:** Rich results, Local Pack, and AI/voice systems use structured data; Person + knowsAbout support E-E-A-T and query understanding.
 
