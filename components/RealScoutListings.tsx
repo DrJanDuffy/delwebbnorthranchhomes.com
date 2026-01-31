@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { Home } from 'lucide-react';
-import { loadRealScoutScript } from '@/lib/loadRealScoutScript';
+import { loadRealScoutScript, REALSCOUT_LOAD_DELAY_MS } from '@/lib/loadRealScoutScript';
 
 type RealScoutListingsProps = {
   h2Text?: string;
@@ -33,11 +33,15 @@ export default function RealScoutListings({
     return () => observer.disconnect();
   }, []);
 
+  // Wait for LCP window before loading script (avoids MUI/Google Fonts blocking render)
   useEffect(() => {
     if (!inView) return;
-    loadRealScoutScript()
-      .then(() => setScriptReady(true))
-      .catch(() => setScriptReady(true)); // show widget area even on error so user can retry
+    const timer = setTimeout(() => {
+      loadRealScoutScript()
+        .then(() => setScriptReady(true))
+        .catch(() => setScriptReady(true));
+    }, REALSCOUT_LOAD_DELAY_MS);
+    return () => clearTimeout(timer);
   }, [inView]);
 
   return (

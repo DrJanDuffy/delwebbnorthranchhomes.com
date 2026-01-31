@@ -12,7 +12,7 @@ How we keep LCP and FCP fast by reducing critical path and render-blocking resou
 
 ## Third-Party Deferral
 
-- **RealScout:** Script is not in layout. It is loaded by `loadRealScoutScript()` in `src/lib/loadRealScoutScript.ts` only when a listings section (RealScoutListings or HomesForSaleWidget) enters the viewport. Saves ~420 KB + MUI/Google Fonts from the critical path.
+- **RealScout:** Script is not in layout. It is loaded by `loadRealScoutScript()` only when a listings section is in viewport **and** after a 2s delay (`REALSCOUT_LOAD_DELAY_MS` in `src/lib/loadRealScoutScript.ts`), so MUI/Google Fonts don’t block LCP even if the section is visible immediately. Saves ~420 KB + Google Fonts from the critical path.
 - **Matterport:** Iframe `src` is set only when the virtual tour section is in view (`components/VirtualTours.tsx`). Saves ~1.8 MB on initial load.
 - **Calendly:** Widget script uses `strategy="afterInteractive"` in CalendlyButton; Calendly CSS is loaded non–render-blocking via `CalendlyStyles` (media="print" → onLoad → media="all").
 
@@ -35,7 +35,8 @@ How we keep LCP and FCP fast by reducing critical path and render-blocking resou
 
 ## What We Don’t Control
 
-- **RealScout listing images (CloudFront):** Served by RealScout; we cannot set cache TTL or format (WebP/AVIF) from our site.
+- **Use efficient cache lifetimes (Lighthouse):** CloudFront (RealScout listing images), RealScout widget JS, and Calendly set their own cache headers; we cannot change TTL from our site.
+- **RealScout listing images (CloudFront):** We cannot set cache TTL or format (WebP/AVIF).
 - **Matterport fonts:** Third-party; we cannot set `font-display` for their fonts.
 - **Our main CSS chunk:** Still render-blocking; reducing it would require critical CSS inlining or splitting (larger change).
-- **Legacy JS polyfills:** From Next/React build; would require build/config changes to trim.
+- **Legacy JavaScript (Lighthouse):** Polyfills (e.g. Array.prototype.at, Object.hasOwn) come from the Next/React build; trimming would require changing build target or browserlist.

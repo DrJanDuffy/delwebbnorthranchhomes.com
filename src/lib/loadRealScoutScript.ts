@@ -4,6 +4,9 @@
  * only when in viewport (keeps ~420KB + MUI/Google Fonts off critical path).
  */
 
+/** Delay (ms) after section is in view before loading script; keeps MUI/Google Fonts off LCP. */
+export const REALSCOUT_LOAD_DELAY_MS = 2000;
+
 const REALSCOUT_SCRIPT_URL =
   'https://em.realscout.com/widgets/realscout-web-components.umd.js';
 const WIDGET_TAG = 'realscout-office-listings';

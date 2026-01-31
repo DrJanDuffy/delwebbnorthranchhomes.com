@@ -14,9 +14,9 @@ Where each performance optimization is implemented in the codebase.
 
 | What | Where |
 |------|--------|
-| RealScout script loader (viewport-based) | `src/lib/loadRealScoutScript.ts` – `loadRealScoutScript()` |
-| RealScoutListings viewport + placeholder | `components/RealScoutListings.tsx` – IntersectionObserver, loadRealScoutScript, placeholder until ready |
-| HomesForSaleWidget viewport + placeholder | `components/HomesForSaleWidget.tsx` – same pattern |
+| RealScout script loader + delay constant | `src/lib/loadRealScoutScript.ts` – `loadRealScoutScript()`, `REALSCOUT_LOAD_DELAY_MS` (2s) |
+| RealScoutListings viewport + delay + placeholder | `components/RealScoutListings.tsx` – IntersectionObserver, 2s delay then loadRealScoutScript, placeholder until ready |
+| HomesForSaleWidget viewport + delay + placeholder | `components/HomesForSaleWidget.tsx` – same pattern |
 | Matterport iframe when in view | `components/VirtualTours.tsx` – IntersectionObserver, set iframe `src` only when `iframeAllowed` |
 | Calendly CSS non–render-blocking | `components/CalendlyStyles.tsx` – media="print" + onLoad → media="all" |
 | Calendly script | `components/CalendlyButton.tsx` – Script strategy="afterInteractive" |

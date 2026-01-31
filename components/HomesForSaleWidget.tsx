@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { Home } from 'lucide-react';
-import { loadRealScoutScript } from '@/lib/loadRealScoutScript';
+import { loadRealScoutScript, REALSCOUT_LOAD_DELAY_MS } from '@/lib/loadRealScoutScript';
 
 export default function HomesForSaleWidget() {
   const [inView, setInView] = useState(false);
@@ -27,9 +27,12 @@ export default function HomesForSaleWidget() {
 
   useEffect(() => {
     if (!inView) return;
-    loadRealScoutScript()
-      .then(() => setScriptReady(true))
-      .catch(() => setScriptReady(true));
+    const timer = setTimeout(() => {
+      loadRealScoutScript()
+        .then(() => setScriptReady(true))
+        .catch(() => setScriptReady(true));
+    }, REALSCOUT_LOAD_DELAY_MS);
+    return () => clearTimeout(timer);
   }, [inView]);
 
   return (
