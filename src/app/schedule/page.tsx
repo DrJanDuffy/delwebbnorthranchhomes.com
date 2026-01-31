@@ -4,26 +4,29 @@ import Footer from '@/../components/footer';
 import ScheduleTour from '@/../components/ScheduleTour';
 import { Phone, Calendar, Clock, MapPin } from 'lucide-react';
 import { oldSiteData } from '@/lib/fetchOldSiteData';
+import { SITE_ORIGIN } from '@/lib/site';
+import { metaDescriptionBlock, TITLE_SUFFIX } from '@/lib/hyperlocal';
 
 export const metadata: Metadata = {
-  title: 'Schedule a Tour | Del Webb North Ranch | Dr. Jan Duffy',
-  description:
-    'Schedule a private tour of Del Webb North Ranch with Dr. Jan Duffy. Walk the community, explore amenities, and see available homes. Book your appointment online.',
+  title: `Schedule a Tour | ${TITLE_SUFFIX}`,
+  description: metaDescriptionBlock(
+    'Schedule a private tour of Del Webb North Ranch with Dr. Jan Duffy. Walk the community, explore amenities, and see available homes'
+  ),
   alternates: {
-    canonical: 'https://www.delwebbnorthranchhomes.com/schedule',
+    canonical: `${SITE_ORIGIN}/schedule`,
   },
   openGraph: {
-    title: 'Schedule a Tour | Del Webb North Ranch',
+    title: `Schedule a Tour | ${TITLE_SUFFIX}`,
     description:
       'Book a private tour of Del Webb North Ranch 55+ community in North Las Vegas. Schedule online with Dr. Jan Duffy.',
-    url: 'https://www.delwebbnorthranchhomes.com/schedule',
-    siteName: 'Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
+    url: `${SITE_ORIGIN}/schedule`,
+    siteName: TITLE_SUFFIX,
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Schedule a Tour | Del Webb North Ranch',
+    title: `Schedule a Tour | ${TITLE_SUFFIX}`,
     description: 'Book your private tour of Del Webb North Ranch community.',
   },
 };

@@ -5,53 +5,68 @@ import Footer from '@/../components/footer';
 import Breadcrumbs from '@/../components/Breadcrumbs';
 import FAQAccordion from '@/../components/FAQAccordion';
 import { getAllQuestions } from '@/lib/faqData';
+import { getHyperlocalFaq } from '@/lib/hyperlocalData';
+import { SITE_ORIGIN } from '@/lib/site';
+import { altPrefix, metaDescriptionBlock, TITLE_SUFFIX } from '@/lib/hyperlocal';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Frequently Asked Questions | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
-  description:
-    'Find answers to frequently asked questions about Del Webb North Ranch, a 55+ active adult community in North Las Vegas. Learn about HOA fees, amenities, age requirements, and more.',
+  title: `Frequently Asked Questions | ${TITLE_SUFFIX}`,
+  description: metaDescriptionBlock(
+    'Find answers about Del Webb North Ranch 55+ community: HOA fees, amenities, age requirements, and more'
+  ),
   alternates: {
-    canonical: 'https://www.delwebbnorthranchhomes.com/faq',
+    canonical: `${SITE_ORIGIN}/faq`,
   },
   openGraph: {
-    title: 'Frequently Asked Questions | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
+    title: `Frequently Asked Questions | ${TITLE_SUFFIX}`,
     description:
-      'Find answers to frequently asked questions about Del Webb North Ranch, a 55+ active adult community in North Las Vegas. Learn about HOA fees, amenities, age requirements, and more.',
-    url: 'https://www.delwebbnorthranchhomes.com/faq',
-    siteName: 'Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
+      'Find answers to frequently asked questions about Del Webb North Ranch, a 55+ active adult community in North Las Vegas.',
+    url: `${SITE_ORIGIN}/faq`,
+    siteName: TITLE_SUFFIX,
     locale: 'en_US',
     type: 'website',
     images: [
       {
-        url: 'https://www.delwebbnorthranchhomes.com/images/amenities/resort-pool.jpeg',
+        url: `${SITE_ORIGIN}/images/amenities/resort-pool.jpeg`,
         width: 1200,
         height: 630,
-        alt: 'Del Webb North Ranch FAQ',
+        alt: altPrefix('Resort-style pool'),
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Frequently Asked Questions | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
-    description: 'Find answers to frequently asked questions about Del Webb North Ranch 55+ community.',
-    images: ['https://www.delwebbnorthranchhomes.com/images/amenities/resort-pool.jpeg'],
+    title: `Frequently Asked Questions | ${TITLE_SUFFIX}`,
+    description: 'Find answers about Del Webb North Ranch 55+ community in North Las Vegas.',
+    images: [`${SITE_ORIGIN}/images/amenities/resort-pool.jpeg`],
   },
 };
 
-// Generate FAQ schema from centralized data
+// FAQ schema: main FAQ + hyperlocal North Las Vegas 55+ questions
 const allQuestions = getAllQuestions();
+const hyperlocalFaq = getHyperlocalFaq();
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: allQuestions.map((q) => ({
-    '@type': 'Question',
-    name: q.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: q.answer,
-    },
-  })),
+  mainEntity: [
+    ...allQuestions.map((q) => ({
+      '@type': 'Question' as const,
+      name: q.question,
+      acceptedAnswer: {
+        '@type': 'Answer' as const,
+        text: q.answer,
+      },
+    })),
+    ...hyperlocalFaq.map((q) => ({
+      '@type': 'Question' as const,
+      name: q.question,
+      acceptedAnswer: {
+        '@type': 'Answer' as const,
+        text: q.answer,
+      },
+    })),
+  ],
 };
 
 export default function FAQPage() {
@@ -74,7 +89,7 @@ export default function FAQPage() {
           <div className="absolute inset-0 opacity-10">
             <Image
               src="/images/amenities/resort-pool.jpeg"
-              alt="Del Webb North Ranch resort-style pool"
+              alt={altPrefix('Resort-style pool')}
               fill
               className="object-cover"
               priority
@@ -105,7 +120,7 @@ export default function FAQPage() {
                 <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
                   <Image
                     src="/images/amenities/clubhouse.jpeg"
-                    alt="Del Webb North Ranch 10,000 sq ft clubhouse amenity center"
+                    alt={altPrefix('10,000 sq ft clubhouse amenity center')}
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 33vw"
@@ -121,7 +136,7 @@ export default function FAQPage() {
                 <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
                   <Image
                     src="/images/amenities/resort-pool.jpeg"
-                    alt="Del Webb North Ranch resort-style pool and spa"
+                    alt={altPrefix('Resort-style pool and spa')}
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 33vw"
@@ -137,7 +152,7 @@ export default function FAQPage() {
                 <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
                   <Image
                     src="/images/amenities/pickleball-courts.jpeg"
-                    alt="Del Webb North Ranch lighted pickleball courts"
+                    alt={altPrefix('Lighted pickleball courts')}
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 33vw"
@@ -153,7 +168,7 @@ export default function FAQPage() {
                 <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
                   <Image
                     src="/images/hero/community-sign.jpg"
-                    alt="Del Webb North Ranch gated community entrance"
+                    alt={altPrefix('Gated community entrance')}
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 33vw"
@@ -165,6 +180,31 @@ export default function FAQPage() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* North Las Vegas 55+ Questions (hyperlocal FAQ) */}
+        <section className="py-12 md:py-16 bg-stone-50 border-t border-stone-200">
+          <div className="max-w-3xl mx-auto px-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 font-playfair">
+              North Las Vegas 55+ Questions
+            </h2>
+            <div className="space-y-4">
+              {hyperlocalFaq.map((item) => (
+                <details
+                  key={item.question}
+                  className="group bg-white rounded-lg shadow-sm border border-stone-200 overflow-hidden"
+                >
+                  <summary className="flex items-center justify-between gap-2 px-5 py-4 cursor-pointer list-none font-semibold text-gray-900 hover:bg-stone-50 transition-colors [&::-webkit-details-marker]:hidden">
+                    {item.question}
+                    <span className="text-primary shrink-0 transition-transform group-open:rotate-180">▼</span>
+                  </summary>
+                  <div className="px-5 pb-4 pt-0 text-gray-600 leading-relaxed border-t border-stone-100">
+                    {item.answer}
+                  </div>
+                </details>
+              ))}
             </div>
           </div>
         </section>

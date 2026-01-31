@@ -3,19 +3,21 @@ import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
 import Link from "next/link";
 import { FileText, Calendar } from "lucide-react";
+import { SITE_ORIGIN } from "@/lib/site";
+import { TITLE_SUFFIX } from "@/lib/hyperlocal";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | Del Webb North Ranch | Website Usage Terms",
+  title: `Terms of Service | ${TITLE_SUFFIX}`,
   description:
     "Terms of service for Del Webb North Ranch website. Read our terms and conditions for using this real estate website and contacting Dr. Jan Duffy.",
   alternates: {
-    canonical: "https://www.delwebbnorthranchhomes.com/terms",
+    canonical: `${SITE_ORIGIN}/terms`,
   },
   openGraph: {
-    title: "Terms of Service | Del Webb North Ranch",
+    title: `Terms of Service | ${TITLE_SUFFIX}`,
     description: "Terms and conditions for using the Del Webb North Ranch website.",
-    url: "https://www.delwebbnorthranchhomes.com/terms",
-    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    url: `${SITE_ORIGIN}/terms`,
+    siteName: TITLE_SUFFIX,
     locale: "en_US",
     type: "website",
   },

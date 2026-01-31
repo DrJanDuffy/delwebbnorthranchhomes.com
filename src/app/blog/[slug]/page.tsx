@@ -178,27 +178,28 @@ export async function generateMetadata({
     };
   }
 
-  const baseUrl = "https://www.delwebbnorthranchhomes.com";
-  const url = `${baseUrl}/blog/${params.slug}`;
+  const { SITE_ORIGIN } = await import("@/lib/site");
+  const { TITLE_SUFFIX } = await import("@/lib/hyperlocal");
+  const url = `${SITE_ORIGIN}/blog/${params.slug}`;
 
   return {
-    title: `${post.title} | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy`,
+    title: `${post.title} | ${TITLE_SUFFIX}`,
     description: `${post.excerpt} Read more about Del Webb North Ranch, a premier 55+ community in North Las Vegas.`,
     alternates: {
       canonical: url,
     },
     openGraph: {
-      title: `${post.title} | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy`,
+      title: `${post.title} | ${TITLE_SUFFIX}`,
       description: post.excerpt,
       url: url,
-      siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+      siteName: TITLE_SUFFIX,
       locale: "en_US",
       type: "article",
       publishedTime: post.date,
       authors: ["Dr. Jan Duffy"],
       images: [
         {
-          url: `${baseUrl}${post.image}`,
+          url: `${SITE_ORIGIN}${post.image}`,
           width: 1200,
           height: 630,
           alt: post.title,
@@ -207,9 +208,9 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `${post.title} | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy`,
+      title: `${post.title} | ${TITLE_SUFFIX}`,
       description: post.excerpt,
-      images: [`${baseUrl}${post.image}`],
+      images: [`${SITE_ORIGIN}${post.image}`],
     },
   };
 }

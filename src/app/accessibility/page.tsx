@@ -3,20 +3,22 @@ import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
 import Link from "next/link";
 import { CheckCircle2, AlertCircle, FileText, Mail } from "lucide-react";
+import { SITE_ORIGIN } from "@/lib/site";
+import { TITLE_SUFFIX } from "@/lib/hyperlocal";
 
 export const metadata: Metadata = {
-  title: "Accessibility Statement | Del Webb North Ranch | WCAG 2.1 AA Compliant",
+  title: `Accessibility Statement | ${TITLE_SUFFIX}`,
   description:
     "Del Webb North Ranch website is committed to accessibility. Learn about our WCAG 2.1 AA compliance, accessibility features, and how to report issues.",
   alternates: {
-    canonical: "https://www.delwebbnorthranchhomes.com/accessibility",
+    canonical: `${SITE_ORIGIN}/accessibility`,
   },
   openGraph: {
-    title: "Accessibility Statement | Del Webb North Ranch",
+    title: `Accessibility Statement | ${TITLE_SUFFIX}`,
     description:
       "Our commitment to website accessibility and WCAG 2.1 AA compliance for all visitors.",
-    url: "https://www.delwebbnorthranchhomes.com/accessibility",
-    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    url: `${SITE_ORIGIN}/accessibility`,
+    siteName: TITLE_SUFFIX,
     locale: "en_US",
     type: "website",
   },

@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
+import { SITE_ORIGIN } from "@/lib/site";
+import { TITLE_SUFFIX } from "@/lib/hyperlocal";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Del Webb North Ranch | North Las Vegas",
+  title: `Privacy Policy | ${TITLE_SUFFIX}`,
   description:
     "Privacy policy for Del Webb North Ranch website. Learn how we collect, use, and protect your information when you contact Dr. Jan Duffy about 55+ community homes in North Las Vegas.",
   alternates: {
-    canonical: "https://www.delwebbnorthranchhomes.com/privacy",
+    canonical: `${SITE_ORIGIN}/privacy`,
   },
   robots: {
     index: false,

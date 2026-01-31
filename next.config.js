@@ -33,6 +33,24 @@ const nextConfig = {
   async headers() {
     return [
       {
+        source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
         source: '/:path*',
         headers: [
           {
@@ -41,9 +59,9 @@ const nextConfig = {
               "default-src 'self'",
               "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://em.realscout.com https://www.realscout.com https://assets.calendly.com",
               "connect-src 'self' https://em.realscout.com https://www.realscout.com https://assets.calendly.com https://calendly.com",
-              "style-src 'self' 'unsafe-inline' https://assets.calendly.com",
+              "style-src 'self' 'unsafe-inline' https://assets.calendly.com https://fonts.googleapis.com",
+              "font-src 'self' data: https://fonts.gstatic.com",
               "img-src 'self' data: https:",
-              "font-src 'self' data:",
               "frame-src 'self' https://em.realscout.com https://www.realscout.com https://calendly.com https://www.youtube.com https://youtube.com https://my.matterport.com",
             ].join('; '),
           },

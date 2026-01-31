@@ -4,6 +4,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import { CANONICAL_HOMEPAGE, SITE_ORIGIN } from "@/lib/site";
 import "./globals.css";
 import CalendlyButton from "@/../components/CalendlyButton";
+import CalendlyStyles from "@/../components/CalendlyStyles";
 import SchemaMarkup from "@/../components/SchemaMarkup";
 
 const inter = Inter({
@@ -242,8 +243,17 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" />
-        {/* Calendly Badge Widget CSS */}
-        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+        {/* Preconnect + dns-prefetch for critical third-party origins (LCP / widgets / fonts) */}
+        <link rel="preconnect" href="https://em.realscout.com" />
+        <link rel="preconnect" href="https://static.matterport.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://em.realscout.com" />
+        <link rel="dns-prefetch" href="https://static.matterport.com" />
+        {/* LCP image preload: hero uses resort-pool on homepage; discoverable early for faster LCP */}
+        <link rel="preload" as="image" href="/images/amenities/resort-pool.jpeg" />
+        {/* Calendly CSS: load non-blocking so it doesn't delay FCP/LCP */}
+        <CalendlyStyles />
         {/* Structured Data - Consolidated Schema Markup */}
         <SchemaMarkup />
         {/* Structured Data - LocalBusiness (Google Business Profile) */}

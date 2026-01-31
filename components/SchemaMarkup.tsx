@@ -1,7 +1,8 @@
 import Script from 'next/script';
+import { SITE_ORIGIN } from '@/lib/site';
 
 export default function SchemaMarkup() {
-  const baseUrl = 'https://www.delwebbnorthranchhomes.com';
+  const baseUrl = SITE_ORIGIN;
 
   // Organization Schema
   const organizationSchema = {
@@ -63,7 +64,7 @@ export default function SchemaMarkup() {
     '@context': 'https://schema.org',
     '@type': 'RealEstateAgent',
     name: 'Dr. Jan Duffy',
-    alternateName: 'Dr. Janet Duffy',
+    alternateName: 'Dr. Jan Duffy Real Estate',
     url: baseUrl,
     image: `${baseUrl}/images/about/dr-jan-duffy.jpg`,
     telephone: '+1-702-500-1064',

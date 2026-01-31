@@ -10,37 +10,40 @@ import ListingsPageClient from "@/components/listings-page-client";
 import MortgageCalculator from "@/../components/MortgageCalculator";
 import RealScoutListings from "@/../components/RealScoutListings";
 import { getCommunityInfo } from "@/lib/communityData";
+import { SITE_ORIGIN } from "@/lib/site";
+import { altPrefix, metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
 // import HomesForSaleWidget from "@/../components/HomesForSaleWidget";
 
 export const metadata: Metadata = {
-  title: "Homes for Sale | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
-  description:
-    "Browse current homes for sale in Del Webb North Ranch, a 55+ active adult community in North Las Vegas. Resale homes from $400K-$600K.",
+  title: `Homes for Sale | ${TITLE_SUFFIX}`,
+  description: metaDescriptionBlock(
+    "Browse current homes for sale in Del Webb North Ranch 55+ community. Resale homes from $400K-$600K"
+  ),
   alternates: {
-    canonical: "https://www.delwebbnorthranchhomes.com/homes-for-sale",
+    canonical: `${SITE_ORIGIN}/homes-for-sale`,
   },
   openGraph: {
-    title: "Homes for Sale | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    title: `Homes for Sale | ${TITLE_SUFFIX}`,
     description:
       "Browse current homes for sale in Del Webb North Ranch, a 55+ active adult community in North Las Vegas. Resale homes from $400K-$600K.",
-    url: "https://www.delwebbnorthranchhomes.com/homes-for-sale",
-    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    url: `${SITE_ORIGIN}/homes-for-sale`,
+    siteName: TITLE_SUFFIX,
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://www.delwebbnorthranchhomes.com/images/amenities/resort-pool.jpeg",
+        url: `${SITE_ORIGIN}/images/amenities/resort-pool.jpeg`,
         width: 1200,
         height: 630,
-        alt: "Del Webb North Ranch homes for sale",
+        alt: altPrefix("Homes for sale"),
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Homes for Sale | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    title: `Homes for Sale | ${TITLE_SUFFIX}`,
     description: "Browse current homes for sale in Del Webb North Ranch 55+ community. Resale homes from $400K-$600K.",
-    images: ["https://www.delwebbnorthranchhomes.com/images/amenities/resort-pool.jpeg"],
+    images: [`${SITE_ORIGIN}/images/amenities/resort-pool.jpeg`],
   },
 };
 

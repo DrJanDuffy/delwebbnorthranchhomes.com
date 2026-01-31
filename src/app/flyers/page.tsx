@@ -6,20 +6,23 @@ import Link from "next/link";
 import { FileText, Download } from "lucide-react";
 import { Button } from "@/../components/ui/button";
 import { getAllFlyers } from "@/lib/flyers";
+import { SITE_ORIGIN } from "@/lib/site";
+import { metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
 
 export const metadata: Metadata = {
-  title: "Community Flyers & Brochures | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
-  description:
-    "Download printable flyers and brochures about Del Webb North Ranch, a premier 55+ active adult community in North Las Vegas. Get community information, floor plans, and amenities.",
+  title: `Community Flyers & Brochures | ${TITLE_SUFFIX}`,
+  description: metaDescriptionBlock(
+    "Download printable flyers and brochures about Del Webb North Ranch. Community information, floor plans, and amenities"
+  ),
   alternates: {
-    canonical: "https://www.delwebbnorthranchhomes.com/flyers",
+    canonical: `${SITE_ORIGIN}/flyers`,
   },
   openGraph: {
-    title: "Community Flyers & Brochures | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    title: `Community Flyers & Brochures | ${TITLE_SUFFIX}`,
     description:
       "Download printable flyers and brochures about Del Webb North Ranch 55+ community.",
-    url: "https://www.delwebbnorthranchhomes.com/flyers",
-    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    url: `${SITE_ORIGIN}/flyers`,
+    siteName: TITLE_SUFFIX,
     locale: "en_US",
     type: "website",
   },

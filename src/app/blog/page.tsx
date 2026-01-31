@@ -6,36 +6,39 @@ import Footer from "@/../components/footer";
 import Breadcrumbs from "@/../components/Breadcrumbs";
 import ScrollAnimation from "@/../components/scroll-animation";
 import { Calendar, ArrowRight } from "lucide-react";
+import { SITE_ORIGIN } from "@/lib/site";
+import { altPrefix, metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
 
 export const metadata: Metadata = {
-  title: "Blog | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
-  description:
-    "Read the latest news, tips, and insights about Del Webb North Ranch, a premier 55+ community in North Las Vegas. Learn about active adult living, community events, and real estate tips.",
+  title: `Blog | ${TITLE_SUFFIX}`,
+  description: metaDescriptionBlock(
+    "Read the latest news, tips, and insights about Del Webb North Ranch 55+ community. Active adult living, events, and real estate tips"
+  ),
   alternates: {
-    canonical: "https://www.delwebbnorthranchhomes.com/blog",
+    canonical: `${SITE_ORIGIN}/blog`,
   },
   openGraph: {
-    title: "Blog | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    title: `Blog | ${TITLE_SUFFIX}`,
     description:
       "Community news, insights, and tips about Del Webb North Ranch 55+ community and active adult living.",
-    url: "https://www.delwebbnorthranchhomes.com/blog",
-    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    url: `${SITE_ORIGIN}/blog`,
+    siteName: TITLE_SUFFIX,
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://www.delwebbnorthranchhomes.com/images/blog/blog-01.jpg",
+        url: `${SITE_ORIGIN}/images/blog/blog-01.jpg`,
         width: 1200,
         height: 630,
-        alt: "Del Webb North Ranch blog",
+        alt: altPrefix("Blog"),
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    title: `Blog | ${TITLE_SUFFIX}`,
     description: "Community news and insights about North Las Vegas premier 55+ community.",
-    images: ["https://www.delwebbnorthranchhomes.com/images/blog/blog-01.jpg"],
+    images: [`${SITE_ORIGIN}/images/blog/blog-01.jpg`],
   },
 };
 

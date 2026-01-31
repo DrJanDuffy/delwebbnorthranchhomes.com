@@ -18,6 +18,7 @@ export default function Hero() {
           alt="Del Webb North Ranch resort-style pool area with beautiful landscaping and mountain views"
           fill
           priority
+          fetchPriority="high"
           className="object-cover"
           placeholder="blur"
           blurDataURL={blurDataURL}

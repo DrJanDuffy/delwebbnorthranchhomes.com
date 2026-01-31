@@ -12,9 +12,12 @@ import {
   getAllFloorPlanSlugs,
   type FloorPlan,
 } from '@/lib/floor-plans';
+import { getHomesitesByCollection } from '@/lib/communityData';
 import { getVirtualTourByModel } from '@/lib/old-site-data';
 import { Bed, Bath, Square, Car, ArrowLeft, Phone, Play } from 'lucide-react';
 import ScheduleTour from '@/../components/ScheduleTour';
+import { SITE_ORIGIN } from '@/lib/site';
+import { TITLE_SUFFIX } from '@/lib/hyperlocal';
 
 export async function generateStaticParams() {
   return getAllFloorPlanSlugs().map((slug) => ({ slug }));
@@ -34,26 +37,25 @@ export async function generateMetadata({
     };
   }
 
-  const baseUrl = 'https://www.delwebbnorthranchhomes.com';
-  const url = `${baseUrl}/floor-plans/${slug}`;
+  const url = `${SITE_ORIGIN}/floor-plans/${slug}`;
 
   return {
-    title: `${plan.name} Floor Plan | ${plan.series} Series | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy`,
+    title: `${plan.name} Floor Plan | ${plan.series} Series | ${TITLE_SUFFIX}`,
     description: `${plan.name} floor plan: ${plan.sqft} sq ft, ${plan.beds} bed, ${plan.baths} bath ${plan.series} Series home in Del Webb North Ranch, a premier 55+ community in North Las Vegas. ${plan.description}`,
     alternates: {
       canonical: url,
     },
     openGraph: {
-      title: `${plan.name} Floor Plan | ${plan.series} Series | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy`,
+      title: `${plan.name} Floor Plan | ${plan.series} Series | ${TITLE_SUFFIX}`,
       description: `${plan.sqft} sq ft, ${plan.beds} bed, ${plan.baths} bath ${plan.series} Series home. ${plan.priceRange}.`,
       url: url,
-      siteName: 'Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
+      siteName: TITLE_SUFFIX,
       locale: 'en_US',
       type: 'website',
       images: plan.imageUrl
         ? [
             {
-              url: `https://www.delwebbnorthranchhomes.com${plan.imageUrl}`,
+              url: `${SITE_ORIGIN}${plan.imageUrl}`,
               width: 1200,
               height: 630,
               alt: `${plan.name} floor plan`,
@@ -61,7 +63,7 @@ export async function generateMetadata({
           ]
         : [
             {
-              url: 'https://www.delwebbnorthranchhomes.com/images/hero/hero-bg.jpg',
+              url: `${SITE_ORIGIN}/images/hero/hero-bg.jpg`,
               width: 1200,
               height: 630,
               alt: 'Del Webb North Ranch',
@@ -70,16 +72,24 @@ export async function generateMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${plan.name} Floor Plan | Del Webb North Ranch`,
+      title: `${plan.name} Floor Plan | ${TITLE_SUFFIX}`,
       description: `${plan.sqft} sq ft ${plan.series} Series home in North Las Vegas 55+ community.`,
       images: plan.imageUrl
-        ? [`https://www.delwebbnorthranchhomes.com${plan.imageUrl}`]
-        : ['https://www.delwebbnorthranchhomes.com/images/hero/hero-bg.jpg'],
+        ? [`${SITE_ORIGIN}${plan.imageUrl}`]
+        : [`${SITE_ORIGIN}/images/hero/hero-bg.jpg`],
     },
   };
 }
 
 function ProductSchema({ plan }: { plan: FloorPlan }) {
+  const homesites = getHomesitesByCollection();
+  const offerCount =
+    plan.series === 'Cottage'
+      ? homesites.cottage.count
+      : plan.series === 'Classic'
+        ? homesites.classic.count
+        : homesites.retreat.count;
+
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -87,7 +97,7 @@ function ProductSchema({ plan }: { plan: FloorPlan }) {
     description: `${plan.description} ${plan.series} Series home with ${plan.sqft} sq ft, ${plan.beds} bedrooms, ${plan.baths} baths.`,
     category: 'Real Estate',
     image: plan.imageUrl
-      ? `https://www.delwebbnorthranchhomes.com${plan.imageUrl}`
+      ? `${SITE_ORIGIN}${plan.imageUrl}`
       : undefined,
     brand: {
       '@type': 'Brand',
@@ -109,6 +119,7 @@ function ProductSchema({ plan }: { plan: FloorPlan }) {
             ? '575000'
             : '600000',
       availability: 'https://schema.org/InStock',
+      offerCount,
     },
     aggregateRating: {
       '@type': 'AggregateRating',
@@ -142,7 +153,7 @@ function ProductSchema({ plan }: { plan: FloorPlan }) {
         value: plan.series,
       },
     ],
-    url: `https://www.delwebbnorthranchhomes.com/floor-plans/${plan.slug}`,
+    url: `${SITE_ORIGIN}/floor-plans/${plan.slug}`,
   };
 
   return (
@@ -162,19 +173,19 @@ function BreadcrumbSchema({ plan }: { plan: FloorPlan }) {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://www.delwebbnorthranchhomes.com',
+        item: SITE_ORIGIN,
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Floor Plans',
-        item: 'https://www.delwebbnorthranchhomes.com/floor-plans',
+        item: `${SITE_ORIGIN}/floor-plans`,
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: plan.name,
-        item: `https://www.delwebbnorthranchhomes.com/floor-plans/${plan.slug}`,
+        item: `${SITE_ORIGIN}/floor-plans/${plan.slug}`,
       },
     ],
   };

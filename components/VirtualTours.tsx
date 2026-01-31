@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { oldSiteData } from '@/lib/fetchOldSiteData';
 import { Play, Square } from 'lucide-react';
 
@@ -8,7 +8,23 @@ export default function VirtualTours() {
   const [selectedModel, setSelectedModel] = useState(
     oldSiteData.virtualTours.find((t) => t.embedUrl) || oldSiteData.virtualTours[0]
   );
+  const [iframeAllowed, setIframeAllowed] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
   const tours = oldSiteData.virtualTours.filter((t) => t.embedUrl);
+
+  // Defer Matterport iframe until section is in viewport (saves ~1.8MB on initial load)
+  useEffect(() => {
+    if (!sectionRef.current || tours.length === 0) return;
+    const el = sectionRef.current;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) setIframeAllowed(true);
+      },
+      { rootMargin: '100px', threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [tours.length]);
 
   if (tours.length === 0) {
     return (
@@ -29,7 +45,7 @@ export default function VirtualTours() {
   }
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-white">
+    <section ref={sectionRef} className="py-12 md:py-16 lg:py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
@@ -42,11 +58,11 @@ export default function VirtualTours() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
-            {/* Video player */}
+            {/* Video player - iframe loads only when section in viewport */}
             <div className="lg:col-span-2">
               <div className="bg-bg-light rounded-lg overflow-hidden shadow-three">
                 <div className="aspect-video">
-                  {selectedModel.embedUrl ? (
+                  {selectedModel.embedUrl && iframeAllowed ? (
                     <iframe
                       src={selectedModel.embedUrl}
                       className="w-full h-full"
@@ -54,6 +70,12 @@ export default function VirtualTours() {
                       allowFullScreen
                       title={`${selectedModel.model} Virtual Tour`}
                     />
+                  ) : selectedModel.embedUrl ? (
+                    <div className="w-full h-full flex flex-col items-center justify-center text-text-dark bg-gray-100">
+                      <Play className="w-16 h-16 text-primary mb-4 opacity-50" />
+                      <p className="text-lg font-semibold">Load virtual tour</p>
+                      <p className="text-sm text-gray-600 mt-2">Scroll to load the 3D tour</p>
+                    </div>
                   ) : (
                     <div className="w-full h-full flex flex-col items-center justify-center text-text-dark bg-gray-100">
                       <Play className="w-16 h-16 text-primary mb-4 opacity-50" />

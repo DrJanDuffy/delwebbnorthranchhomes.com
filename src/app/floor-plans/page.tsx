@@ -13,36 +13,39 @@ import VirtualTours from "@/../components/VirtualTours";
 import MortgageCalculator from "@/../components/MortgageCalculator";
 import ScheduleTour from "@/../components/ScheduleTour";
 import RealScoutListings from "@/../components/RealScoutListings";
+import { SITE_ORIGIN } from "@/lib/site";
+import { altPrefix, metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
 
 export const metadata: Metadata = {
-  title: "Floor Plans 1,285-2,015 Sq Ft | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
-  description:
-    "Explore all 9 floor plans at Del Webb North Ranch, a premier 55+ community in North Las Vegas. Cottage, Classic, and Retreat series from 1,285 to 2,015 sq ft. View Matterport virtual tours.",
+  title: `Floor Plans 1,285-2,015 Sq Ft | ${TITLE_SUFFIX}`,
+  description: metaDescriptionBlock(
+    "Explore all 9 floor plans at Del Webb North Ranch: Cottage, Classic, and Retreat series from 1,285 to 2,015 sq ft. View Matterport virtual tours"
+  ),
   alternates: {
-    canonical: "https://www.delwebbnorthranchhomes.com/floor-plans",
+    canonical: `${SITE_ORIGIN}/floor-plans`,
   },
   openGraph: {
-    title: "Floor Plans 1,285-2,015 Sq Ft | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    title: `Floor Plans 1,285-2,015 Sq Ft | ${TITLE_SUFFIX}`,
     description:
       "Explore 9 single-story floor plans from 1,285 to 2,015 sq ft in Del Webb North Ranch, a premier 55+ community.",
-    url: "https://www.delwebbnorthranchhomes.com/floor-plans",
-    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    url: `${SITE_ORIGIN}/floor-plans`,
+    siteName: TITLE_SUFFIX,
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://www.delwebbnorthranchhomes.com/images/floor-plans/haven.avif",
+        url: `${SITE_ORIGIN}/images/floor-plans/haven.avif`,
         width: 1200,
         height: 630,
-        alt: "Del Webb North Ranch floor plans",
+        alt: altPrefix("Floor plans"),
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Floor Plans 1,285-2,015 Sq Ft | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    title: `Floor Plans 1,285-2,015 Sq Ft | ${TITLE_SUFFIX}`,
     description: "Explore 9 single-story floor plans in North Las Vegas's premier 55+ community.",
-    images: ["https://www.delwebbnorthranchhomes.com/images/floor-plans/haven.avif"],
+    images: [`${SITE_ORIGIN}/images/floor-plans/haven.avif`],
   },
 };
 
@@ -146,12 +149,20 @@ export default function FloorPlansPage() {
   const cottagePlans = floorPlans.filter((p) => p.series === "Cottage");
   const classicPlans = floorPlans.filter((p) => p.series === "Classic");
   const retreatPlans = floorPlans.filter((p) => p.series === "Retreat");
+  const homesites = getHomesitesByCollection();
 
-  // Product schema for all floor plans
+  // Product schema for all floor plans (offerCount satisfies GSC Product snippets)
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    itemListElement: floorPlans.map((plan, index) => ({
+    itemListElement: floorPlans.map((plan, index) => {
+      const offerCount =
+        plan.series === "Cottage"
+          ? homesites.cottage.count
+          : plan.series === "Classic"
+            ? homesites.classic.count
+            : homesites.retreat.count;
+      return {
       '@type': 'ListItem',
       position: index + 1,
         item: {
@@ -160,7 +171,7 @@ export default function FloorPlansPage() {
           description: `${plan.description} ${plan.series} Series home with ${plan.sqft} sq ft, ${plan.beds} bedrooms, ${plan.baths} baths.`,
           category: 'Real Estate',
           image: plan.imageUrl
-            ? `https://www.delwebbnorthranchhomes.com${plan.imageUrl}`
+            ? `${SITE_ORIGIN}${plan.imageUrl}`
             : undefined,
           brand: {
             '@type': 'Brand',
@@ -172,6 +183,7 @@ export default function FloorPlansPage() {
           lowPrice: plan.series === 'Cottage' ? '400000' : plan.series === 'Classic' ? '475000' : '550000',
           highPrice: plan.series === 'Cottage' ? '500000' : plan.series === 'Classic' ? '575000' : '600000',
           availability: 'https://schema.org/InStock',
+          offerCount,
         },
         aggregateRating: {
           '@type': 'AggregateRating',
@@ -205,9 +217,10 @@ export default function FloorPlansPage() {
             value: plan.series,
           },
         ],
-        url: `https://www.delwebbnorthranchhomes.com/floor-plans/${plan.slug}`,
+        url: `${SITE_ORIGIN}/floor-plans/${plan.slug}`,
       },
-    })),
+    };
+    }),
   };
 
   return (

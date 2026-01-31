@@ -7,6 +7,8 @@ import Link from "next/link";
 import { FileText, Download, ArrowLeft } from "lucide-react";
 import { Button } from "@/../components/ui/button";
 import { getAllFlyers, getFlyerBySlug } from "@/lib/flyers";
+import { SITE_ORIGIN } from "@/lib/site";
+import { TITLE_SUFFIX } from "@/lib/hyperlocal";
 
 export async function generateStaticParams() {
   const flyers = getAllFlyers();
@@ -30,16 +32,16 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${flyer.title} | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy`,
+    title: `${flyer.title} | ${TITLE_SUFFIX}`,
     description: flyer.description,
     alternates: {
-      canonical: `https://www.delwebbnorthranchhomes.com/flyers/${slug}`,
+      canonical: `${SITE_ORIGIN}/flyers/${slug}`,
     },
     openGraph: {
-      title: `${flyer.title} | Del Webb North Ranch 55+ Real Estate`,
+      title: `${flyer.title} | ${TITLE_SUFFIX}`,
       description: flyer.description,
-      url: `https://www.delwebbnorthranchhomes.com/flyers/${slug}`,
-      siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+      url: `${SITE_ORIGIN}/flyers/${slug}`,
+      siteName: TITLE_SUFFIX,
       locale: "en_US",
       type: "website",
     },

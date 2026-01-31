@@ -6,20 +6,22 @@ import Footer from '@/../components/footer';
 import { Button } from '@/../components/ui/button';
 import { CheckCircle2 } from 'lucide-react';
 import ScheduleTour from '@/../components/ScheduleTour';
+import { SITE_ORIGIN } from '@/lib/site';
+import { TITLE_SUFFIX } from '@/lib/hyperlocal';
 
 export const metadata: Metadata = {
-  title: 'Floor Plans | Del Webb North Ranch | 9 Single-Story Designs | North Las Vegas',
+  title: `Floor Plans | ${TITLE_SUFFIX}`,
   description:
     'Explore 9 single-story floor plans at Del Webb North Ranch. Cottage, Classic, and Retreat series from 1,285 to 2,015 sq ft.',
   alternates: {
-    canonical: 'https://www.delwebbnorthranchhomes.com/floor-plans',
+    canonical: `${SITE_ORIGIN}/floor-plans`,
   },
   openGraph: {
-    title: 'Floor Plans | Del Webb North Ranch | North Las Vegas',
+    title: `Floor Plans | ${TITLE_SUFFIX}`,
     description:
       'Explore 9 single-story floor plans from 1,285 to 2,015 sq ft in Del Webb North Ranch, a premier 55+ community.',
-    url: 'https://www.delwebbnorthranchhomes.com/floor-plans',
-    siteName: 'Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
+    url: `${SITE_ORIGIN}/floor-plans`,
+    siteName: TITLE_SUFFIX,
     locale: 'en_US',
     type: 'website',
   },

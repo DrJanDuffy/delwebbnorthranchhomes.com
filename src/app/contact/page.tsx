@@ -10,25 +10,28 @@ import { Phone, Mail, MapPin, Calendar, Youtube, FileText, ExternalLink } from "
 import { oldSiteData } from "@/lib/fetchOldSiteData";
 import ScheduleTour from "@/../components/ScheduleTour";
 import CalendlyInline from "@/../components/CalendlyInline";
+import { SITE_ORIGIN } from "@/lib/site";
+import { metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
 
 export const metadata: Metadata = {
-  title: "Contact & Schedule a Tour | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
-  description:
-    "Contact Dr. Jan Duffy to schedule a tour of Del Webb North Ranch, a premier 55+ community in North Las Vegas. Call (702) 500-1064 or fill out the contact form.",
+  title: `Contact & Schedule a Tour | ${TITLE_SUFFIX}`,
+  description: metaDescriptionBlock(
+    "Contact Dr. Jan Duffy to schedule a tour of Del Webb North Ranch. Call (702) 500-1064 or use the form"
+  ),
   alternates: {
-    canonical: "https://www.delwebbnorthranchhomes.com/contact",
+    canonical: `${SITE_ORIGIN}/contact`,
   },
   openGraph: {
-    title: "Contact & Schedule a Tour | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    title: `Contact & Schedule a Tour | ${TITLE_SUFFIX}`,
     description:
       "Schedule a tour of Del Webb North Ranch, a premier 55+ community in North Las Vegas. Call (702) 500-1064.",
-    url: "https://www.delwebbnorthranchhomes.com/contact",
-    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    url: `${SITE_ORIGIN}/contact`,
+    siteName: TITLE_SUFFIX,
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://www.delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg",
+        url: `${SITE_ORIGIN}/images/about/dr-jan-duffy.jpg`,
         width: 1200,
         height: 630,
         alt: "Dr. Jan Duffy, REALTOR®",
@@ -37,9 +40,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact & Schedule a Tour | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    title: `Contact & Schedule a Tour | ${TITLE_SUFFIX}`,
     description: "Schedule a tour of Del Webb North Ranch 55+ community in North Las Vegas.",
-    images: ["https://www.delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg"],
+    images: [`${SITE_ORIGIN}/images/about/dr-jan-duffy.jpg`],
   },
 };
 

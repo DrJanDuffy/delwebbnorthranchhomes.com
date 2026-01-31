@@ -3,19 +3,21 @@ import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
 import Link from "next/link";
 import { FileText, Home, Search, Building, MapPin, Users, BookOpen, HelpCircle, Phone, Calendar, MessageSquare, Shield } from "lucide-react";
+import { SITE_ORIGIN } from "@/lib/site";
+import { TITLE_SUFFIX } from "@/lib/hyperlocal";
 
 export const metadata: Metadata = {
-  title: "Sitemap | Del Webb North Ranch | Site Navigation | North Las Vegas",
+  title: `Sitemap | ${TITLE_SUFFIX}`,
   description:
     "Complete sitemap of Del Webb North Ranch website. Find all pages including homes for sale, floor plans, amenities, lifestyle, and more.",
   alternates: {
-    canonical: "https://www.delwebbnorthranchhomes.com/sitemap-page",
+    canonical: `${SITE_ORIGIN}/sitemap-page`,
   },
   openGraph: {
-    title: "Sitemap | Del Webb North Ranch",
+    title: `Sitemap | ${TITLE_SUFFIX}`,
     description: "Complete navigation guide to all pages on Del Webb North Ranch website.",
-    url: "https://www.delwebbnorthranchhomes.com/sitemap-page",
-    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    url: `${SITE_ORIGIN}/sitemap-page`,
+    siteName: TITLE_SUFFIX,
     locale: "en_US",
     type: "website",
   },
@@ -145,7 +147,7 @@ export default function SitemapPage() {
                       className="inline-flex items-center gap-2 text-primary hover:text-accent transition-colors font-medium"
                     >
                       <FileText className="w-4 h-4" />
-                      https://www.delwebbnorthranchhomes.com/sitemap.xml
+                      {SITE_ORIGIN}/sitemap.xml
                     </a>
                   </div>
                 </div>

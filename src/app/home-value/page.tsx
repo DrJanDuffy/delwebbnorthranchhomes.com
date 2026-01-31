@@ -5,36 +5,39 @@ import Breadcrumbs from "@/../components/Breadcrumbs";
 import Link from "next/link";
 import { Home, TrendingUp, Calculator } from "lucide-react";
 import { Button } from "@/../components/ui/button";
+import { SITE_ORIGIN } from "@/lib/site";
+import { altPrefix, metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
 
 export const metadata: Metadata = {
-  title: "Free Home Value Estimate | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
-  description:
-    "Get a free, instant home value estimate for your property. Dr. Jan Duffy provides accurate home valuations for Del Webb North Ranch and North Las Vegas area homes.",
+  title: `Free Home Value Estimate | ${TITLE_SUFFIX}`,
+  description: metaDescriptionBlock(
+    "Get a free, instant home value estimate. Dr. Jan Duffy provides accurate valuations for Del Webb North Ranch and North Las Vegas area homes"
+  ),
   alternates: {
-    canonical: "https://www.delwebbnorthranchhomes.com/home-value",
+    canonical: `${SITE_ORIGIN}/home-value`,
   },
   openGraph: {
-    title: "Free Home Value Estimate | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    title: `Free Home Value Estimate | ${TITLE_SUFFIX}`,
     description:
       "Get a free, instant home value estimate for your property in Del Webb North Ranch and North Las Vegas.",
-    url: "https://www.delwebbnorthranchhomes.com/home-value",
-    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    url: `${SITE_ORIGIN}/home-value`,
+    siteName: TITLE_SUFFIX,
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://www.delwebbnorthranchhomes.com/images/amenities/resort-pool.jpeg",
+        url: `${SITE_ORIGIN}/images/amenities/resort-pool.jpeg`,
         width: 1200,
         height: 630,
-        alt: "Del Webb North Ranch home value estimate",
+        alt: altPrefix("Home value estimate"),
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Home Value Estimate | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    title: `Free Home Value Estimate | ${TITLE_SUFFIX}`,
     description: "Get a free, instant home value estimate for your property.",
-    images: ["https://www.delwebbnorthranchhomes.com/images/amenities/resort-pool.jpeg"],
+    images: [`${SITE_ORIGIN}/images/amenities/resort-pool.jpeg`],
   },
 };
 

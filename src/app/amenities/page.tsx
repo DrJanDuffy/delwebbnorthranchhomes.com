@@ -9,6 +9,8 @@ import ScrollAnimation from "@/../components/scroll-animation";
 import { oldSiteData } from "@/lib/old-site-data";
 import { getAmenities, getCommunityInfo } from "@/lib/communityData";
 import RealScoutListings from "@/../components/RealScoutListings";
+import { SITE_ORIGIN } from "@/lib/site";
+import { altPrefix, metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
 import {
   Activity,
   Users,
@@ -22,34 +24,35 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Resort-Style Amenities | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
-  description:
-    "Discover resort-style amenities at Del Webb North Ranch, a premier 55+ community in North Las Vegas. Pool, fitness center, pickleball courts, clubhouse, walking trails, and more.",
+  title: `Resort-Style Amenities | ${TITLE_SUFFIX}`,
+  description: metaDescriptionBlock(
+    "Discover resort-style amenities: pool, fitness center, pickleball courts, clubhouse, walking trails"
+  ),
   alternates: {
-    canonical: "https://www.delwebbnorthranchhomes.com/amenities",
+    canonical: `${SITE_ORIGIN}/amenities`,
   },
   openGraph: {
-    title: "Resort-Style Amenities | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    title: `Resort-Style Amenities | ${TITLE_SUFFIX}`,
     description:
       "Resort-style amenities including pool, fitness center, pickleball courts, and clubhouse in Del Webb North Ranch 55+ community.",
-    url: "https://www.delwebbnorthranchhomes.com/amenities",
-    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    url: `${SITE_ORIGIN}/amenities`,
+    siteName: TITLE_SUFFIX,
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://www.delwebbnorthranchhomes.com/images/amenities/resort-pool.jpeg",
+        url: `${SITE_ORIGIN}/images/amenities/resort-pool.jpeg`,
         width: 1200,
         height: 630,
-        alt: "Del Webb North Ranch resort-style amenities",
+        alt: altPrefix("Resort-style pool and amenities"),
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Resort-Style Amenities | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    title: `Resort-Style Amenities | ${TITLE_SUFFIX}`,
     description: "Resort-style amenities in North Las Vegas's premier 55+ community.",
-    images: ["https://www.delwebbnorthranchhomes.com/images/amenities/resort-pool.jpeg"],
+    images: [`${SITE_ORIGIN}/images/amenities/resort-pool.jpeg`],
   },
 };
 
@@ -155,7 +158,7 @@ function AmenityCard({
         <div className="relative h-48 bg-bg-light">
           <Image
             src={amenity.image}
-            alt={amenity.name}
+            alt={altPrefix(amenity.name)}
             fill
             className="object-cover"
             placeholder="blur"

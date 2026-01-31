@@ -12,25 +12,28 @@ import { getCommunityInfo } from "@/lib/communityData";
 import { Quote } from "lucide-react";
 import ScheduleTour from "@/../components/ScheduleTour";
 import RealScoutListings from "@/../components/RealScoutListings";
+import { SITE_ORIGIN } from "@/lib/site";
+import { metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
 
 export const metadata: Metadata = {
-  title: "About Dr. Jan Duffy REALTOR® | Del Webb North Ranch 55+ Real Estate",
-  description:
-    "Meet Dr. Jan Duffy, REALTOR® specializing in Del Webb North Ranch, a premier 55+ community in North Las Vegas. Licensed agent with Berkshire Hathaway HomeServices helping you find your perfect active adult home.",
+  title: `About Dr. Jan Duffy REALTOR® | ${TITLE_SUFFIX}`,
+  description: metaDescriptionBlock(
+    "Meet Dr. Jan Duffy, REALTOR® specializing in this premier 55+ community; licensed with Berkshire Hathaway HomeServices"
+  ),
   alternates: {
-    canonical: "https://www.delwebbnorthranchhomes.com/about",
+    canonical: `${SITE_ORIGIN}/about`,
   },
   openGraph: {
-    title: "About Dr. Jan Duffy REALTOR® | Del Webb North Ranch 55+ Real Estate",
+    title: `About Dr. Jan Duffy REALTOR® | ${TITLE_SUFFIX}`,
     description:
-      "Your trusted REALTOR® specializing in Del Webb North Ranch and Las Vegas 55+ communities.",
-    url: "https://www.delwebbnorthranchhomes.com/about",
-    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+      "Your trusted REALTOR® specializing in Del Webb North Ranch and North Las Vegas 55+ communities.",
+    url: `${SITE_ORIGIN}/about`,
+    siteName: TITLE_SUFFIX,
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://www.delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg",
+        url: `${SITE_ORIGIN}/images/about/dr-jan-duffy.jpg`,
         width: 1200,
         height: 630,
         alt: "Dr. Jan Duffy, REALTOR®",
@@ -39,9 +42,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Dr. Jan Duffy REALTOR® | Del Webb North Ranch 55+ Real Estate",
+    title: `About Dr. Jan Duffy REALTOR® | ${TITLE_SUFFIX}`,
     description: "Your trusted REALTOR® specializing in Del Webb North Ranch 55+ community.",
-    images: ["https://www.delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg"],
+    images: [`${SITE_ORIGIN}/images/about/dr-jan-duffy.jpg`],
   },
 };
 

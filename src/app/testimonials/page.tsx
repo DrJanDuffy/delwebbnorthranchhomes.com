@@ -5,25 +5,28 @@ import Breadcrumbs from '@/../components/Breadcrumbs';
 import ScrollAnimation from '@/../components/scroll-animation';
 import { getAllTestimonials } from '@/lib/old-site-data';
 import { Quote } from 'lucide-react';
+import { SITE_ORIGIN } from '@/lib/site';
+import { metaDescriptionBlock, TITLE_SUFFIX } from '@/lib/hyperlocal';
 
 export const metadata: Metadata = {
-  title: 'Client Testimonials | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
-  description:
-    'Read what our clients say about working with Dr. Jan Duffy to find their dream home in Del Webb North Ranch, a premier 55+ community in North Las Vegas.',
+  title: `Client Testimonials | ${TITLE_SUFFIX}`,
+  description: metaDescriptionBlock(
+    'Read what our clients say about working with Dr. Jan Duffy to find their dream home in Del Webb North Ranch'
+  ),
   alternates: {
-    canonical: 'https://www.delwebbnorthranchhomes.com/testimonials',
+    canonical: `${SITE_ORIGIN}/testimonials`,
   },
   openGraph: {
-    title: 'Client Testimonials | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
+    title: `Client Testimonials | ${TITLE_SUFFIX}`,
     description:
       'Client reviews and testimonials about finding homes in Del Webb North Ranch 55+ community.',
-    url: 'https://www.delwebbnorthranchhomes.com/testimonials',
-    siteName: 'Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
+    url: `${SITE_ORIGIN}/testimonials`,
+    siteName: TITLE_SUFFIX,
     locale: 'en_US',
     type: 'website',
     images: [
       {
-        url: 'https://www.delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg',
+        url: `${SITE_ORIGIN}/images/about/dr-jan-duffy.jpg`,
         width: 1200,
         height: 630,
         alt: 'Dr. Jan Duffy, REALTOR®',
@@ -32,9 +35,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Client Testimonials | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
+    title: `Client Testimonials | ${TITLE_SUFFIX}`,
     description: 'Client reviews about Del Webb North Ranch homes.',
-    images: ['https://www.delwebbnorthranchhomes.com/images/about/dr-jan-duffy.jpg'],
+    images: [`${SITE_ORIGIN}/images/about/dr-jan-duffy.jpg`],
   },
 };
 

@@ -9,6 +9,8 @@ import ScrollAnimation from "@/../components/scroll-animation";
 import ScheduleTour from "@/../components/ScheduleTour";
 import RealScoutListings from "@/../components/RealScoutListings";
 import { getDistances } from "@/lib/communityData";
+import { SITE_ORIGIN } from "@/lib/site";
+import { altPrefix, metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
 import {
   Users,
   Calendar,
@@ -21,34 +23,35 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Active Adult Lifestyle | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
-  description:
-    "Discover the vibrant lifestyle at Del Webb North Ranch, a premier 55+ community in North Las Vegas. Join clubs, attend events, and connect with neighbors in active adult living.",
+  title: `Active Adult Lifestyle | ${TITLE_SUFFIX}`,
+  description: metaDescriptionBlock(
+    "Discover the vibrant 55+ lifestyle: clubs, events, and active adult living"
+  ),
   alternates: {
-    canonical: "https://www.delwebbnorthranchhomes.com/lifestyle",
+    canonical: `${SITE_ORIGIN}/lifestyle`,
   },
   openGraph: {
-    title: "Active Adult Lifestyle | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    title: `Active Adult Lifestyle | ${TITLE_SUFFIX}`,
     description:
       "Vibrant community life with clubs, events, and activities in Del Webb North Ranch 55+ community.",
-    url: "https://www.delwebbnorthranchhomes.com/lifestyle",
-    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    url: `${SITE_ORIGIN}/lifestyle`,
+    siteName: TITLE_SUFFIX,
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://www.delwebbnorthranchhomes.com/images/amenities/event-lawn-club.jpeg",
+        url: `${SITE_ORIGIN}/images/amenities/event-lawn-club.jpeg`,
         width: 1200,
         height: 630,
-        alt: "Del Webb North Ranch community lifestyle",
+        alt: altPrefix("Community lifestyle and events"),
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Active Adult Lifestyle | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    title: `Active Adult Lifestyle | ${TITLE_SUFFIX}`,
     description: "Vibrant community life in North Las Vegas's premier 55+ community.",
-    images: ["https://www.delwebbnorthranchhomes.com/images/amenities/event-lawn-club.jpeg"],
+    images: [`${SITE_ORIGIN}/images/amenities/event-lawn-club.jpeg`],
   },
 };
 
@@ -147,7 +150,7 @@ export default function LifestylePage() {
                   <div className="relative aspect-square rounded-lg overflow-hidden shadow-three bg-bg-light">
                     <Image
                       src="/images/amenities/event-lawn-club.jpeg"
-                      alt="Community events and gatherings at Del Webb North Ranch clubhouse"
+                      alt={altPrefix("Community events and gatherings at clubhouse")}
                       fill
                       className="object-cover"
                       placeholder="blur"
