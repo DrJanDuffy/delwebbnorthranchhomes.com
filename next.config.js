@@ -70,6 +70,11 @@ const nextConfig = {
               "frame-src 'self' https://em.realscout.com https://www.realscout.com https://calendly.com https://www.youtube.com https://youtube.com https://my.matterport.com",
             ].join('; '),
           },
+          // Explicitly deny payment in this document and in iframes (Calendly may request it; we don't use it)
+          {
+            key: 'Permissions-Policy',
+            value: 'payment=()',
+          },
         ],
       },
     ];
