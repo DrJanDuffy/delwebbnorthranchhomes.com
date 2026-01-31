@@ -9,6 +9,7 @@ Central place for SEO, indexing, and performance optimization for **delwebbnorth
 | [GSC indexing](./GSC_INDEXING.md) | Canonical, alternates, redirects, and Google Search Console issues |
 | [Hyperlocal SEO](./hyperlocal-seo.md) | Keywords, alt text, internal links, schema for North Las Vegas 55+ |
 | [Hyperlocal persona](./hyperlocal-persona.md) | 55+ audience brief: tone, CTAs, objections |
+| [Performance](./performance/README.md) | LCP, FCP, third-party deferral, caching, Lighthouse checklist |
 | [../SEO_2025_2026_CHECKLIST.md](../SEO_2025_2026_CHECKLIST.md) | Full SEO checklist (metadata, schema, sitemap, verification) |
 | [../BEST_PRACTICES.md](../BEST_PRACTICES.md) | Next.js, images, components, canonical patterns |
 
@@ -23,6 +24,8 @@ Central place for SEO, indexing, and performance optimization for **delwebbnorth
 - **Homepage metadata & ?card= noindex:** `src/app/page.tsx` → `generateMetadata`
 - **Sitemap & robots:** `src/app/sitemap.ts`, `src/app/robots.ts`
 - **Root metadata & schema:** `src/app/layout.tsx`
+- **Performance:** [performance/code-locations.md](./performance/code-locations.md) (LCP, RealScout, Matterport, cache, fonts)
+- **Optimization scripts:** `scripts/optimization/` (Lighthouse, cache checks)
 
 ## Quick checks
 

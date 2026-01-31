@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "optimize:check-cache": "node scripts/optimization/check-cache-headers.js https://www.delwebbnorthranchhomes.com"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

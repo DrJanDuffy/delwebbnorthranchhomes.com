@@ -1,0 +1,45 @@
+# Performance Optimization – Code Locations
+
+Where each performance optimization is implemented in the codebase.
+
+## LCP & Hero Image
+
+| What | Where |
+|------|--------|
+| Hero image `priority` + `fetchPriority="high"` | `components/hero.tsx` – `<Image priority fetchPriority="high" ... />` |
+| LCP image preload | `src/app/layout.tsx` – `<link rel="preload" as="image" href="/images/amenities/resort-pool.jpeg" />` |
+| Cache for `/images/*` | `next.config.js` – `headers()` → `source: '/images/:path*'` → `Cache-Control: public, max-age=31536000, immutable` |
+
+## Third-Party Deferral
+
+| What | Where |
+|------|--------|
+| RealScout script loader (viewport-based) | `src/lib/loadRealScoutScript.ts` – `loadRealScoutScript()` |
+| RealScoutListings viewport + placeholder | `components/RealScoutListings.tsx` – IntersectionObserver, loadRealScoutScript, placeholder until ready |
+| HomesForSaleWidget viewport + placeholder | `components/HomesForSaleWidget.tsx` – same pattern |
+| Matterport iframe when in view | `components/VirtualTours.tsx` – IntersectionObserver, set iframe `src` only when `iframeAllowed` |
+| Calendly CSS non–render-blocking | `components/CalendlyStyles.tsx` – media="print" + onLoad → media="all" |
+| Calendly script | `components/CalendlyButton.tsx` – Script strategy="afterInteractive" |
+
+## Fonts & Preconnect
+
+| What | Where |
+|------|--------|
+| Self-hosted fonts (Inter, Playfair) | `src/app/layout.tsx` – `next/font/google` (Inter, Playfair_Display), `display: "swap"` |
+| Preconnect / dns-prefetch | `src/app/layout.tsx` – preconnect + dns-prefetch for `em.realscout.com`, `static.matterport.com` (no Google Fonts) |
+
+## Caching & Headers
+
+| What | Where |
+|------|--------|
+| Cache for `/_next/static/*` | `next.config.js` – `headers()` → `source: '/_next/static/:path*'` → `Cache-Control: public, max-age=31536000, immutable` |
+| Cache for `/images/*` | `next.config.js` – `headers()` → `source: '/images/:path*'` (see above) |
+| CSP (script-src, connect-src, etc.) | `next.config.js` – `headers()` → `source: '/:path*'` → Content-Security-Policy |
+
+## Layout & Global Assets
+
+| What | Where |
+|------|--------|
+| Root layout, head, body | `src/app/layout.tsx` |
+| RealScout global styles (widget CSS vars) | `src/app/layout.tsx` – `<style dangerouslySetInnerHTML={{ __html: ` realscout-office-listings { ... }` }} />` |
+| No RealScout script in layout | Script removed; loaded by components via `loadRealScoutScript()` when in view |

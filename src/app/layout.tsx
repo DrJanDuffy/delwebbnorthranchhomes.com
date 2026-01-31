@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Inter, Playfair_Display } from "next/font/google";
 import { CANONICAL_HOMEPAGE, SITE_ORIGIN } from "@/lib/site";
 import "./globals.css";
@@ -243,11 +242,9 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" />
-        {/* Preconnect + dns-prefetch for critical third-party origins (LCP / widgets / fonts) */}
+        {/* Preconnect + dns-prefetch for critical third-party origins (widgets); fonts are self-hosted via next/font */}
         <link rel="preconnect" href="https://em.realscout.com" />
         <link rel="preconnect" href="https://static.matterport.com" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link rel="dns-prefetch" href="https://em.realscout.com" />
         <link rel="dns-prefetch" href="https://static.matterport.com" />
         {/* LCP image preload: hero uses resort-pool on homepage; discoverable early for faster LCP */}
@@ -272,12 +269,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.className} antialiased`}>
-        {/* RealScout Web Components Script - Load once globally for all pages */}
-        <Script
-          src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
-          strategy="afterInteractive"
-          type="module"
-        />
+        {/* RealScout script is loaded by RealScoutListings when section is in viewport (keeps LCP/fonts off critical path) */}
         {/* RealScout Widget Styles - Global styles for all widgets */}
         <style dangerouslySetInnerHTML={{
           __html: `
