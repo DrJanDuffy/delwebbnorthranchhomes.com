@@ -12,7 +12,7 @@ import { getCommunityInfo } from "@/lib/communityData";
 import { Quote } from "lucide-react";
 import ScheduleTour from "@/../components/ScheduleTour";
 import RealScoutListings from "@/../components/RealScoutListings";
-import { SITE_ORIGIN, SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from "@/lib/site";
+import { SITE_ORIGIN, SITE_PHONE_TEL, SITE_PHONE_DISPLAY, SITE_PHONE_SCHEMA } from "@/lib/site";
 import { metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
 
 export const metadata: Metadata = {
@@ -85,6 +85,39 @@ export default function AboutPage() {
         ]}
       />
       <main className="pt-16 md:pt-20">
+        {/* E-E-A-T: ProfilePage + Person schema for About (Jan 2026 realtor SEO) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "ProfilePage",
+                  "@id": `${SITE_ORIGIN}/about#profilepage`,
+                  url: `${SITE_ORIGIN}/about`,
+                  mainEntity: { "@id": `${SITE_ORIGIN}/#person` },
+                },
+                {
+                  "@type": "Person",
+                  "@id": `${SITE_ORIGIN}/#person`,
+                  name: "Dr. Jan Duffy",
+                  jobTitle: "REALTOR®",
+                  description: "REALTOR® specializing in Del Webb North Ranch and North Las Vegas 55+ communities. Licensed with Berkshire Hathaway HomeServices Nevada Properties.",
+                  image: `${SITE_ORIGIN}/images/about/dr-jan-duffy.jpg`,
+                  url: `${SITE_ORIGIN}/about`,
+                  telephone: SITE_PHONE_SCHEMA,
+                  worksFor: { "@type": "Organization", name: "Berkshire Hathaway HomeServices Nevada Properties" },
+                  hasCredential: {
+                    "@type": "EducationalOccupationalCredential",
+                    credentialCategory: "Real Estate License",
+                    credentialNumber: "S.0197614.LLC",
+                  },
+                },
+              ],
+            }).replace(/</g, "\\u003c"),
+          }}
+        />
         {/* Hero Section */}
         <section className="bg-primary text-white py-12 md:py-16 lg:py-20">
           <div className="container mx-auto px-4">

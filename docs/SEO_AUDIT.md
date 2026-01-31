@@ -16,7 +16,7 @@ The site is in strong shape for local real estate SEO: unique metadata and canon
 | Area | Status | Notes |
 |------|--------|------|
 | **Metadata** | ✅ | Unique title/description per page; template and canonicals in place |
-| **Structured data** | ✅ | Organization, WebSite, RealEstateAgent, LocalBusiness (layout), Place, FAQPage, BreadcrumbList, AggregateRating |
+| **Structured data** | ✅ | Organization, WebSite, **Person** (E-E-A-T), RealEstateAgent (with knowsAbout), LocalBusiness (layout), Place, FAQPage, BreadcrumbList, AggregateRating; About page ProfilePage + Person |
 | **NAP / GBP** | ✅ | Single source in `src/lib/site.ts`; footer and schema use it; layout LocalBusiness now has full PostalAddress |
 | **Sitemap** | ✅ | Includes homepage, main pages, floor plans, flyers, blog posts, virtual tours |
 | **Robots** | ✅ | Allow /; disallow /api/, /_next/, etc.; sitemap URL declared |
@@ -94,6 +94,12 @@ The site is in strong shape for local real estate SEO: unique metadata and canon
 - **Sitemap:** `src/app/sitemap.ts` (static + floor plans, flyers, blog, virtual tours)
 - **Robots:** `src/app/robots.ts`
 - **Schema:** Layout (LocalBusiness, Place), `components/SchemaMarkup.tsx` (Organization, WebSite, RealEstateAgent), per-page FAQ/BreadcrumbList where used
+
+---
+
+## 2026 Realtor SEO strategy
+
+The site follows the **January 2026 realtor SEO** approach: E-E-A-T (Person schema, knowsAbout, ProfilePage on About), local-first + GBP alignment, schema for AI/voice and rich results, and technical fundamentals. See **`docs/REALTOR_SEO_2026.md`** for the full strategy and implementation notes.
 
 ---
 
