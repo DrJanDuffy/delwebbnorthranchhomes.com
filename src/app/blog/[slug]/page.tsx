@@ -7,6 +7,7 @@ import Footer from "@/../components/footer";
 import Breadcrumbs from "@/../components/Breadcrumbs";
 import { Button } from "@/../components/ui/button";
 import { Calendar, ArrowLeft, ArrowRight } from "lucide-react";
+import { SITE_ORIGIN } from "@/lib/site";
 
 const blogPosts: Record<
   string,
@@ -245,6 +246,38 @@ export default function BlogPostPage({
         ]}
       />
       <main className="pt-16 md:pt-20">
+        {/* BlogPosting schema for E-E-A-T and rich results (2026 realtor SEO) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              headline: post.title,
+              description: post.excerpt,
+              datePublished: post.date,
+              dateModified: post.date,
+              image: `${SITE_ORIGIN}${post.image.startsWith("/") ? post.image : `/${post.image}`}`,
+              author: {
+                "@type": "Person",
+                "@id": `${SITE_ORIGIN}/#person`,
+                name: "Dr. Jan Duffy",
+              },
+              publisher: {
+                "@type": "Organization",
+                name: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+                logo: {
+                  "@type": "ImageObject",
+                  url: `${SITE_ORIGIN}/images/logo/logo.svg`,
+                },
+              },
+              mainEntityOfPage: {
+                "@type": "WebPage",
+                "@id": `${SITE_ORIGIN}/blog/${params.slug}`,
+              },
+            }).replace(/</g, "\\u003c"),
+          }}
+        />
         {/* Hero Section */}
         <section className="bg-primary text-white py-12 md:py-16">
           <div className="container mx-auto px-4">
