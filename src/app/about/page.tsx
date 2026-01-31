@@ -94,7 +94,7 @@ export default function AboutPage() {
               </h1>
               <p className="text-lg md:text-xl text-gray-100 leading-relaxed">
                 Your trusted REALTOR® specializing in Del Webb North Ranch and
-                Las Vegas 55+ communities
+                North Las Vegas 55+ communities
               </p>
             </div>
           </div>
@@ -343,6 +343,31 @@ export default function AboutPage() {
 
         {/* RealScout Listings - Lead Generator */}
         <RealScoutListings h2Text="View Available Homes in Del Webb North Ranch | Work With Dr. Jan Duffy" />
+
+        {/* Next steps - buyer/seller/community */}
+        <section className="py-12 md:py-16 bg-bg-light">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 font-playfair">
+                Your Next Step
+              </h2>
+              <p className="text-text-dark mb-6">
+                Whether you&apos;re buying or selling in North Las Vegas, or exploring the area—start here.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Button asChild variant="default" size="lg" className="min-h-[48px]">
+                  <Link href="/buyers">For Buyers</Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="min-h-[48px]">
+                  <Link href="/sellers">For Sellers</Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="min-h-[48px]">
+                  <Link href="/community">Community & Area</Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* CTA Section */}
         <section className="py-12 md:py-16 bg-primary text-white">

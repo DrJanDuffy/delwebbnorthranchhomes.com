@@ -4,7 +4,7 @@ import Footer from '@/../components/footer';
 import ScheduleTour from '@/../components/ScheduleTour';
 import { Phone, Calendar, Clock, MapPin } from 'lucide-react';
 import { oldSiteData } from '@/lib/fetchOldSiteData';
-import { SITE_ORIGIN } from '@/lib/site';
+import { SITE_ORIGIN, GOOGLE_MAPS_DIRECTIONS_URL } from '@/lib/site';
 import { metaDescriptionBlock, TITLE_SUFFIX } from '@/lib/hyperlocal';
 
 export const metadata: Metadata = {
@@ -70,6 +70,15 @@ export default function SchedulePage() {
                   <p className="text-sm text-gray-600 mt-1">
                     2290 Beauty Vista Avenue
                   </p>
+                  <a
+                    href={GOOGLE_MAPS_DIRECTIONS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 min-h-[48px] mt-3 px-4 py-2 bg-primary hover:bg-primary/90 text-white rounded-md font-semibold text-sm transition-colors"
+                    aria-label="Get directions to Del Webb North Ranch on Google Maps"
+                  >
+                    Get directions
+                  </a>
                 </div>
                 <div className="text-center p-6 bg-bg-light rounded-lg">
                   <Phone className="w-10 h-10 text-primary mx-auto mb-3" />

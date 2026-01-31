@@ -4,8 +4,8 @@ import Footer from '@/../components/footer';
 import Breadcrumbs from '@/../components/Breadcrumbs';
 import ScrollAnimation from '@/../components/scroll-animation';
 import { getAllTestimonials } from '@/lib/old-site-data';
-import { Quote } from 'lucide-react';
-import { SITE_ORIGIN } from '@/lib/site';
+import { Quote, Star } from 'lucide-react';
+import { SITE_ORIGIN, GOOGLE_REVIEW_LINK } from '@/lib/site';
 import { metaDescriptionBlock, TITLE_SUFFIX } from '@/lib/hyperlocal';
 
 export const metadata: Metadata = {
@@ -90,6 +90,30 @@ export default function TestimonialsPage() {
                   </ScrollAnimation>
                 ))}
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Leave a review on Google */}
+        <section className="py-12 md:py-16 bg-white border-t border-gray-200">
+          <div className="container mx-auto px-4">
+            <div className="max-w-2xl mx-auto text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3 font-playfair">
+                Share your experience
+              </h2>
+              <p className="text-lg text-text-dark mb-6">
+                Help others find us. Leave a review on Google — it builds trust and helps your Business Profile stand out.
+              </p>
+              <a
+                href={GOOGLE_REVIEW_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 min-h-[48px] px-8 py-4 bg-primary hover:bg-primary/90 text-white rounded-md font-semibold transition-colors"
+                aria-label="Leave a review on Google"
+              >
+                <Star className="w-5 h-5" aria-hidden />
+                Leave a review on Google
+              </a>
             </div>
           </div>
         </section>

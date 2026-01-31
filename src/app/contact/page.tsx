@@ -6,11 +6,11 @@ import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
 import Breadcrumbs from "@/../components/Breadcrumbs";
 import ScrollAnimation from "@/../components/scroll-animation";
-import { Phone, Mail, MapPin, Calendar, Youtube, FileText, ExternalLink } from "lucide-react";
+import { Phone, Mail, MapPin, Calendar, Youtube, FileText, ExternalLink, Star, MapPinned } from "lucide-react";
 import { oldSiteData } from "@/lib/fetchOldSiteData";
 import ScheduleTour from "@/../components/ScheduleTour";
 import CalendlyInline from "@/../components/CalendlyInline";
-import { SITE_ORIGIN } from "@/lib/site";
+import { SITE_ORIGIN, GOOGLE_REVIEW_LINK, GOOGLE_MAPS_DIRECTIONS_URL } from "@/lib/site";
 import { metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
 
 export const metadata: Metadata = {
@@ -178,7 +178,7 @@ export default function ContactPage() {
                         </div>
                       </div>
 
-                      {/* Community Address */}
+                      {/* Community Address + Directions */}
                       <div className="flex items-start gap-4">
                         <div className="flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full flex-shrink-0">
                           <MapPin className="w-6 h-6 text-primary" />
@@ -187,10 +187,23 @@ export default function ContactPage() {
                           <h3 className="font-semibold text-primary mb-1">
                             Del Webb North Ranch
                           </h3>
-                          <p className="text-text-dark">
+                          <p className="text-text-dark mb-2">
                             2290 Beauty Vista Avenue
                             <br />
                             North Las Vegas, NV 89086
+                          </p>
+                          <a
+                            href={GOOGLE_MAPS_DIRECTIONS_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 min-h-[48px] px-4 py-2 bg-primary hover:bg-primary/90 text-white rounded-md font-semibold text-sm transition-colors"
+                            aria-label="Get directions to Del Webb North Ranch on Google Maps"
+                          >
+                            <MapPinned className="w-4 h-4 shrink-0" />
+                            Get directions
+                          </a>
+                          <p className="text-xs text-gray-500 mt-2">
+                            Opens Google Maps with travel time for drive, transit, or walk
                           </p>
                         </div>
                       </div>
@@ -268,6 +281,16 @@ export default function ContactPage() {
                   >
                     <FileText className="w-4 h-4" />
                     Download Brochure
+                  </a>
+                  <a
+                    href={GOOGLE_REVIEW_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 min-h-[48px] border-2 border-primary text-primary rounded-md font-semibold hover:bg-primary hover:text-white transition-colors"
+                    aria-label="Leave a review on Google"
+                  >
+                    <Star className="w-4 h-4" />
+                    Leave a review on Google
                   </a>
                 </div>
               </div>

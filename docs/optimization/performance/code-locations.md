@@ -7,8 +7,10 @@ Where each performance optimization is implemented in the codebase.
 | What | Where |
 |------|--------|
 | Hero image `priority` + `fetchPriority="high"` | `components/hero.tsx` – `<Image priority fetchPriority="high" ... />` |
+| Resource hints (preconnect, dns-prefetch, preload) | `src/app/layout.tsx` – first in `<head>` so browser discovers them before other resources |
 | LCP image preload | `src/app/layout.tsx` – `<link rel="preload" as="image" href="/images/amenities/resort-pool.jpeg" />` |
 | Cache for `/images/*` | `next.config.js` – `headers()` → `source: '/images/:path*'` → `Cache-Control: public, max-age=31536000, immutable` |
+| Below-fold image quality | `components/sections/explore-community.tsx`, `home-collections.tsx`, `about-agent.tsx`, `solution-section.tsx` – `quality={70}` |
 
 ## Third-Party Deferral
 
@@ -35,6 +37,12 @@ Where each performance optimization is implemented in the codebase.
 | Cache for `/_next/static/*` | `next.config.js` – `headers()` → `source: '/_next/static/:path*'` → `Cache-Control: public, max-age=31536000, immutable` |
 | Cache for `/images/*` | `next.config.js` – `headers()` → `source: '/images/:path*'` (see above) |
 | CSP (script-src, connect-src, etc.) | `next.config.js` – `headers()` → `source: '/:path*'` → Content-Security-Policy |
+
+## Build & Browsers
+
+| What | Where |
+|------|--------|
+| Modern browser targets (reduce legacy JS) | `package.json` – `browserslist`: defaults, not dead, not IE 11 |
 
 ## Layout & Global Assets
 

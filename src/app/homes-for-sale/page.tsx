@@ -12,7 +12,18 @@ import RealScoutListings from "@/../components/RealScoutListings";
 import { getCommunityInfo } from "@/lib/communityData";
 import { SITE_ORIGIN } from "@/lib/site";
 import { altPrefix, metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
+import { buyerCtaCopy, buyerFaq, buyerValueProps } from "@/lib/hyperlocalBuyer";
 // import HomesForSaleWidget from "@/../components/HomesForSaleWidget";
+
+const buyerFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: buyerFaq.map((q) => ({
+    "@type": "Question" as const,
+    name: q.question,
+    acceptedAnswer: { "@type": "Answer" as const, text: q.answer },
+  })),
+};
 
 export const metadata: Metadata = {
   title: `Homes for Sale | ${TITLE_SUFFIX}`,
@@ -61,6 +72,10 @@ export default async function HomesForSalePage() {
         ]}
       />
       <main className="pt-16 md:pt-20">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(buyerFaqSchema) }}
+        />
         {/* Hero Section */}
         <section className="bg-primary text-white py-12 md:py-16 lg:py-20">
           <div className="container mx-auto px-4">
@@ -77,6 +92,14 @@ export default async function HomesForSalePage() {
                   variant="accent"
                   size="lg"
                   className="bg-primary hover:bg-primary/90 text-white"
+                >
+                  <Link href="/schedule">{buyerCtaCopy.primary}</Link>
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="border-white text-white hover:bg-white/10"
                 >
                   <Link href="#listings">View Listings</Link>
                 </Button>
@@ -198,6 +221,11 @@ export default async function HomesForSalePage() {
                 <p className="text-lg font-semibold text-primary mb-4">
                   Ready to find your perfect home?
                 </p>
+                <ul className="text-left text-text-dark mb-6 max-w-md mx-auto space-y-2 list-disc list-inside">
+                  {buyerValueProps.map((prop, i) => (
+                    <li key={i}>{prop}</li>
+                  ))}
+                </ul>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                   <a
                     href="tel:7025001064"
@@ -207,7 +235,7 @@ export default async function HomesForSalePage() {
                     Call (702) 500-1064
                   </a>
                   <Button asChild variant="accent" size="lg">
-                    <Link href="/contact">Schedule a Tour</Link>
+                    <Link href="/schedule">{buyerCtaCopy.primary}</Link>
                   </Button>
                 </div>
               </div>
@@ -217,6 +245,25 @@ export default async function HomesForSalePage() {
 
         {/* Mortgage Calculator Section */}
         <MortgageCalculator />
+
+        {/* Buyer questions (hyperlocal FAQ) */}
+        <section className="py-12 md:py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center font-playfair">
+                Buyer Questions: North Las Vegas 55+ Homes
+              </h2>
+              <dl className="space-y-6">
+                {buyerFaq.map((item, i) => (
+                  <div key={i} className="border-b border-stone-200 pb-6 last:border-0 last:pb-0">
+                    <dt className="text-lg font-semibold text-primary mb-2 font-playfair">{item.question}</dt>
+                    <dd className="text-text-dark">{item.answer}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </div>
+        </section>
 
         {/* Quick Info Section */}
         <section className="py-12 md:py-16 bg-bg-light">

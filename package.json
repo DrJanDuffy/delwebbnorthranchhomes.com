@@ -38,5 +38,10 @@
   },
   "engines": {
     "node": ">=20"
-  }
+  },
+  "browserslist": [
+    "defaults",
+    "not dead",
+    "not IE 11"
+  ]
 }

@@ -55,10 +55,10 @@ export default function CalendlyButton({
 
   return (
     <>
-      {/* Calendly Widget Script */}
+      {/* Calendly script deferred until after load so any fonts it loads don't block LCP */}
       <Script
         src="https://assets.calendly.com/assets/external/widget.js"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         onLoad={() => setScriptLoaded(true)}
       />
       

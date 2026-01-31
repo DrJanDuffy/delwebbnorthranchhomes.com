@@ -110,6 +110,25 @@ export default function FlyersPage() {
           </div>
         </section>
 
+        {/* Explore more */}
+        <section className="py-12 md:py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <p className="text-text-dark">
+                <Link href="/buyers" className="text-primary hover:text-accent font-medium">For Buyers</Link>
+                {" · "}
+                <Link href="/sellers" className="text-primary hover:text-accent font-medium">For Sellers</Link>
+                {" · "}
+                <Link href="/community" className="text-primary hover:text-accent font-medium">Community & Area</Link>
+                {" · "}
+                <Link href="/homes-for-sale" className="text-primary hover:text-accent font-medium">Homes for Sale</Link>
+                {" · "}
+                <Link href="/schedule" className="text-primary hover:text-accent font-medium">Schedule a Tour</Link>
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-12 md:py-16 bg-bg-light">
           <div className="container mx-auto px-4">

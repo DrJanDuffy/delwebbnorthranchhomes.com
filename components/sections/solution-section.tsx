@@ -21,6 +21,7 @@ export default function SolutionSection() {
                   placeholder="blur"
                   blurDataURL={blurDataURL}
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  quality={70}
                 />
               </div>
             </ScrollAnimation>

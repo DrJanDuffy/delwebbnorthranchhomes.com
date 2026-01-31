@@ -198,6 +198,28 @@ export default function BlogPage() {
           </div>
         </section>
 
+        {/* Explore more */}
+        <section className="py-12 md:py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 font-playfair">
+                Explore Del Webb North Ranch
+              </h2>
+              <p className="text-text-dark mb-6">
+                <Link href="/buyers" className="text-primary hover:text-accent font-medium">For Buyers</Link>
+                {" · "}
+                <Link href="/sellers" className="text-primary hover:text-accent font-medium">For Sellers</Link>
+                {" · "}
+                <Link href="/community" className="text-primary hover:text-accent font-medium">Community & Area</Link>
+                {" · "}
+                <Link href="/homes-for-sale" className="text-primary hover:text-accent font-medium">Homes for Sale</Link>
+                {" · "}
+                <Link href="/schedule" className="text-primary hover:text-accent font-medium">Schedule a Tour</Link>
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Newsletter CTA */}
         <section className="py-12 md:py-16 bg-bg-light">
           <div className="container mx-auto px-4">
@@ -211,7 +233,7 @@ export default function BlogPage() {
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-md font-semibold hover:bg-primary/90 transition-colors"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-md font-semibold hover:bg-primary/90 transition-colors min-h-[48px] items-center"
               >
                 Contact Us
               </Link>

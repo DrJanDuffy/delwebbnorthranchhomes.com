@@ -38,10 +38,13 @@ const sitePages = [
     icon: Home,
     pages: [
       { href: "/", label: "Home", description: "Discover Del Webb North Ranch 55+ community" },
+      { href: "/buyers", label: "For Buyers", description: "55+ home buying in North Las Vegas—listings, floor plans, tours" },
+      { href: "/sellers", label: "For Sellers", description: "Sell your North Las Vegas or Del Webb North Ranch home—home value, consultation" },
       { href: "/homes-for-sale", label: "Homes for Sale", description: "Browse current listings in Del Webb North Ranch" },
       { href: "/floor-plans", label: "Floor Plans", description: "Explore 9 single-story floor plans" },
       { href: "/amenities", label: "Amenities", description: "Resort-style amenities and community features" },
       { href: "/lifestyle", label: "Lifestyle", description: "Active adult living in North Las Vegas" },
+      { href: "/community", label: "Community & Area", description: "North Las Vegas area, nearby neighborhoods, and 55+ living" },
     ],
   },
   {
@@ -60,6 +63,8 @@ const sitePages = [
     pages: [
       { href: "/contact", label: "Contact", description: "Get in touch with Dr. Jan Duffy" },
       { href: "/schedule", label: "Schedule a Tour", description: "Book a private community tour" },
+      { href: "/home-value", label: "Home Value", description: "Free home value estimate for Del Webb North Ranch and North Las Vegas" },
+      { href: "/flyers", label: "Flyers & Brochures", description: "Community flyers and downloadable brochures" },
     ],
   },
   {

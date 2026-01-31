@@ -95,8 +95,8 @@ export default function AmenitiesPreviewSection() {
         </div>
 
         <div className="text-center">
-          <Button asChild variant="outline" size="lg" className="w-full sm:w-auto min-h-[44px] min-w-[44px]">
-            <Link href="/amenities">Explore All Amenities</Link>
+          <Button asChild variant="outline" size="lg" className="w-full sm:w-auto min-h-[48px] min-w-[48px] px-8 py-4">
+            <Link href="/amenities" className="inline-flex items-center justify-center min-h-[48px]">Explore All Amenities</Link>
           </Button>
         </div>
       </div>

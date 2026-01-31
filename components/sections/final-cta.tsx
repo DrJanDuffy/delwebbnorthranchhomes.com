@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Phone } from "lucide-react";
 import ContactForm from "../contact-form";
 import ScrollAnimation from "../scroll-animation";
@@ -21,6 +22,15 @@ export default function FinalCTASection() {
                   Tour the amenities. Step inside the homes. No pressure, no
                   obligation—just the information you need to decide if this is
                   your next chapter.
+                </p>
+                <p className="text-sm md:text-base text-text-dark mb-4">
+                  <Link href="/buyers" className="text-primary hover:text-accent font-medium">For Buyers</Link>
+                  {" · "}
+                  <Link href="/sellers" className="text-primary hover:text-accent font-medium">For Sellers</Link>
+                  {" · "}
+                  <Link href="/home-value" className="text-primary hover:text-accent font-medium">Home Value</Link>
+                  {" · "}
+                  <Link href="/schedule" className="text-primary hover:text-accent font-medium">Schedule a Tour</Link>
                 </p>
                 <div className="mb-6">
                   <a

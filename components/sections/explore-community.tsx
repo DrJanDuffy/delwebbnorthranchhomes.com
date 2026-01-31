@@ -1,16 +1,37 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Home, Layout, Sparkles, Users, HelpCircle, Phone } from 'lucide-react';
+import { Home, Layout, Sparkles, Users, HelpCircle, Phone, TrendingUp, MapPin } from 'lucide-react';
 import { Button } from '../ui/button';
 
 const exploreCards = [
+  {
+    title: 'For Buyers',
+    description: '55+ home buying in North Las Vegas—listings, floor plans, tours',
+    href: '/buyers',
+    icon: Home,
+    image: '/images/amenities/resort-pool.jpeg',
+    primary: true,
+  },
+  {
+    title: 'For Sellers',
+    description: 'Sell your North Las Vegas or Del Webb North Ranch home—home value, consultation',
+    href: '/sellers',
+    icon: TrendingUp,
+    image: '/images/amenities/clubhouse.jpeg',
+  },
+  {
+    title: 'Community & Area',
+    description: 'North Las Vegas area, nearby neighborhoods, and 55+ living',
+    href: '/community',
+    icon: MapPin,
+    image: '/images/lifestyle/community-life.jpeg',
+  },
   {
     title: 'Homes for Sale',
     description: 'Browse available single-story homes from $400K-$600K',
     href: '/homes-for-sale',
     icon: Home,
     image: '/images/amenities/resort-pool.jpeg',
-    primary: true,
   },
   {
     title: 'Floor Plans',
@@ -79,6 +100,7 @@ export default function ExploreCommunitySection() {
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      quality={70}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                     <div className="absolute top-4 left-4">
@@ -109,9 +131,9 @@ export default function ExploreCommunitySection() {
           </div>
 
           <div className="mt-12 text-center">
-            <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
-              <Link href="/contact" className="inline-flex items-center gap-2">
-                <Phone className="w-5 h-5" />
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 min-h-[48px] px-10 py-5">
+              <Link href="/contact" className="inline-flex items-center justify-center gap-2 min-h-[48px]">
+                <Phone className="w-5 h-5 shrink-0" />
                 Schedule a Tour
               </Link>
             </Button>

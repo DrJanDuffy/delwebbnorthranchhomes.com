@@ -3,10 +3,21 @@ import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
 import Breadcrumbs from "@/../components/Breadcrumbs";
 import Link from "next/link";
-import { Home, TrendingUp, Calculator } from "lucide-react";
+import { TrendingUp } from "lucide-react";
 import { Button } from "@/../components/ui/button";
 import { SITE_ORIGIN } from "@/lib/site";
 import { altPrefix, metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
+import { sellerCtaCopy, sellerFaq, sellerValueProps } from "@/lib/hyperlocalSeller";
+
+const sellerFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: sellerFaq.map((q) => ({
+    "@type": "Question" as const,
+    name: q.question,
+    acceptedAnswer: { "@type": "Answer" as const, text: q.answer },
+  })),
+};
 
 export const metadata: Metadata = {
   title: `Free Home Value Estimate | ${TITLE_SUFFIX}`,
@@ -55,6 +66,10 @@ export default function HomeValuePage() {
         ]}
       />
       <main className="pt-16 md:pt-20">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(sellerFaqSchema) }}
+        />
         {/* Hero Section */}
         <section className="bg-primary text-white py-12 md:py-16 lg:py-20">
           <div className="container mx-auto px-4">
@@ -63,10 +78,10 @@ export default function HomeValuePage() {
                 <TrendingUp className="w-10 h-10 text-white" />
               </div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 font-playfair">
-                Free Home Value Estimate
+                {sellerCtaCopy.primary}
               </h1>
               <p className="text-lg md:text-xl text-gray-100 leading-relaxed">
-                Get an instant, accurate estimate of your home's current market value. Perfect for planning your next move to Del Webb North Ranch.
+                {sellerCtaCopy.metaHighlight} Get an instant estimate for Del Webb North Ranch or North Las Vegas area homes.
               </p>
             </div>
           </div>
@@ -87,48 +102,23 @@ export default function HomeValuePage() {
           </div>
         </section>
 
-        {/* Benefits Section */}
+        {/* Benefits Section (hyperlocal seller value props) */}
         <section className="py-12 md:py-16 bg-bg-light">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center font-playfair">
                 Why Get a Home Value Estimate?
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-                <div className="bg-white p-6 rounded-lg shadow-two text-center">
-                  <div className="flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4 mx-auto">
-                    <Home className="w-8 h-8 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold text-primary mb-3 font-playfair">
-                    Plan Your Move
-                  </h3>
-                  <p className="text-text-dark">
-                    Understand your home's value to make informed decisions about your next purchase at Del Webb North Ranch.
-                  </p>
-                </div>
-                <div className="bg-white p-6 rounded-lg shadow-two text-center">
-                  <div className="flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4 mx-auto">
-                    <TrendingUp className="w-8 h-8 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold text-primary mb-3 font-playfair">
-                    Market Insights
-                  </h3>
-                  <p className="text-text-dark">
-                    Get current market data and trends to understand how your property compares to similar homes in the area.
-                  </p>
-                </div>
-                <div className="bg-white p-6 rounded-lg shadow-two text-center">
-                  <div className="flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4 mx-auto">
-                    <Calculator className="w-8 h-8 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold text-primary mb-3 font-playfair">
-                    Accurate Estimates
-                  </h3>
-                  <p className="text-text-dark">
-                    Receive data-driven estimates based on recent sales, market trends, and property characteristics.
-                  </p>
-                </div>
-              </div>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-3xl mx-auto list-none">
+                {sellerValueProps.map((prop, i) => (
+                  <li key={i} className="flex items-start gap-4 bg-white p-6 rounded-lg shadow-two">
+                    <span className="flex items-center justify-center w-10 h-10 bg-primary/10 rounded-full flex-shrink-0 font-bold text-primary">
+                      {i + 1}
+                    </span>
+                    <span className="text-text-dark">{prop}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>
@@ -185,6 +175,25 @@ export default function HomeValuePage() {
           </div>
         </section>
 
+        {/* Seller questions (hyperlocal FAQ) */}
+        <section className="py-12 md:py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center font-playfair">
+                Seller Questions: North Las Vegas Home Value
+              </h2>
+              <dl className="space-y-6">
+                {sellerFaq.map((item, i) => (
+                  <div key={i} className="border-b border-stone-200 pb-6 last:border-0 last:pb-0">
+                    <dt className="text-lg font-semibold text-primary mb-2 font-playfair">{item.question}</dt>
+                    <dd className="text-text-dark">{item.answer}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-12 md:py-16 bg-primary text-white">
           <div className="container mx-auto px-4">
@@ -193,7 +202,7 @@ export default function HomeValuePage() {
                 Ready to Explore Del Webb North Ranch?
               </h2>
               <p className="text-lg text-gray-100 mb-6">
-                Once you know your home's value, let's discuss your options for finding your perfect 55+ home in Del Webb North Ranch.
+                Once you know your home's value, let's discuss your options—or {sellerCtaCopy.secondary.toLowerCase()}.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
@@ -208,7 +217,7 @@ export default function HomeValuePage() {
                   size="lg"
                   className="border-white text-white hover:bg-white/10"
                 >
-                  <Link href="/contact">Schedule a Consultation</Link>
+                  <Link href="/contact">{sellerCtaCopy.secondary}</Link>
                 </Button>
               </div>
             </div>

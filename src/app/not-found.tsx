@@ -3,12 +3,13 @@ import Link from "next/link";
 import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
 import { Button } from "@/../components/ui/button";
-import { Home, Search, ArrowLeft } from "lucide-react";
+import { Home, Search } from "lucide-react";
+import { TITLE_SUFFIX } from "@/lib/hyperlocal";
 
 export const metadata: Metadata = {
-  title: "Page Not Found | Del Webb North Ranch | North Las Vegas",
+  title: `Page Not Found | ${TITLE_SUFFIX}`,
   description:
-    "The page you're looking for doesn't exist. Return to Del Webb North Ranch homepage to explore our 55+ community homes.",
+    "The page you're looking for doesn't exist. Return to Del Webb North Ranch homepage to explore our 55+ community homes in North Las Vegas.",
   robots: {
     index: false,
     follow: true,
@@ -55,43 +56,53 @@ export default function NotFound() {
               </h3>
               <ul className="space-y-2">
                 <li>
-                  <Link
-                    href="/homes-for-sale"
-                    className="text-primary hover:text-accent transition-colors"
-                  >
+                  <Link href="/buyers" className="text-primary hover:text-accent transition-colors">
+                    For Buyers
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/sellers" className="text-primary hover:text-accent transition-colors">
+                    For Sellers
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/homes-for-sale" className="text-primary hover:text-accent transition-colors">
                     Homes for Sale
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="/floor-plans"
-                    className="text-primary hover:text-accent transition-colors"
-                  >
+                  <Link href="/schedule" className="text-primary hover:text-accent transition-colors">
+                    Schedule a Tour
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/home-value" className="text-primary hover:text-accent transition-colors">
+                    Home Value
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/community" className="text-primary hover:text-accent transition-colors">
+                    Community & Area
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/floor-plans" className="text-primary hover:text-accent transition-colors">
                     Floor Plans
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="/amenities"
-                    className="text-primary hover:text-accent transition-colors"
-                  >
+                  <Link href="/amenities" className="text-primary hover:text-accent transition-colors">
                     Amenities
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="/about"
-                    className="text-primary hover:text-accent transition-colors"
-                  >
+                  <Link href="/about" className="text-primary hover:text-accent transition-colors">
                     About Dr. Jan Duffy
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="/contact"
-                    className="text-primary hover:text-accent transition-colors"
-                  >
-                    Contact Us
+                  <Link href="/contact" className="text-primary hover:text-accent transition-colors">
+                    Contact
                   </Link>
                 </li>
               </ul>

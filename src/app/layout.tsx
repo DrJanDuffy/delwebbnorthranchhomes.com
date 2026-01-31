@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
-import { CANONICAL_HOMEPAGE, SITE_ORIGIN } from "@/lib/site";
+import { CANONICAL_HOMEPAGE, SITE_ORIGIN, GOOGLE_MAPS_DIRECTIONS_URL } from "@/lib/site";
 import "./globals.css";
 import CalendlyButton from "@/../components/CalendlyButton";
 import CalendlyStyles from "@/../components/CalendlyStyles";
@@ -101,36 +101,33 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
 
-  // LocalBusiness Schema for Google Business Profile
+  // LocalBusiness Schema – matches Google Business Profile (NAP, hours, description, attributes)
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
     "@id": `${SITE_ORIGIN}/#localbusiness`,
     name: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     alternateName: "Dr. Jan Duffy Real Estate",
-    description: "Helping buyers 55+ find their dream retirement home in Las Vegas' premier active adult community! Resort-style pools, state-of-the-art fitness center, pickleball courts, 20+ social clubs & activities. Free community tours, market analysis, and expert negotiation support.",
+    description: "Helping buyers 55+ find their dream retirement home in Las Vegas' premier active adult community! Why Choose Del Webb North Ranch? Resort-style pools and luxurious spa facilities, state-of-the-art fitness center, pickleball courts with organized leagues, 20+ social clubs and activities to stay connected, stunning mountain views and convenient access to shopping, dining, and healthcare. Services: Free community tours and personalized home showings, market analysis and pricing guidance, alerts on new listings and inventory updates, expert negotiation and closing support. Available 7 days a week for consultations and property viewings. Contact us to find your perfect home in Del Webb North Ranch.",
     image: `${SITE_ORIGIN}/images/about/dr-jan-duffy.jpg`,
     url: SITE_ORIGIN,
     telephone: "+1-702-500-1064",
     email: "sales@delwebbnorthranchhomes.com",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "2290 Beauty Vista Avenue",
       addressLocality: "North Las Vegas",
       addressRegion: "NV",
-      postalCode: "89086",
       addressCountry: "US",
     },
     areaServed: {
-      "@type": "City",
-      name: "North Las Vegas",
-      addressRegion: "NV",
-      addressCountry: "US",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: "36.2856",
-      longitude: "-115.0939",
+      "@type": "Place",
+      name: "North Las Vegas, NV, USA",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "North Las Vegas",
+        addressRegion: "NV",
+        addressCountry: "US",
+      },
     },
     openingHoursSpecification: [
       {
@@ -139,16 +136,26 @@ export default function RootLayout({
         opens: "06:00",
         closes: "21:00",
       },
+      {
+        "@type": "OpeningHoursSpecification",
+        validFrom: "2026-02-16",
+        validThrough: "2026-02-16",
+        opens: "10:00",
+        closes: "18:00",
+      },
     ],
     foundingDate: "2009-09-20",
+    womanOwned: true,
+    veteranOwned: true,
     priceRange: "$$",
     paymentAccepted: "Cash, Check, Credit Card, Financing",
     currenciesAccepted: "USD",
     sameAs: [
-      "https://www.instagram.com/delwebbnorthranchhomes/",
-      "https://www.linkedin.com/company/del-webb-north-ranch-homes",
       "https://www.facebook.com/DellWebbNorthRanch",
+      "https://www.linkedin.com/company/del-webb-north-ranch-homes",
+      "https://www.instagram.com/delwebbnorthranchhomes/",
     ],
+    hasMap: GOOGLE_MAPS_DIRECTIONS_URL.replace("/dir//", "/search/?api=1&query=").replace(/\+/g, "+"),
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "5",
@@ -241,14 +248,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <head>
-        <link rel="icon" href="/favicon.ico" />
-        {/* Preconnect + dns-prefetch for critical third-party origins (widgets); fonts are self-hosted via next/font */}
+        {/* Resource hints first so the browser discovers them before other blocking resources */}
         <link rel="preconnect" href="https://em.realscout.com" />
         <link rel="preconnect" href="https://static.matterport.com" />
         <link rel="dns-prefetch" href="https://em.realscout.com" />
         <link rel="dns-prefetch" href="https://static.matterport.com" />
-        {/* LCP image preload: hero uses resort-pool on homepage; discoverable early for faster LCP */}
         <link rel="preload" as="image" href="/images/amenities/resort-pool.jpeg" />
+        <link rel="icon" href="/favicon.ico" />
         {/* Calendly CSS: load non-blocking so it doesn't delay FCP/LCP */}
         <CalendlyStyles />
         {/* Structured Data - Consolidated Schema Markup */}

@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, Youtube, Calendar, FileText, Instagram, Linkedin, Facebook } from "lucide-react";
+import { Phone, Mail, MapPin, Youtube, Calendar, FileText, Instagram, Linkedin, Facebook, Star, MapPinned } from "lucide-react";
 import { oldSiteData } from "@/lib/fetchOldSiteData";
+import { GOOGLE_REVIEW_LINK, GOOGLE_MAPS_DIRECTIONS_URL } from "@/lib/site";
 
 export default function Footer() {
   return (
@@ -35,6 +36,22 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/buyers"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  For Buyers
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/sellers"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  For Sellers
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/homes-for-sale"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
@@ -55,6 +72,14 @@ export default function Footer() {
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   Amenities
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/community"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Community & Area
                 </Link>
               </li>
               <li>
@@ -139,6 +164,16 @@ export default function Footer() {
                     North Las Vegas, NV 89086
                   </span>
                 </div>
+                <a
+                  href={GOOGLE_MAPS_DIRECTIONS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 mt-2 text-primary hover:text-white transition-colors text-sm font-medium"
+                  aria-label="Get directions to Del Webb North Ranch on Google Maps"
+                >
+                  <MapPinned className="w-4 h-4" />
+                  Get directions
+                </a>
               </li>
             </ul>
           </div>
@@ -198,6 +233,18 @@ export default function Footer() {
                 >
                   Testimonials
                 </Link>
+              </li>
+              <li>
+                <a
+                  href={GOOGLE_REVIEW_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+                  aria-label="Leave a review on Google"
+                >
+                  <Star className="w-4 h-4" />
+                  Leave a review on Google
+                </a>
               </li>
             </ul>
           </div>

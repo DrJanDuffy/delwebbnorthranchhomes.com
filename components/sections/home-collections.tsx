@@ -33,6 +33,7 @@ function CollectionCard({
             placeholder="blur"
             blurDataURL={blurDataURL}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            quality={70}
           />
         </div>
         <h3 className="text-xl md:text-2xl font-bold text-primary mb-2 md:mb-3 font-playfair">
@@ -99,8 +100,8 @@ export default function HomeCollectionsSection() {
         </div>
 
         <div className="text-center">
-          <Button asChild variant="default" size="lg" className="w-full sm:w-auto min-h-[44px] min-w-[44px]">
-            <Link href="/floor-plans">Explore Floor Plans</Link>
+          <Button asChild variant="default" size="lg" className="w-full sm:w-auto min-h-[48px] min-w-[48px] px-8 py-4">
+            <Link href="/floor-plans" className="inline-flex items-center justify-center min-h-[48px]">Explore Floor Plans</Link>
           </Button>
         </div>
       </div>

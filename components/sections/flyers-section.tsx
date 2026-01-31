@@ -70,9 +70,9 @@ export default function FlyersSection() {
               asChild
               variant="outline"
               size="lg"
-              className="w-full sm:w-auto min-h-[44px] min-w-[44px]"
+              className="w-full sm:w-auto min-h-[48px] min-w-[48px] px-8 py-4"
             >
-              <Link href="/flyers">View All Flyers & Brochures</Link>
+              <Link href="/flyers" className="inline-flex items-center justify-center min-h-[48px]">View All Flyers & Brochures</Link>
             </Button>
           </div>
         </div>

@@ -46,19 +46,19 @@ export default function Hero() {
               Homes from $400K-$600K in North Las Vegas
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center px-4">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center items-stretch sm:items-center px-4">
             <div className="w-full sm:w-auto sm:min-w-[200px]">
               <ScheduleTour
                 variant="accent"
                 size="lg"
-                className="w-full sm:w-auto text-base md:text-lg py-3 md:py-4"
+                className="w-full sm:w-auto text-base md:text-lg py-4 md:py-5 min-h-[48px]"
               />
             </div>
             <Button
               asChild
               variant="outline"
               size="lg"
-              className="border-2 border-white text-white hover:bg-white hover:text-primary w-full sm:w-auto sm:min-w-[200px] min-h-[44px] text-base md:text-lg py-3 md:py-4"
+              className="border-2 border-white text-white hover:bg-white hover:text-primary w-full sm:w-auto sm:min-w-[200px] min-h-[48px] text-base md:text-lg py-4 md:py-5"
             >
               <Link href="/homes-for-sale">View Available Homes</Link>
             </Button>

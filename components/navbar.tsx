@@ -10,6 +10,8 @@ import { cn } from "@/lib/utils";
 // Main navigation links (6-8 links ideal for sitelinks)
 const mainNavLinks = [
   { href: "/", label: "Home" },
+  { href: "/buyers", label: "Buyers" },
+  { href: "/sellers", label: "Sellers" },
   { href: "/homes-for-sale", label: "Homes for Sale" },
   { href: "/floor-plans", label: "Floor Plans" },
   { href: "/amenities", label: "Amenities" },
@@ -17,11 +19,12 @@ const mainNavLinks = [
   { href: "/contact", label: "Contact" },
 ];
 
-// Dropdown menus (moved Amenities to main nav, keeping Lifestyle in dropdown)
+// Dropdown menus
 const dropdownMenus = [
   {
     label: "More",
     items: [
+      { href: "/community", label: "Community & Area" },
       { href: "/lifestyle", label: "Lifestyle" },
       { href: "/home-value", label: "Home Value" },
       { href: "/flyers", label: "Flyers & Brochures" },
@@ -34,9 +37,12 @@ const dropdownMenus = [
 // All links for mobile menu
 const allNavLinks = [
   { href: "/", label: "Home" },
+  { href: "/buyers", label: "Buyers" },
+  { href: "/sellers", label: "Sellers" },
   { href: "/homes-for-sale", label: "Homes for Sale" },
   { href: "/floor-plans", label: "Floor Plans" },
   { href: "/amenities", label: "Amenities" },
+  { href: "/community", label: "Community & Area" },
   { href: "/lifestyle", label: "Lifestyle" },
   { href: "/home-value", label: "Home Value" },
   { href: "/flyers", label: "Flyers & Brochures" },

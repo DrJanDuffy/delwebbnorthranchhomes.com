@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center rounded-md text-base font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 min-h-[44px] min-w-[44px] touch-manipulation",
+  "inline-flex items-center justify-center rounded-md text-base font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 min-h-[48px] min-w-[48px] touch-manipulation",
   {
     variants: {
       variant: {
@@ -35,10 +35,20 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    const mergedClassName = cn(buttonVariants({ variant, size, className }));
+
+    if (asChild && React.isValidElement(props.children)) {
+      const child = props.children as React.ReactElement<{ className?: string }>;
+      return React.cloneElement(child, {
+        ...child.props,
+        className: cn(mergedClassName, child.props?.className),
+      });
+    }
+
     return (
       <button
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={mergedClassName}
         ref={ref}
         {...props}
       />
