@@ -19,6 +19,8 @@ import RealScoutListings from "../../components/RealScoutListings";
 import QuickFAQ from "../../components/QuickFAQ";
 import ExploreCommunitySection from "../../components/sections/explore-community";
 import FlyersSection from "../../components/sections/flyers-section";
+import Link from "next/link";
+import { Button } from "../../components/ui/button";
 
 const HOMEPAGE_METADATA: Metadata = {
   title: TITLE_SUFFIX,
@@ -80,13 +82,34 @@ export default function Home() {
         <ProblemSection />
         <SolutionSection />
         <ValuePropsSection />
+        <section className="py-6 bg-white">
+          <div className="container mx-auto px-4 text-center">
+            <Button asChild variant="outline" size="lg" className="min-h-[48px]">
+              <Link href="/why-choose-us">Why Choose Us — Full Page</Link>
+            </Button>
+          </div>
+        </section>
         <TestimonialSection />
         <AmenitiesPreviewSection />
         <HomeCollectionsSection />
         <FlyersSection />
         <VirtualTours />
+        <section className="py-6 bg-white">
+          <div className="container mx-auto px-4 text-center">
+            <Button asChild variant="outline" size="lg" className="min-h-[48px]">
+              <Link href="/virtual-tours">View All Virtual Tours</Link>
+            </Button>
+          </div>
+        </section>
         <Testimonials />
         <MortgageCalculator />
+        <section className="py-6 bg-white">
+          <div className="container mx-auto px-4 text-center">
+            <Button asChild variant="outline" size="lg" className="min-h-[48px]">
+              <Link href="/mortgage-calculator">Use Full Mortgage Calculator</Link>
+            </Button>
+          </div>
+        </section>
         <QuickFAQ />
         <AboutAgentSection />
         <FinalCTASection />

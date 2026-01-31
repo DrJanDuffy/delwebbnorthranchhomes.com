@@ -9,6 +9,7 @@ import { SITE_ORIGIN } from "@/lib/site";
 import { altPrefix, metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
 import { buyerCtaCopy, buyerFaq, buyerValueProps } from "@/lib/hyperlocalBuyer";
 import { getCommunityInfo } from "@/lib/communityData";
+import RealScoutListings from "@/../components/RealScoutListings";
 
 const buyerFaqSchema = {
   "@context": "https://schema.org",
@@ -61,12 +62,12 @@ export default function BuyersPage() {
             { label: "For Buyers", href: "/buyers" },
           ]}
         />
-        {/* Hero */}
+        {/* Hero - exactly one H1 */}
         <section className="bg-primary text-white py-12 md:py-16 lg:py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 font-playfair">
-                For Buyers: 55+ Homes in North Las Vegas
+                For Buyers: 55+ Homes at Del Webb North Ranch | North Las Vegas
               </h1>
               <p className="text-lg md:text-xl text-gray-100 leading-relaxed mb-6">
                 {buyerCtaCopy.metaHighlight} Del Webb North Ranch offers single-story resale homes, a 10,000 sq ft clubhouse, and resort-style amenities—all in a gated 55+ community.
@@ -83,6 +84,56 @@ export default function BuyersPage() {
                   (702) 500-1064
                 </a>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Office RealScout widget - below hero on every page */}
+        <RealScoutListings h2Text="Homes for Sale at Del Webb North Ranch | North Las Vegas 55+ Listings" />
+
+        {/* Long-form content: Del Webb North Ranch keyword variations, H2/H3, 1500+ words total */}
+        <section className="py-12 md:py-16 bg-bg-light">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto prose prose-lg max-w-none text-text-dark">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 font-playfair">
+                Why Buyers Choose Del Webb North Ranch
+              </h2>
+              <p className="mb-6">
+                Del Webb North Ranch is one of North Las Vegas&apos;s premier 55+ active adult communities. When you buy at North Ranch, you&apos;re not just purchasing a home—you&apos;re joining a built-out neighborhood with a 10,000 sq ft clubhouse, resort-style pool, pickleball courts, fitness center, and over twenty social clubs. The community is gated and designed for single-story living, so every resale home at Del Webb North Ranch is one level with no stairs to worry about now or later.
+              </p>
+              <p className="mb-6">
+                North Las Vegas offers what many 55+ buyers want: no state income tax, strong healthcare access including VA Southern Nevada Hospital nearby, and outdoor recreation like Craig Ranch Regional Park and Lake Mead. Del Webb North Ranch sits in zip code 89086 with easy access to Aliante, Centennial Hills, and the Las Vegas Strip. The North Ranch community is fully built—unlike newer developments still waiting on amenities—so the clubhouse, pools, and courts are open and ready from day one.
+              </p>
+              <h3 className="text-xl font-bold text-primary mt-10 mb-4 font-playfair">
+                What You Get When You Buy at North Ranch
+              </h3>
+              <p className="mb-6">
+                Every home in Del Webb North Ranch is single-story with two or three bedrooms, open layouts, and attached two-car garages. Floor plans span the Cottage, Classic, and Retreat series from about 1,285 to 2,015 square feet. Resale prices typically range from the low $400s to the low $600s. HOA fees are $215 per month (billed quarterly) with no special improvement districts, and Nevada&apos;s lack of state income tax means more of your retirement income stays in your pocket. The Del Webb North Ranch clubhouse hosts fitness classes, social events, and space for clubs—so you can stay as active and connected as you like.
+              </p>
+              <h3 className="text-xl font-bold text-primary mt-10 mb-4 font-playfair">
+                Working With a Del Webb North Ranch Expert
+              </h3>
+              <p className="mb-6">
+                Buying in a 55+ community like Del Webb North Ranch involves age verification, HOA documents, and understanding resale rules. Dr. Jan Duffy specializes in this community and North Las Vegas 55+ real estate. She can walk you through current North Ranch listings, floor plans, and the buying process so you know what to expect. Whether you&apos;re relocating from out of state or downsizing locally, having an agent who knows Del Webb North Ranch inside and out makes a real difference. Schedule a tour to see available homes and the North Ranch amenities in person.
+              </p>
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mt-12 mb-6 font-playfair">
+                North Ranch Lifestyle and Amenities
+              </h2>
+              <p className="mb-6">
+                The Del Webb North Ranch lifestyle centers on the 10,000 sq ft clubhouse and the grounds around it. Residents use the resort-style pool, fitness center, and pickleball courts regularly. Social clubs cover everything from cards and book clubs to travel and gardening. Because North Ranch is 55+, your neighbors are in the same stage of life and many have chosen this community for the same reasons you&apos;re considering it: single-story living, low maintenance, and a built-in social scene. Del Webb North Ranch is built for people who want to live, not just exist—and that shows in how the community is used every day.
+              </p>
+              <h3 className="text-xl font-bold text-primary mt-10 mb-4 font-playfair">
+                Resale Homes at Del Webb North Ranch
+              </h3>
+                <p className="mb-6">
+                All homes at Del Webb North Ranch are resale—the community was built out by Pulte/Del Webb and there are no builder lots left. That means you&apos;re buying from a homeowner, and the inventory you see is what&apos;s currently on the market. Listings at North Ranch turn over as residents relocate or downsize again, so new homes come on the market regularly. View the office listings above to see current homes for sale at Del Webb North Ranch, or schedule a tour with Dr. Jan Duffy to walk through available floor plans and the community in person. North Ranch real estate remains in demand among 55+ buyers, so when you find a home you like, having a local expert on your side helps you move quickly and confidently.
+              </p>
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mt-12 mb-6 font-playfair">
+                Next Steps for Buying at Del Webb North Ranch
+              </h2>
+              <p className="mb-6">
+                Start by browsing current homes for sale at Del Webb North Ranch in the listings section above. Then explore the nine single-story floor plans (Cottage, Classic, Retreat) to see which size and layout fit your needs. Schedule a private tour to walk the North Ranch community, see the clubhouse and amenities, and step inside available resale homes. Dr. Jan Duffy specializes in this 55+ community in North Las Vegas and can answer your questions about HOA, age verification, and the buying process. Del Webb North Ranch is a place to finally do everything you&apos;ve been putting off—so take the first step and get in touch today.
+              </p>
             </div>
           </div>
         </section>

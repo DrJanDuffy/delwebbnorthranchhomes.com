@@ -100,6 +100,9 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Office RealScout widget - directly below hero */}
+        <RealScoutListings h2Text="View Available Homes in Del Webb North Ranch | Work With Dr. Jan Duffy" />
+
         {/* About Section */}
         <section className="py-12 md:py-16 lg:py-20 bg-white">
           <div className="container mx-auto px-4">
@@ -340,9 +343,6 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
-
-        {/* RealScout Listings - Lead Generator */}
-        <RealScoutListings h2Text="View Available Homes in Del Webb North Ranch | Work With Dr. Jan Duffy" />
 
         {/* Next steps - buyer/seller/community */}
         <section className="py-12 md:py-16 bg-bg-light">

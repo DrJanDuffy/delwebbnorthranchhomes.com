@@ -8,6 +8,7 @@ import { Button } from "@/../components/ui/button";
 import { getAllFlyers } from "@/lib/flyers";
 import { SITE_ORIGIN } from "@/lib/site";
 import { metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
+import RealScoutListings from "@/../components/RealScoutListings";
 
 export const metadata: Metadata = {
   title: `Community Flyers & Brochures | ${TITLE_SUFFIX}`,
@@ -49,6 +50,49 @@ export default function FlyersPage() {
               </h1>
               <p className="text-lg md:text-xl text-gray-100 leading-relaxed">
                 Download printable flyers and brochures about Del Webb North Ranch. Share with friends and family or keep for your records.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Office RealScout widget - directly below hero */}
+        <RealScoutListings h2Text="Homes for Sale at Del Webb North Ranch | North Las Vegas 55+ Listings" />
+
+        {/* Why download flyers */}
+        <section className="py-12 md:py-16 bg-bg-light">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 font-playfair">
+                Why Download Del Webb North Ranch Flyers &amp; Brochures
+              </h2>
+              <p className="text-text-dark mb-6 leading-relaxed">
+                Whether you&apos;re exploring North Ranch for the first time or sharing the community with family, our printable flyers and brochures put key information about the Del Webb North Ranch 55+ community at your fingertips. From floor plans and amenities to area highlights, you can review details offline and share with others who might be considering this premier 55+ community in North Las Vegas.
+              </p>
+              <h3 className="text-xl font-bold text-primary mb-3 font-playfair">Community overview</h3>
+              <p className="text-text-dark mb-4 leading-relaxed">
+                Del Webb North Ranch in North Las Vegas offers single-story living, resort-style amenities, and an active adult lifestyle. Our flyers summarize what makes North Ranch real estate and the Del Webb North Ranch clubhouse so appealing—so you can compare options and plan your visit or move with confidence.
+              </p>
+              <h3 className="text-xl font-bold text-primary mb-3 font-playfair">Floor plans and homes</h3>
+              <p className="text-text-dark mb-4 leading-relaxed">
+                North Ranch floor plans range from cozy cottages to spacious retreats. Download our materials to see square footage, bedroom and bathroom counts, and series details for Del Webb North Ranch resale homes and new construction. Pair these with a visit to our homes-for-sale listings to see what&apos;s currently available in the community.
+              </p>
+              <h3 className="text-xl font-bold text-primary mb-3 font-playfair">Share with family and friends</h3>
+              <p className="text-text-dark mb-6 leading-relaxed">
+                Many buyers share Del Webb North Ranch information with adult children or friends who are also considering 55+ active adult communities. Having a PDF or printed brochure makes it easy to pass along accurate, up-to-date details about North Ranch amenities, location, and lifestyle.
+              </p>
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 font-playfair">
+                Printable Resources for North Ranch Buyers and Sellers
+              </h2>
+              <p className="text-text-dark mb-4 leading-relaxed">
+                Our Del Webb North Ranch flyers and brochures are designed for both buyers and sellers. If you&apos;re exploring the North Ranch 55+ community as a potential buyer, you&apos;ll find overviews of floor plans, amenities, and the active adult lifestyle at Del Webb North Ranch in North Las Vegas. If you&apos;re already in the area and considering selling, the same materials can help you explain the community to family or to your own agent—so everyone has a clear picture of what makes North Ranch real estate and the Del Webb North Ranch clubhouse so desirable.
+              </p>
+              <h3 className="text-xl font-bold text-primary mb-3 font-playfair">Using flyers when relocating</h3>
+              <p className="text-text-dark mb-4 leading-relaxed">
+                Relocating to North Las Vegas from another state? Download our Del Webb North Ranch materials before your visit. You can review North Ranch floor plans, HOA details, and area information on the plane or in your hotel—and bring printed copies to your tour so you can compare what you see in person with the overview. Many 55+ buyers find that having a physical or PDF reference makes it easier to remember which Del Webb North Ranch home or series they liked best.
+              </p>
+              <h3 className="text-xl font-bold text-primary mb-3 font-playfair">Keeping information handy</h3>
+              <p className="text-text-dark leading-relaxed">
+                Even after you&apos;ve toured or bought, our North Ranch flyers and brochures remain useful. Residents often keep them for guests who ask about the community, or for friends who are considering Del Webb North Ranch as their next address. The Del Webb North Ranch 55+ community is one of North Las Vegas&apos;s premier active adult neighborhoods—and having clear, professional materials to share helps spread the word about North Ranch amenities, lifestyle, and real estate.
               </p>
             </div>
           </div>
@@ -110,11 +154,17 @@ export default function FlyersPage() {
           </div>
         </section>
 
-        {/* Explore more */}
+        {/* More resources at North Ranch */}
         <section className="py-12 md:py-16 bg-white">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <p className="text-text-dark">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 font-playfair text-center">
+                More Resources for Del Webb North Ranch
+              </h2>
+              <p className="text-text-dark mb-6 text-center leading-relaxed">
+                Beyond flyers and brochures, explore the full Del Webb North Ranch experience: current listings, floor plans, amenities, and the active adult lifestyle at North Ranch in North Las Vegas.
+              </p>
+              <p className="text-text-dark text-center">
                 <Link href="/buyers" className="text-primary hover:text-accent font-medium">For Buyers</Link>
                 {" · "}
                 <Link href="/sellers" className="text-primary hover:text-accent font-medium">For Sellers</Link>

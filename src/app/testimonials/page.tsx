@@ -69,6 +69,49 @@ export default function TestimonialsPage() {
           </div>
         </section>
 
+        {/* Office RealScout widget - directly below hero */}
+        <RealScoutListings h2Text="Homes for Sale at Del Webb North Ranch | North Las Vegas 55+ Listings" />
+
+        {/* Why client voices matter */}
+        <section className="py-12 md:py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 font-playfair">
+                Why Client Voices Matter at Del Webb North Ranch
+              </h2>
+              <p className="text-text-dark mb-4 leading-relaxed">
+                When you&apos;re considering a move to the North Ranch 55+ community, hearing from people who&apos;ve already bought or sold here can make a real difference. Our clients have worked with Dr. Jan Duffy to find their dream homes in Del Webb North Ranch—and their stories reflect what it&apos;s like to navigate North Ranch real estate, from first tour to closing.
+              </p>
+              <h3 className="text-xl font-bold text-primary mb-3 font-playfair">Real experiences in the community</h3>
+              <p className="text-text-dark mb-4 leading-relaxed">
+                The testimonials below come from buyers and sellers who chose Del Webb North Ranch in North Las Vegas for its single-story living, resort-style amenities, and active adult lifestyle. They share how the Del Webb North Ranch community and North Ranch amenities fit their goals—and how working with a specialist made the process smoother.
+              </p>
+              <h3 className="text-xl font-bold text-primary mb-3 font-playfair">From search to settlement</h3>
+              <p className="text-text-dark mb-4 leading-relaxed">
+                Whether our clients were comparing Del Webb North Ranch floor plans, touring resale homes, or selling their North Ranch home, they relied on expertise that&apos;s focused on this premier 55+ community. Their feedback highlights the value of working with an agent who knows the Del Webb North Ranch clubhouse, floor plans, and neighborhood inside and out.
+              </p>
+              <h3 className="text-xl font-bold text-primary mb-3 font-playfair">Your story could be next</h3>
+              <p className="text-text-dark mb-8 leading-relaxed">
+                If you&apos;re ready to explore homes for sale in Del Webb North Ranch, schedule a tour or get in touch. We&apos;d love to help you find your place in this 55+ active adult community in North Las Vegas—and, if you choose to work with us, we&apos;d be grateful to hear about your experience too.
+              </p>
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 font-playfair">
+                Choosing the Right 55+ Community in North Las Vegas
+              </h2>
+              <p className="text-text-dark mb-4 leading-relaxed">
+                Deciding where to retire or downsize is a big step. Del Webb North Ranch is one of North Las Vegas&apos;s premier 55+ communities—with single-story homes, a full clubhouse and resort-style amenities, and an active social calendar. The testimonials on this page reflect real experiences from people who chose the North Ranch 55+ community for its combination of location, lifestyle, and value. They worked with Dr. Jan Duffy to find their Del Webb North Ranch home and to navigate North Ranch real estate from first visit to closing.
+              </p>
+              <h3 className="text-xl font-bold text-primary mb-3 font-playfair">Why buyers choose Del Webb North Ranch</h3>
+              <p className="text-text-dark mb-4 leading-relaxed">
+                Buyers often cite the Del Webb North Ranch clubhouse, North Ranch amenities, and the sense of community as major factors. The 10,000 sq ft clubhouse, pool, pickleball courts, and dozens of clubs make it easy to stay active and connected. Add single-story floor plans, no state income tax in Nevada, and a gated North Ranch neighborhood in North Las Vegas—and it&apos;s easy to see why so many 55+ buyers choose Del Webb North Ranch over other options.
+              </p>
+              <h3 className="text-xl font-bold text-primary mb-3 font-playfair">Working with a North Ranch specialist</h3>
+              <p className="text-text-dark leading-relaxed">
+                Dr. Jan Duffy focuses exclusively on Del Webb North Ranch and North Las Vegas 55+ real estate. That means deep knowledge of every Del Webb North Ranch floor plan, resale listing, and neighborhood detail. The testimonials below speak to the value of working with an agent who knows the community inside and out. When you&apos;re ready to tour or make an offer on a North Ranch home, we&apos;re here to help—and we look forward to adding your story to this page one day.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Testimonials Grid */}
         <section className="py-12 md:py-16 lg:py-20 bg-bg-light">
           <div className="container mx-auto px-4">

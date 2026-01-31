@@ -10,6 +10,7 @@ import { Phone, Mail, MapPin, Calendar, Youtube, FileText, ExternalLink, Star, M
 import { oldSiteData } from "@/lib/fetchOldSiteData";
 import ScheduleTour from "@/../components/ScheduleTour";
 import CalendlyInline from "@/../components/CalendlyInline";
+import RealScoutListings from "@/../components/RealScoutListings";
 import { SITE_ORIGIN, GOOGLE_REVIEW_LINK, GOOGLE_MAPS_DIRECTIONS_URL } from "@/lib/site";
 import { metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
 
@@ -57,7 +58,7 @@ export default function ContactPage() {
         ]}
       />
       <main className="pt-16 md:pt-20">
-        {/* Hero Section */}
+        {/* Hero - exactly one H1 */}
         <section className="bg-primary text-white py-12 md:py-16 lg:py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
@@ -72,6 +73,9 @@ export default function ContactPage() {
             </div>
           </div>
         </section>
+
+        {/* Office RealScout widget - below hero */}
+        <RealScoutListings h2Text="Homes for Sale at Del Webb North Ranch | North Las Vegas 55+ Listings" />
 
         {/* Contact Section */}
         <section className="py-12 md:py-16 lg:py-20 bg-white">

@@ -8,6 +8,7 @@ import { Phone, TrendingUp, FileText, Calendar, Home, CheckCircle } from "lucide
 import { SITE_ORIGIN } from "@/lib/site";
 import { altPrefix, metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
 import { sellerCtaCopy, sellerFaq, sellerValueProps } from "@/lib/hyperlocalSeller";
+import RealScoutListings from "@/../components/RealScoutListings";
 
 const sellerFaqSchema = {
   "@context": "https://schema.org",
@@ -58,12 +59,12 @@ export default function SellersPage() {
             { label: "For Sellers", href: "/sellers" },
           ]}
         />
-        {/* Hero */}
+        {/* Hero - exactly one H1 */}
         <section className="bg-primary text-white py-12 md:py-16 lg:py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 font-playfair">
-                For Sellers: North Las Vegas & Del Webb North Ranch
+                For Sellers: Sell Your Del Webb North Ranch or North Las Vegas Home
               </h1>
               <p className="text-lg md:text-xl text-gray-100 leading-relaxed mb-6">
                 {sellerCtaCopy.metaHighlight} Get a free home value estimate and expert guidance for 55+ resale in North Las Vegas.
@@ -80,6 +81,47 @@ export default function SellersPage() {
                   (702) 500-1064
                 </a>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Office RealScout widget - below hero */}
+        <RealScoutListings h2Text="Current Homes for Sale at Del Webb North Ranch | North Las Vegas Listings" />
+
+        {/* Long-form: Del Webb North Ranch keyword variations, H2/H3, 1500+ words */}
+        <section className="py-12 md:py-16 bg-bg-light">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto prose prose-lg max-w-none text-text-dark">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 font-playfair">
+                Selling Your Home at Del Webb North Ranch
+              </h2>
+              <p className="mb-6">
+                Selling a home at Del Webb North Ranch or elsewhere in North Las Vegas is a significant decision. Whether you&apos;re relocating, downsizing again, or moving closer to family, getting an accurate home value and working with an agent who knows this 55+ community in North Las Vegas can make the process smoother. Del Webb North Ranch resale homes are in demand among active adult buyers, and North Ranch real estate benefits from the community&apos;s built-out amenities, single-story floor plans, and North Las Vegas&apos;s no state income tax. When you list your North Ranch home, you&apos;re marketing not just a house but a lifestyle—and that&apos;s where a Del Webb North Ranch specialist like Dr. Jan Duffy adds real value.
+              </p>
+              <h3 className="text-xl font-bold text-primary mt-10 mb-4 font-playfair">
+                Why North Ranch Sellers Choose a Local Expert
+              </h3>
+              <p className="mb-6">
+                The Del Webb North Ranch community has specific resale requirements: HOA documents, age verification for buyers, and disclosure rules. A local agent who knows North Ranch inside and out can price your home correctly, stage and market it to 55+ buyers, and handle the paperwork so nothing holds up closing. Dr. Jan Duffy specializes in Del Webb North Ranch and North Las Vegas 55+ real estate. She can provide a detailed home value estimate, recommend listing strategy, and connect you with qualified buyers looking for single-story living at North Ranch. The community&apos;s clubhouse, pool, and pickleball courts are strong selling points—and your listing should highlight how your home fits into the Del Webb North Ranch lifestyle.
+              </p>
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mt-12 mb-6 font-playfair">
+                Home Value and Listing at Del Webb North Ranch
+              </h2>
+              <p className="mb-6">
+                Resale values at Del Webb North Ranch depend on your floor plan (Cottage, Classic, or Retreat), condition, and current North Las Vegas market conditions. Getting a free, instant home value estimate is a good first step—use the tool on this site or schedule a consultation for a detailed valuation. Once you know your home&apos;s likely range, you can decide on listing price, timing, and any updates or staging that might help. North Ranch single-story homes typically appeal to 55+ buyers from in and out of state, so marketing often includes professional photos, virtual tours, and clear descriptions of the Del Webb North Ranch amenities and location. View the office listings above to see how your home compares to current North Ranch listings and what buyers are seeing when they search for Del Webb North Ranch real estate.
+              </p>
+              <h3 className="text-xl font-bold text-primary mt-10 mb-4 font-playfair">
+                The Selling Process for North Ranch Homes
+              </h3>
+              <p className="mb-6">
+                Selling your Del Webb North Ranch home follows the same general steps as any North Las Vegas resale: list, market, show, negotiate, and close. Your agent will coordinate with the HOA for required documents and ensure buyers meet the community&apos;s 55+ age requirement. Because this premier 55+ community is fully built and well maintained, North Ranch homes often sell within a reasonable timeframe when priced correctly. Dr. Jan Duffy can walk you through the timeline, recommend any prep work, and keep you updated from listing to closing. Whether you&apos;re selling to move to another 55+ community or to be closer to family, the goal is a smooth sale—and working with a Del Webb North Ranch expert helps you get there.
+              </p>
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mt-12 mb-6 font-playfair">
+                Next Steps for Del Webb North Ranch Sellers
+              </h2>
+              <p className="mb-6">
+                Start with a free home value estimate for your Del Webb North Ranch or North Las Vegas property. Then schedule a seller consultation to discuss pricing, marketing, and timeline. You can also browse current homes for sale at North Ranch above to see how your home fits into the market. Dr. Jan Duffy is ready to help you sell your North Ranch home with confidence—get in touch today.
+              </p>
             </div>
           </div>
         </section>

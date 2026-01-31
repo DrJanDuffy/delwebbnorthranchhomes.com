@@ -206,6 +206,9 @@ export default function AmenitiesPage() {
           </div>
         </section>
 
+        {/* Office RealScout widget - directly below hero */}
+        <RealScoutListings h2Text="View Available Homes in Del Webb North Ranch with These Amazing Amenities" />
+
         {/* Amenities by Category */}
         {amenities.map((category, categoryIndex) => (
           <section
@@ -279,9 +282,6 @@ export default function AmenitiesPage() {
             </div>
           </div>
         </section>
-
-        {/* RealScout Listings - Lead Generator */}
-        <RealScoutListings h2Text="View Available Homes in Del Webb North Ranch with These Amazing Amenities" />
 
         {/* CTA Section */}
         <section className="py-12 md:py-16 bg-primary text-white">

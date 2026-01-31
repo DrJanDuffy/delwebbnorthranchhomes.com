@@ -45,6 +45,8 @@ const sitePages = [
       { href: "/amenities", label: "Amenities", description: "Resort-style amenities and community features" },
       { href: "/lifestyle", label: "Lifestyle", description: "Active adult living in North Las Vegas" },
       { href: "/community", label: "Community & Area", description: "North Las Vegas area, nearby neighborhoods, and 55+ living" },
+      { href: "/why-choose-us", label: "Why Choose Us", description: "Why active adults choose Del Webb North Ranch—single-story living, amenities, no state income tax" },
+      { href: "/virtual-tours", label: "Virtual Tours", description: "3D virtual tours of Del Webb North Ranch model homes" },
     ],
   },
   {
@@ -64,6 +66,7 @@ const sitePages = [
       { href: "/contact", label: "Contact", description: "Get in touch with Dr. Jan Duffy" },
       { href: "/schedule", label: "Schedule a Tour", description: "Book a private community tour" },
       { href: "/home-value", label: "Home Value", description: "Free home value estimate for Del Webb North Ranch and North Las Vegas" },
+      { href: "/mortgage-calculator", label: "Mortgage Calculator", description: "Estimate your monthly payment for a Del Webb North Ranch home" },
       { href: "/flyers", label: "Flyers & Brochures", description: "Community flyers and downloadable brochures" },
     ],
   },

@@ -253,6 +253,9 @@ export default function FloorPlansPage() {
           </div>
         </section>
 
+        {/* Office RealScout widget - directly below hero */}
+        <RealScoutListings h2Text="View Available Homes with These Floor Plans in Del Webb North Ranch" />
+
         {/* Cottage Series */}
         <section className="py-12 md:py-16 lg:py-20 bg-white">
           <div className="container mx-auto px-4">
@@ -323,9 +326,6 @@ export default function FloorPlansPage() {
 
         {/* Mortgage Calculator Section */}
         <MortgageCalculator />
-
-        {/* RealScout Listings - Lead Generator */}
-        <RealScoutListings h2Text="View Available Homes with These Floor Plans in Del Webb North Ranch" />
 
         {/* CTA Section */}
         <section className="py-12 md:py-16 bg-primary text-white">

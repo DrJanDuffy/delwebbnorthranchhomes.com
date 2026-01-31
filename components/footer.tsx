@@ -84,6 +84,30 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/why-choose-us"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Why Choose Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/virtual-tours"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Virtual Tours
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/mortgage-calculator"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Mortgage Calculator
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/lifestyle"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
