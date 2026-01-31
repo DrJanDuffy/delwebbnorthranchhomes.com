@@ -12,13 +12,8 @@ import HomeCollectionsSection from "../../components/sections/home-collections";
 import AboutAgentSection from "../../components/sections/about-agent";
 import FinalCTASection from "../../components/sections/final-cta";
 import Footer from "../../components/footer";
-import VirtualTours from "../../components/VirtualTours";
-import Testimonials from "../../components/Testimonials";
-import MortgageCalculator from "../../components/MortgageCalculator";
 import RealScoutListings from "../../components/RealScoutListings";
-import QuickFAQ from "../../components/QuickFAQ";
 import ExploreCommunitySection from "../../components/sections/explore-community";
-import FlyersSection from "../../components/sections/flyers-section";
 import Link from "next/link";
 import { Button } from "../../components/ui/button";
 
@@ -92,25 +87,28 @@ export default function Home() {
         <TestimonialSection />
         <AmenitiesPreviewSection />
         <HomeCollectionsSection />
-        <FlyersSection />
-        <VirtualTours />
-        <section className="py-6 bg-white">
-          <div className="container mx-auto px-4 text-center">
-            <Button asChild variant="outline" size="lg" className="min-h-[48px]">
-              <Link href="/virtual-tours">View All Virtual Tours</Link>
-            </Button>
+        {/* CTAs to full pages (content lives on dedicated pages) */}
+        <section className="py-8 bg-bg-light">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+              <Button asChild variant="outline" size="lg" className="min-h-[48px] w-full">
+                <Link href="/virtual-tours">Virtual Tours</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="min-h-[48px] w-full">
+                <Link href="/testimonials">Client Testimonials</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="min-h-[48px] w-full">
+                <Link href="/mortgage-calculator">Mortgage Calculator</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="min-h-[48px] w-full">
+                <Link href="/faq">FAQ</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="min-h-[48px] w-full sm:col-span-2 lg:col-span-4">
+                <Link href="/flyers">Flyers & Brochures</Link>
+              </Button>
+            </div>
           </div>
         </section>
-        <Testimonials />
-        <MortgageCalculator />
-        <section className="py-6 bg-white">
-          <div className="container mx-auto px-4 text-center">
-            <Button asChild variant="outline" size="lg" className="min-h-[48px]">
-              <Link href="/mortgage-calculator">Use Full Mortgage Calculator</Link>
-            </Button>
-          </div>
-        </section>
-        <QuickFAQ />
         <AboutAgentSection />
         <FinalCTASection />
       </main>
