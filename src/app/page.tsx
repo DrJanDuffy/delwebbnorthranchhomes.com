@@ -65,10 +65,35 @@ export async function generateMetadata({
 }
 
 export default function Home() {
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${CANONICAL_HOMEPAGE}#webpage`,
+    name: TITLE_SUFFIX,
+    description:
+      "Del Webb at North Ranch & Del Webb North Las Vegas: 55+ homes for sale in North Las Vegas. Single-story living from $400K-$600K with resort amenities.",
+    url: CANONICAL_HOMEPAGE,
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: `${SITE_ORIGIN}/images/amenities/resort-pool.jpeg`,
+    },
+    isPartOf: {
+      "@type": "WebSite",
+      "@id": `${SITE_ORIGIN}/#website`,
+      url: SITE_ORIGIN,
+    },
+  };
+
   return (
     <>
       <Navbar />
       <main id="main-content" className="pt-16 md:pt-20">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(webPageSchema).replace(/</g, "\\u003c"),
+          }}
+        />
         <Hero />
         {/* Office RealScout listings - directly below hero */}
         <RealScoutListings h2Text="Browse Available Homes for Sale in Del Webb North Ranch | North Las Vegas 55+ Community" />

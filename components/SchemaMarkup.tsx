@@ -43,6 +43,7 @@ export default function SchemaMarkup() {
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': `${baseUrl}/#website`,
     name: 'Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
     url: baseUrl,
     potentialAction: {
