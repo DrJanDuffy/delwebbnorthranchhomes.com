@@ -57,7 +57,7 @@ The site is in strong shape for local real estate SEO: unique metadata and canon
    Set `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` to your GSC meta tag content (from Search Console > Settings > Verification). The layout already reads this env and outputs the verification meta tag when set.
 
 2. **Sync AggregateRating with GBP**  
-   Layout LocalBusiness uses `aggregateRating: { ratingValue: "5", reviewCount: "50" }`. Update these periodically from your actual Google Business Profile so star ratings in search stay accurate and compliant.
+   Layout LocalBusiness uses `GBP_AGGREGATE_RATING` from `src/lib/site.ts`. Update `ratingValue` and `reviewCount` there when your Google Business Profile changes so star ratings in search stay accurate.
 
 3. **BreadcrumbList**  
    Breadcrumbs (with BreadcrumbList schema) are now on all key commercial pages including schedule; homes-for-sale, community, lifestyle, about, contact, FAQ, floor-plans, blog, etc. already had them.

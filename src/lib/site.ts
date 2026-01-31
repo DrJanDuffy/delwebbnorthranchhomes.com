@@ -19,3 +19,12 @@ export const GOOGLE_REVIEW_LINK = "https://g.page/r/CTX_3qPVOeEqEBI/review";
 /** Google Maps directions to Del Webb North Ranch (community) – for “Get directions” / plan your visit. */
 export const GOOGLE_MAPS_DIRECTIONS_URL =
   "https://www.google.com/maps/dir//2290+Beauty+Vista+Avenue,+North+Las+Vegas,+NV+89086";
+
+/**
+ * Aggregate rating for LocalBusiness schema. Update to match your Google Business Profile
+ * so star ratings in search stay accurate. Check GBP periodically and update here.
+ */
+export const GBP_AGGREGATE_RATING = {
+  ratingValue: "5",
+  reviewCount: "50",
+} as const;

@@ -64,7 +64,7 @@ Real estate is YMYL (“Your Money or Your Life”), so Google weighs E-E-A-T he
 
 ## 6. Ongoing (2026)
 
-- **Sync AggregateRating** in layout with actual GBP rating and review count.
+- **Sync AggregateRating** with actual GBP: update `GBP_AGGREGATE_RATING` in `src/lib/site.ts` (ratingValue, reviewCount) when your Google Business Profile rating or review count changes; layout LocalBusiness schema uses it.
 - **Refresh content** (blog, FAQs, community) for freshness.
 - **Keep GBP and site in sync** (hours, services, NAP) when GBP changes.
 - **Monitor GSC:** Coverage, Performance, Enhancements (structured data), Mobile Usability.

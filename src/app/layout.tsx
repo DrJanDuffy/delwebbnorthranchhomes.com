@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
-import { CANONICAL_HOMEPAGE, SITE_ORIGIN, GOOGLE_MAPS_DIRECTIONS_URL, SITE_PHONE_SCHEMA } from "@/lib/site";
+import { CANONICAL_HOMEPAGE, SITE_ORIGIN, GOOGLE_MAPS_DIRECTIONS_URL, SITE_PHONE_SCHEMA, GBP_AGGREGATE_RATING } from "@/lib/site";
 import "./globals.css";
 import CalendlyButton from "@/../components/CalendlyButton";
 import CalendlyStyles from "@/../components/CalendlyStyles";
@@ -170,8 +170,8 @@ export default function RootLayout({
     hasMap: GOOGLE_MAPS_DIRECTIONS_URL.replace("/dir//", "/search/?api=1&query=").replace(/\+/g, "+"),
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "5",
-      reviewCount: "50",
+      ratingValue: GBP_AGGREGATE_RATING.ratingValue,
+      reviewCount: GBP_AGGREGATE_RATING.reviewCount,
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
