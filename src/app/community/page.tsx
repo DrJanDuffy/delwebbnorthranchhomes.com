@@ -54,7 +54,7 @@ export default function CommunityPage() {
       <main className="pt-16 md:pt-20">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(communityFaqSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(communityFaqSchema).replace(/</g, '\\u003c') }}
         />
         <Breadcrumbs
           items={[

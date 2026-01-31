@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ChevronRight, Home } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { SITE_ORIGIN } from '@/lib/site';
 
 type BreadcrumbItem = {
   label: string;
@@ -13,7 +14,7 @@ type BreadcrumbsProps = {
 };
 
 export default function Breadcrumbs({ items, className }: BreadcrumbsProps) {
-  const baseUrl = 'https://www.delwebbnorthranchhomes.com';
+  const baseUrl = SITE_ORIGIN;
 
   // Generate BreadcrumbList schema
   const breadcrumbSchema = {

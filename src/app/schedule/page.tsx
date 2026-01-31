@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Navbar from '@/../components/navbar';
 import Footer from '@/../components/footer';
+import Breadcrumbs from '@/../components/Breadcrumbs';
 import ScheduleTour from '@/../components/ScheduleTour';
 import RealScoutListings from '@/../components/RealScoutListings';
 import { Phone, Calendar, Clock, MapPin } from 'lucide-react';
@@ -36,6 +37,12 @@ export default function SchedulePage() {
   return (
     <>
       <Navbar />
+      <Breadcrumbs
+        items={[
+          { label: 'Del Webb North Ranch', href: '/' },
+          { label: 'Schedule a Tour', href: '/schedule' },
+        ]}
+      />
       <main className="pt-16 md:pt-20">
         {/* Hero - exactly one H1 */}
         <section className="bg-primary text-white py-12 md:py-16 lg:py-20">

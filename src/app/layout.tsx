@@ -97,8 +97,9 @@ export const metadata: Metadata = {
     canonical: CANONICAL_HOMEPAGE,
   },
   verification: {
-    // Add Google Search Console verification code here when available
-    // google: "your-verification-code",
+    // Paste your GSC meta tag content from Search Console > Settings > Verification
+    // Example: google: "abc123xyz",
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ?? undefined,
   },
 };
 
@@ -122,8 +123,10 @@ export default function RootLayout({
     email: "sales@delwebbnorthranchhomes.com",
     address: {
       "@type": "PostalAddress",
+      streetAddress: "2290 Beauty Vista Avenue",
       addressLocality: "North Las Vegas",
       addressRegion: "NV",
+      postalCode: "89086",
       addressCountry: "US",
     },
     areaServed: {
@@ -131,8 +134,10 @@ export default function RootLayout({
       name: "North Las Vegas, NV, USA",
       address: {
         "@type": "PostalAddress",
+        streetAddress: "2290 Beauty Vista Avenue",
         addressLocality: "North Las Vegas",
         addressRegion: "NV",
+        postalCode: "89086",
         addressCountry: "US",
       },
     },

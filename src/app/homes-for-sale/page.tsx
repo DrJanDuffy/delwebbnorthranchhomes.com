@@ -74,7 +74,7 @@ export default async function HomesForSalePage() {
       <main className="pt-16 md:pt-20">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(buyerFaqSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(buyerFaqSchema).replace(/</g, '\\u003c') }}
         />
         {/* Hero Section */}
         <section className="bg-primary text-white py-12 md:py-16 lg:py-20">

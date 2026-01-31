@@ -83,7 +83,7 @@ export default function FAQPage() {
       <main className="min-h-screen bg-white pt-16 md:pt-20">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, '\\u003c') }}
         />
         {/* Hero Section */}
         <section className="relative bg-stone-100 py-16 md:py-24 overflow-hidden">
