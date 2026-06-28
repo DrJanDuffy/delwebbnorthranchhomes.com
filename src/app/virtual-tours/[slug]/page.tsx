@@ -5,7 +5,7 @@ import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
 import Breadcrumbs from "@/../components/Breadcrumbs";
 import { getVirtualTourBySlug, getVirtualToursWithEmbed } from "@/lib/old-site-data";
-import { SITE_ORIGIN } from "@/lib/site";
+import { SITE_ORIGIN, AGENT_HEADSHOT_URL } from "@/lib/site";
 import { TITLE_SUFFIX } from "@/lib/hyperlocal";
 
 export async function generateStaticParams() {
@@ -68,7 +68,7 @@ function VideoObjectSchema({
       name: "Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties",
       logo: {
         "@type": "ImageObject",
-        url: `${SITE_ORIGIN}/images/about/dr-jan-duffy.jpg`,
+        url: AGENT_HEADSHOT_URL,
       },
     },
   };

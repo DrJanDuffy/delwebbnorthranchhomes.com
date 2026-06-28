@@ -3,6 +3,8 @@ import Image from 'next/image';
 import { Home, Layout, Sparkles, Users, HelpCircle, Phone, TrendingUp, MapPin } from 'lucide-react';
 import { Button } from '../ui/button';
 
+import { AGENT_HEADSHOT_URL } from '@/lib/site';
+
 const exploreCards = [
   {
     title: 'For Buyers',
@@ -59,7 +61,7 @@ const exploreCards = [
     description: 'Meet your trusted REALTOR® and community expert',
     href: '/about',
     icon: Users,
-    image: '/images/about/dr-jan-duffy.jpg',
+    image: AGENT_HEADSHOT_URL,
   },
   {
     title: 'FAQ',

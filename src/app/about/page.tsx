@@ -12,7 +12,7 @@ import { getCommunityInfo } from "@/lib/communityData";
 import { Quote } from "lucide-react";
 import ScheduleTour from "@/../components/ScheduleTour";
 import RealScoutListings from "@/../components/RealScoutListings";
-import { SITE_ORIGIN, SITE_PHONE_TEL, SITE_PHONE_DISPLAY, SITE_PHONE_SCHEMA } from "@/lib/site";
+import { SITE_ORIGIN, SITE_PHONE_TEL, SITE_PHONE_DISPLAY, SITE_PHONE_SCHEMA, AGENT_HEADSHOT_URL } from "@/lib/site";
 import { metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
 
 export const metadata: Metadata = {
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${SITE_ORIGIN}/images/about/dr-jan-duffy.jpg`,
+        url: AGENT_HEADSHOT_URL,
         width: 1200,
         height: 630,
         alt: "Dr. Jan Duffy, REALTOR®",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `About Dr. Jan Duffy REALTOR® | ${TITLE_SUFFIX}`,
     description: "Your trusted REALTOR® specializing in Del Webb North Ranch 55+ community.",
-    images: [`${SITE_ORIGIN}/images/about/dr-jan-duffy.jpg`],
+    images: [AGENT_HEADSHOT_URL],
   },
 };
 
@@ -104,7 +104,7 @@ export default function AboutPage() {
                   name: "Dr. Jan Duffy",
                   jobTitle: "REALTOR®",
                   description: "REALTOR® specializing in Del Webb North Ranch and North Las Vegas 55+ communities. Licensed with Berkshire Hathaway HomeServices Nevada Properties.",
-                  image: `${SITE_ORIGIN}/images/about/dr-jan-duffy.jpg`,
+                  image: AGENT_HEADSHOT_URL,
                   url: `${SITE_ORIGIN}/about`,
                   telephone: SITE_PHONE_SCHEMA,
                   worksFor: { "@type": "Organization", name: "Berkshire Hathaway HomeServices Nevada Properties" },
@@ -145,7 +145,7 @@ export default function AboutPage() {
                 <ScrollAnimation>
                   <div className="relative aspect-square max-w-md mx-auto lg:mx-0">
                     <Image
-                      src="/images/about/dr-jan-duffy.jpg"
+                      src={AGENT_HEADSHOT_URL}
                       alt="Dr. Jan Duffy, REALTOR® specializing in Del Webb North Ranch"
                       fill
                       className="object-cover rounded-lg shadow-three"

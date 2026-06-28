@@ -10,6 +10,7 @@ import ScrollAnimation from '@/../components/scroll-animation';
 import {
   getFloorPlanBySlug,
   getAllFloorPlanSlugs,
+  getRelatedFloorPlans,
   type FloorPlan,
 } from '@/lib/floor-plans';
 import { getHomesitesByCollection } from '@/lib/communityData';
@@ -121,11 +122,6 @@ function ProductSchema({ plan }: { plan: FloorPlan }) {
       availability: 'https://schema.org/InStock',
       offerCount,
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5',
-      reviewCount: '50',
-    },
     additionalProperty: [
       {
         '@type': 'PropertyValue',
@@ -196,6 +192,29 @@ function VideoObjectSchema({
   );
 }
 
+function WebPageSchema({ plan }: { plan: FloorPlan }) {
+  const url = `${SITE_ORIGIN}/floor-plans/${plan.slug}`;
+  const webPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${url}#webpage`,
+    name: `${plan.name} Floor Plan | ${plan.series} Series | ${TITLE_SUFFIX}`,
+    description: `${plan.name} floor plan: ${plan.sqft} sq ft, ${plan.beds} bed, ${plan.baths} bath ${plan.series} Series home in Del Webb North Ranch, a 55+ community in North Las Vegas.`,
+    url,
+    primaryImageOfPage: plan.imageUrl
+      ? { '@type': 'ImageObject', url: `${SITE_ORIGIN}${plan.imageUrl}` }
+      : { '@type': 'ImageObject', url: `${SITE_ORIGIN}/images/hero/hero-bg.jpg` },
+    isPartOf: { '@type': 'WebSite', '@id': `${SITE_ORIGIN}/#website`, url: SITE_ORIGIN },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema).replace(/</g, '\\u003c') }}
+    />
+  );
+}
+
 function BreadcrumbSchema({ plan }: { plan: FloorPlan }) {
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -245,6 +264,7 @@ export default async function FloorPlanPage({
   // Get virtual tour if available
   const virtualTour = getVirtualTourByModel(plan.name);
   const hasVideo = virtualTour?.embedUrl != null;
+  const relatedPlans = getRelatedFloorPlans(slug);
 
   return (
     <>
@@ -260,6 +280,7 @@ export default async function FloorPlanPage({
         ]}
       />
       <main className="pt-16 md:pt-20">
+        <WebPageSchema plan={plan} />
         <ProductSchema plan={plan} />
         <BreadcrumbSchema plan={plan} />
         {/* Hero Section */}
@@ -419,6 +440,40 @@ export default async function FloorPlanPage({
             </div>
           </div>
         </section>
+
+        {relatedPlans.length > 0 && (
+          <section className="py-12 md:py-16 bg-bg-light" aria-labelledby="related-floor-plans-heading">
+            <div className="container mx-auto px-4">
+              <div className="max-w-4xl mx-auto">
+                <h2
+                  id="related-floor-plans-heading"
+                  className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center font-playfair"
+                >
+                  More {plan.series} Series Floor Plans
+                </h2>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {relatedPlans.map((relatedPlan) => (
+                    <li key={relatedPlan.slug}>
+                      <Link
+                        href={`/floor-plans/${relatedPlan.slug}`}
+                        className="block rounded-lg border border-stone-200 bg-white p-5 shadow-two hover:shadow-three transition-shadow"
+                      >
+                        <p className="text-lg font-bold text-primary font-playfair">{relatedPlan.name}</p>
+                        <p className="text-primary font-semibold mt-1">{relatedPlan.sqft} sq ft</p>
+                        <p className="text-text-dark mt-2 text-sm">{relatedPlan.description}</p>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-center mt-6">
+                  <Link href="/floor-plans" className="text-primary hover:text-accent font-medium">
+                    Compare all 9 Del Webb North Ranch floor plans →
+                  </Link>
+                </p>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* CTA Section */}
         <section className="py-12 md:py-16 bg-primary text-white">

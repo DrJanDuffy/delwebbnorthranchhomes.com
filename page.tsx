@@ -7,7 +7,7 @@ import Link from "next/link";
 import ScrollAnimation from "@/../components/scroll-animation";
 import { Phone, MapPin, Award, Users, Home, Calendar } from "lucide-react";
 import ScheduleTour from "@/../components/ScheduleTour";
-import { SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from "@/lib/site";
+import { SITE_PHONE_TEL, SITE_PHONE_DISPLAY, AGENT_HEADSHOT_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About Dr. Jan Duffy | Del Webb North Ranch REALTOR® | Las Vegas",
@@ -68,7 +68,7 @@ export default function AboutPage() {
                 <ScrollAnimation>
                   <div className="relative aspect-square max-w-md mx-auto lg:mx-0">
                     <Image
-                      src="/images/about/dr-jan-duffy.jpg"
+                      src={AGENT_HEADSHOT_URL}
                       alt="Dr. Jan Duffy, REALTOR® specializing in Del Webb North Ranch"
                       fill
                       className="object-cover rounded-lg shadow-three"
