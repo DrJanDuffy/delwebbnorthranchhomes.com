@@ -51,6 +51,11 @@ export const HYPERLOCAL = {
 /** Suffix for page titles – matches Google Business Profile business name. */
 export const TITLE_SUFFIX = GBP_BUSINESS_NAME;
 
+/** Bypass layout title template — use for audit-optimized page titles. */
+export function absolutePageTitle(title: string) {
+  return { absolute: title } as const;
+}
+
 /** Prefix for image alt text (location + subject). */
 export function altPrefix(subject: string): string {
   return `${subject} at ${HYPERLOCAL.communityName}, ${HYPERLOCAL.primaryArea}`;

@@ -10,7 +10,7 @@ import { oldSiteData } from "@/lib/old-site-data";
 import { getAmenities, getCommunityInfo } from "@/lib/communityData";
 import RealScoutListings from "@/../components/RealScoutListings";
 import { SITE_ORIGIN } from "@/lib/site";
-import { altPrefix, metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
+import { altPrefix, absolutePageTitle } from "@/lib/hyperlocal";
 import {
   Activity,
   Users,
@@ -23,20 +23,22 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
+const PAGE_TITLE =
+  "Del Webb North Ranch Amenities | Resort Pool, Pickleball, 10,000 Sq Ft Clubhouse";
+const PAGE_DESCRIPTION =
+  "Del Webb North Ranch amenities include a resort-style pool and spa, heated lap pool, fitness center, pickleball and bocce courts, firepit, and scenic walking trails in North Las Vegas.";
+
 export const metadata: Metadata = {
-  title: `Resort-Style Amenities | ${TITLE_SUFFIX}`,
-  description: metaDescriptionBlock(
-    "Discover resort-style amenities: pool, fitness center, pickleball courts, clubhouse, walking trails"
-  ),
+  title: absolutePageTitle(PAGE_TITLE),
+  description: PAGE_DESCRIPTION,
   alternates: {
     canonical: `${SITE_ORIGIN}/amenities`,
   },
   openGraph: {
-    title: `Resort-Style Amenities | ${TITLE_SUFFIX}`,
-    description:
-      "Resort-style amenities including pool, fitness center, pickleball courts, and clubhouse in Del Webb North Ranch 55+ community.",
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
     url: `${SITE_ORIGIN}/amenities`,
-    siteName: TITLE_SUFFIX,
+    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     locale: "en_US",
     type: "website",
     images: [
@@ -50,8 +52,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `Resort-Style Amenities | ${TITLE_SUFFIX}`,
-    description: "Resort-style amenities in North Las Vegas's premier 55+ community.",
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
     images: [`${SITE_ORIGIN}/images/amenities/resort-pool.jpeg`],
   },
 };

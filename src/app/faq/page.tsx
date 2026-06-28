@@ -7,24 +7,25 @@ import FAQAccordion from '@/../components/FAQAccordion';
 import { getAllQuestions } from '@/lib/faqData';
 import { getHyperlocalFaq } from '@/lib/hyperlocalData';
 import { SITE_ORIGIN, SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from '@/lib/site';
-import { altPrefix, metaDescriptionBlock, TITLE_SUFFIX } from '@/lib/hyperlocal';
+import { altPrefix, absolutePageTitle } from '@/lib/hyperlocal';
 import Link from 'next/link';
 import RealScoutListings from '@/../components/RealScoutListings';
 
+const PAGE_TITLE = 'Del Webb North Ranch FAQ | 55+ Community Questions Answered';
+const PAGE_DESCRIPTION =
+  'Answers to the most common questions about Del Webb North Ranch in North Las Vegas — HOA fees, floor plans, age restrictions, Nevada taxes, and how to buy with Dr. Jan Duffy.';
+
 export const metadata: Metadata = {
-  title: `Frequently Asked Questions | ${TITLE_SUFFIX}`,
-  description: metaDescriptionBlock(
-    'Find answers about Del Webb North Ranch 55+ community: HOA fees, amenities, age requirements, and more'
-  ),
+  title: absolutePageTitle(PAGE_TITLE),
+  description: PAGE_DESCRIPTION,
   alternates: {
     canonical: `${SITE_ORIGIN}/faq`,
   },
   openGraph: {
-    title: `Frequently Asked Questions | ${TITLE_SUFFIX}`,
-    description:
-      'Find answers to frequently asked questions about Del Webb North Ranch, a 55+ active adult community in North Las Vegas.',
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
     url: `${SITE_ORIGIN}/faq`,
-    siteName: TITLE_SUFFIX,
+    siteName: 'Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
     locale: 'en_US',
     type: 'website',
     images: [
@@ -38,8 +39,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `Frequently Asked Questions | ${TITLE_SUFFIX}`,
-    description: 'Find answers about Del Webb North Ranch 55+ community in North Las Vegas.',
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
     images: [`${SITE_ORIGIN}/images/amenities/resort-pool.jpeg`],
   },
 };

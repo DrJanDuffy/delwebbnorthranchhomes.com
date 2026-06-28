@@ -20,11 +20,18 @@ const exploreCards = [
     image: '/images/amenities/clubhouse.jpeg',
   },
   {
-    title: 'Community & Area',
-    description: 'North Las Vegas area, nearby neighborhoods, and 55+ living',
-    href: '/community',
+    title: 'North Las Vegas Guide',
+    description: 'Area guide for 55+ buyers—healthcare, shopping, taxes, recreation',
+    href: '/north-las-vegas-area-guide',
     icon: MapPin,
     image: '/images/lifestyle/community-life.jpeg',
+  },
+  {
+    title: 'Market Report',
+    description: 'Monthly Del Webb North Ranch prices, DOM, and active listings',
+    href: '/del-webb-north-ranch-market-report',
+    icon: TrendingUp,
+    image: '/images/amenities/clubhouse.jpeg',
   },
   {
     title: 'Homes for Sale',

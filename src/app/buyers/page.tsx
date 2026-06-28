@@ -6,10 +6,15 @@ import Link from "next/link";
 import { Button } from "@/../components/ui/button";
 import { Phone, Home, FileText, Calendar, Search, CheckCircle } from "lucide-react";
 import { SITE_ORIGIN, SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from "@/lib/site";
-import { altPrefix, metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
+import { altPrefix, absolutePageTitle } from "@/lib/hyperlocal";
 import { buyerCtaCopy, buyerFaq, buyerValueProps } from "@/lib/hyperlocalBuyer";
 import { getCommunityInfo } from "@/lib/communityData";
 import RealScoutListings from "@/../components/RealScoutListings";
+
+const PAGE_TITLE =
+  "Buying a Home at Del Webb North Ranch | 55+ Active Adult Guide | North Las Vegas";
+const PAGE_DESCRIPTION =
+  "Everything you need to know before buying at Del Webb North Ranch. HOA $215/month, Nevada no state income tax, 9 floor plans, gated community. Work with independent REALTOR® Dr. Jan Duffy.";
 
 const buyerFaqSchema = {
   "@context": "https://schema.org",
@@ -22,16 +27,14 @@ const buyerFaqSchema = {
 };
 
 export const metadata: Metadata = {
-  title: `For Buyers | ${TITLE_SUFFIX}`,
-  description: metaDescriptionBlock(
-    "Find your 55+ home in Del Webb North Ranch. Single-story homes, resort amenities, and a local expert for North Las Vegas buyers"
-  ),
+  title: absolutePageTitle(PAGE_TITLE),
+  description: PAGE_DESCRIPTION,
   alternates: { canonical: `${SITE_ORIGIN}/buyers` },
   openGraph: {
-    title: `For Buyers | ${TITLE_SUFFIX}`,
-    description: buyerCtaCopy.metaHighlight,
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
     url: `${SITE_ORIGIN}/buyers`,
-    siteName: TITLE_SUFFIX,
+    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     locale: "en_US",
     type: "website",
     images: [
@@ -40,8 +43,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `For Buyers | ${TITLE_SUFFIX}`,
-    description: buyerCtaCopy.metaHighlight,
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
   },
 };
 

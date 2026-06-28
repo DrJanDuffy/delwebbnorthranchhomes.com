@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
-import { CANONICAL_HOMEPAGE, SITE_ORIGIN, GOOGLE_MAPS_DIRECTIONS_URL, SITE_PHONE_SCHEMA, GBP_AGGREGATE_RATING, GBP_BUSINESS_NAME, GBP_DESCRIPTION, GBP_SHORT_DESCRIPTION, GBP_FOUNDING_DATE, GBP_SERVICE_AREA, GBP_SOCIAL_PROFILES, SITE_EMAIL, gbpPostalAddressSchema, gbpOpeningHoursSpecification } from "@/lib/site";
+import { CANONICAL_HOMEPAGE, SITE_ORIGIN, GBP_BUSINESS_NAME, GBP_SHORT_DESCRIPTION } from "@/lib/site";
+import { getLocalBusinessSchema, getResidenceSchema, stringifySchema } from "@/lib/schema";
 import "./globals.css";
 import CalendlyButton from "@/../components/CalendlyButton";
 import CalendlyScript from "@/../components/CalendlyScript";
@@ -108,120 +109,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-
-  // LocalBusiness Schema – matches Google Business Profile (NAP, hours, description, attributes)
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "RealEstateAgent",
-    "@id": `${SITE_ORIGIN}/#localbusiness`,
-    name: GBP_BUSINESS_NAME,
-    alternateName: "Dr. Jan Duffy Real Estate",
-    description: GBP_DESCRIPTION,
-    image: `${SITE_ORIGIN}/images/about/dr-jan-duffy.jpg`,
-    url: SITE_ORIGIN,
-    telephone: SITE_PHONE_SCHEMA,
-    email: SITE_EMAIL,
-    address: gbpPostalAddressSchema(),
-    areaServed: {
-      "@type": "Place",
-      name: GBP_SERVICE_AREA,
-      address: gbpPostalAddressSchema(),
-    },
-    openingHoursSpecification: gbpOpeningHoursSpecification(),
-    foundingDate: GBP_FOUNDING_DATE,
-    womanOwned: true,
-    veteranOwned: true,
-    additionalProperty: {
-      "@type": "PropertyValue",
-      name: "Service options",
-      value: "Onsite services available",
-    },
-    priceRange: "$$",
-    paymentAccepted: "Cash, Check, Credit Card, Financing",
-    currenciesAccepted: "USD",
-    sameAs: [...GBP_SOCIAL_PROFILES],
-    hasMap: GOOGLE_MAPS_DIRECTIONS_URL.replace("/dir//", "/search/?api=1&query=").replace(/\+/g, "+"),
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: GBP_AGGREGATE_RATING.ratingValue,
-      reviewCount: GBP_AGGREGATE_RATING.reviewCount,
-    },
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Real Estate Services",
-      itemListElement: [
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Free Community Tours & Personalized Home Showings",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Market Analysis & Pricing Guidance",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Alerts on New Listings & Inventory Updates",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Expert Negotiation & Closing Support",
-          },
-        },
-      ],
-    },
-    additionalType: [
-      "https://schema.org/RealEstateAgent",
-      "https://schema.org/RealEstateAgency",
-      "https://schema.org/RealEstateConsultant",
-    ],
-    knowsAbout: [
-      "Del Webb North Ranch",
-      "55+ Active Adult Communities",
-      "North Las Vegas Real Estate",
-      "Senior Living",
-      "Retirement Homes",
-    ],
-    memberOf: {
-      "@type": "Organization",
-      name: "Berkshire Hathaway HomeServices Nevada Properties",
-    },
-    hasCredential: {
-      "@type": "EducationalOccupationalCredential",
-      credentialCategory: "Real Estate License",
-      credentialNumber: "S.0197614.LLC",
-      recognizedBy: {
-        "@type": "Organization",
-        name: "Nevada Real Estate Division",
-      },
-    },
-  };
-
-  // Place Schema for Local SEO (Community Location)
-  const placeSchema = {
-    "@context": "https://schema.org",
-    "@type": "Place",
-    name: "Del Webb North Ranch",
-    description: "55+ Active Adult Gated Community in North Las Vegas",
-    address: gbpPostalAddressSchema(),
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: "36.2856",
-      longitude: "-115.0939",
-    },
-    url: SITE_ORIGIN,
-    image: `${SITE_ORIGIN}/images/hero/hero-bg.jpg`,
-  };
+  const localBusinessSchema = getLocalBusinessSchema();
+  const residenceSchema = getResidenceSchema();
 
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
@@ -241,18 +130,18 @@ export default function RootLayout({
         <CalendlyScript />
         {/* Structured Data - Consolidated Schema Markup */}
         <SchemaMarkup />
-        {/* Structured Data - LocalBusiness (Google Business Profile) */}
+        {/* Structured Data - LocalBusiness + RealEstateAgent */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(localBusinessSchema).replace(/</g, "\\u003c"),
+            __html: stringifySchema(localBusinessSchema),
           }}
         />
-        {/* Structured Data - Place (Local SEO) */}
+        {/* Structured Data - Residence (Community) */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(placeSchema).replace(/</g, "\\u003c"),
+            __html: stringifySchema(residenceSchema),
           }}
         />
       </head>

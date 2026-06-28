@@ -143,6 +143,35 @@ export const faqData = [
         question: "Will I need homeowner's insurance?",
         answer: "If you have a mortgage, homeowner's insurance is required. Even if paying cash, homeowner's insurance is highly recommended.",
       },
+      {
+        question: "Can I tour Del Webb North Ranch before buying?",
+        answer: "Yes. Dr. Jan Duffy offers private community tours and home showings seven days a week. You can schedule a tour online or call (702) 500-1064 to walk the clubhouse, amenities, and available resale or model homes before making a purchase decision.",
+      },
+      {
+        question: "What is the difference between new and resale homes at Del Webb North Ranch?",
+        answer: "New homes are built by Del Webb (Pulte) on remaining homesites with builder warranties and customization options. Resale homes are previously owned properties listed on the MLS, often with mature landscaping and owner upgrades. Resale inventory typically offers faster move-in timelines; new construction allows floor plan and homesite selection.",
+      },
+    ],
+  },
+  {
+    category: "Community Comparison",
+    questions: [
+      {
+        question: "Is Del Webb North Ranch fully built out?",
+        answer: "Yes. Del Webb North Ranch is fully built with 394 single-story homes across Cottage, Classic, and Retreat collections. The 10,000 sq ft clubhouse opened in October 2021, and all community amenities are operational.",
+      },
+      {
+        question: "How does Del Webb North Ranch compare to Sun City Aliante?",
+        answer: "Del Webb North Ranch is a newer, fully-built Del Webb community with homes from $400K–$600K and a $215/month HOA. Sun City Aliante is a larger, established Pulte community with more resale inventory and a golf course. Del Webb North Ranch offers newer construction and a tighter-knit 394-home community; Sun City Aliante offers more established social infrastructure. See our full comparison page for details.",
+      },
+      {
+        question: "What are the closest hospitals and medical centers to Del Webb North Ranch?",
+        answer: "VA Southern Nevada Healthcare System is approximately 2 miles away. Centennial Hills Hospital Medical Center is about 12 miles away. Valley Hospital Medical Center and Kindred Hospital Las Vegas are within 14–17 miles. Multiple urgent care and specialty clinics serve the North Las Vegas and Aliante corridors.",
+      },
+      {
+        question: "What grocery stores and shopping are near Del Webb North Ranch?",
+        answer: "Smith's Food and Drug, Walmart Neighborhood Market, Albertsons, Sprouts Farmers Market, Costco, and Target are all within a short drive in the Aliante and Centennial Hills retail corridors. The Aliante Casino + Hotel area offers dining and entertainment within minutes of the community.",
+      },
     ],
   },
 ];

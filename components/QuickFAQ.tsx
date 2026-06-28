@@ -1,80 +1,57 @@
 'use client';
-// Quick FAQ Component for Homepage - Shows 4 most common questions
+// Homepage FAQ — AEO-optimized questions with FAQPage schema on page.tsx
 
 import { useState } from 'react';
 import Link from 'next/link';
 import { ChevronDown, ChevronUp, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { faqData } from '@/lib/faqData';
-
-// Get the 4 specific most common questions
-const getCommonQuestions = () => {
-  const questions = [
-    // 1. "What are the age requirements?"
-    faqData
-      .find((cat) => cat.category === 'Age Requirements & Residency')
-      ?.questions.find((q) => q.question.toLowerCase().includes('age requirements')),
-    // 2. "What are the monthly HOA fees?"
-    faqData
-      .find((cat) => cat.category === 'HOA & Fees')
-      ?.questions.find((q) => q.question.toLowerCase().includes('hoa fees')),
-    // 3. "Are pets allowed?"
-    faqData
-      .find((cat) => cat.category === 'Pets & Lifestyle')
-      ?.questions.find((q) => q.question.toLowerCase().includes('pets allowed')),
-    // 4. "Is Del Webb North Ranch gated?"
-    faqData
-      .find((cat) => cat.category === 'About the Community')
-      ?.questions.find((q) => q.question.toLowerCase().includes('gated')),
-  ].filter(Boolean) as Array<{ question: string; answer: string }>; // Remove any undefined values
-
-  return questions;
-};
+import { homepageFaq } from '@/lib/homepageFaq';
 
 export default function QuickFAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const commonQuestions = getCommonQuestions();
 
   const toggleQuestion = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <section className="py-12 md:py-16 bg-stone-50">
+    <section className="py-12 md:py-16 bg-stone-50" aria-labelledby="homepage-faq-heading">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-2 font-playfair">
-              Common Questions
+            <h2 id="homepage-faq-heading" className="text-2xl md:text-3xl font-bold text-primary mb-2 font-playfair">
+              Frequently Asked Questions About Del Webb North Ranch
             </h2>
             <p className="text-base md:text-lg text-text-dark">
-              Quick answers about Del Webb North Ranch
+              Direct answers for buyers researching this North Las Vegas 55+ community
             </p>
           </div>
 
           <div className="space-y-4 mb-8">
-            {commonQuestions.map((faq, index) => {
+            {homepageFaq.map((faq, index) => {
               const isOpen = openIndex === index;
               const ariaExpanded = isOpen ? 'true' : 'false';
 
               return (
                 <div
-                  key={index}
+                  key={faq.question}
                   className="bg-white rounded-lg shadow-two overflow-hidden border border-gray-200"
                 >
                   <button
+                    type="button"
                     onClick={() => toggleQuestion(index)}
-                    className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-stone-50 transition-colors"
+                    className="w-full min-h-[44px] px-6 py-4 flex items-center justify-between text-left hover:bg-stone-50 transition-colors"
                     aria-expanded={ariaExpanded}
+                    aria-label={faq.question}
                   >
                     <span className="font-semibold text-text-dark pr-4 flex-1">
                       {faq.question}
                     </span>
                     <div className="flex-shrink-0">
                       {isOpen ? (
-                        <ChevronUp className="w-5 h-5 text-primary" />
+                        <ChevronUp className="w-5 h-5 text-primary" aria-hidden="true" />
                       ) : (
-                        <ChevronDown className="w-5 h-5 text-primary" />
+                        <ChevronDown className="w-5 h-5 text-primary" aria-hidden="true" />
                       )}
                     </div>
                   </button>
@@ -96,10 +73,11 @@ export default function QuickFAQ() {
           <div className="text-center">
             <Link
               href="/faq"
-              className="inline-flex items-center gap-2 px-6 py-3 min-h-[44px] min-w-[44px] bg-amber-700 hover:bg-amber-800 text-white font-semibold rounded-md transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 min-h-[44px] min-w-[44px] bg-primary hover:bg-primary/90 text-white font-semibold rounded-md transition-colors"
+              aria-label="View all Del Webb North Ranch frequently asked questions"
             >
               View All FAQs
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-5 h-5" aria-hidden="true" />
             </Link>
           </div>
         </div>

@@ -33,6 +33,27 @@ const nextConfig = {
         destination: '/floor-plans',
         permanent: true,
       },
+      // SEO audit: legacy URL aliases
+      {
+        source: '/for-buyers',
+        destination: '/buyers',
+        permanent: true,
+      },
+      {
+        source: '/for-sellers',
+        destination: '/sellers',
+        permanent: true,
+      },
+      {
+        source: '/area-guide',
+        destination: '/north-las-vegas-area-guide',
+        permanent: true,
+      },
+      {
+        source: '/market-report',
+        destination: '/del-webb-north-ranch-market-report',
+        permanent: true,
+      },
       // Legacy URLs in GSC (404 → canonical pages)
       {
         source: '/map-api',

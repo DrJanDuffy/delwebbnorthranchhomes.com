@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { CANONICAL_HOMEPAGE, SITE_ORIGIN, SITE_PHONE_DISPLAY } from "@/lib/site";
-import { TITLE_SUFFIX, altPrefix } from "@/lib/hyperlocal";
+import { CANONICAL_HOMEPAGE, SITE_ORIGIN } from "@/lib/site";
+import { absolutePageTitle, altPrefix } from "@/lib/hyperlocal";
+import { getHomepageFaqSchema } from "@/lib/homepageFaq";
+import { stringifySchema } from "@/lib/schema";
 import Navbar from "../../components/navbar";
 import Hero from "../../components/hero";
 import ProblemSection from "../../components/sections/problem-section";
@@ -14,22 +16,26 @@ import FinalCTASection from "../../components/sections/final-cta";
 import Footer from "../../components/footer";
 import RealScoutListings from "../../components/RealScoutListings";
 import ExploreCommunitySection from "../../components/sections/explore-community";
+import QuickFAQ from "../../components/QuickFAQ";
 import Link from "next/link";
 import { Button } from "../../components/ui/button";
 
+const HOMEPAGE_TITLE =
+  "Del Webb North Ranch | 55+ Homes for Sale in North Las Vegas, NV";
+const HOMEPAGE_DESCRIPTION =
+  "Explore Del Webb North Ranch — a gated 55+ active adult community in North Las Vegas with 394 single-story homes from $400K–$600K. Resort pool, pickleball, and no state income tax. Tour with Dr. Jan Duffy, independent REALTOR®.";
+
 const HOMEPAGE_METADATA: Metadata = {
-  title: TITLE_SUFFIX,
-  description:
-    `Del Webb at North Ranch & Del Webb North Las Vegas: 55+ homes for sale in North Las Vegas. Single-story living from $400K-$600K with resort amenities. Contact Dr. Jan Duffy at ${SITE_PHONE_DISPLAY}.`,
+  title: absolutePageTitle(HOMEPAGE_TITLE),
+  description: HOMEPAGE_DESCRIPTION,
   alternates: {
     canonical: CANONICAL_HOMEPAGE,
   },
   openGraph: {
-    title: TITLE_SUFFIX,
-    description:
-      "Del Webb at North Ranch & Del Webb North Las Vegas: 55+ homes for sale. Single-story living from $400K-$600K with resort amenities.",
+    title: HOMEPAGE_TITLE,
+    description: HOMEPAGE_DESCRIPTION,
     url: CANONICAL_HOMEPAGE,
-    siteName: TITLE_SUFFIX,
+    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     images: [
       {
         url: `${SITE_ORIGIN}/images/amenities/resort-pool.jpeg`,
@@ -41,9 +47,8 @@ const HOMEPAGE_METADATA: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: TITLE_SUFFIX,
-    description:
-      "Del Webb at North Ranch & Del Webb North Las Vegas: 55+ homes for sale. Single-story living from $400K-$600K with resort amenities.",
+    title: HOMEPAGE_TITLE,
+    description: HOMEPAGE_DESCRIPTION,
     images: [`${SITE_ORIGIN}/images/amenities/resort-pool.jpeg`],
   },
 };
@@ -69,9 +74,8 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": `${CANONICAL_HOMEPAGE}#webpage`,
-    name: TITLE_SUFFIX,
-    description:
-      "Del Webb at North Ranch & Del Webb North Las Vegas: 55+ homes for sale in North Las Vegas. Single-story living from $400K-$600K with resort amenities.",
+    name: HOMEPAGE_TITLE,
+    description: HOMEPAGE_DESCRIPTION,
     url: CANONICAL_HOMEPAGE,
     primaryImageOfPage: {
       "@type": "ImageObject",
@@ -84,6 +88,8 @@ export default function Home() {
     },
   };
 
+  const faqSchema = getHomepageFaqSchema();
+
   return (
     <>
       <Navbar />
@@ -91,7 +97,13 @@ export default function Home() {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(webPageSchema).replace(/</g, "\\u003c"),
+            __html: stringifySchema(webPageSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: stringifySchema(faqSchema),
           }}
         />
         <Hero />
@@ -135,6 +147,7 @@ export default function Home() {
           </div>
         </section>
         <AboutAgentSection />
+        <QuickFAQ />
         <FinalCTASection />
       </main>
       <Footer />

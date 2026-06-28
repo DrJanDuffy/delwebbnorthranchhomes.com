@@ -18,6 +18,7 @@ import { Bed, Bath, Square, Car, ArrowLeft, Phone, Play } from 'lucide-react';
 import ScheduleTour from '@/../components/ScheduleTour';
 import { SITE_ORIGIN, SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from '@/lib/site';
 import { TITLE_SUFFIX } from '@/lib/hyperlocal';
+import { getHouseSchema, stringifySchema } from '@/lib/schema';
 
 export async function generateStaticParams() {
   return getAllFloorPlanSlugs().map((slug) => ({ slug }));
@@ -157,10 +158,27 @@ function ProductSchema({ plan }: { plan: FloorPlan }) {
   };
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema).replace(/</g, "\\u003c") }}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: stringifySchema(productSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: stringifySchema(
+            getHouseSchema({
+              name: plan.name,
+              description: `${plan.description} ${plan.series} Series home with ${plan.sqft} sq ft.`,
+              sqft: plan.sqftNumber,
+              beds: plan.beds,
+              baths: plan.baths,
+              slug: plan.slug,
+            })
+          ),
+        }}
+      />
+    </>
   );
 }
 
