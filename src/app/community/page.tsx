@@ -10,6 +10,8 @@ import { nearbyAreas, hyperlocalFaq } from "@/lib/hyperlocalData";
 import { HYPERLOCAL } from "@/lib/hyperlocal";
 import { getCommunityInfo } from "@/lib/communityData";
 import RealScoutListings from "@/../components/RealScoutListings";
+import LocationMapSection from "@/../components/sections/location-map";
+import { gbpLocationPageSchema } from "@/lib/site";
 
 const communityFaqSchema = {
   "@context": "https://schema.org",
@@ -47,6 +49,10 @@ export const metadata: Metadata = {
 
 export default function CommunityPage() {
   const communityInfo = getCommunityInfo();
+  const locationSchema = gbpLocationPageSchema(
+    `${SITE_ORIGIN}/community`,
+    "Community & Area | Del Webb North Ranch Location"
+  );
 
   return (
     <>
@@ -55,6 +61,12 @@ export default function CommunityPage() {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(communityFaqSchema).replace(/</g, '\\u003c') }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(locationSchema).replace(/</g, "\\u003c"),
+          }}
         />
         <Breadcrumbs
           items={[
@@ -110,6 +122,12 @@ export default function CommunityPage() {
             </div>
           </div>
         </section>
+
+        <LocationMapSection
+          title="Where Is Del Webb North Ranch? | North Las Vegas Map"
+          description="Del Webb North Ranch is a gated 55+ active adult community at 2290 Beauty Vista Avenue in North Las Vegas, NV 89086—near Aliante, Centennial Hills, Craig Ranch Regional Park, and VA Southern Nevada Hospital."
+          variant="muted"
+        />
 
         {/* Nearby areas */}
         <section className="py-12 md:py-16 bg-white">

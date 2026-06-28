@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
-import { CANONICAL_HOMEPAGE, SITE_ORIGIN, GOOGLE_MAPS_DIRECTIONS_URL, SITE_PHONE_SCHEMA, GBP_AGGREGATE_RATING, GBP_BUSINESS_NAME, GBP_DESCRIPTION, GBP_SHORT_DESCRIPTION, GBP_FOUNDING_DATE, GBP_SERVICE_AREA, GBP_SOCIAL_PROFILES, SITE_EMAIL, gbpPostalAddressSchema, gbpOpeningHoursSpecification } from "@/lib/site";
+import { CANONICAL_HOMEPAGE, SITE_ORIGIN, GOOGLE_MAPS_SEARCH_URL, SITE_PHONE_SCHEMA, GBP_AGGREGATE_RATING, GBP_BUSINESS_NAME, GBP_DESCRIPTION, GBP_SHORT_DESCRIPTION, GBP_FOUNDING_DATE, GBP_SERVICE_AREA, GBP_SOCIAL_PROFILES, SITE_EMAIL, gbpPostalAddressSchema, gbpOpeningHoursSpecification, gbpGeoCoordinatesSchema } from "@/lib/site";
 import "./globals.css";
 import CalendlyButton from "@/../components/CalendlyButton";
 import CalendlyScript from "@/../components/CalendlyScript";
@@ -140,7 +140,7 @@ export default function RootLayout({
     paymentAccepted: "Cash, Check, Credit Card, Financing",
     currenciesAccepted: "USD",
     sameAs: [...GBP_SOCIAL_PROFILES],
-    hasMap: GOOGLE_MAPS_DIRECTIONS_URL.replace("/dir//", "/search/?api=1&query=").replace(/\+/g, "+"),
+    hasMap: GOOGLE_MAPS_SEARCH_URL,
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: GBP_AGGREGATE_RATING.ratingValue,
@@ -214,11 +214,8 @@ export default function RootLayout({
     name: "Del Webb North Ranch",
     description: "55+ Active Adult Gated Community in North Las Vegas",
     address: gbpPostalAddressSchema(),
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: "36.2856",
-      longitude: "-115.0939",
-    },
+    geo: gbpGeoCoordinatesSchema(),
+    hasMap: GOOGLE_MAPS_SEARCH_URL,
     url: SITE_ORIGIN,
     image: `${SITE_ORIGIN}/images/hero/hero-bg.jpg`,
   };
@@ -235,6 +232,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
         <link rel="dns-prefetch" href="https://em.realscout.com" />
         <link rel="dns-prefetch" href="https://static.matterport.com" />
+        <link rel="dns-prefetch" href="https://storage.googleapis.com" />
         <link rel="icon" href="/favicon.ico" />
         {/* Calendly CSS + script loaded once site-wide for inline, popup, and badge widgets */}
         <CalendlyStyles />
