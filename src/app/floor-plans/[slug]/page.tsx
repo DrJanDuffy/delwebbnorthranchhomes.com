@@ -19,6 +19,14 @@ import { Bed, Bath, Square, Car, ArrowLeft, Phone, Play } from 'lucide-react';
 import ScheduleTour from '@/../components/ScheduleTour';
 import { SITE_ORIGIN, SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from '@/lib/site';
 import { TITLE_SUFFIX } from '@/lib/hyperlocal';
+import {
+  buildBreadcrumbSchema,
+  buildFaqPageSchema,
+  buildRealEstateListingSchema,
+  serializeJsonLd,
+} from '@/lib/schema';
+import { getFloorPlanFaq } from '@/lib/seoContent';
+import { FaqSection, AgentInsights } from '@/../components/seo/SeoContentBlocks';
 
 export async function generateStaticParams() {
   return getAllFloorPlanSlugs().map((slug) => ({ slug }));
@@ -216,35 +224,35 @@ function WebPageSchema({ plan }: { plan: FloorPlan }) {
 }
 
 function BreadcrumbSchema({ plan }: { plan: FloorPlan }) {
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: SITE_ORIGIN,
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Floor Plans',
-        item: `${SITE_ORIGIN}/floor-plans`,
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: plan.name,
-        item: `${SITE_ORIGIN}/floor-plans/${plan.slug}`,
-      },
-    ],
-  };
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', url: SITE_ORIGIN },
+    { name: 'Floor Plans', url: `${SITE_ORIGIN}/floor-plans` },
+    { name: plan.name, url: `${SITE_ORIGIN}/floor-plans/${plan.slug}` },
+  ]);
 
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c") }}
+      dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbSchema) }}
+    />
+  );
+}
+
+function RealEstateListingSchema({ plan }: { plan: FloorPlan }) {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: serializeJsonLd(buildRealEstateListingSchema(plan)) }}
+    />
+  );
+}
+
+function FloorPlanFaqSchema({ plan }: { plan: FloorPlan }) {
+  const faqItems = getFloorPlanFaq(plan.name, plan.series, plan.sqft);
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: serializeJsonLd(buildFaqPageSchema(faqItems)) }}
     />
   );
 }
@@ -265,6 +273,7 @@ export default async function FloorPlanPage({
   const virtualTour = getVirtualTourByModel(plan.name);
   const hasVideo = virtualTour?.embedUrl != null;
   const relatedPlans = getRelatedFloorPlans(slug);
+  const floorPlanFaq = getFloorPlanFaq(plan.name, plan.series, plan.sqft);
 
   return (
     <>
@@ -282,6 +291,8 @@ export default async function FloorPlanPage({
       <main className="pt-16 md:pt-20">
         <WebPageSchema plan={plan} />
         <ProductSchema plan={plan} />
+        <RealEstateListingSchema plan={plan} />
+        <FloorPlanFaqSchema plan={plan} />
         <BreadcrumbSchema plan={plan} />
         {/* Hero Section */}
         <section className="bg-primary text-white py-12 md:py-16 lg:py-20">
@@ -474,6 +485,9 @@ export default async function FloorPlanPage({
             </div>
           </section>
         )}
+
+        <AgentInsights />
+        <FaqSection items={floorPlanFaq} heading={`${plan.name} Floor Plan FAQ`} />
 
         {/* CTA Section */}
         <section className="py-12 md:py-16 bg-primary text-white">

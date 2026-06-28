@@ -1,13 +1,19 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Home, Layout, Sparkles, Users, HelpCircle, Phone, TrendingUp, MapPin } from 'lucide-react';
+import { Home, Layout, Sparkles, Users, HelpCircle, Phone, TrendingUp, MapPin, BookOpen } from 'lucide-react';
 import { Button } from '../ui/button';
 
 import { AGENT_HEADSHOT_URL } from '@/lib/site';
 
 const exploreCards = [
   {
-    title: 'For Buyers',
+    title: '55+ Living Guide',
+    description: 'Complete guide to North Las Vegas active adult living',
+    href: '/guide/55-plus-living-north-las-vegas',
+    icon: BookOpen,
+    image: '/images/lifestyle/community-life.jpeg',
+  },
+  {
     description: '55+ home buying in North Las Vegas—listings, floor plans, tours',
     href: '/buyers',
     icon: Home,
