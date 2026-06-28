@@ -286,8 +286,30 @@ export default function LifestylePage() {
           </div>
         </section>
 
+        {/* Arts & Culture Outings */}
+        <section className="py-12 md:py-16 bg-white" aria-labelledby="arts-outings-heading">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <Camera className="w-12 h-12 text-primary mx-auto mb-4" aria-hidden="true" />
+              <h2 id="arts-outings-heading" className="text-2xl md:text-3xl font-bold text-primary mb-4 font-playfair">
+                Arts & Culture Beyond the Community
+              </h2>
+              <p className="text-lg text-text-dark mb-6">
+                North Ranch clubhouse life is home base—but the Las Vegas Valley includes gallery walks,
+                First Friday, and walkable dining in the Arts District and Midtown north of Charleston Boulevard.
+              </p>
+              <Link
+                href="/community/las-vegas-arts-district-midtown"
+                className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors"
+              >
+                Arts District & Midtown Guide
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* Social Connections */}
-        <section className="py-12 md:py-16 bg-white">
+        <section className="py-12 md:py-16 bg-bg-light">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8">

@@ -269,6 +269,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/community/las-vegas-arts-district-midtown" className="text-gray-300 hover:text-white transition-colors">
+                  Arts District & Midtown
+                </Link>
+              </li>
+              <li>
                 <Link href="/compare/del-webb-north-ranch-vs-sun-city-aliante" className="text-gray-300 hover:text-white transition-colors">
                   Community Comparison
                 </Link>

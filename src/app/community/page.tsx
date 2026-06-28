@@ -201,6 +201,28 @@ export default function CommunityPage() {
           </div>
         </section>
 
+        {/* Arts District & Midtown outings */}
+        <section className="py-12 md:py-16 bg-bg-light">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 font-playfair">
+                Arts & Culture: Las Vegas Arts District & Midtown
+              </h2>
+              <p className="text-text-dark mb-6">
+                Life at Del Webb North Ranch includes more than the clubhouse. Midtown Las Vegas—north of Charleston in
+                the Arts District—offers gallery walks, First Friday events, and independent dining a short drive from
+                North Las Vegas 89086.
+              </p>
+              <Link
+                href="/community/las-vegas-arts-district-midtown"
+                className="inline-flex items-center justify-center min-h-[48px] px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors"
+              >
+                Arts District & Midtown Guide
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* Compare 55+ communities */}
         <section className="py-12 md:py-16 bg-white">
           <div className="container mx-auto px-4">

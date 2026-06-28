@@ -70,6 +70,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
+    {
+      url: `${SITE_ORIGIN}/community/las-vegas-arts-district-midtown`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.75,
+    },
+    {
+      url: `${SITE_ORIGIN}/compare/del-webb-north-ranch-vs-sun-city-aliante`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
   ];
 
   return [

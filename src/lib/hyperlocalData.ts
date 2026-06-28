@@ -38,6 +38,12 @@ export const nearbyAreas: NearbyArea[] = [
     description: "Craig Ranch Regional Park (170 acres) nearby.",
     relatedPath: "/amenities",
   },
+  {
+    name: "Las Vegas Arts District & Midtown",
+    slug: "las-vegas-arts-district-midtown",
+    description: "Downtown Arts District north of Charleston—First Friday, galleries, and Midtown dining outings from North Las Vegas.",
+    relatedPath: "/community/las-vegas-arts-district-midtown",
+  },
 ];
 
 /** Local search phrases (suggested for headings and FAQ). */
@@ -49,6 +55,8 @@ export const localSearchPhrases = [
   "gated 55+ community North Las Vegas",
   "resort-style 55+ community Nevada",
   "North Las Vegas 55+ real estate",
+  "Las Vegas Arts District from North Las Vegas",
+  "First Friday Las Vegas active adults",
 ];
 
 /** Hyperlocal FAQ-style Q&A for schema or "Local questions" sections. */
@@ -67,6 +75,11 @@ export const hyperlocalFaq = [
     question: "Why choose North Las Vegas for 55+ living?",
     answer:
       "North Las Vegas offers no state income tax, strong healthcare (VA hospital nearby), outdoor recreation (Craig Ranch Park, Lake Mead), and a 55+ community like Del Webb North Ranch with resort-style amenities and single-story living.",
+  },
+  {
+    question: "How far is the Las Vegas Arts District from Del Webb North Ranch?",
+    answer:
+      "Midtown and the Las Vegas Arts District (north of Charleston Boulevard) are downtown Las Vegas cultural destinations—typically a roughly 15–20 minute drive from Del Webb North Ranch in North Las Vegas 89086. Many active adults visit for First Friday art walks and independent dining.",
   },
 ];
 

@@ -6,6 +6,7 @@ export const SEO_HUB_LINKS = [
   { href: '/guide/55-plus-living-north-las-vegas', label: '55+ Living Guide' },
   { href: '/markets/north-las-vegas/55-plus-cost-of-living', label: 'Cost of Living' },
   { href: '/markets/north-las-vegas/market-report-june-2026', label: 'Market Report' },
+  { href: '/community/las-vegas-arts-district-midtown', label: 'Arts District & Midtown' },
   { href: '/compare/del-webb-north-ranch-vs-sun-city-aliante', label: 'Community Comparison' },
   { href: '/community', label: 'Community & Area' },
   { href: '/floor-plans', label: 'Floor Plans' },
@@ -83,6 +84,7 @@ export const guideSections = [
     links: [
       { href: '/amenities', label: 'All amenities' },
       { href: '/amenities/resort-pool', label: 'Resort pool' },
+      { href: '/community/las-vegas-arts-district-midtown', label: 'Arts District outings' },
       { href: '/lifestyle', label: 'Lifestyle' },
     ],
   },

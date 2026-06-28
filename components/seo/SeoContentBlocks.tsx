@@ -107,6 +107,7 @@ export function SeoHubLinks({ heading = 'Explore Del Webb North Ranch' }: SeoHub
     { href: '/floor-plans', label: 'Floor Plans' },
     { href: '/markets/north-las-vegas/market-report-june-2026', label: 'June 2026 Market Report' },
     { href: '/markets/north-las-vegas/55-plus-cost-of-living', label: 'Cost of Living' },
+    { href: '/community/las-vegas-arts-district-midtown', label: 'Arts District & Midtown' },
     { href: '/compare/del-webb-north-ranch-vs-sun-city-aliante', label: 'Compare Communities' },
     { href: '/schedule', label: 'Schedule a Tour' },
   ];
