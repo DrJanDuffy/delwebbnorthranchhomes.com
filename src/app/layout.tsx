@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
-import { CANONICAL_HOMEPAGE, SITE_ORIGIN, GOOGLE_MAPS_DIRECTIONS_URL, SITE_PHONE_SCHEMA, GBP_AGGREGATE_RATING } from "@/lib/site";
+import { CANONICAL_HOMEPAGE, SITE_ORIGIN } from "@/lib/site";
+import { getLocalBusinessSchema, getResidenceSchema, stringifySchema } from "@/lib/schema";
 import "./globals.css";
 import CalendlyButton from "@/../components/CalendlyButton";
 import CalendlyStyles from "@/../components/CalendlyStyles";
@@ -108,154 +109,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-
-  // LocalBusiness Schema – matches Google Business Profile (NAP, hours, description, attributes)
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "RealEstateAgent",
-    "@id": `${SITE_ORIGIN}/#localbusiness`,
-    name: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
-    alternateName: "Dr. Jan Duffy Real Estate",
-    description: "Helping buyers 55+ find their dream retirement home in Las Vegas' premier active adult community! Why Choose Del Webb North Ranch? Resort-style pools and luxurious spa facilities, state-of-the-art fitness center, pickleball courts with organized leagues, 20+ social clubs and activities to stay connected, stunning mountain views and convenient access to shopping, dining, and healthcare. Services: Free community tours and personalized home showings, market analysis and pricing guidance, alerts on new listings and inventory updates, expert negotiation and closing support. Available 7 days a week for consultations and property viewings. Contact us to find your perfect home in Del Webb North Ranch.",
-    image: `${SITE_ORIGIN}/images/about/dr-jan-duffy.jpg`,
-    url: SITE_ORIGIN,
-    telephone: SITE_PHONE_SCHEMA,
-    email: "sales@delwebbnorthranchhomes.com",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "2290 Beauty Vista Avenue",
-      addressLocality: "North Las Vegas",
-      addressRegion: "NV",
-      postalCode: "89086",
-      addressCountry: "US",
-    },
-    areaServed: {
-      "@type": "Place",
-      name: "North Las Vegas, NV, USA",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "2290 Beauty Vista Avenue",
-        addressLocality: "North Las Vegas",
-        addressRegion: "NV",
-        postalCode: "89086",
-        addressCountry: "US",
-      },
-    },
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        opens: "06:00",
-        closes: "21:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        validFrom: "2026-02-16",
-        validThrough: "2026-02-16",
-        opens: "10:00",
-        closes: "18:00",
-      },
-    ],
-    foundingDate: "2009-09-20",
-    womanOwned: true,
-    veteranOwned: true,
-    priceRange: "$$",
-    paymentAccepted: "Cash, Check, Credit Card, Financing",
-    currenciesAccepted: "USD",
-    sameAs: [
-      "https://www.facebook.com/DellWebbNorthRanch",
-      "https://www.linkedin.com/company/del-webb-north-ranch-homes",
-      "https://www.instagram.com/delwebbnorthranchhomes/",
-    ],
-    hasMap: GOOGLE_MAPS_DIRECTIONS_URL.replace("/dir//", "/search/?api=1&query=").replace(/\+/g, "+"),
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: GBP_AGGREGATE_RATING.ratingValue,
-      reviewCount: GBP_AGGREGATE_RATING.reviewCount,
-    },
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Real Estate Services",
-      itemListElement: [
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Free Community Tours & Personalized Home Showings",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Market Analysis & Pricing Guidance",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Alerts on New Listings & Inventory Updates",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Expert Negotiation & Closing Support",
-          },
-        },
-      ],
-    },
-    additionalType: [
-      "https://schema.org/RealEstateAgent",
-      "https://schema.org/RealEstateAgency",
-      "https://schema.org/RealEstateConsultant",
-    ],
-    knowsAbout: [
-      "Del Webb North Ranch",
-      "55+ Active Adult Communities",
-      "North Las Vegas Real Estate",
-      "Senior Living",
-      "Retirement Homes",
-    ],
-    memberOf: {
-      "@type": "Organization",
-      name: "Berkshire Hathaway HomeServices Nevada Properties",
-    },
-    hasCredential: {
-      "@type": "EducationalOccupationalCredential",
-      credentialCategory: "Real Estate License",
-      credentialNumber: "S.0197614.LLC",
-      recognizedBy: {
-        "@type": "Organization",
-        name: "Nevada Real Estate Division",
-      },
-    },
-  };
-
-  // Place Schema for Local SEO (Community Location)
-  const placeSchema = {
-    "@context": "https://schema.org",
-    "@type": "Place",
-    name: "Del Webb North Ranch",
-    description: "55+ Active Adult Gated Community in North Las Vegas",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "2290 Beauty Vista Avenue",
-      addressLocality: "North Las Vegas",
-      addressRegion: "NV",
-      postalCode: "89086",
-      addressCountry: "US",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: "36.2856",
-      longitude: "-115.0939",
-    },
-    url: SITE_ORIGIN,
-    image: `${SITE_ORIGIN}/images/hero/hero-bg.jpg`,
-  };
+  const localBusinessSchema = getLocalBusinessSchema();
+  const residenceSchema = getResidenceSchema();
 
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
@@ -274,18 +129,18 @@ export default function RootLayout({
         <CalendlyStyles />
         {/* Structured Data - Consolidated Schema Markup */}
         <SchemaMarkup />
-        {/* Structured Data - LocalBusiness (Google Business Profile) */}
+        {/* Structured Data - LocalBusiness + RealEstateAgent */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(localBusinessSchema).replace(/</g, "\\u003c"),
+            __html: stringifySchema(localBusinessSchema),
           }}
         />
-        {/* Structured Data - Place (Local SEO) */}
+        {/* Structured Data - Residence (Community) */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(placeSchema).replace(/</g, "\\u003c"),
+            __html: stringifySchema(residenceSchema),
           }}
         />
       </head>

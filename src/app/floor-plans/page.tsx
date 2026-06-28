@@ -14,22 +14,24 @@ import MortgageCalculator from "@/../components/MortgageCalculator";
 import ScheduleTour from "@/../components/ScheduleTour";
 import RealScoutListings from "@/../components/RealScoutListings";
 import { SITE_ORIGIN } from "@/lib/site";
-import { altPrefix, metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
+import { altPrefix, absolutePageTitle } from "@/lib/hyperlocal";
+
+const PAGE_TITLE =
+  "Del Webb North Ranch Floor Plans | 9 Single-Story Designs from 1,285–2,015 Sq Ft";
+const PAGE_DESCRIPTION =
+  "Browse all 9 Del Webb North Ranch floor plans — Cottage (1,285–1,509 sq ft), Classic (1,451–1,770 sq ft), and Retreat (1,716–2,015 sq ft) series. 2–3 bed, 2-car garage, single-story.";
 
 export const metadata: Metadata = {
-  title: `Floor Plans 1,285-2,015 Sq Ft | ${TITLE_SUFFIX}`,
-  description: metaDescriptionBlock(
-    "Explore all 9 floor plans at Del Webb North Ranch: Cottage, Classic, and Retreat series from 1,285 to 2,015 sq ft. View Matterport virtual tours"
-  ),
+  title: absolutePageTitle(PAGE_TITLE),
+  description: PAGE_DESCRIPTION,
   alternates: {
     canonical: `${SITE_ORIGIN}/floor-plans`,
   },
   openGraph: {
-    title: `Floor Plans 1,285-2,015 Sq Ft | ${TITLE_SUFFIX}`,
-    description:
-      "Explore 9 single-story floor plans from 1,285 to 2,015 sq ft in Del Webb North Ranch, a premier 55+ community.",
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
     url: `${SITE_ORIGIN}/floor-plans`,
-    siteName: TITLE_SUFFIX,
+    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     locale: "en_US",
     type: "website",
     images: [
@@ -43,8 +45,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `Floor Plans 1,285-2,015 Sq Ft | ${TITLE_SUFFIX}`,
-    description: "Explore 9 single-story floor plans in North Las Vegas's premier 55+ community.",
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
     images: [`${SITE_ORIGIN}/images/floor-plans/haven.avif`],
   },
 };

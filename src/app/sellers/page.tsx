@@ -6,9 +6,14 @@ import Link from "next/link";
 import { Button } from "@/../components/ui/button";
 import { Phone, TrendingUp, FileText, Calendar, Home, CheckCircle } from "lucide-react";
 import { SITE_ORIGIN, SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from "@/lib/site";
-import { altPrefix, metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
+import { altPrefix, absolutePageTitle } from "@/lib/hyperlocal";
 import { sellerCtaCopy, sellerFaq, sellerValueProps } from "@/lib/hyperlocalSeller";
 import RealScoutListings from "@/../components/RealScoutListings";
+
+const PAGE_TITLE =
+  "Sell Your Del Webb North Ranch Home | Get a Free Home Value Estimate";
+const PAGE_DESCRIPTION =
+  "Thinking about selling your Del Webb North Ranch home? Dr. Jan Duffy specializes exclusively in this community and knows which homes move fastest and at what price. Get your free valuation.";
 
 const sellerFaqSchema = {
   "@context": "https://schema.org",
@@ -21,16 +26,14 @@ const sellerFaqSchema = {
 };
 
 export const metadata: Metadata = {
-  title: `For Sellers | ${TITLE_SUFFIX}`,
-  description: metaDescriptionBlock(
-    "Sell your Del Webb North Ranch or North Las Vegas home. Free home value estimate and expert 55+ resale guidance"
-  ),
+  title: absolutePageTitle(PAGE_TITLE),
+  description: PAGE_DESCRIPTION,
   alternates: { canonical: `${SITE_ORIGIN}/sellers` },
   openGraph: {
-    title: `For Sellers | ${TITLE_SUFFIX}`,
-    description: sellerCtaCopy.metaHighlight,
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
     url: `${SITE_ORIGIN}/sellers`,
-    siteName: TITLE_SUFFIX,
+    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
     locale: "en_US",
     type: "website",
     images: [
@@ -39,8 +42,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `For Sellers | ${TITLE_SUFFIX}`,
-    description: sellerCtaCopy.metaHighlight,
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
   },
 };
 

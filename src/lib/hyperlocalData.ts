@@ -68,6 +68,16 @@ export const hyperlocalFaq = [
     answer:
       "North Las Vegas offers no state income tax, strong healthcare (VA hospital nearby), outdoor recreation (Craig Ranch Park, Lake Mead), and a 55+ community like Del Webb North Ranch with resort-style amenities and single-story living.",
   },
+  {
+    question: "Is North Las Vegas good for retirees?",
+    answer:
+      "Yes. North Las Vegas is well-suited for retirees seeking affordable single-story homes, no Nevada state income tax, 300+ days of sunshine, and access to healthcare, shopping, and recreation. Del Webb North Ranch is the premier 55+ active adult community in the area.",
+  },
+  {
+    question: "Does Nevada have a state income tax?",
+    answer:
+      "No. Nevada has no state income tax, which is a significant financial advantage for retirees relocating to Del Webb North Ranch from higher-tax states like California.",
+  },
 ];
 
 export function getNearbyAreas(): NearbyArea[] {

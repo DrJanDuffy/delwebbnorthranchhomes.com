@@ -35,7 +35,7 @@ export default function SchemaMarkup() {
     },
     employee: {
       '@type': 'Person',
-      '@id': `${baseUrl}/#person`,
+      '@id': `${baseUrl}/#agent`,
     },
   };
 
@@ -64,43 +64,43 @@ export default function SchemaMarkup() {
     },
   };
 
-  // Person Schema (E-E-A-T: clear author/entity for Experience, Expertise, Authority, Trust — Jan 2026)
+  // Person Schema (E-E-A-T: Schema Block B)
   const personSchema = {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    '@id': `${baseUrl}/#person`,
+    '@id': `${baseUrl}/#agent`,
     name: 'Dr. Jan Duffy',
-    jobTitle: 'REALTOR®',
-    description: 'REALTOR® specializing in Del Webb North Ranch and North Las Vegas 55+ active adult communities. Licensed with Berkshire Hathaway HomeServices Nevada Properties (S.0197614.LLC).',
-    image: `${baseUrl}/images/about/dr-jan-duffy.jpg`,
-    url: `${baseUrl}/about`,
-    telephone: SITE_PHONE_SCHEMA,
-    email: 'sales@delwebbnorthranchhomes.com',
+    honorificPrefix: 'Dr.',
+    jobTitle: 'REALTOR® | Del Webb North Ranch Specialist',
     worksFor: {
       '@type': 'Organization',
       name: 'Berkshire Hathaway HomeServices Nevada Properties',
+      url: 'https://heyberkshirehomes.com',
     },
-    hasCredential: {
-      '@type': 'EducationalOccupationalCredential',
-      credentialCategory: 'Real Estate License',
-      credentialNumber: 'S.0197614.LLC',
-      recognizedBy: {
-        '@type': 'Organization',
-        name: 'Nevada Real Estate Division',
+    hasCredential: [
+      {
+        '@type': 'EducationalOccupationalCredential',
+        credentialCategory: 'Nevada Real Estate License',
+        recognizedBy: {
+          '@type': 'Organization',
+          name: 'Nevada Real Estate Division',
+        },
+        identifier: 'S.0197614.LLC',
       },
-    },
+    ],
+    telephone: SITE_PHONE_SCHEMA,
+    url: baseUrl,
+    image: `${baseUrl}/images/about/dr-jan-duffy.jpg`,
     sameAs: [
       'https://www.youtube.com/@DrDuffy',
-      'https://www.instagram.com/delwebbnorthranchhomes/',
       'https://www.linkedin.com/company/del-webb-north-ranch-homes',
-      'https://www.facebook.com/DellWebbNorthRanch',
     ],
     knowsAbout: [
       'Del Webb North Ranch',
-      '55+ active adult communities',
-      'North Las Vegas real estate',
-      'Senior living and retirement homes',
-      'Single-story homes',
+      '55+ Active Adult Communities',
+      'North Las Vegas Real Estate',
+      'Single-Story Homes',
+      'Nevada Real Estate',
     ],
   };
 

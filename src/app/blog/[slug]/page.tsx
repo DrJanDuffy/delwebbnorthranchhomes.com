@@ -169,9 +169,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const post = blogPosts[params.slug];
+  const { slug } = await params;
+  const post = blogPosts[slug];
 
   if (!post) {
     return {
@@ -181,7 +182,7 @@ export async function generateMetadata({
 
   const { SITE_ORIGIN } = await import("@/lib/site");
   const { TITLE_SUFFIX } = await import("@/lib/hyperlocal");
-  const url = `${SITE_ORIGIN}/blog/${params.slug}`;
+  const url = `${SITE_ORIGIN}/blog/${slug}`;
 
   return {
     title: `${post.title} | ${TITLE_SUFFIX}`,
@@ -216,19 +217,20 @@ export async function generateMetadata({
   };
 }
 
-export default function BlogPostPage({
+export default async function BlogPostPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const post = blogPosts[params.slug];
+  const { slug } = await params;
+  const post = blogPosts[slug];
 
   if (!post) {
     notFound();
   }
 
   const postKeys = Object.keys(blogPosts);
-  const currentIndex = postKeys.indexOf(params.slug);
+  const currentIndex = postKeys.indexOf(slug);
   const prevPost = currentIndex > 0 ? blogPosts[postKeys[currentIndex - 1]] : null;
   const nextPost =
     currentIndex < postKeys.length - 1
@@ -242,7 +244,7 @@ export default function BlogPostPage({
         items={[
           { label: "Del Webb North Ranch", href: "/" },
           { label: "Blog", href: "/blog" },
-          { label: post.title, href: `/blog/${params.slug}` },
+          { label: post.title, href: `/blog/${slug}` },
         ]}
       />
       <main className="pt-16 md:pt-20">
@@ -273,7 +275,7 @@ export default function BlogPostPage({
               },
               mainEntityOfPage: {
                 "@type": "WebPage",
-                "@id": `${SITE_ORIGIN}/blog/${params.slug}`,
+                "@id": `${SITE_ORIGIN}/blog/${slug}`,
               },
             }).replace(/</g, "\\u003c"),
           }}
