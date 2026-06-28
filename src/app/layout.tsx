@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import { CANONICAL_HOMEPAGE, SITE_ORIGIN, GOOGLE_MAPS_DIRECTIONS_URL, SITE_PHONE_SCHEMA, GBP_AGGREGATE_RATING, GBP_BUSINESS_NAME, GBP_DESCRIPTION, GBP_SHORT_DESCRIPTION, GBP_FOUNDING_DATE, GBP_SERVICE_AREA, GBP_SOCIAL_PROFILES, SITE_EMAIL, gbpPostalAddressSchema, gbpOpeningHoursSpecification } from "@/lib/site";
 import "./globals.css";
 import CalendlyButton from "@/../components/CalendlyButton";
+import CalendlyScript from "@/../components/CalendlyScript";
 import CalendlyStyles from "@/../components/CalendlyStyles";
 import SchemaMarkup from "@/../components/SchemaMarkup";
 
@@ -235,8 +236,9 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://em.realscout.com" />
         <link rel="dns-prefetch" href="https://static.matterport.com" />
         <link rel="icon" href="/favicon.ico" />
-        {/* Calendly CSS: load non-blocking so it doesn't delay FCP/LCP */}
+        {/* Calendly CSS + script loaded once site-wide for inline, popup, and badge widgets */}
         <CalendlyStyles />
+        <CalendlyScript />
         {/* Structured Data - Consolidated Schema Markup */}
         <SchemaMarkup />
         {/* Structured Data - LocalBusiness (Google Business Profile) */}

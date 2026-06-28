@@ -222,7 +222,7 @@ export const oldSiteData = {
 
   // External links and integrations
   integrations: {
-    calendly: "https://calendly.com/drjanduffy/appointment",
+    calendly: "https://calendly.com/drjanduffy/in-person-real-estate-consultation",
     realscout: "https://drjanduffy.realscout.com/onboarding",
     youtube: "https://www.youtube.com/@DrDuffy", // Channel handle (user-friendly)
     youtubeChannelId: "UCIMieP7FSUSwN0vw8FVNprA", // Channel ID for API/embedding

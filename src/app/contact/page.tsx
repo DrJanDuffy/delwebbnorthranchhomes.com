@@ -103,10 +103,7 @@ export default function ContactPage() {
                       Book a 15-minute consultation with Dr. Jan Duffy to discuss your home search and tour Del Webb North Ranch.
                     </p>
                     <div className="bg-white rounded-lg shadow-lg p-4 md:p-6 w-full">
-                      <CalendlyInline 
-                        url="https://calendly.com/drjanduffy/15min"
-                        height="900px"
-                      />
+                      <CalendlyInline />
                     </div>
                   </div>
                 </ScrollAnimation>
