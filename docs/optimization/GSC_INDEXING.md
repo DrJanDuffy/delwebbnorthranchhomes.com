@@ -36,3 +36,18 @@ Quick reference for GSC “Page indexing” issues and how this site handles the
   - `/units/:path*` → `/floor-plans`
 
 **GSC:** No change needed. “Validation failed” here usually means Google is just confirming redirects; the destination URLs are the ones that should be indexed.
+
+---
+
+## Blocked by robots.txt (`/_next/static/chunks/*.js`)
+
+**Issue:** URLs like `https://www.delwebbnorthranchhomes.com/_next/static/chunks/5c72bcd8bd083037.js?dpl=...` appear under **Page indexing → Blocked by robots.txt**.
+
+**Intent:** Correct. Next.js build chunks are application assets, not pages. They should not be indexed.
+
+**Implementation:**
+
+- **robots.txt:** `src/app/robots.ts` → `Disallow: /_next/` (also `/api/`, `/static/`, `/message/`) for all crawlers, including AI bots.
+- **X-Robots-Tag:** `next.config.js` → `headers()` adds `X-Robots-Tag: noindex, nofollow` on `/_next/static/*` as a second signal if a crawler fetches a chunk URL directly.
+
+**GSC:** This is not an indexing problem. Click **Validate fix** if prompted; Google may continue reporting the URL as blocked, which is expected. Focus indexing efforts on HTML pages in the sitemap (homepage, floor plans, homes-for-sale, etc.).
