@@ -33,6 +33,22 @@ const nextConfig = {
         destination: '/floor-plans',
         permanent: true,
       },
+      // Legacy URLs in GSC (404 → canonical pages)
+      {
+        source: '/map-api',
+        destination: '/community',
+        permanent: true,
+      },
+      {
+        source: '/mls',
+        destination: '/homes-for-sale',
+        permanent: true,
+      },
+      {
+        source: '/&',
+        destination: '/',
+        permanent: true,
+      },
     ];
   },
   async headers() {
