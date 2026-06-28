@@ -1,69 +1,36 @@
 import type { MetadataRoute } from 'next';
-import { headers } from 'next/headers';
+import { SITE_ORIGIN } from '@/lib/site';
 
-export default async function robots(): Promise<MetadataRoute.Robots> {
-  const headersList = await headers();
-  const host = headersList.get('x-forwarded-host') || headersList.get('host') || 'localhost';
-  const baseUrl = `https://${host.split(':')[0]}`;
+/** Paths crawlers should not index (Next.js internals, APIs, legacy routes). */
+const DISALLOW_PATHS = ['/api/', '/static/', '/_next/', '/message/'] as const;
 
+function crawlerRule(userAgent: string): MetadataRoute.Robots['rules'][number] {
+  return {
+    userAgent,
+    allow: '/',
+    disallow: [...DISALLOW_PATHS],
+  };
+}
+
+export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
-      // Default: allow all crawlers
-      {
-        userAgent: '*',
-        allow: '/',
-      },
+      crawlerRule('*'),
       // ── AI Retrieval Bots (power AI search results) ──
-      {
-        userAgent: 'GPTBot',
-        allow: '/',
-      },
-      {
-        userAgent: 'ChatGPT-User',
-        allow: '/',
-      },
-      {
-        userAgent: 'OAI-SearchBot',
-        allow: '/',
-      },
-      {
-        userAgent: 'ClaudeBot',
-        allow: '/',
-      },
-      {
-        userAgent: 'Claude-Web',
-        allow: '/',
-      },
-      {
-        userAgent: 'PerplexityBot',
-        allow: '/',
-      },
-      {
-        userAgent: 'Applebot-Extended',
-        allow: '/',
-      },
-      {
-        userAgent: 'Bytespider',
-        allow: '/',
-      },
+      crawlerRule('GPTBot'),
+      crawlerRule('ChatGPT-User'),
+      crawlerRule('OAI-SearchBot'),
+      crawlerRule('ClaudeBot'),
+      crawlerRule('Claude-Web'),
+      crawlerRule('PerplexityBot'),
+      crawlerRule('Applebot-Extended'),
+      crawlerRule('Bytespider'),
       // ── AI Training Bots (maximizes visibility in AI models) ──
-      {
-        userAgent: 'Google-Extended',
-        allow: '/',
-      },
-      {
-        userAgent: 'CCBot',
-        allow: '/',
-      },
-      {
-        userAgent: 'cohere-ai',
-        allow: '/',
-      },
-      {
-        userAgent: 'Meta-ExternalAgent',
-        allow: '/',
-      },
+      crawlerRule('Google-Extended'),
+      crawlerRule('CCBot'),
+      crawlerRule('cohere-ai'),
+      crawlerRule('Meta-ExternalAgent'),
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
+    sitemap: `${SITE_ORIGIN}/sitemap.xml`,
   };
 }
