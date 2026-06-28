@@ -185,11 +185,6 @@ export default function FloorPlansPage() {
           availability: 'https://schema.org/InStock',
           offerCount,
         },
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          ratingValue: '5',
-          reviewCount: '50',
-        },
         additionalProperty: [
           {
             '@type': 'PropertyValue',

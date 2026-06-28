@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
-import { CANONICAL_HOMEPAGE, SITE_ORIGIN, GOOGLE_MAPS_DIRECTIONS_URL, SITE_PHONE_SCHEMA, GBP_AGGREGATE_RATING, GBP_BUSINESS_NAME, GBP_DESCRIPTION, GBP_SHORT_DESCRIPTION, GBP_FOUNDING_DATE, GBP_SERVICE_AREA, GBP_SOCIAL_PROFILES, SITE_EMAIL, gbpPostalAddressSchema, gbpOpeningHoursSpecification } from "@/lib/site";
+import { CANONICAL_HOMEPAGE, SITE_ORIGIN, GOOGLE_MAPS_DIRECTIONS_URL, SITE_PHONE_SCHEMA, GBP_AGGREGATE_RATING, GBP_BUSINESS_NAME, GBP_DESCRIPTION, GBP_SHORT_DESCRIPTION, GBP_FOUNDING_DATE, GBP_SERVICE_AREA, GBP_SOCIAL_PROFILES, SITE_EMAIL, AGENT_HEADSHOT_URL, gbpPostalAddressSchema, gbpOpeningHoursSpecification } from "@/lib/site";
 import "./globals.css";
 import CalendlyButton from "@/../components/CalendlyButton";
 import CalendlyScript from "@/../components/CalendlyScript";
@@ -117,7 +117,7 @@ export default function RootLayout({
     name: GBP_BUSINESS_NAME,
     alternateName: "Dr. Jan Duffy Real Estate",
     description: GBP_DESCRIPTION,
-    image: `${SITE_ORIGIN}/images/about/dr-jan-duffy.jpg`,
+    image: AGENT_HEADSHOT_URL,
     url: SITE_ORIGIN,
     telephone: SITE_PHONE_SCHEMA,
     email: SITE_EMAIL,
@@ -235,7 +235,6 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
         <link rel="dns-prefetch" href="https://em.realscout.com" />
         <link rel="dns-prefetch" href="https://static.matterport.com" />
-        <link rel="icon" href="/favicon.ico" />
         {/* Calendly CSS + script loaded once site-wide for inline, popup, and badge widgets */}
         <CalendlyStyles />
         <CalendlyScript />

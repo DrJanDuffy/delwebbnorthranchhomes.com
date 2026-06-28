@@ -18,6 +18,7 @@ import {
   SITE_PHONE_TEL,
   SITE_PHONE_DISPLAY,
   SITE_PHONE_SMS,
+  AGENT_HEADSHOT_URL,
   GBP_BUSINESS_NAME,
   GBP_ADDRESS,
   GBP_HOURS_DISPLAY,
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${SITE_ORIGIN}/images/about/dr-jan-duffy.jpg`,
+        url: AGENT_HEADSHOT_URL,
         width: 1200,
         height: 630,
         alt: "Dr. Jan Duffy, REALTOR®",
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `Contact & Schedule a Tour | ${TITLE_SUFFIX}`,
     description: "Schedule a tour of Del Webb North Ranch 55+ community in North Las Vegas.",
-    images: [`${SITE_ORIGIN}/images/about/dr-jan-duffy.jpg`],
+    images: [AGENT_HEADSHOT_URL],
   },
 };
 
@@ -113,7 +114,7 @@ export default function ContactPage() {
                     {/* Image */}
                     <div className="relative aspect-square rounded-lg overflow-hidden shadow-three bg-bg-light mb-6">
                       <Image
-                        src="/images/about/dr-jan-duffy.jpg"
+                        src={AGENT_HEADSHOT_URL}
                         alt="Dr. Jan Duffy, REALTOR® specializing in Del Webb North Ranch"
                         fill
                         className="object-cover"

@@ -10,6 +10,7 @@ import { nearbyAreas, hyperlocalFaq } from "@/lib/hyperlocalData";
 import { HYPERLOCAL } from "@/lib/hyperlocal";
 import { getCommunityInfo } from "@/lib/communityData";
 import RealScoutListings from "@/../components/RealScoutListings";
+import { buildPlaceSchema, serializeJsonLd } from "@/lib/schema";
 
 const communityFaqSchema = {
   "@context": "https://schema.org",
@@ -55,6 +56,10 @@ export default function CommunityPage() {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(communityFaqSchema).replace(/</g, '\\u003c') }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(buildPlaceSchema()) }}
         />
         <Breadcrumbs
           items={[

@@ -10,6 +10,7 @@ import ScrollAnimation from '@/../components/scroll-animation';
 import {
   getFloorPlanBySlug,
   getAllFloorPlanSlugs,
+  getRelatedFloorPlans,
   type FloorPlan,
 } from '@/lib/floor-plans';
 import { getHomesitesByCollection } from '@/lib/communityData';
@@ -18,6 +19,14 @@ import { Bed, Bath, Square, Car, ArrowLeft, Phone, Play } from 'lucide-react';
 import ScheduleTour from '@/../components/ScheduleTour';
 import { SITE_ORIGIN, SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from '@/lib/site';
 import { TITLE_SUFFIX } from '@/lib/hyperlocal';
+import {
+  buildBreadcrumbSchema,
+  buildFaqPageSchema,
+  buildRealEstateListingSchema,
+  serializeJsonLd,
+} from '@/lib/schema';
+import { getFloorPlanFaq } from '@/lib/seoContent';
+import { FaqSection, AgentInsights } from '@/../components/seo/SeoContentBlocks';
 
 export async function generateStaticParams() {
   return getAllFloorPlanSlugs().map((slug) => ({ slug }));
@@ -121,11 +130,6 @@ function ProductSchema({ plan }: { plan: FloorPlan }) {
       availability: 'https://schema.org/InStock',
       offerCount,
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5',
-      reviewCount: '50',
-    },
     additionalProperty: [
       {
         '@type': 'PropertyValue',
@@ -196,36 +200,59 @@ function VideoObjectSchema({
   );
 }
 
-function BreadcrumbSchema({ plan }: { plan: FloorPlan }) {
-  const breadcrumbSchema = {
+function WebPageSchema({ plan }: { plan: FloorPlan }) {
+  const url = `${SITE_ORIGIN}/floor-plans/${plan.slug}`;
+  const webPageSchema = {
     '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: SITE_ORIGIN,
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Floor Plans',
-        item: `${SITE_ORIGIN}/floor-plans`,
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: plan.name,
-        item: `${SITE_ORIGIN}/floor-plans/${plan.slug}`,
-      },
-    ],
+    '@type': 'WebPage',
+    '@id': `${url}#webpage`,
+    name: `${plan.name} Floor Plan | ${plan.series} Series | ${TITLE_SUFFIX}`,
+    description: `${plan.name} floor plan: ${plan.sqft} sq ft, ${plan.beds} bed, ${plan.baths} bath ${plan.series} Series home in Del Webb North Ranch, a 55+ community in North Las Vegas.`,
+    url,
+    primaryImageOfPage: plan.imageUrl
+      ? { '@type': 'ImageObject', url: `${SITE_ORIGIN}${plan.imageUrl}` }
+      : { '@type': 'ImageObject', url: `${SITE_ORIGIN}/images/hero/hero-bg.jpg` },
+    isPartOf: { '@type': 'WebSite', '@id': `${SITE_ORIGIN}/#website`, url: SITE_ORIGIN },
   };
 
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c") }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema).replace(/</g, '\\u003c') }}
+    />
+  );
+}
+
+function BreadcrumbSchema({ plan }: { plan: FloorPlan }) {
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', url: SITE_ORIGIN },
+    { name: 'Floor Plans', url: `${SITE_ORIGIN}/floor-plans` },
+    { name: plan.name, url: `${SITE_ORIGIN}/floor-plans/${plan.slug}` },
+  ]);
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbSchema) }}
+    />
+  );
+}
+
+function RealEstateListingSchema({ plan }: { plan: FloorPlan }) {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: serializeJsonLd(buildRealEstateListingSchema(plan)) }}
+    />
+  );
+}
+
+function FloorPlanFaqSchema({ plan }: { plan: FloorPlan }) {
+  const faqItems = getFloorPlanFaq(plan.name, plan.series, plan.sqft);
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: serializeJsonLd(buildFaqPageSchema(faqItems)) }}
     />
   );
 }
@@ -245,6 +272,8 @@ export default async function FloorPlanPage({
   // Get virtual tour if available
   const virtualTour = getVirtualTourByModel(plan.name);
   const hasVideo = virtualTour?.embedUrl != null;
+  const relatedPlans = getRelatedFloorPlans(slug);
+  const floorPlanFaq = getFloorPlanFaq(plan.name, plan.series, plan.sqft);
 
   return (
     <>
@@ -260,7 +289,10 @@ export default async function FloorPlanPage({
         ]}
       />
       <main className="pt-16 md:pt-20">
+        <WebPageSchema plan={plan} />
         <ProductSchema plan={plan} />
+        <RealEstateListingSchema plan={plan} />
+        <FloorPlanFaqSchema plan={plan} />
         <BreadcrumbSchema plan={plan} />
         {/* Hero Section */}
         <section className="bg-primary text-white py-12 md:py-16 lg:py-20">
@@ -419,6 +451,43 @@ export default async function FloorPlanPage({
             </div>
           </div>
         </section>
+
+        {relatedPlans.length > 0 && (
+          <section className="py-12 md:py-16 bg-bg-light" aria-labelledby="related-floor-plans-heading">
+            <div className="container mx-auto px-4">
+              <div className="max-w-4xl mx-auto">
+                <h2
+                  id="related-floor-plans-heading"
+                  className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center font-playfair"
+                >
+                  More {plan.series} Series Floor Plans
+                </h2>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {relatedPlans.map((relatedPlan) => (
+                    <li key={relatedPlan.slug}>
+                      <Link
+                        href={`/floor-plans/${relatedPlan.slug}`}
+                        className="block rounded-lg border border-stone-200 bg-white p-5 shadow-two hover:shadow-three transition-shadow"
+                      >
+                        <p className="text-lg font-bold text-primary font-playfair">{relatedPlan.name}</p>
+                        <p className="text-primary font-semibold mt-1">{relatedPlan.sqft} sq ft</p>
+                        <p className="text-text-dark mt-2 text-sm">{relatedPlan.description}</p>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-center mt-6">
+                  <Link href="/floor-plans" className="text-primary hover:text-accent font-medium">
+                    Compare all 9 Del Webb North Ranch floor plans →
+                  </Link>
+                </p>
+              </div>
+            </div>
+          </section>
+        )}
+
+        <AgentInsights />
+        <FaqSection items={floorPlanFaq} heading={`${plan.name} Floor Plan FAQ`} />
 
         {/* CTA Section */}
         <section className="py-12 md:py-16 bg-primary text-white">

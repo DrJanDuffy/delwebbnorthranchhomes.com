@@ -145,6 +145,14 @@ const amenities = [
 const blurDataURL =
   "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==";
 
+const amenityDetailSlugs: Record<string, string> = {
+  'Resort-Style Pool': 'resort-pool',
+  'Fitness Center': 'fitness-center',
+  'Pickleball Courts': 'pickleball-courts',
+  'Clubhouse': 'clubhouse',
+  'Dog Park': 'dog-park',
+};
+
 function AmenityCard({
   amenity,
   index,
@@ -152,29 +160,45 @@ function AmenityCard({
   amenity: (typeof amenities)[0]["items"][0];
   index: number;
 }) {
+  const detailSlug = amenityDetailSlugs[amenity.name];
+  const card = (
+    <div className="bg-white rounded-lg shadow-two hover:shadow-three transition-shadow overflow-hidden h-full">
+      <div className="relative h-48 bg-bg-light">
+        <Image
+          src={amenity.image}
+          alt={altPrefix(amenity.name)}
+          fill
+          className="object-cover"
+          placeholder="blur"
+          blurDataURL={blurDataURL}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
+      </div>
+      <div className="p-6">
+        <h3 className="text-xl font-bold text-primary mb-2 font-playfair">
+          {amenity.name}
+        </h3>
+        <p className="text-text-dark leading-relaxed">
+          {amenity.description}
+        </p>
+        {detailSlug && (
+          <p className="mt-3 text-sm font-medium text-primary">
+            Learn more →
+          </p>
+        )}
+      </div>
+    </div>
+  );
+
   return (
     <ScrollAnimation delay={index * 50}>
-      <div className="bg-white rounded-lg shadow-two hover:shadow-three transition-shadow overflow-hidden">
-        <div className="relative h-48 bg-bg-light">
-          <Image
-            src={amenity.image}
-            alt={altPrefix(amenity.name)}
-            fill
-            className="object-cover"
-            placeholder="blur"
-            blurDataURL={blurDataURL}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-        </div>
-        <div className="p-6">
-          <h3 className="text-xl font-bold text-primary mb-2 font-playfair">
-            {amenity.name}
-          </h3>
-          <p className="text-text-dark leading-relaxed">
-            {amenity.description}
-          </p>
-        </div>
-      </div>
+      {detailSlug ? (
+        <Link href={`/amenities/${detailSlug}`} className="block h-full">
+          {card}
+        </Link>
+      ) : (
+        card
+      )}
     </ScrollAnimation>
   );
 }
