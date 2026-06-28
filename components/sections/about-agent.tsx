@@ -3,6 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import ScrollAnimation from "../scroll-animation";
 
+import { AGENT_HEADSHOT_URL } from "@/lib/site";
+
 const blurDataURL =
   "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==";
 
@@ -16,7 +18,7 @@ export default function AboutAgentSection() {
             <ScrollAnimation>
               <div className="relative aspect-square max-w-md mx-auto lg:mx-0">
                 <Image
-                  src="/images/about/dr-jan-duffy.jpg"
+                  src={AGENT_HEADSHOT_URL}
                   alt="Dr. Jan Duffy, REALTOR® specializing in Del Webb North Ranch"
                   fill
                   className="object-cover rounded-lg shadow-three"

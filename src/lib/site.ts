@@ -1,6 +1,28 @@
 /** Site origin (no trailing slash). Use for sitemap, robots, and path-based URLs. */
 export const SITE_ORIGIN = "https://www.delwebbnorthranchhomes.com";
 
+/** Cloudflare Images account (shared DRJ site branding assets). */
+export const CLOUDFLARE_IMAGES_ACCOUNT_HASH = "byE6BTe9lNqo21V57n4aPQ";
+
+/** Dr. Jan Duffy headshot on Cloudflare Images (same asset as drj-template-site). */
+export const AGENT_HEADSHOT_IMAGE_ID = "branding-headshots-dr-jan-duffy-2026";
+
+/** Build a Cloudflare Images delivery URL. */
+export function cloudflareImageUrl(
+  imageId: string,
+  variant: string = "public",
+): string {
+  return `https://imagedelivery.net/${CLOUDFLARE_IMAGES_ACCOUNT_HASH}/${imageId}/${variant}`;
+}
+
+/** Agent headshot — prefer Cloudflare CDN; local path kept as build/runtime fallback. */
+export const AGENT_HEADSHOT_URL = cloudflareImageUrl(AGENT_HEADSHOT_IMAGE_ID);
+
+/** Local fallback when Cloudflare Images is unavailable. */
+export const AGENT_HEADSHOT_FALLBACK_PATH = "/images/about/dr-jan-duffy.jpg";
+
+export const AGENT_HEADSHOT_FALLBACK_URL = `${SITE_ORIGIN}${AGENT_HEADSHOT_FALLBACK_PATH}`;
+
 /** Canonical homepage URL (with trailing slash). Matches GSC preferred URL for ?card= alternates. */
 export const CANONICAL_HOMEPAGE = `${SITE_ORIGIN}/`;
 
