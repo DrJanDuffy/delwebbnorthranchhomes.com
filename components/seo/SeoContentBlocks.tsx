@@ -55,6 +55,47 @@ export function AgentInsights({ insights = AGENT_INSIGHTS_DEFAULT }: AgentInsigh
   );
 }
 
+type ComparisonQuickTableProps = {
+  rows: { factor: string; delWebb: string; sunCity: string }[];
+  competitorName?: string;
+};
+
+export function ComparisonQuickTable({
+  rows,
+  competitorName = 'Sun City Aliante',
+}: ComparisonQuickTableProps) {
+  return (
+    <div className="overflow-x-auto rounded-lg border border-stone-200 shadow-two">
+      <table className="w-full text-left">
+        <thead className="bg-bg-light">
+          <tr>
+            <th scope="col" className="px-4 py-3 font-semibold text-primary">
+              Factor
+            </th>
+            <th scope="col" className="px-4 py-3 font-semibold text-primary">
+              Del Webb North Ranch
+            </th>
+            <th scope="col" className="px-4 py-3 font-semibold text-primary">
+              {competitorName}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr key={row.factor} className="border-t border-stone-200">
+              <th scope="row" className="px-4 py-3 text-text-dark font-medium">
+                {row.factor}
+              </th>
+              <td className="px-4 py-3 text-text-dark">{row.delWebb}</td>
+              <td className="px-4 py-3 text-text-dark">{row.sunCity}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 type SeoHubLinksProps = {
   heading?: string;
 };

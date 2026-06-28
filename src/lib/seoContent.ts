@@ -144,8 +144,34 @@ export const sunCityAlianteComparison = {
   slug: 'del-webb-north-ranch-vs-sun-city-aliante',
   competitorName: 'Sun City Aliante',
   title: 'Del Webb North Ranch vs Sun City Aliante',
+  datePublished: '2026-06-01',
+  dateModified: '2026-06-28',
+  aeoAnswer:
+    'Del Webb North Ranch (built 2020–2024, 394 homes, $400K–$600K) offers newer single-story resale homes in 89086 near Craig Ranch Park and the VA hospital. Sun City Aliante (built 2003–2008, 2,028 homes) is an established Aliante 55+ community with golf, mature landscaping, and a larger social network—often at a lower entry price.',
   intro:
-    'Both are popular 55+ choices in North Las Vegas, but they serve different buyer priorities. Del Webb North Ranch is a newer, gated Del Webb community (built 2020–2024) in 89086. Sun City Aliante is an established Pulte/Del Webb-era community in Aliante with a larger, mature footprint.',
+    'Both are popular 55+ choices in North Las Vegas, but they serve different buyer priorities. Del Webb North Ranch is a newer, gated Del Webb community (built 2020–2024) in zip code 89086. Sun City Aliante is an established Del Webb-era community in the Aliante master plan with 2,028 resale homes and championship golf access.',
+  quickCompare: [
+    { factor: 'Year built', delWebb: '2020–2024', sunCity: '2003–2008' },
+    { factor: 'Total homes', delWebb: '394', sunCity: '2,028' },
+    { factor: 'Typical price range', delWebb: communityInfo.priceRange, sunCity: 'Often $300K–$450K (varies)' },
+    { factor: 'HOA structure', delWebb: '~$215/mo (single association)', sunCity: 'Sun City HOA + Aliante master (dual fees)' },
+    { factor: 'Golf on-site', delWebb: 'No community course', sunCity: 'Surrounds Aliante Golf Club' },
+    { factor: 'Pool style', delWebb: 'Outdoor resort + heated lap pool', sunCity: 'Indoor lap pool & spa' },
+    { factor: 'Healthcare proximity', delWebb: '~2 mi to VA Southern Nevada', sunCity: 'Aliante / Centennial Hills access' },
+    { factor: 'Best for', delWebb: 'Newer construction & North Ranch floor plans', sunCity: 'Golf lifestyle & established clubs' },
+  ],
+  chooseDelWebb: [
+    'You want a home built between 2020 and 2024 with modern Del Webb floor plans',
+    'Proximity to Craig Ranch Regional Park and VA Southern Nevada matters',
+    'You prefer a smaller, gated 394-home community in zip code 89086',
+    'Pickleball, outdoor pools, and a 10,000 sq ft clubhouse fit your daily routine',
+  ],
+  chooseSunCity: [
+    'Golf-course living and Aliante master-plan amenities are top priorities',
+    'You value a large, mature 55+ social network built since 2003',
+    'A lower entry price point on older resale stock fits your budget',
+    'Indoor pool, tennis, and decades of resident clubs match your lifestyle',
+  ],
   rows: [
     {
       label: 'Location',
@@ -183,6 +209,20 @@ export const sunCityAlianteComparison = {
         'Work with a local REALTOR® to compare current MLS availability in both communities before you decide.',
     },
     {
+      label: 'Home size range',
+      delWebb: '1,285–2,015 sq ft (Cottage, Classic, Retreat)',
+      competitor: 'Approx. 1,100–2,100+ sq ft; varied floor plans',
+      verdict:
+        'Del Webb North Ranch offers three defined series with consistent modern layouts. Sun City Aliante has broader variation across nearly two decades of construction.',
+    },
+    {
+      label: 'Security',
+      delWebb: 'Gated; virtual concierge and roving security',
+      competitor: 'Controlled-access Sun City neighborhood within Aliante',
+      verdict:
+        'Both restrict through-traffic. Tour each community to compare entry experience and peace-of-mind features.',
+    },
+    {
       label: 'Best for',
       delWebb: 'Buyers wanting newer Del Webb homes near VA healthcare and Craig Ranch Park',
       competitor: 'Buyers wanting an established Aliante 55+ neighborhood with mature landscaping',
@@ -192,19 +232,34 @@ export const sunCityAlianteComparison = {
   ] satisfies ComparisonRow[],
   faq: [
     {
+      question: 'Is Del Webb North Ranch or Sun City Aliante better?',
+      answer:
+        'Neither community wins for every buyer. Del Webb North Ranch suits buyers wanting newer 2020–2024 construction near Craig Ranch Park and the VA hospital. Sun City Aliante suits buyers prioritizing golf, mature landscaping, and an established 2,000+ home social network in Aliante. Tour both with current MLS listings.',
+    },
+    {
       question: 'Is Del Webb North Ranch newer than Sun City Aliante?',
       answer:
-        'Yes. Del Webb North Ranch homes were built between 2020 and 2024. Sun City Aliante is an established 55+ community in Aliante with older resale inventory. Newer construction vs mature neighborhood character is a common deciding factor for North Las Vegas buyers.',
+        'Yes. Del Webb North Ranch homes were built between 2020 and 2024. Sun City Aliante homes were built between 2003 and 2008. Newer construction vs mature neighborhood character is a common deciding factor for North Las Vegas buyers.',
     },
     {
       question: 'Which community has lower HOA fees?',
       answer:
-        'HOA fees change over time and depend on amenity usage. Del Webb North Ranch HOA is about $215 per month. Sun City Aliante fees vary by sub-association and amenities. Compare current HOA disclosures for any home you are considering—not community averages.',
+        'HOA fees change over time. Del Webb North Ranch HOA is about $215 per month (billed quarterly) through a single association. Sun City Aliante residents typically pay a Sun City HOA plus an Aliante master association fee—compare current disclosures for any home, not community averages.',
     },
     {
-      question: 'Can Dr. Jan Duffy show me both communities?',
+      question: 'Does Sun City Aliante have golf?',
       answer:
-        'Dr. Jan Duffy specializes in Del Webb North Ranch and can help you tour North Ranch resale homes and discuss how Sun City Aliante compares for your budget, floor plan needs, and lifestyle priorities in North Las Vegas.',
+        'Yes. Sun City Aliante surrounds the Aliante Golf Club, a major draw for golf-focused active adults. Del Webb North Ranch does not include a community golf course but offers pickleball, pools, fitness, and Craig Ranch Regional Park nearby.',
+    },
+    {
+      question: 'Which community is closer to healthcare?',
+      answer:
+        'Del Webb North Ranch is about two miles from VA Southern Nevada Healthcare System—a common priority for 55+ buyers. Sun City Aliante offers access through the Aliante and Centennial Hills medical corridor. Compare drive times from specific homes you are considering.',
+    },
+    {
+      question: 'Can Dr. Jan Duffy help me compare both communities?',
+      answer:
+        'Dr. Jan Duffy specializes in Del Webb North Ranch and helps buyers tour North Ranch resale homes while discussing how Sun City Aliante compares for budget, floor plan needs, and lifestyle priorities in North Las Vegas.',
     },
   ] satisfies FaqItem[],
 };

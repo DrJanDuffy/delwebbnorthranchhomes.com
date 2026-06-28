@@ -201,6 +201,28 @@ export default function CommunityPage() {
           </div>
         </section>
 
+        {/* Compare 55+ communities */}
+        <section className="py-12 md:py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 font-playfair">
+                Compare North Las Vegas 55+ Communities
+              </h2>
+              <p className="text-text-dark mb-6">
+                Buyers relocating to North Las Vegas often compare Del Webb North Ranch with established communities
+                such as Sun City Aliante. See a fair side-by-side breakdown of home age, HOA, amenities, and who each
+                community fits best.
+              </p>
+              <Link
+                href="/compare/del-webb-north-ranch-vs-sun-city-aliante"
+                className="inline-flex items-center justify-center min-h-[48px] px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors"
+              >
+                Del Webb North Ranch vs Sun City Aliante
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* Local FAQ */}
         <section className="py-12 md:py-16 bg-bg-light">
           <div className="container mx-auto px-4">

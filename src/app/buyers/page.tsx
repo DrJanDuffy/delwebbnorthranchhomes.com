@@ -126,7 +126,11 @@ export default function BuyersPage() {
                 Resale Homes at Del Webb North Ranch
               </h3>
                 <p className="mb-6">
-                All homes at Del Webb North Ranch are resale—the community was built out by Pulte/Del Webb and there are no builder lots left. That means you&apos;re buying from a homeowner, and the inventory you see is what&apos;s currently on the market. Listings at North Ranch turn over as residents relocate or downsize again, so new homes come on the market regularly. View the office listings above to see current homes for sale at Del Webb North Ranch, or schedule a tour with Dr. Jan Duffy to walk through available floor plans and the community in person. North Ranch real estate remains in demand among 55+ buyers, so when you find a home you like, having a local expert on your side helps you move quickly and confidently.
+                All homes at Del Webb North Ranch are resale—the community was built out by Pulte/Del Webb and there are no builder lots left. That means you&apos;re buying from a homeowner, and the inventory you see is what&apos;s currently on the market. Listings at North Ranch turn over as residents relocate or downsize again, so new homes come on the market regularly. Many buyers also compare Del Webb North Ranch with{' '}
+                <Link href="/compare/del-webb-north-ranch-vs-sun-city-aliante" className="text-primary hover:text-accent font-medium">
+                  Sun City Aliante
+                </Link>
+                —see our side-by-side comparison before you tour. View the office listings above to see current homes for sale at Del Webb North Ranch, or schedule a tour with Dr. Jan Duffy to walk through available floor plans and the community in person. North Ranch real estate remains in demand among 55+ buyers, so when you find a home you like, having a local expert on your side helps you move quickly and confidently.
               </p>
               <h2 className="text-2xl md:text-3xl font-bold text-primary mt-12 mb-6 font-playfair">
                 Next Steps for Buying at Del Webb North Ranch
