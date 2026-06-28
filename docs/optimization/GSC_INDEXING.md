@@ -12,7 +12,7 @@ Quick reference for GSC “Page indexing” issues and how this site handles the
 
 - **Canonical:** All homepage URLs (including `/?card=*`) use canonical: `https://www.delwebbnorthranchhomes.com/` (see `src/lib/site.ts`, `src/app/page.tsx`, `src/app/layout.tsx`).
 - **Noindex for ?card=:** `src/app/page.tsx` → `generateMetadata()` sets `robots: { index: false, follow: true }` when `searchParams.card` is present.
-- **X-Robots-Tag:** `src/middleware.ts` adds `X-Robots-Tag: noindex, follow` for requests to `/` with a `card` query param.
+- **X-Robots-Tag:** `src/proxy.ts` adds `X-Robots-Tag: noindex, follow` for requests to `/` with a `card` query param.
 - **Sitemap:** Homepage entry uses the same canonical URL (with trailing slash).
 
 **GSC:** Use “Validate fix” and allow 1–2+ weeks for re-crawl. No need to “fix” the listed `/?card=*` URLs; they are intended alternates.
@@ -27,7 +27,7 @@ Quick reference for GSC “Page indexing” issues and how this site handles the
 
 **Implementation:**
 
-- **Host/protocol redirects:** `src/middleware.ts` 301 redirects:
+- **Host/protocol redirects:** `src/proxy.ts` 301 redirects:
   - `http://` → `https://`
   - `delwebbnorthranchhomes.com` → `www.delwebbnorthranchhomes.com`
 - **Path redirects:** `next.config.js` → `redirects()`:

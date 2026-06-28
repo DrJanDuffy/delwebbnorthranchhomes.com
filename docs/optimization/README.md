@@ -19,7 +19,7 @@ Central place for SEO, indexing, and performance optimization for **delwebbnorth
 - **Hyperlocal config & helpers:** `src/lib/hyperlocal.ts` (keywords, `altPrefix`, `metaDescriptionBlock`, `TITLE_SUFFIX`)
 - **Hyperlocal data:** `src/lib/hyperlocalData.ts` (nearby areas, local phrases, hyperlocal FAQ)
 - **Community facts:** `src/lib/communityData.ts` (address, HOA, amenities, distances)
-- **Redirects (http → https, non-www → www):** `src/middleware.ts`
+- **Redirects (http → https, non-www → www):** `src/proxy.ts`
 - **Path redirects (e.g. /units/* → /floor-plans):** `next.config.js` → `redirects()`
 - **Homepage metadata & ?card= noindex:** `src/app/page.tsx` → `generateMetadata`
 - **Sitemap & robots:** `src/app/sitemap.ts`, `src/app/robots.ts`
