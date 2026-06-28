@@ -55,6 +55,7 @@ const sitePages = [
     pages: [
       { href: "/guide/55-plus-living-north-las-vegas", label: "55+ Living Guide", description: "Complete buyer guide to North Las Vegas active adult living" },
       { href: "/markets/north-las-vegas/55-plus-cost-of-living", label: "Cost of Living", description: "Home prices, HOA, taxes, and Nevada retirement benefits" },
+      { href: "/markets/north-las-vegas/market-report-june-2026", label: "Market Report (June 2026)", description: "Del Webb North Ranch resale inventory and pricing trends" },
       { href: "/compare/del-webb-north-ranch-vs-sun-city-aliante", label: "Community Comparison", description: "Del Webb North Ranch vs Sun City Aliante side-by-side" },
       { href: "/amenities/resort-pool", label: "Resort Pool", description: "Resort-style pool and lap pool amenities" },
       { href: "/amenities/pickleball-courts", label: "Pickleball Courts", description: "Lighted pickleball courts for active adults" },

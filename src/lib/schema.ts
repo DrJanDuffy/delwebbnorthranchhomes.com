@@ -74,6 +74,8 @@ export function buildArticleSchema(options: {
   description: string;
   url: string;
   image?: string;
+  datePublished?: string;
+  dateModified?: string;
 }) {
   return {
     '@context': 'https://schema.org',
@@ -82,6 +84,8 @@ export function buildArticleSchema(options: {
     description: options.description,
     url: options.url,
     image: options.image,
+    ...(options.datePublished ? { datePublished: options.datePublished } : {}),
+    ...(options.dateModified ? { dateModified: options.dateModified } : {}),
     author: {
       '@type': 'Person',
       name: 'Dr. Jan Duffy',

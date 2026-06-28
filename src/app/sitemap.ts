@@ -65,7 +65,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${SITE_ORIGIN}/compare/del-webb-north-ranch-vs-sun-city-aliante`,
+      url: `${SITE_ORIGIN}/markets/north-las-vegas/market-report-june-2026`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.8,

@@ -259,6 +259,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/markets/north-las-vegas/market-report-june-2026" className="text-gray-300 hover:text-white transition-colors">
+                  Market Report
+                </Link>
+              </li>
+              <li>
                 <Link href="/markets/north-las-vegas/55-plus-cost-of-living" className="text-gray-300 hover:text-white transition-colors">
                   Cost of Living
                 </Link>
