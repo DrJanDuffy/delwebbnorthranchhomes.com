@@ -186,3 +186,9 @@ export function getFloorPlanBySlug(slug: string): FloorPlan | undefined {
 export function getAllFloorPlanSlugs(): string[] {
   return floorPlans.map((plan) => plan.slug);
 }
+
+export function getRelatedFloorPlans(slug: string): FloorPlan[] {
+  const plan = getFloorPlanBySlug(slug);
+  if (!plan) return [];
+  return floorPlans.filter((candidate) => candidate.slug !== slug && candidate.series === plan.series);
+}

@@ -25,19 +25,21 @@ const buyerFaqSchema = {
   })),
 };
 
-export const metadata: Metadata = {
+const HOMES_FOR_SALE_CANONICAL = `${SITE_ORIGIN}/homes-for-sale`;
+
+const HOMES_FOR_SALE_METADATA: Metadata = {
   title: `Homes for Sale | ${TITLE_SUFFIX}`,
   description: metaDescriptionBlock(
     "Del Webb North Ranch homes for sale: browse current 55+ resale homes in North Las Vegas from $400K-$600K"
   ),
   alternates: {
-    canonical: `${SITE_ORIGIN}/homes-for-sale`,
+    canonical: HOMES_FOR_SALE_CANONICAL,
   },
   openGraph: {
     title: `Homes for Sale | ${TITLE_SUFFIX}`,
     description:
       "Del Webb North Ranch homes for sale: 55+ resale homes in North Las Vegas from $400K-$600K. Del Webb at North Ranch, Del Webb North Las Vegas.",
-    url: `${SITE_ORIGIN}/homes-for-sale`,
+    url: HOMES_FOR_SALE_CANONICAL,
     siteName: TITLE_SUFFIX,
     locale: "en_US",
     type: "website",
@@ -57,6 +59,22 @@ export const metadata: Metadata = {
     images: [`${SITE_ORIGIN}/images/amenities/resort-pool.jpeg`],
   },
 };
+
+/** Parameter URLs (?q=) get noindex so GSC treats them as alternates; canonical points to /homes-for-sale. */
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<{ q?: string }>;
+}): Promise<Metadata> {
+  const params = await searchParams;
+  if (params?.q) {
+    return {
+      ...HOMES_FOR_SALE_METADATA,
+      robots: { index: false, follow: true },
+    };
+  }
+  return HOMES_FOR_SALE_METADATA;
+}
 
 export default async function HomesForSalePage() {
   const listings = await getDelWebbListings();

@@ -3,6 +3,7 @@ import { CANONICAL_HOMEPAGE, SITE_ORIGIN } from "@/lib/site";
 import { getVirtualToursWithEmbed } from "@/lib/old-site-data";
 import { getAllFloorPlanSlugs } from "@/lib/floor-plans";
 import { getAllFlyers } from "@/lib/flyers";
+import { getAllAmenitySlugs } from "@/lib/seoContent";
 
 /** Blog slugs – must match keys in src/app/blog/[slug]/page.tsx */
 const BLOG_SLUGS = [
@@ -42,6 +43,46 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
     priority: 0.65,
   }));
+
+  const amenitySubpages = getAllAmenitySlugs().map((slug) => ({
+    url: `${SITE_ORIGIN}/amenities/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  const seoGuidePages = [
+    {
+      url: `${SITE_ORIGIN}/guide/55-plus-living-north-las-vegas`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+    },
+    {
+      url: `${SITE_ORIGIN}/markets/north-las-vegas/55-plus-cost-of-living`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${SITE_ORIGIN}/markets/north-las-vegas/market-report-june-2026`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${SITE_ORIGIN}/community/las-vegas-arts-district-midtown`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.75,
+    },
+    {
+      url: `${SITE_ORIGIN}/compare/del-webb-north-ranch-vs-sun-city-aliante`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+  ];
 
   return [
     // Homepage - Priority 1.0, Daily (trailing slash matches canonical)
@@ -102,6 +143,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.8,
     },
+    ...amenitySubpages,
+    ...seoGuidePages,
     {
       url: `${SITE_ORIGIN}/about`,
       lastModified: new Date(),

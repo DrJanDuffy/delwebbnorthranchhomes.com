@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "generate:favicon": "node scripts/generate-favicon.mjs",
     "optimize:check-cache": "node scripts/optimization/check-cache-headers.js https://www.delwebbnorthranchhomes.com"
   },
   "dependencies": {
@@ -32,8 +33,10 @@
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.0",
     "autoprefixer": "^10.4.17",
+    "png-to-ico": "^3.0.1",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.6.11",
+    "sharp": "^0.35.2",
     "typescript": "^5.3.3"
   },
   "engines": {

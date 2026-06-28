@@ -9,6 +9,7 @@ Central place for SEO, indexing, and performance optimization for **delwebbnorth
 | [GSC indexing](./GSC_INDEXING.md) | Canonical, alternates, redirects, and Google Search Console issues |
 | [Hyperlocal SEO](./hyperlocal-seo.md) | Keywords, alt text, internal links, schema for North Las Vegas 55+ |
 | [Hyperlocal persona](./hyperlocal-persona.md) | 55+ audience brief: tone, CTAs, objections |
+| [SEO/GEO/AEO research (2026)](./del-webb-seo-geo-aeo-pages-2026.json) | Parallel deep-research artifact: page types, schema stack, AEO patterns, case studies (run `trun_5dc72e8f4c8a4584b2508ed747d4db78`) |
 | [Performance](./performance/README.md) | LCP, FCP, third-party deferral, caching, Lighthouse checklist |
 | [../SEO_2025_2026_CHECKLIST.md](../SEO_2025_2026_CHECKLIST.md) | Full SEO checklist (metadata, schema, sitemap, verification) |
 | [../BEST_PRACTICES.md](../BEST_PRACTICES.md) | Next.js, images, components, canonical patterns |
