@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
+import ScheduleTour from "@/../components/ScheduleTour";
 import { SITE_ORIGIN, SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from "@/lib/site";
 import { TITLE_SUFFIX } from "@/lib/hyperlocal";
 
@@ -124,15 +125,10 @@ export default function PrivacyPage() {
                     If you have questions about this Privacy Policy, please
                     contact us:
                   </p>
-                  <p>
-                    <strong>Email:</strong>{" "}
-                    <a
-                      href="mailto:sales@delwebbnorthranchhomes.com"
-                      className="text-primary hover:underline"
-                    >
-                      sales@delwebbnorthranchhomes.com
-                    </a>
-                    <br />
+                  <div className="mt-4 flex flex-col sm:flex-row gap-4 items-start">
+                    <ScheduleTour variant="outline" size="default" />
+                  </div>
+                  <p className="mt-4">
                     <strong>Phone:</strong>{" "}
                     <a
                       href={SITE_PHONE_TEL}

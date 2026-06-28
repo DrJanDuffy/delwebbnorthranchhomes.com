@@ -1,7 +1,7 @@
 'use client';
 
 import { Calendar } from 'lucide-react';
-import { CALENDLY_URL } from '@/lib/calendly';
+import { CALENDLY_URL, openCalendlyPopup } from '@/lib/calendly';
 
 type CalendlyLinkProps = {
   url?: string;
@@ -18,13 +18,7 @@ export default function CalendlyLink({
 }: CalendlyLinkProps) {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-
-    if (typeof window !== 'undefined' && window.Calendly) {
-      window.Calendly.initPopupWidget({ url });
-      return;
-    }
-
-    window.open(url, '_blank', 'noopener,noreferrer');
+    openCalendlyPopup(url);
   };
 
   return (

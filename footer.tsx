@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, MapPin } from "lucide-react";
+import CalendlyNapLink from "@/../components/CalendlyNapLink";
 import { SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from "@/lib/site";
 
 export default function Footer() {
@@ -90,13 +91,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a
-                  href="mailto:sales@delwebbnorthranchhomes.com"
-                  className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
-                >
-                  <Mail className="w-4 h-4" />
-                  sales@delwebbnorthranchhomes.com
-                </a>
+                <CalendlyNapLink className="text-gray-300 hover:text-white" />
               </li>
               <li>
                 <div className="flex items-start gap-2 text-gray-300">

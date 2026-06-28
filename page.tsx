@@ -5,7 +5,8 @@ import Footer from "@/../components/footer";
 import { Button } from "@/../components/ui/button";
 import Link from "next/link";
 import ScrollAnimation from "@/../components/scroll-animation";
-import { Phone, Mail, MapPin, Award, Users, Home } from "lucide-react";
+import { Phone, MapPin, Award, Users, Home, Calendar } from "lucide-react";
+import ScheduleTour from "@/../components/ScheduleTour";
 import { SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -194,14 +195,9 @@ export default function AboutPage() {
                   </a>
                 </div>
                 <div className="bg-white p-6 rounded-lg shadow-two text-center">
-                  <Mail className="w-8 h-8 text-primary mx-auto mb-4" />
-                  <h3 className="font-semibold text-primary mb-2">Email</h3>
-                  <a
-                    href="mailto:sales@delwebbnorthranchhomes.com"
-                    className="text-text-dark hover:text-primary transition-colors break-all"
-                  >
-                    sales@delwebbnorthranchhomes.com
-                  </a>
+                  <Calendar className="w-8 h-8 text-primary mx-auto mb-4" aria-hidden />
+                  <h3 className="font-semibold text-primary mb-2">Schedule</h3>
+                  <ScheduleTour variant="outline" size="default" className="w-full" />
                 </div>
                 <div className="bg-white p-6 rounded-lg shadow-two text-center">
                   <MapPin className="w-8 h-8 text-primary mx-auto mb-4" />

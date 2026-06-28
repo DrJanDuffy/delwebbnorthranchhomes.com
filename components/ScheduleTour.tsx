@@ -2,7 +2,7 @@
 
 import { Calendar } from 'lucide-react';
 import CalendlyInline from './CalendlyInline';
-import { CALENDLY_URL } from '@/lib/calendly';
+import { CALENDLY_URL, openCalendlyPopup } from '@/lib/calendly';
 import { Button } from './ui/button';
 
 type ScheduleTourProps = {
@@ -10,6 +10,7 @@ type ScheduleTourProps = {
   variant?: 'default' | 'accent' | 'outline';
   size?: 'sm' | 'default' | 'lg';
   className?: string;
+  text?: string;
 };
 
 export default function ScheduleTour({
@@ -17,6 +18,7 @@ export default function ScheduleTour({
   variant = 'accent',
   size = 'lg',
   className = '',
+  text = 'Schedule time with me',
 }: ScheduleTourProps) {
   if (inline) {
     return (
@@ -26,25 +28,16 @@ export default function ScheduleTour({
     );
   }
 
-  const handleScheduleClick = () => {
-    if (window.Calendly) {
-      window.Calendly.initPopupWidget({ url: CALENDLY_URL });
-      return;
-    }
-
-    window.open(CALENDLY_URL, '_blank', 'noopener,noreferrer');
-  };
-
   return (
     <Button
       type="button"
-      onClick={handleScheduleClick}
+      onClick={() => openCalendlyPopup(CALENDLY_URL)}
       variant={variant}
       size={size}
       className={`${className} flex items-center gap-2`}
     >
       <Calendar className="w-5 h-5" aria-hidden />
-      Schedule time with me
+      {text}
     </Button>
   );
 }

@@ -6,7 +6,7 @@ import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
 import Breadcrumbs from "@/../components/Breadcrumbs";
 import ScrollAnimation from "@/../components/scroll-animation";
-import { Phone, Mail, MapPin, Calendar, Youtube, FileText, ExternalLink, Star, MapPinned, MessageSquare, Clock } from "lucide-react";
+import { Phone, MapPin, Calendar, Youtube, FileText, ExternalLink, Star, MapPinned, MessageSquare, Clock } from "lucide-react";
 import { oldSiteData } from "@/lib/fetchOldSiteData";
 import ScheduleTour from "@/../components/ScheduleTour";
 import CalendlyInline from "@/../components/CalendlyInline";
@@ -21,7 +21,6 @@ import {
   GBP_BUSINESS_NAME,
   GBP_ADDRESS,
   GBP_HOURS_DISPLAY,
-  SITE_EMAIL,
 } from "@/lib/site";
 import { metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
 
@@ -171,23 +170,18 @@ export default function ContactPage() {
                         </div>
                       </div>
 
-                      {/* Email */}
+                      {/* Schedule consultation */}
                       <div className="flex items-start gap-4">
                         <div className="flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full flex-shrink-0">
-                          <Mail className="w-6 h-6 text-primary" />
+                          <Calendar className="w-6 h-6 text-primary" aria-hidden />
                         </div>
                         <div>
                           <h3 className="font-semibold text-primary mb-1">
-                            Email
+                            Schedule a Consultation
                           </h3>
-                          <a
-                            href={`mailto:${SITE_EMAIL}`}
-                            className="text-text-dark hover:text-primary transition-colors break-all"
-                          >
-                            {SITE_EMAIL}
-                          </a>
-                          <p className="text-sm text-gray-500 mt-1">
-                            Typically responds within 24 hours
+                          <ScheduleTour variant="outline" size="default" />
+                          <p className="text-sm text-gray-500 mt-2">
+                            Book an in-person real estate consultation online
                           </p>
                         </div>
                       </div>

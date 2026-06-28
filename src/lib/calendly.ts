@@ -17,6 +17,20 @@ export const CALENDLY_BADGE = {
 
 export const CALENDLY_READY_EVENT = "calendly-ready";
 
+/** Open the Calendly popup scheduler (link widget pattern). */
+export function openCalendlyPopup(url: string = CALENDLY_URL): void {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  if (window.Calendly) {
+    window.Calendly.initPopupWidget({ url });
+    return;
+  }
+
+  window.open(url, "_blank", "noopener,noreferrer");
+}
+
 /** Wait until the global Calendly script has loaded. */
 export function whenCalendlyReady(callback: () => void): () => void {
   if (typeof window === "undefined") {

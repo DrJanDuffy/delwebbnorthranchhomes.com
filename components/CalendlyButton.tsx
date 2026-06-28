@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Calendar, X } from 'lucide-react';
-import { CALENDLY_URL } from '@/lib/calendly';
+import { CALENDLY_URL, openCalendlyPopup } from '@/lib/calendly';
 
 type CalendlyButtonProps = {
   url?: string;
@@ -37,12 +37,7 @@ export default function CalendlyButton({
   };
 
   const handleClick = () => {
-    if (typeof window !== 'undefined' && window.Calendly) {
-      window.Calendly.initPopupWidget({ url });
-      return;
-    }
-
-    window.open(url, '_blank', 'noopener,noreferrer');
+    openCalendlyPopup(url);
   };
 
   if (isDismissed) {

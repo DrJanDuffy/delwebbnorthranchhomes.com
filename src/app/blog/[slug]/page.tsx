@@ -267,7 +267,7 @@ export default async function BlogPostPage({
               },
               publisher: {
                 "@type": "Organization",
-                name: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+                name: GBP_BUSINESS_NAME,
                 logo: {
                   "@type": "ImageObject",
                   url: `${SITE_ORIGIN}/images/logo/logo.svg`,

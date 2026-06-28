@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
 import Link from "next/link";
+import ScheduleTour from "@/../components/ScheduleTour";
 import { FileText, Calendar } from "lucide-react";
 import { SITE_ORIGIN, SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from "@/lib/site";
 import { TITLE_SUFFIX } from "@/lib/hyperlocal";
@@ -213,18 +214,10 @@ export default function TermsPage() {
                   </p>
                   <p className="text-text-dark mb-2">2290 Beauty Vista Avenue</p>
                   <p className="text-text-dark mb-2">North Las Vegas, NV 89086</p>
-                  <p className="text-text-dark mb-2">
+                  <p className="text-text-dark mb-4">
                     Phone: <a href={SITE_PHONE_TEL} className="text-primary hover:text-accent">{SITE_PHONE_DISPLAY}</a>
                   </p>
-                  <p className="text-text-dark">
-                    Email:{" "}
-                    <a
-                      href="mailto:Sales@DelWebbNorthRanchHomes.com"
-                      className="text-primary hover:text-accent"
-                    >
-                      Sales@DelWebbNorthRanchHomes.com
-                    </a>
-                  </p>
+                  <ScheduleTour variant="outline" size="default" />
                 </div>
               </div>
 

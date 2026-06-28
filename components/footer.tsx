@@ -1,7 +1,6 @@
 import Link from "next/link";
 import {
   Phone,
-  Mail,
   MapPin,
   Youtube,
   Calendar,
@@ -14,6 +13,7 @@ import {
   MessageSquare,
   Clock,
 } from "lucide-react";
+import CalendlyNapLink from "@/../components/CalendlyNapLink";
 import { oldSiteData } from "@/lib/fetchOldSiteData";
 import {
   GOOGLE_REVIEW_LINK,
@@ -26,7 +26,6 @@ import {
   GBP_ADDRESS,
   GBP_SOCIAL_PROFILES,
   GBP_HOURS_DISPLAY,
-  SITE_EMAIL,
 } from "@/lib/site";
 
 /** NAP – matches Google Business Profile exactly for local SEO */
@@ -35,7 +34,6 @@ const NAP = {
   phone: SITE_PHONE_DISPLAY,
   tel: SITE_PHONE_TEL,
   sms: SITE_PHONE_SMS,
-  email: SITE_EMAIL,
   street: GBP_ADDRESS.streetAddress,
   city: GBP_ADDRESS.addressLocality,
   state: GBP_ADDRESS.addressRegion,
@@ -127,13 +125,7 @@ export default function Footer() {
                 <MessageSquare className="h-4 w-4 flex-shrink-0" aria-hidden />
                 Text {NAP.phone}
               </a>
-              <a
-                href={`mailto:${NAP.email}`}
-                className="flex items-center gap-2 hover:text-white transition-colors"
-              >
-                <Mail className="h-4 w-4 flex-shrink-0" aria-hidden />
-                {NAP.email}
-              </a>
+              <CalendlyNapLink className="text-gray-300 hover:text-white" />
               <span className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" aria-hidden />
                 <span>
