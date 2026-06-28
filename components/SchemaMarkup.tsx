@@ -1,5 +1,12 @@
 import Script from 'next/script';
-import { SITE_ORIGIN, SITE_PHONE_SCHEMA } from '@/lib/site';
+import {
+  SITE_ORIGIN,
+  SITE_PHONE_SCHEMA,
+  GBP_BUSINESS_NAME,
+  GBP_SOCIAL_PROFILES,
+  SITE_EMAIL,
+  gbpPostalAddressSchema,
+} from '@/lib/site';
 
 export default function SchemaMarkup() {
   const baseUrl = SITE_ORIGIN;
@@ -9,26 +16,14 @@ export default function SchemaMarkup() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     '@id': `${baseUrl}/#organization`,
-    name: 'Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
+    name: GBP_BUSINESS_NAME,
     alternateName: 'Dr. Jan Duffy Real Estate',
     url: baseUrl,
     logo: `${baseUrl}/images/logo/logo.svg`,
     telephone: SITE_PHONE_SCHEMA,
-    email: 'sales@delwebbnorthranchhomes.com',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: '2290 Beauty Vista Avenue',
-      addressLocality: 'North Las Vegas',
-      addressRegion: 'NV',
-      postalCode: '89086',
-      addressCountry: 'US',
-    },
-    sameAs: [
-      'https://www.youtube.com/@DrDuffy',
-      'https://www.instagram.com/delwebbnorthranchhomes/',
-      'https://www.linkedin.com/company/del-webb-north-ranch-homes',
-      'https://www.facebook.com/DellWebbNorthRanch',
-    ],
+    email: SITE_EMAIL,
+    address: gbpPostalAddressSchema(),
+    sameAs: [...GBP_SOCIAL_PROFILES],
     parentOrganization: {
       '@type': 'Organization',
       name: 'Berkshire Hathaway HomeServices Nevada Properties',
@@ -44,7 +39,7 @@ export default function SchemaMarkup() {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     '@id': `${baseUrl}/#website`,
-    name: 'Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
+    name: GBP_BUSINESS_NAME,
     url: baseUrl,
     potentialAction: {
       '@type': 'SearchAction',
@@ -56,7 +51,7 @@ export default function SchemaMarkup() {
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
+      name: GBP_BUSINESS_NAME,
       logo: {
         '@type': 'ImageObject',
         url: `${baseUrl}/images/logo/logo.svg`,
@@ -75,7 +70,7 @@ export default function SchemaMarkup() {
     image: `${baseUrl}/images/about/dr-jan-duffy.jpg`,
     url: `${baseUrl}/about`,
     telephone: SITE_PHONE_SCHEMA,
-    email: 'sales@delwebbnorthranchhomes.com',
+    email: SITE_EMAIL,
     worksFor: {
       '@type': 'Organization',
       name: 'Berkshire Hathaway HomeServices Nevada Properties',
@@ -91,9 +86,7 @@ export default function SchemaMarkup() {
     },
     sameAs: [
       'https://www.youtube.com/@DrDuffy',
-      'https://www.instagram.com/delwebbnorthranchhomes/',
-      'https://www.linkedin.com/company/del-webb-north-ranch-homes',
-      'https://www.facebook.com/DellWebbNorthRanch',
+      ...GBP_SOCIAL_PROFILES,
     ],
     knowsAbout: [
       'Del Webb North Ranch',
@@ -114,20 +107,10 @@ export default function SchemaMarkup() {
     url: baseUrl,
     image: `${baseUrl}/images/about/dr-jan-duffy.jpg`,
     telephone: SITE_PHONE_SCHEMA,
-    email: 'sales@delwebbnorthranchhomes.com',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: '2290 Beauty Vista Avenue',
-      addressLocality: 'North Las Vegas',
-      addressRegion: 'NV',
-      postalCode: '89086',
-      addressCountry: 'US',
-    },
+    email: SITE_EMAIL,
+    address: gbpPostalAddressSchema(),
     areaServed: [
       { '@type': 'City', name: 'North Las Vegas', addressRegion: 'NV' },
-      { '@type': 'City', name: 'Las Vegas', addressRegion: 'NV' },
-      { '@type': 'City', name: 'Henderson', addressRegion: 'NV' },
-      { '@type': 'City', name: 'Clark County', addressRegion: 'NV' },
     ],
     priceRange: '$400,000-$600,000',
     knowsAbout: [
@@ -141,7 +124,7 @@ export default function SchemaMarkup() {
     ],
     worksFor: {
       '@type': 'Organization',
-      name: 'Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy',
+      name: GBP_BUSINESS_NAME,
     },
     memberOf: {
       '@type': 'Organization',

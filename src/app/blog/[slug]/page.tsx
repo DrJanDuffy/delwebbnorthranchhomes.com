@@ -7,7 +7,7 @@ import Footer from "@/../components/footer";
 import Breadcrumbs from "@/../components/Breadcrumbs";
 import { Button } from "@/../components/ui/button";
 import { Calendar, ArrowLeft, ArrowRight } from "lucide-react";
-import { SITE_ORIGIN } from "@/lib/site";
+import { SITE_ORIGIN, GBP_BUSINESS_NAME } from "@/lib/site";
 
 const blogPosts: Record<
   string,

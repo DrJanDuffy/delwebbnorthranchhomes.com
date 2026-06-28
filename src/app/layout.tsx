@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
-import { CANONICAL_HOMEPAGE, SITE_ORIGIN, GOOGLE_MAPS_DIRECTIONS_URL, SITE_PHONE_SCHEMA, GBP_AGGREGATE_RATING } from "@/lib/site";
+import { CANONICAL_HOMEPAGE, SITE_ORIGIN, GOOGLE_MAPS_DIRECTIONS_URL, SITE_PHONE_SCHEMA, GBP_AGGREGATE_RATING, GBP_BUSINESS_NAME, GBP_DESCRIPTION, GBP_SHORT_DESCRIPTION, GBP_FOUNDING_DATE, GBP_SERVICE_AREA, GBP_SOCIAL_PROFILES, SITE_EMAIL, gbpPostalAddressSchema, gbpOpeningHoursSpecification } from "@/lib/site";
 import "./globals.css";
 import CalendlyButton from "@/../components/CalendlyButton";
 import CalendlyStyles from "@/../components/CalendlyStyles";
@@ -21,12 +21,11 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_ORIGIN),
   title: {
-    default: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    default: GBP_BUSINESS_NAME,
     // Pages set full titles via TITLE_SUFFIX; avoid double-appending the site name.
     template: "%s",
   },
-  description:
-    "Discover luxury single-story living in a vibrant 55+ community with mountain views, resort-style amenities, and no state income tax. Dr. Jan Duffy, REALTOR®.",
+  description: GBP_SHORT_DESCRIPTION,
   keywords: [
     "Del Webb North Ranch",
     "Del Webb at North Ranch",
@@ -61,8 +60,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: SITE_ORIGIN,
-    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
-    title: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    siteName: GBP_BUSINESS_NAME,
+    title: GBP_BUSINESS_NAME,
     description:
       "Single-story homes from $400K-$600K in a gated 55+ community. Resort pool, pickleball, fitness center—all fully built.",
     images: [
@@ -77,9 +76,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
-    description:
-      "Single-story homes from $400K-$600K in a gated 55+ community. Resort pool, pickleball, fitness center—all fully built.",
+    title: GBP_BUSINESS_NAME,
+    description: GBP_SHORT_DESCRIPTION,
     images: ["/images/hero/hero-bg.jpg"],
     creator: "@DrDuffy",
   },
@@ -115,59 +113,32 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
     "@id": `${SITE_ORIGIN}/#localbusiness`,
-    name: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    name: GBP_BUSINESS_NAME,
     alternateName: "Dr. Jan Duffy Real Estate",
-    description: "Helping buyers 55+ find their dream retirement home in Las Vegas' premier active adult community! Why Choose Del Webb North Ranch? Resort-style pools and luxurious spa facilities, state-of-the-art fitness center, pickleball courts with organized leagues, 20+ social clubs and activities to stay connected, stunning mountain views and convenient access to shopping, dining, and healthcare. Services: Free community tours and personalized home showings, market analysis and pricing guidance, alerts on new listings and inventory updates, expert negotiation and closing support. Available 7 days a week for consultations and property viewings. Contact us to find your perfect home in Del Webb North Ranch.",
+    description: GBP_DESCRIPTION,
     image: `${SITE_ORIGIN}/images/about/dr-jan-duffy.jpg`,
     url: SITE_ORIGIN,
     telephone: SITE_PHONE_SCHEMA,
-    email: "sales@delwebbnorthranchhomes.com",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "2290 Beauty Vista Avenue",
-      addressLocality: "North Las Vegas",
-      addressRegion: "NV",
-      postalCode: "89086",
-      addressCountry: "US",
-    },
+    email: SITE_EMAIL,
+    address: gbpPostalAddressSchema(),
     areaServed: {
       "@type": "Place",
-      name: "North Las Vegas, NV, USA",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "2290 Beauty Vista Avenue",
-        addressLocality: "North Las Vegas",
-        addressRegion: "NV",
-        postalCode: "89086",
-        addressCountry: "US",
-      },
+      name: GBP_SERVICE_AREA,
+      address: gbpPostalAddressSchema(),
     },
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        opens: "06:00",
-        closes: "21:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        validFrom: "2026-02-16",
-        validThrough: "2026-02-16",
-        opens: "10:00",
-        closes: "18:00",
-      },
-    ],
-    foundingDate: "2009-09-20",
+    openingHoursSpecification: gbpOpeningHoursSpecification(),
+    foundingDate: GBP_FOUNDING_DATE,
     womanOwned: true,
     veteranOwned: true,
+    additionalProperty: {
+      "@type": "PropertyValue",
+      name: "Service options",
+      value: "Onsite services available",
+    },
     priceRange: "$$",
     paymentAccepted: "Cash, Check, Credit Card, Financing",
     currenciesAccepted: "USD",
-    sameAs: [
-      "https://www.facebook.com/DellWebbNorthRanch",
-      "https://www.linkedin.com/company/del-webb-north-ranch-homes",
-      "https://www.instagram.com/delwebbnorthranchhomes/",
-    ],
+    sameAs: [...GBP_SOCIAL_PROFILES],
     hasMap: GOOGLE_MAPS_DIRECTIONS_URL.replace("/dir//", "/search/?api=1&query=").replace(/\+/g, "+"),
     aggregateRating: {
       "@type": "AggregateRating",
@@ -241,14 +212,7 @@ export default function RootLayout({
     "@type": "Place",
     name: "Del Webb North Ranch",
     description: "55+ Active Adult Gated Community in North Las Vegas",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "2290 Beauty Vista Avenue",
-      addressLocality: "North Las Vegas",
-      addressRegion: "NV",
-      postalCode: "89086",
-      addressCountry: "US",
-    },
+    address: gbpPostalAddressSchema(),
     geo: {
       "@type": "GeoCoordinates",
       latitude: "36.2856",

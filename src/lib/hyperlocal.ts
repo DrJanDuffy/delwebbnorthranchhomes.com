@@ -4,6 +4,8 @@
  * See docs/optimization/hyperlocal-seo.md and hyperlocal-persona.md.
  */
 
+import { GBP_BUSINESS_NAME } from "./site";
+
 export const HYPERLOCAL = {
   /** Primary service area (city + state). */
   primaryArea: "North Las Vegas, NV",
@@ -46,8 +48,8 @@ export const HYPERLOCAL = {
   ],
 } as const;
 
-/** Suffix for page titles (brand + area). Use with layout template. */
-export const TITLE_SUFFIX = `${HYPERLOCAL.communityName} 55+ Real Estate | ${HYPERLOCAL.agentName}`;
+/** Suffix for page titles – matches Google Business Profile business name. */
+export const TITLE_SUFFIX = GBP_BUSINESS_NAME;
 
 /** Prefix for image alt text (location + subject). */
 export function altPrefix(subject: string): string {

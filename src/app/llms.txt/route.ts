@@ -2,19 +2,27 @@ import {
   SITE_ORIGIN,
   SITE_PHONE_DISPLAY,
   SITE_PHONE_SCHEMA,
+  SITE_PHONE_SMS,
+  GBP_BUSINESS_NAME,
+  GBP_DESCRIPTION,
+  GBP_HOURS_DISPLAY,
+  gbpFormattedAddress,
 } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const content = `# Del Webb North Ranch — Dr. Jan Duffy
+  const content = `# ${GBP_BUSINESS_NAME}
 > 55+ active adult community in North Las Vegas
 ## About
-Dr. Jan Duffy is a Nevada-licensed real estate professional (S.0197614.LLC) with Berkshire Hathaway HomeServices Nevada Properties. She specializes in Del Webb North Ranch and helps buyers 55+ find homes in this North Las Vegas active adult community.
+${GBP_DESCRIPTION}
 - **Brokerage:** Berkshire Hathaway HomeServices Nevada Properties
 - **License:** Nevada S.0197614.LLC
 - **Phone:** ${SITE_PHONE_DISPLAY}
+- **Text:** ${SITE_PHONE_SMS}
 - **Website:** ${SITE_ORIGIN}
+- **Address:** ${gbpFormattedAddress()}
+- **Hours:** ${GBP_HOURS_DISPLAY}
 ## Services
 - Del Webb North Ranch home buying and selling
 - Community tours and personalized showings
@@ -30,8 +38,10 @@ North Las Vegas, Las Vegas, Henderson, and surrounding Southern Nevada communiti
 - [About](${SITE_ORIGIN}/about)
 - [FAQ](${SITE_ORIGIN}/faq)
 ## Contact
-- **Call/Text:** ${SITE_PHONE_SCHEMA}
+- **Call:** ${SITE_PHONE_SCHEMA}
+- **Text:** ${SITE_PHONE_SMS}
 - **Website:** ${SITE_ORIGIN}
+- **Address:** ${gbpFormattedAddress()}
 `;
   return new Response(content, {
     headers: {
