@@ -235,7 +235,6 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
         <link rel="dns-prefetch" href="https://em.realscout.com" />
         <link rel="dns-prefetch" href="https://static.matterport.com" />
-        <link rel="icon" href="/favicon.ico" />
         {/* Calendly CSS + script loaded once site-wide for inline, popup, and badge widgets */}
         <CalendlyStyles />
         <CalendlyScript />
