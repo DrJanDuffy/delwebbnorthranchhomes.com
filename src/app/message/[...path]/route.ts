@@ -12,7 +12,7 @@ export async function GET() {
   });
 }
 
-export async function POST(request: NextRequest) {
+export async function POST() {
   return new NextResponse(null, {
     status: 404,
     headers: { 'X-Robots-Tag': 'noindex, nofollow' },
