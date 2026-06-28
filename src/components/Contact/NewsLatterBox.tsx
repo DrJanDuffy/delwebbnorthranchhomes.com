@@ -1,7 +1,7 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import Link from "next/link";
+import ScheduleTour from "@/../components/ScheduleTour";
 import { SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from "@/lib/site";
 
 const NewsLatterBox = () => {
@@ -16,12 +16,7 @@ const NewsLatterBox = () => {
         Book a time with Dr. Jan Duffy to discuss Del Webb North Ranch, schedule a tour, or get answers to your questions.
       </p>
       <div>
-        <Link
-          href="/schedule"
-          className="bg-primary shadow-submit hover:bg-primary/90 dark:shadow-submit-dark mb-5 flex w-full cursor-pointer items-center justify-center rounded-xs px-9 py-4 text-base font-medium text-white duration-300"
-        >
-          Schedule a Tour
-        </Link>
+        <ScheduleTour variant="accent" size="lg" className="mb-5 w-full" text="Schedule a Tour" />
         <p className="text-body-color dark:text-body-color-dark text-center text-base leading-relaxed mt-4">
           Or call <a href={SITE_PHONE_TEL} className="text-primary hover:text-accent font-medium">{SITE_PHONE_DISPLAY}</a> to speak with Dr. Jan Duffy.
         </p>

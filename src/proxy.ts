@@ -1,14 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { SITE_ORIGIN } from "@/lib/site";
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const hostname = request.headers.get("host") || "";
   const protocol = request.headers.get("x-forwarded-proto") || 
                    (request.nextUrl.protocol === "https:" ? "https" : "http");
   const pathname = request.nextUrl.pathname;
   const search = request.nextUrl.search;
 
-  // Skip middleware for static files, API routes, and Next.js internals
+  // Skip proxy for static files, API routes, and Next.js internals
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
@@ -32,7 +32,7 @@ export function middleware(request: NextRequest) {
     protocol !== "https"; // HTTP instead of HTTPS
 
   if (needsRedirect && !hostname.includes("localhost")) {
-    return NextResponse.redirect(targetUrl, 301);
+    return NextResponse.redirect(targetUrl, 308);
   }
 
   // ?card= homepage URLs: send X-Robots-Tag so GSC sees noindex in headers (canonical + noindex already in HTML)

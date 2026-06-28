@@ -7,7 +7,7 @@ import Footer from "@/../components/footer";
 import Breadcrumbs from "@/../components/Breadcrumbs";
 import { Button } from "@/../components/ui/button";
 import { Calendar, ArrowLeft, ArrowRight } from "lucide-react";
-import { SITE_ORIGIN } from "@/lib/site";
+import { SITE_ORIGIN, GBP_BUSINESS_NAME } from "@/lib/site";
 
 const blogPosts: Record<
   string,
@@ -267,7 +267,7 @@ export default async function BlogPostPage({
               },
               publisher: {
                 "@type": "Organization",
-                name: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+                name: GBP_BUSINESS_NAME,
                 logo: {
                   "@type": "ImageObject",
                   url: `${SITE_ORIGIN}/images/logo/logo.svg`,

@@ -33,6 +33,7 @@ const nextConfig = {
         destination: '/floor-plans',
         permanent: true,
       },
+      // SEO audit: legacy URL aliases
       {
         source: '/for-buyers',
         destination: '/buyers',
@@ -51,6 +52,29 @@ const nextConfig = {
       {
         source: '/market-report',
         destination: '/del-webb-north-ranch-market-report',
+        permanent: true,
+      },
+      // Legacy URLs in GSC (404 → canonical pages)
+      {
+        source: '/map-api',
+        destination: '/community',
+        permanent: true,
+      },
+      {
+        source: '/mls',
+        destination: '/homes-for-sale',
+        permanent: true,
+      },
+      {
+        source: '/&',
+        destination: '/',
+        permanent: true,
+      },
+      // Apex (non-www) → canonical www host (GSC: permanent redirect, not 307)
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'delwebbnorthranchhomes.com' }],
+        destination: 'https://www.delwebbnorthranchhomes.com/:path*',
         permanent: true,
       },
     ];
@@ -83,11 +107,11 @@ const nextConfig = {
             value: [
               "default-src 'self'",
               "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://em.realscout.com https://www.realscout.com https://assets.calendly.com",
-              "connect-src 'self' https://em.realscout.com https://www.realscout.com https://assets.calendly.com https://calendly.com",
+              "connect-src 'self' https://em.realscout.com https://www.realscout.com https://assets.calendly.com https://calendly.com https://*.calendly.com",
               "style-src 'self' 'unsafe-inline' https://assets.calendly.com https://fonts.googleapis.com",
               "font-src 'self' data: https://fonts.gstatic.com",
               "img-src 'self' data: https:",
-              "frame-src 'self' https://em.realscout.com https://www.realscout.com https://calendly.com https://www.youtube.com https://youtube.com https://my.matterport.com",
+              "frame-src 'self' https://em.realscout.com https://www.realscout.com https://calendly.com https://*.calendly.com https://www.youtube.com https://youtube.com https://my.matterport.com",
             ].join('; '),
           },
           // Explicitly deny payment in this document and in iframes (Calendly may request it; we don't use it)

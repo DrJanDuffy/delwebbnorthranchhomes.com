@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
+import ScheduleTour from "@/../components/ScheduleTour";
 import { SITE_ORIGIN, SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from "@/lib/site";
 import { TITLE_SUFFIX } from "@/lib/hyperlocal";
 
@@ -11,9 +12,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${SITE_ORIGIN}/privacy`,
   },
-  robots: {
-    index: false,
-    follow: true,
+  openGraph: {
+    title: `Privacy Policy | ${TITLE_SUFFIX}`,
+    description:
+      "How Del Webb North Ranch collects, uses, and protects your information when you contact Dr. Jan Duffy.",
+    url: `${SITE_ORIGIN}/privacy`,
+    siteName: TITLE_SUFFIX,
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Privacy Policy | Del Webb North Ranch",
+    description: "Privacy policy for the Del Webb North Ranch real estate website.",
   },
 };
 
@@ -114,15 +125,10 @@ export default function PrivacyPage() {
                     If you have questions about this Privacy Policy, please
                     contact us:
                   </p>
-                  <p>
-                    <strong>Email:</strong>{" "}
-                    <a
-                      href="mailto:sales@delwebbnorthranchhomes.com"
-                      className="text-primary hover:underline"
-                    >
-                      sales@delwebbnorthranchhomes.com
-                    </a>
-                    <br />
+                  <div className="mt-4 flex flex-col sm:flex-row gap-4 items-start">
+                    <ScheduleTour variant="outline" size="default" />
+                  </div>
+                  <p className="mt-4">
                     <strong>Phone:</strong>{" "}
                     <a
                       href={SITE_PHONE_TEL}

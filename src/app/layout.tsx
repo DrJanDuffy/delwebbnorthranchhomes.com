@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
-import { CANONICAL_HOMEPAGE, SITE_ORIGIN } from "@/lib/site";
+import { CANONICAL_HOMEPAGE, SITE_ORIGIN, GBP_BUSINESS_NAME, GBP_SHORT_DESCRIPTION } from "@/lib/site";
 import { getLocalBusinessSchema, getResidenceSchema, stringifySchema } from "@/lib/schema";
 import "./globals.css";
 import CalendlyButton from "@/../components/CalendlyButton";
+import CalendlyScript from "@/../components/CalendlyScript";
 import CalendlyStyles from "@/../components/CalendlyStyles";
 import SchemaMarkup from "@/../components/SchemaMarkup";
 
@@ -22,11 +23,11 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_ORIGIN),
   title: {
-    default: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
-    template: "%s | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    default: GBP_BUSINESS_NAME,
+    // Pages set full titles via TITLE_SUFFIX; avoid double-appending the site name.
+    template: "%s",
   },
-  description:
-    "Discover luxury single-story living in a vibrant 55+ community with mountain views, resort-style amenities, and no state income tax. Dr. Jan Duffy, REALTOR®.",
+  description: GBP_SHORT_DESCRIPTION,
   keywords: [
     "Del Webb North Ranch",
     "Del Webb at North Ranch",
@@ -61,8 +62,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: SITE_ORIGIN,
-    siteName: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
-    title: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    siteName: GBP_BUSINESS_NAME,
+    title: GBP_BUSINESS_NAME,
     description:
       "Single-story homes from $400K-$600K in a gated 55+ community. Resort pool, pickleball, fitness center—all fully built.",
     images: [
@@ -77,9 +78,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
-    description:
-      "Single-story homes from $400K-$600K in a gated 55+ community. Resort pool, pickleball, fitness center—all fully built.",
+    title: GBP_BUSINESS_NAME,
+    description: GBP_SHORT_DESCRIPTION,
     images: ["/images/hero/hero-bg.jpg"],
     creator: "@DrDuffy",
   },
@@ -125,8 +125,9 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://em.realscout.com" />
         <link rel="dns-prefetch" href="https://static.matterport.com" />
         <link rel="icon" href="/favicon.ico" />
-        {/* Calendly CSS: load non-blocking so it doesn't delay FCP/LCP */}
+        {/* Calendly CSS + script loaded once site-wide for inline, popup, and badge widgets */}
         <CalendlyStyles />
+        <CalendlyScript />
         {/* Structured Data - Consolidated Schema Markup */}
         <SchemaMarkup />
         {/* Structured Data - LocalBusiness + RealEstateAgent */}

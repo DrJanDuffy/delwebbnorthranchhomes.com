@@ -6,12 +6,22 @@ import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
 import Breadcrumbs from "@/../components/Breadcrumbs";
 import ScrollAnimation from "@/../components/scroll-animation";
-import { Phone, Mail, MapPin, Calendar, Youtube, FileText, ExternalLink, Star, MapPinned } from "lucide-react";
+import { Phone, MapPin, Calendar, Youtube, FileText, ExternalLink, Star, MapPinned, MessageSquare, Clock } from "lucide-react";
 import { oldSiteData } from "@/lib/fetchOldSiteData";
 import ScheduleTour from "@/../components/ScheduleTour";
 import CalendlyInline from "@/../components/CalendlyInline";
 import RealScoutListings from "@/../components/RealScoutListings";
-import { SITE_ORIGIN, GOOGLE_REVIEW_LINK, GOOGLE_MAPS_DIRECTIONS_URL, SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from "@/lib/site";
+import {
+  SITE_ORIGIN,
+  GOOGLE_REVIEW_LINK,
+  GOOGLE_MAPS_DIRECTIONS_URL,
+  SITE_PHONE_TEL,
+  SITE_PHONE_DISPLAY,
+  SITE_PHONE_SMS,
+  GBP_BUSINESS_NAME,
+  GBP_ADDRESS,
+  GBP_HOURS_DISPLAY,
+} from "@/lib/site";
 import { metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
 
 export const metadata: Metadata = {
@@ -63,7 +73,7 @@ export default function ContactPage() {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 font-playfair">
-                Contact & Schedule a Tour | Del Webb North Ranch 55+ Real Estate
+                Contact & Schedule a Tour | {GBP_BUSINESS_NAME}
               </h1>
               <p className="text-lg md:text-xl text-gray-100 leading-relaxed">
                 Ready to explore Del Webb North Ranch? Contact <Link href="/about" className="text-white hover:text-gray-200 underline">Dr. Jan Duffy</Link> to
@@ -92,10 +102,7 @@ export default function ContactPage() {
                       Book a 15-minute consultation with Dr. Jan Duffy to discuss your home search and tour Del Webb North Ranch.
                     </p>
                     <div className="bg-white rounded-lg shadow-lg p-4 md:p-6 w-full">
-                      <CalendlyInline 
-                        url="https://calendly.com/drjanduffy/15min"
-                        height="900px"
-                      />
+                      <CalendlyInline />
                     </div>
                   </div>
                 </ScrollAnimation>
@@ -119,7 +126,7 @@ export default function ContactPage() {
                       Get in Touch
                     </h2>
                     <div className="space-y-6">
-                      {/* Phone */}
+                      {/* Phone & Text */}
                       <div className="flex items-start gap-4">
                         <div className="flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full flex-shrink-0">
                           <Phone className="w-6 h-6 text-primary" />
@@ -135,40 +142,88 @@ export default function ContactPage() {
                             {SITE_PHONE_DISPLAY}
                           </a>
                           <p className="text-sm text-gray-500 mt-1">
-                            Call or text anytime
+                            <a
+                              href={SITE_PHONE_SMS}
+                              className="inline-flex items-center gap-1 hover:text-primary transition-colors"
+                              aria-label={`Text ${SITE_PHONE_DISPLAY}`}
+                            >
+                              <MessageSquare className="w-4 h-4" aria-hidden />
+                              Text {SITE_PHONE_DISPLAY}
+                            </a>
                           </p>
                         </div>
                       </div>
 
-                      {/* Email */}
+                      {/* Business Hours */}
                       <div className="flex items-start gap-4">
                         <div className="flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full flex-shrink-0">
-                          <Mail className="w-6 h-6 text-primary" />
+                          <Clock className="w-6 h-6 text-primary" />
                         </div>
                         <div>
                           <h3 className="font-semibold text-primary mb-1">
-                            Email
+                            Business Hours
                           </h3>
-                          <a
-                            href="mailto:sales@delwebbnorthranchhomes.com"
-                            className="text-text-dark hover:text-primary transition-colors break-all"
-                          >
-                            sales@delwebbnorthranchhomes.com
-                          </a>
+                          <p className="text-text-dark">{GBP_HOURS_DISPLAY}</p>
                           <p className="text-sm text-gray-500 mt-1">
-                            Typically responds within 24 hours
+                            Closed July 3–4, 2026 for Independence Day
                           </p>
                         </div>
                       </div>
 
-                      {/* Address */}
+                      {/* Schedule consultation */}
+                      <div className="flex items-start gap-4">
+                        <div className="flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full flex-shrink-0">
+                          <Calendar className="w-6 h-6 text-primary" aria-hidden />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold text-primary mb-1">
+                            Schedule a Consultation
+                          </h3>
+                          <ScheduleTour variant="outline" size="default" />
+                          <p className="text-sm text-gray-500 mt-2">
+                            Book an in-person real estate consultation online
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Business Location – matches Google Business Profile */}
                       <div className="flex items-start gap-4">
                         <div className="flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full flex-shrink-0">
                           <MapPin className="w-6 h-6 text-primary" />
                         </div>
                         <div>
                           <h3 className="font-semibold text-primary mb-1">
-                            Office Location
+                            Business Location
+                          </h3>
+                          <p className="text-text-dark mb-2">
+                            {GBP_ADDRESS.streetAddress}
+                            <br />
+                            {GBP_ADDRESS.addressLocality}, {GBP_ADDRESS.addressRegion} {GBP_ADDRESS.postalCode}
+                          </p>
+                          <a
+                            href={GOOGLE_MAPS_DIRECTIONS_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 min-h-[48px] px-4 py-2 bg-primary hover:bg-primary/90 text-white rounded-md font-semibold text-sm transition-colors"
+                            aria-label="Get directions to Del Webb North Ranch on Google Maps"
+                          >
+                            <MapPinned className="w-4 h-4 shrink-0" />
+                            Get directions
+                          </a>
+                          <p className="text-xs text-gray-500 mt-2">
+                            Service area: North Las Vegas, NV, USA
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Brokerage Office */}
+                      <div className="flex items-start gap-4">
+                        <div className="flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full flex-shrink-0">
+                          <MapPin className="w-6 h-6 text-primary" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold text-primary mb-1">
+                            Brokerage Office
                           </h3>
                           <p className="text-text-dark">
                             Berkshire Hathaway HomeServices
@@ -182,35 +237,6 @@ export default function ContactPage() {
                         </div>
                       </div>
 
-                      {/* Community Address + Directions */}
-                      <div className="flex items-start gap-4">
-                        <div className="flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full flex-shrink-0">
-                          <MapPin className="w-6 h-6 text-primary" />
-                        </div>
-                        <div>
-                          <h3 className="font-semibold text-primary mb-1">
-                            Del Webb North Ranch
-                          </h3>
-                          <p className="text-text-dark mb-2">
-                            2290 Beauty Vista Avenue
-                            <br />
-                            North Las Vegas, NV 89086
-                          </p>
-                          <a
-                            href={GOOGLE_MAPS_DIRECTIONS_URL}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 min-h-[48px] px-4 py-2 bg-primary hover:bg-primary/90 text-white rounded-md font-semibold text-sm transition-colors"
-                            aria-label="Get directions to Del Webb North Ranch on Google Maps"
-                          >
-                            <MapPinned className="w-4 h-4 shrink-0" />
-                            Get directions
-                          </a>
-                          <p className="text-xs text-gray-500 mt-2">
-                            Opens Google Maps with travel time for drive, transit, or walk
-                          </p>
-                        </div>
-                      </div>
                     </div>
 
                     {/* License Info */}

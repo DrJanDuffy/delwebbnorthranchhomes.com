@@ -205,26 +205,21 @@ export default function SchedulePage() {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 font-playfair">
-                Prefer to Call or Email?
+                Prefer to Call?
               </h2>
               <p className="text-text-dark mb-6">
-                You can also reach out directly to schedule your tour or ask any
+                You can also reach out by phone to schedule your tour or ask any
                 questions.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a
                   href={SITE_PHONE_TEL}
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white rounded-md font-semibold hover:bg-primary/90 transition-colors"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white rounded-md font-semibold hover:bg-primary/90 transition-colors min-h-[44px]"
                 >
-                  <Phone className="w-5 h-5" />
+                  <Phone className="w-5 h-5" aria-hidden />
                   Call {SITE_PHONE_DISPLAY}
                 </a>
-                <a
-                  href="mailto:sales@delwebbnorthranchhomes.com"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-primary text-primary rounded-md font-semibold hover:bg-primary hover:text-white transition-colors"
-                >
-                  Send Email
-                </a>
+                <ScheduleTour variant="outline" size="lg" />
               </div>
             </div>
           </div>

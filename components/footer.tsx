@@ -1,7 +1,6 @@
 import Link from "next/link";
 import {
   Phone,
-  Mail,
   MapPin,
   Youtube,
   Calendar,
@@ -11,21 +10,42 @@ import {
   Facebook,
   Star,
   MapPinned,
+  MessageSquare,
+  Clock,
 } from "lucide-react";
+import CalendlyNapLink from "@/../components/CalendlyNapLink";
 import { oldSiteData } from "@/lib/fetchOldSiteData";
-import { GOOGLE_REVIEW_LINK, GOOGLE_MAPS_DIRECTIONS_URL, SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from "@/lib/site";
+import {
+  GOOGLE_REVIEW_LINK,
+  GOOGLE_MAPS_DIRECTIONS_URL,
+  SITE_PHONE_TEL,
+  SITE_PHONE_DISPLAY,
+  SITE_PHONE_SMS,
+  GBP_BUSINESS_NAME,
+  GBP_SHORT_DESCRIPTION,
+  GBP_ADDRESS,
+  GBP_SOCIAL_PROFILES,
+  GBP_HOURS_DISPLAY,
+} from "@/lib/site";
 
 /** NAP – matches Google Business Profile exactly for local SEO */
 const NAP = {
-  name: "Del Webb North Ranch",
+  name: GBP_BUSINESS_NAME,
   phone: SITE_PHONE_DISPLAY,
   tel: SITE_PHONE_TEL,
-  email: "sales@delwebbnorthranchhomes.com",
-  street: "2290 Beauty Vista Avenue",
-  city: "North Las Vegas",
-  state: "NV",
-  zip: "89086",
+  sms: SITE_PHONE_SMS,
+  street: GBP_ADDRESS.streetAddress,
+  city: GBP_ADDRESS.addressLocality,
+  state: GBP_ADDRESS.addressRegion,
+  zip: GBP_ADDRESS.postalCode,
+  hours: GBP_HOURS_DISPLAY,
 } as const;
+
+const SOCIAL_LABELS: Record<string, string> = {
+  "https://www.facebook.com/DellWebbNorthRanch": "Facebook",
+  "https://www.instagram.com/delwebbnorthranchhomes/": "Instagram",
+  "https://www.linkedin.com/company/del-webb-north-ranch-homes": "LinkedIn",
+};
 
 /** Top 6 related Nevada communities – streamlined for engagement */
 const OTHER_COMMUNITIES = [
@@ -82,28 +102,30 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           {/* Brand + NAP – primary for GBP/local SEO */}
           <div className="lg:col-span-4">
-            <h3 className="text-2xl font-bold font-playfair text-white mb-3">
+            <h3 className="text-xl md:text-2xl font-bold font-playfair text-white mb-3 leading-snug">
               {NAP.name}
             </h3>
             <p className="text-gray-300 mb-6 max-w-sm">
-              Your premier 55+ active adult community in North Las Vegas. Single-story homes, resort-style amenities, and mountain views.
+              {GBP_SHORT_DESCRIPTION}
             </p>
             <address className="not-italic text-gray-300 space-y-3">
               <a
                 href={NAP.tel}
-                className="flex items-center gap-2 hover:text-white transition-colors"
+                className="flex items-center gap-2 hover:text-white transition-colors min-h-[44px]"
                 aria-label={`Call ${NAP.phone}`}
               >
                 <Phone className="h-4 w-4 flex-shrink-0" aria-hidden />
                 {NAP.phone}
               </a>
               <a
-                href={`mailto:${NAP.email}`}
-                className="flex items-center gap-2 hover:text-white transition-colors"
+                href={NAP.sms}
+                className="flex items-center gap-2 hover:text-white transition-colors min-h-[44px]"
+                aria-label={`Text ${NAP.phone}`}
               >
-                <Mail className="h-4 w-4 flex-shrink-0" aria-hidden />
-                {NAP.email}
+                <MessageSquare className="h-4 w-4 flex-shrink-0" aria-hidden />
+                Text {NAP.phone}
               </a>
+              <CalendlyNapLink className="text-gray-300 hover:text-white" />
               <span className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" aria-hidden />
                 <span>
@@ -112,11 +134,15 @@ export default function Footer() {
                   {NAP.city}, {NAP.state} {NAP.zip}
                 </span>
               </span>
+              <span className="flex items-start gap-2">
+                <Clock className="h-4 w-4 mt-0.5 flex-shrink-0" aria-hidden />
+                <span>{NAP.hours}</span>
+              </span>
               <a
                 href={GOOGLE_MAPS_DIRECTIONS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-primary hover:text-white transition-colors text-sm font-medium"
+                className="inline-flex items-center gap-2 text-primary hover:text-white transition-colors text-sm font-medium min-h-[44px]"
                 aria-label="Get directions to Del Webb North Ranch on Google Maps"
               >
                 <MapPinned className="h-4 w-4" aria-hidden />
@@ -250,42 +276,27 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <h4 className="text-lg font-semibold text-white mb-4">Follow Us</h4>
             <ul className="space-y-2">
-              <li>
-                <a
-                  href="https://www.facebook.com/DellWebbNorthRanch"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
-                  aria-label="Facebook"
-                >
-                  <Facebook className="h-4 w-4" aria-hidden />
-                  Facebook
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.instagram.com/delwebbnorthranchhomes/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
-                  aria-label="Instagram"
-                >
-                  <Instagram className="h-4 w-4" aria-hidden />
-                  Instagram
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.linkedin.com/company/del-webb-north-ranch-homes"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="h-4 w-4" aria-hidden />
-                  LinkedIn
-                </a>
-              </li>
+              {GBP_SOCIAL_PROFILES.map((href) => {
+                const label = SOCIAL_LABELS[href] ?? "Social";
+                const Icon =
+                  label === "Facebook" ? Facebook :
+                  label === "Instagram" ? Instagram :
+                  Linkedin;
+                return (
+                  <li key={href}>
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors min-h-[44px]"
+                      aria-label={label}
+                    >
+                      <Icon className="h-4 w-4" aria-hidden />
+                      {label}
+                    </a>
+                  </li>
+                );
+              })}
               <li>
                 <a
                   href={oldSiteData.integrations.youtube}
@@ -344,7 +355,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="mt-8 text-center text-sm text-gray-400">
-          <p>© {new Date().getFullYear()} Del Webb North Ranch | Homes by Dr. Jan Duffy. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} {GBP_BUSINESS_NAME}. All rights reserved.</p>
           <p className="mt-1">Berkshire Hathaway HomeServices Nevada Properties | S.0197614.LLC</p>
         </div>
       </div>

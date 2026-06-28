@@ -1,8 +1,6 @@
 import NewsLatterBox from "./NewsLatterBox";
 import CalendlyInline from "@/../components/CalendlyInline";
 
-const CALENDLY_URL = "https://calendly.com/drjanduffy/appointment";
-
 const Contact = () => {
   return (
     <section id="contact" className="overflow-hidden py-16 md:py-20 lg:py-28">
@@ -20,7 +18,7 @@ const Contact = () => {
                 Book a time with Dr. Jan Duffy to discuss your home search or schedule a tour.
               </p>
               <div className="min-h-[400px]">
-                <CalendlyInline url={CALENDLY_URL} height="600px" />
+                <CalendlyInline height="600px" />
               </div>
             </div>
           </div>

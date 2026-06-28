@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
 import Link from "next/link";
-import { CheckCircle2, AlertCircle, FileText, Mail } from "lucide-react";
+import { CheckCircle2, AlertCircle, FileText, Calendar } from "lucide-react";
+import ScheduleTour from "@/../components/ScheduleTour";
 import { SITE_ORIGIN, SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from "@/lib/site";
 import { TITLE_SUFFIX } from "@/lib/hyperlocal";
 
@@ -167,15 +168,10 @@ export default function AccessibilityPage() {
                 </p>
                 <div className="bg-stone-50 rounded-lg p-6 mb-6">
                   <div className="flex items-start gap-3 mb-4">
-                    <Mail className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <Calendar className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" aria-hidden />
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-2">Email Us</h3>
-                      <a
-                        href="mailto:Sales@DelWebbNorthRanchHomes.com?subject=Accessibility%20Issue"
-                        className="text-primary hover:text-accent transition-colors"
-                      >
-                        Sales@DelWebbNorthRanchHomes.com
-                      </a>
+                      <h3 className="font-semibold text-gray-900 mb-2">Schedule a Consultation</h3>
+                      <ScheduleTour variant="outline" size="default" />
                     </div>
                   </div>
                   <div className="flex items-start gap-3">

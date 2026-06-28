@@ -1,18 +1,22 @@
 /**
  * Shared JSON-LD schema blocks for SEO, GEO, and AEO.
- * Used in layout.tsx and page-level structured data.
+ * Uses GBP constants from site.ts for NAP consistency.
  */
 
-import { SITE_ORIGIN, SITE_PHONE_SCHEMA, GBP_AGGREGATE_RATING } from "@/lib/site";
-
-const COMMUNITY_ADDRESS = {
-  "@type": "PostalAddress" as const,
-  streetAddress: "2290 Beauty Vista Avenue",
-  addressLocality: "North Las Vegas",
-  addressRegion: "NV",
-  postalCode: "89086",
-  addressCountry: "US",
-};
+import {
+  SITE_ORIGIN,
+  SITE_PHONE_SCHEMA,
+  SITE_EMAIL,
+  GBP_AGGREGATE_RATING,
+  GBP_BUSINESS_NAME,
+  GBP_DESCRIPTION,
+  GBP_FOUNDING_DATE,
+  GBP_SERVICE_AREA,
+  GBP_SOCIAL_PROFILES,
+  GOOGLE_MAPS_DIRECTIONS_URL,
+  gbpPostalAddressSchema,
+  gbpOpeningHoursSpecification,
+} from "@/lib/site";
 
 const COMMUNITY_GEO = {
   "@type": "GeoCoordinates" as const,
@@ -26,13 +30,15 @@ export function getLocalBusinessSchema() {
     "@context": "https://schema.org",
     "@type": ["RealEstateAgent", "LocalBusiness"],
     "@id": `${SITE_ORIGIN}/#business`,
-    name: "Del Webb North Ranch 55+ Real Estate | Dr. Jan Duffy",
+    name: GBP_BUSINESS_NAME,
+    alternateName: "Dr. Jan Duffy Real Estate",
+    description: GBP_DESCRIPTION,
     url: SITE_ORIGIN,
     logo: `${SITE_ORIGIN}/images/logo/logo.svg`,
     image: `${SITE_ORIGIN}/images/about/dr-jan-duffy.jpg`,
     telephone: SITE_PHONE_SCHEMA,
-    email: "jan@delwebbnorthranchhomes.com",
-    address: COMMUNITY_ADDRESS,
+    email: SITE_EMAIL,
+    address: gbpPostalAddressSchema(),
     geo: COMMUNITY_GEO,
     areaServed: [
       {
@@ -40,36 +46,62 @@ export function getLocalBusinessSchema() {
         name: "North Las Vegas",
         sameAs: "https://en.wikipedia.org/wiki/North_Las_Vegas,_Nevada",
       },
+      {
+        "@type": "Place",
+        name: GBP_SERVICE_AREA,
+        address: gbpPostalAddressSchema(),
+      },
     ],
     serviceType: "Real Estate Sales — 55+ Active Adult Communities",
     priceRange: "$400,000–$600,000",
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday",
-        ],
-        opens: "08:00",
-        closes: "20:00",
-      },
-    ],
+    openingHoursSpecification: gbpOpeningHoursSpecification(),
+    foundingDate: GBP_FOUNDING_DATE,
+    womanOwned: true,
+    veteranOwned: true,
     sameAs: [
-      "https://www.facebook.com/DellWebbNorthRanch",
-      "https://www.instagram.com/delwebbnorthranchhomes/",
-      "https://www.linkedin.com/company/del-webb-north-ranch-homes",
+      ...GBP_SOCIAL_PROFILES,
       "https://www.youtube.com/@DrDuffy",
     ],
+    hasMap: GOOGLE_MAPS_DIRECTIONS_URL.replace("/dir//", "/search/?api=1&query=").replace(/\+/g, "+"),
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: GBP_AGGREGATE_RATING.ratingValue,
       reviewCount: GBP_AGGREGATE_RATING.reviewCount,
       bestRating: "5",
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Real Estate Services",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Free Community Tours & Personalized Home Showings",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Market Analysis & Pricing Guidance",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Alerts on New Listings & Inventory Updates",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Expert Negotiation & Closing Support",
+          },
+        },
+      ],
     },
     memberOf: {
       "@type": "Organization",
@@ -85,6 +117,13 @@ export function getLocalBusinessSchema() {
       },
       identifier: "S.0197614.LLC",
     },
+    knowsAbout: [
+      "Del Webb North Ranch",
+      "55+ Active Adult Communities",
+      "North Las Vegas Real Estate",
+      "Senior Living",
+      "Retirement Homes",
+    ],
   };
 }
 
@@ -97,7 +136,7 @@ export function getResidenceSchema() {
     name: "Del Webb North Ranch",
     description:
       "A gated 55+ active adult community in North Las Vegas, NV with 394 single-story homes on 80 acres. Resort-style amenities including clubhouse, pool, fitness center, and pickleball courts.",
-    address: COMMUNITY_ADDRESS,
+    address: gbpPostalAddressSchema(),
     geo: COMMUNITY_GEO,
     numberOfRooms: "2-3",
     floorSize: {
