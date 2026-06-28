@@ -40,6 +40,9 @@ export function proxy(request: NextRequest) {
   if (pathname === "/" && request.nextUrl.searchParams.has("card")) {
     response.headers.set("X-Robots-Tag", "noindex, follow");
   }
+  if (pathname === "/homes-for-sale" && request.nextUrl.searchParams.has("q")) {
+    response.headers.set("X-Robots-Tag", "noindex, follow");
+  }
   return response;
 }
 

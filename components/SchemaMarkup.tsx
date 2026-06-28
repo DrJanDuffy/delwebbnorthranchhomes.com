@@ -34,21 +34,13 @@ export default function SchemaMarkup() {
     },
   };
 
-  // WebSite Schema with SearchAction (enables sitelinks search box)
+  // WebSite Schema
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     '@id': `${baseUrl}/#website`,
     name: GBP_BUSINESS_NAME,
     url: baseUrl,
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${baseUrl}/homes-for-sale?q={search_term_string}`,
-      },
-      'query-input': 'required name=search_term_string',
-    },
     publisher: {
       '@type': 'Organization',
       name: GBP_BUSINESS_NAME,
