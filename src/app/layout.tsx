@@ -22,7 +22,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_ORIGIN),
   title: {
     default: "Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
-    template: "%s | Del Webb North Ranch 55+ Real Estate | Homes by Dr. Jan Duffy",
+    // Pages set full titles via TITLE_SUFFIX; avoid double-appending the site name.
+    template: "%s",
   },
   description:
     "Discover luxury single-story living in a vibrant 55+ community with mountain views, resort-style amenities, and no state income tax. Dr. Jan Duffy, REALTOR®.",

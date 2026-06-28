@@ -11,9 +11,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${SITE_ORIGIN}/privacy`,
   },
-  robots: {
-    index: false,
-    follow: true,
+  openGraph: {
+    title: `Privacy Policy | ${TITLE_SUFFIX}`,
+    description:
+      "How Del Webb North Ranch collects, uses, and protects your information when you contact Dr. Jan Duffy.",
+    url: `${SITE_ORIGIN}/privacy`,
+    siteName: TITLE_SUFFIX,
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Privacy Policy | Del Webb North Ranch",
+    description: "Privacy policy for the Del Webb North Ranch real estate website.",
   },
 };
 

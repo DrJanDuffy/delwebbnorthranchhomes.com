@@ -49,6 +49,13 @@ const nextConfig = {
         destination: '/',
         permanent: true,
       },
+      // Apex (non-www) → canonical www host (GSC: permanent redirect, not 307)
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'delwebbnorthranchhomes.com' }],
+        destination: 'https://www.delwebbnorthranchhomes.com/:path*',
+        permanent: true,
+      },
     ];
   },
   async headers() {

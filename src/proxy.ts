@@ -32,7 +32,7 @@ export function proxy(request: NextRequest) {
     protocol !== "https"; // HTTP instead of HTTPS
 
   if (needsRedirect && !hostname.includes("localhost")) {
-    return NextResponse.redirect(targetUrl, 301);
+    return NextResponse.redirect(targetUrl, 308);
   }
 
   // ?card= homepage URLs: send X-Robots-Tag so GSC sees noindex in headers (canonical + noindex already in HTML)
