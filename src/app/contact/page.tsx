@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Script from "next/script";
 import Link from "next/link";
 import Navbar from "@/../components/navbar";
 import Footer from "@/../components/footer";
@@ -11,6 +10,7 @@ import { oldSiteData } from "@/lib/fetchOldSiteData";
 import ScheduleTour from "@/../components/ScheduleTour";
 import CalendlyInline from "@/../components/CalendlyInline";
 import RealScoutListings from "@/../components/RealScoutListings";
+import LocationMapSection from "@/../components/sections/location-map";
 import {
   SITE_ORIGIN,
   GOOGLE_REVIEW_LINK,
@@ -21,6 +21,7 @@ import {
   GBP_BUSINESS_NAME,
   GBP_ADDRESS,
   GBP_HOURS_DISPLAY,
+  gbpLocationPageSchema,
 } from "@/lib/site";
 import { metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
 
@@ -58,8 +59,19 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
+  const locationSchema = gbpLocationPageSchema(
+    `${SITE_ORIGIN}/contact`,
+    `Contact & Directions | ${GBP_BUSINESS_NAME}`
+  );
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(locationSchema).replace(/</g, "\\u003c"),
+        }}
+      />
       <Navbar />
       <Breadcrumbs
         items={[
@@ -257,6 +269,12 @@ export default function ContactPage() {
             </div>
           </div>
         </section>
+
+        <LocationMapSection
+          title="Visit Del Webb North Ranch | North Las Vegas 55+ Community"
+          description="Find our Google Business Profile location at the Del Webb North Ranch community entrance in North Las Vegas, NV 89086. Use the map for turn-by-turn directions, nearby landmarks, and to plan your private tour with Dr. Jan Duffy."
+          variant="light"
+        />
 
         {/* CTA Section */}
         <section className="py-12 md:py-16 bg-bg-light">

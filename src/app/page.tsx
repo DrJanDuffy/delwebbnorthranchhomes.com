@@ -14,6 +14,7 @@ import FinalCTASection from "../../components/sections/final-cta";
 import Footer from "../../components/footer";
 import RealScoutListings from "../../components/RealScoutListings";
 import ExploreCommunitySection from "../../components/sections/explore-community";
+import LocationMapSection from "../../components/sections/location-map";
 import Link from "next/link";
 import { Button } from "../../components/ui/button";
 
@@ -135,6 +136,13 @@ export default function Home() {
           </div>
         </section>
         <AboutAgentSection />
+        <LocationMapSection
+          title="Find Del Webb North Ranch in North Las Vegas"
+          description="Explore our 55+ active adult community location on the map. Get directions to the community entrance, call Dr. Jan Duffy, or schedule a private tour of Del Webb North Ranch."
+          variant="light"
+          height="compact"
+          showReviewLink={false}
+        />
         <FinalCTASection />
       </main>
       <Footer />

@@ -84,6 +84,14 @@ export const GOOGLE_REVIEW_LINK = "https://g.page/r/CTX_3qPVOeEqEBI/review";
 export const GOOGLE_MAPS_DIRECTIONS_URL =
   "https://www.google.com/maps/dir//2290+Beauty+Vista+Avenue,+North+Las+Vegas,+NV+89086";
 
+/** Google Maps search URL – GBP-aligned location for schema hasMap and AI/geo citations. */
+export const GOOGLE_MAPS_SEARCH_URL =
+  "https://www.google.com/maps/search/?api=1&query=2290+Beauty+Vista+Avenue,+North+Las+Vegas,+NV+89086";
+
+/** Google Maps Locator Plus embed – matches Google Business Profile store locator. */
+export const GOOGLE_LOCATOR_PLUS_URL =
+  "https://storage.googleapis.com/maps-solutions-gurx0m5wr9/locator-plus/lxsy/locator-plus.html";
+
 /**
  * Aggregate rating for LocalBusiness schema. Update to match your Google Business Profile
  * so star ratings in search stay accurate. Check GBP periodically and update here.
@@ -125,4 +133,36 @@ export function gbpOpeningHoursSpecification() {
 /** Formatted single-line address for visible NAP. */
 export function gbpFormattedAddress(): string {
   return `${GBP_ADDRESS.streetAddress}, ${GBP_ADDRESS.addressLocality}, ${GBP_ADDRESS.addressRegion} ${GBP_ADDRESS.postalCode}`;
+}
+
+/** schema.org geo coordinates for Del Webb North Ranch (community entrance). */
+export function gbpGeoCoordinatesSchema() {
+  return {
+    "@type": "GeoCoordinates" as const,
+    latitude: "36.2856",
+    longitude: "-115.0939",
+  };
+}
+
+/** Page-level location schema – reinforces GBP NAP for local SEO, AEO, and geo citations. */
+export function gbpLocationPageSchema(pageUrl: string, pageName: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${pageUrl}#location`,
+    name: pageName,
+    url: pageUrl,
+    about: {
+      "@type": "Place",
+      name: "Del Webb North Ranch",
+      description:
+        "55+ active adult gated community in North Las Vegas, NV 89086",
+      address: gbpPostalAddressSchema(),
+      geo: gbpGeoCoordinatesSchema(),
+      hasMap: GOOGLE_MAPS_SEARCH_URL,
+    },
+    mainEntity: {
+      "@id": `${SITE_ORIGIN}/#localbusiness`,
+    },
+  };
 }

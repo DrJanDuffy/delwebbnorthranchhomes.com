@@ -4,9 +4,10 @@ import Footer from '@/../components/footer';
 import Breadcrumbs from '@/../components/Breadcrumbs';
 import ScheduleTour from '@/../components/ScheduleTour';
 import RealScoutListings from '@/../components/RealScoutListings';
+import LocationMapSection from '@/../components/sections/location-map';
 import { Phone, Calendar, Clock, MapPin } from 'lucide-react';
 import { oldSiteData } from '@/lib/fetchOldSiteData';
-import { SITE_ORIGIN, GOOGLE_MAPS_DIRECTIONS_URL, SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from '@/lib/site';
+import { SITE_ORIGIN, GOOGLE_MAPS_DIRECTIONS_URL, SITE_PHONE_TEL, SITE_PHONE_DISPLAY, gbpLocationPageSchema } from '@/lib/site';
 import { metaDescriptionBlock, TITLE_SUFFIX } from '@/lib/hyperlocal';
 
 export const metadata: Metadata = {
@@ -34,8 +35,19 @@ export const metadata: Metadata = {
 };
 
 export default function SchedulePage() {
+  const locationSchema = gbpLocationPageSchema(
+    `${SITE_ORIGIN}/schedule`,
+    'Schedule a Tour | Del Webb North Ranch Directions'
+  );
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(locationSchema).replace(/</g, '\\u003c'),
+        }}
+      />
       <Navbar />
       <Breadcrumbs
         items={[
@@ -139,6 +151,13 @@ export default function SchedulePage() {
             </div>
           </div>
         </section>
+
+        <LocationMapSection
+          title="Plan Your Route to Del Webb North Ranch"
+          description="The community entrance is at 2290 Beauty Vista Avenue in North Las Vegas, NV 89086. Use the interactive Google map to get directions from the 215, I-15, or McCarran International Airport before your scheduled 55+ community tour."
+          variant="muted"
+          height="compact"
+        />
 
         {/* Quick Info Section */}
         <section className="py-12 md:py-16 bg-white">
