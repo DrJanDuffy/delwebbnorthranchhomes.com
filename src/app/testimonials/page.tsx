@@ -5,7 +5,7 @@ import Breadcrumbs from '@/../components/Breadcrumbs';
 import ScrollAnimation from '@/../components/scroll-animation';
 import { getAllTestimonials } from '@/lib/old-site-data';
 import { Quote, Star } from 'lucide-react';
-import { SITE_ORIGIN, GOOGLE_REVIEW_LINK, SITE_PHONE_TEL, SITE_PHONE_DISPLAY } from '@/lib/site';
+import { SITE_ORIGIN, GOOGLE_REVIEW_LINK, SITE_PHONE_TEL, SITE_PHONE_DISPLAY, AGENT_HEADSHOT_URL } from '@/lib/site';
 import { metaDescriptionBlock, TITLE_SUFFIX } from '@/lib/hyperlocal';
 import RealScoutListings from '@/../components/RealScoutListings';
 
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: `${SITE_ORIGIN}/images/about/dr-jan-duffy.jpg`,
+        url: AGENT_HEADSHOT_URL,
         width: 1200,
         height: 630,
         alt: 'Dr. Jan Duffy, REALTOR®',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: `Client Testimonials | ${TITLE_SUFFIX}`,
     description: 'Client reviews about Del Webb North Ranch homes.',
-    images: [`${SITE_ORIGIN}/images/about/dr-jan-duffy.jpg`],
+    images: [AGENT_HEADSHOT_URL],
   },
 };
 

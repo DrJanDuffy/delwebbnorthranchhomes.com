@@ -2,6 +2,7 @@ import Script from 'next/script';
 import {
   SITE_ORIGIN,
   SITE_PHONE_SCHEMA,
+  AGENT_HEADSHOT_URL,
   GBP_BUSINESS_NAME,
   GBP_SOCIAL_PROFILES,
   SITE_EMAIL,
@@ -34,21 +35,13 @@ export default function SchemaMarkup() {
     },
   };
 
-  // WebSite Schema with SearchAction (enables sitelinks search box)
+  // WebSite Schema
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     '@id': `${baseUrl}/#website`,
     name: GBP_BUSINESS_NAME,
     url: baseUrl,
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${baseUrl}/homes-for-sale?q={search_term_string}`,
-      },
-      'query-input': 'required name=search_term_string',
-    },
     publisher: {
       '@type': 'Organization',
       name: GBP_BUSINESS_NAME,
@@ -67,7 +60,7 @@ export default function SchemaMarkup() {
     name: 'Dr. Jan Duffy',
     jobTitle: 'REALTOR®',
     description: 'REALTOR® specializing in Del Webb North Ranch and North Las Vegas 55+ active adult communities. Licensed with Berkshire Hathaway HomeServices Nevada Properties (S.0197614.LLC).',
-    image: `${baseUrl}/images/about/dr-jan-duffy.jpg`,
+    image: AGENT_HEADSHOT_URL,
     url: `${baseUrl}/about`,
     telephone: SITE_PHONE_SCHEMA,
     email: SITE_EMAIL,
@@ -105,7 +98,7 @@ export default function SchemaMarkup() {
     name: 'Dr. Jan Duffy',
     alternateName: 'Dr. Jan Duffy Real Estate',
     url: baseUrl,
-    image: `${baseUrl}/images/about/dr-jan-duffy.jpg`,
+    image: AGENT_HEADSHOT_URL,
     telephone: SITE_PHONE_SCHEMA,
     email: SITE_EMAIL,
     address: gbpPostalAddressSchema(),
