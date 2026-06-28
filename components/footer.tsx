@@ -161,6 +161,7 @@ export default function Footer() {
               {[
                 { href: "/floor-plans", label: "Floor Plans" },
                 { href: "/amenities", label: "Amenities" },
+                { href: "/guide/55-plus-living-north-las-vegas", label: "55+ Living Guide" },
                 { href: "/community", label: "Community & Area" },
                 { href: "/lifestyle", label: "Lifestyle" },
                 { href: "/virtual-tours", label: "Virtual Tours" },
@@ -255,6 +256,21 @@ export default function Footer() {
               <li>
                 <Link href="/testimonials" className="text-gray-300 hover:text-white transition-colors">
                   Testimonials
+                </Link>
+              </li>
+              <li>
+                <Link href="/markets/north-las-vegas/market-report-june-2026" className="text-gray-300 hover:text-white transition-colors">
+                  Market Report
+                </Link>
+              </li>
+              <li>
+                <Link href="/markets/north-las-vegas/55-plus-cost-of-living" className="text-gray-300 hover:text-white transition-colors">
+                  Cost of Living
+                </Link>
+              </li>
+              <li>
+                <Link href="/compare/del-webb-north-ranch-vs-sun-city-aliante" className="text-gray-300 hover:text-white transition-colors">
+                  Community Comparison
                 </Link>
               </li>
               <li>

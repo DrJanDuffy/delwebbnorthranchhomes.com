@@ -50,7 +50,21 @@ const sitePages = [
     ],
   },
   {
-    category: "About & Information",
+    category: "SEO Guides & Research",
+    icon: BookOpen,
+    pages: [
+      { href: "/guide/55-plus-living-north-las-vegas", label: "55+ Living Guide", description: "Complete buyer guide to North Las Vegas active adult living" },
+      { href: "/markets/north-las-vegas/55-plus-cost-of-living", label: "Cost of Living", description: "Home prices, HOA, taxes, and Nevada retirement benefits" },
+      { href: "/markets/north-las-vegas/market-report-june-2026", label: "Market Report (June 2026)", description: "Del Webb North Ranch resale inventory and pricing trends" },
+      { href: "/compare/del-webb-north-ranch-vs-sun-city-aliante", label: "Community Comparison", description: "Del Webb North Ranch vs Sun City Aliante side-by-side" },
+      { href: "/amenities/resort-pool", label: "Resort Pool", description: "Resort-style pool and lap pool amenities" },
+      { href: "/amenities/pickleball-courts", label: "Pickleball Courts", description: "Lighted pickleball courts for active adults" },
+      { href: "/amenities/fitness-center", label: "Fitness Center", description: "Clubhouse fitness and wellness amenities" },
+      { href: "/amenities/clubhouse", label: "Clubhouse", description: "10,000 sq ft social hub and event space" },
+      { href: "/amenities/dog-park", label: "Dog Park", description: "Pet-friendly amenities and dog park" },
+    ],
+  },
+  {
     icon: Users,
     pages: [
       { href: "/about", label: "About Dr. Jan Duffy", description: "Meet your REALTOR® and learn about expertise" },
