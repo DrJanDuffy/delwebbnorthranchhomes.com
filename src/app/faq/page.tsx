@@ -11,6 +11,8 @@ import { altPrefix, metaDescriptionBlock, TITLE_SUFFIX } from '@/lib/hyperlocal'
 import Link from 'next/link';
 import RealScoutListings from '@/../components/RealScoutListings';
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: `Frequently Asked Questions | ${TITLE_SUFFIX}`,
   description: metaDescriptionBlock(

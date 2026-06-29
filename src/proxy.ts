@@ -8,10 +8,11 @@ export function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   const search = request.nextUrl.search;
 
-  // Skip proxy for static files, API routes, and Next.js internals
+  // Skip proxy for static files, API routes, workflow internals, and Next.js internals
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
+    pathname.startsWith("/.well-known/workflow") ||
     pathname.startsWith("/static") ||
     pathname.match(/\.(ico|png|jpg|jpeg|svg|gif|webp|avif|css|js|woff|woff2|ttf|eot)$/)
   ) {
@@ -53,6 +54,6 @@ export const config = {
      * - favicon.ico (favicon file)
      * - files with extensions (images, etc.)
      */
-    "/((?!api|_next/static|_next/image|favicon.ico|.*\\..*).*)",
+    "/((?!api|_next/static|_next/image|favicon.ico|.well-known/workflow|.*\\..*).*)",
   ],
 };
