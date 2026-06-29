@@ -22,6 +22,8 @@ import {
   Camera,
 } from "lucide-react";
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: `Active Adult Lifestyle | ${TITLE_SUFFIX}`,
   description: metaDescriptionBlock(

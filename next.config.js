@@ -1,7 +1,11 @@
 const path = require('path');
+const { withWorkflow } = require('workflow/next');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'class-variance-authority', 'clsx'],
+  },
   turbopack: {
     root: path.resolve(__dirname),
   },
@@ -49,13 +53,7 @@ const nextConfig = {
         destination: '/',
         permanent: true,
       },
-      // Apex (non-www) → canonical www host (GSC: permanent redirect, not 307)
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'delwebbnorthranchhomes.com' }],
-        destination: 'https://www.delwebbnorthranchhomes.com/:path*',
-        permanent: true,
-      },
+      // Apex → www handled by src/proxy.ts (also normalizes http → https)
     ];
   },
   async headers() {
@@ -104,4 +102,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = withWorkflow(nextConfig);

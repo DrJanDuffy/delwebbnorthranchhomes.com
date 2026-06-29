@@ -21,6 +21,8 @@ const buyerFaqSchema = {
   })),
 };
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: `For Buyers | ${TITLE_SUFFIX}`,
   description: metaDescriptionBlock(

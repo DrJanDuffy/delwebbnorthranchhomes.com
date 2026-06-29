@@ -15,6 +15,8 @@ import RealScoutListings from "@/../components/RealScoutListings";
 import { SITE_ORIGIN, SITE_PHONE_TEL, SITE_PHONE_DISPLAY, SITE_PHONE_SCHEMA } from "@/lib/site";
 import { metaDescriptionBlock, TITLE_SUFFIX } from "@/lib/hyperlocal";
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: `About Dr. Jan Duffy REALTOR® | ${TITLE_SUFFIX}`,
   description: metaDescriptionBlock(

@@ -17,6 +17,9 @@ import ExploreCommunitySection from "../../components/sections/explore-community
 import Link from "next/link";
 import { Button } from "../../components/ui/button";
 
+/** ISR: refresh marketing homepage hourly without full rebuilds. */
+export const revalidate = 3600;
+
 const HOMEPAGE_METADATA: Metadata = {
   title: TITLE_SUFFIX,
   description:

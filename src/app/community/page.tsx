@@ -21,6 +21,9 @@ const communityFaqSchema = {
   })),
 };
 
+/** ISR: refresh community guide content hourly. */
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: `Community & Area | North Las Vegas 55+ | ${TITLE_SUFFIX}`,
   description: metaDescriptionBlock(
